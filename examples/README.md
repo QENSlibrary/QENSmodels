@@ -4,6 +4,7 @@ the QENS library.
 Note that in order to open and run these examples, you need [jupyter](http://jupyter.org/)
 [scipy](https://www.scipy.org/),
 [matplotlib](https://matplotlib.org/),
+[ipywidgets](https://ipywidgets.readthedocs.io/en/latest/),
 [lmfit](https://lmfit.github.io/lmfit-py/) (optional),
 [bumps](https://github.com/bumps/bumps) (optional).
 
