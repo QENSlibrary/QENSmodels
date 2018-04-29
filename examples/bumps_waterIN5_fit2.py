@@ -9,7 +9,15 @@ from scipy.integrate import simps
 import qens_models 
 
 '''
-Usage example: python -m bumps.cli bumps_fit.py --fit=lm --steps=1000 --store=QENS 
+
+Example of fit of two sets of water data measured at IN5 (ILL)
+using two different wavelengths.
+Reference: J. Qvist, H. Schober and B. Halle, J. Chem. Phys. 134, 144508 (2011)
+
+Usage example: 
+
+   python -m bumps.cli bumps_waterIN5_fit.py --fit=dream --samples=1e5 --burn=1e3 --store=QENS2 
+ 
 '''
 
 # Data
@@ -38,7 +46,7 @@ f = h5py.File('V_273K_8A.hdf', 'r')
 res_8A = np.transpose(f['entry1']['data1']['DATA'][:])
 f.close()
 
-# Force resoltion function to have unit area
+# Force resolution function to have unit area
 
 for i in range(len(q_5A)):
     area = simps(res_5A[:,i], hw_5A)
@@ -47,8 +55,6 @@ for i in range(len(q_5A)):
 for i in range(len(q_8A)):
     area = simps(res_8A[:,i], hw_8A)
     res_8A[:,i] /= area    
-
-#import pdb; pdb.set_trace()
 
 # Fit range -1 to +1 meV
 idx_5A = np.where(np.logical_and(hw_5A > -1.0, hw_5A < 1.0))
@@ -72,57 +78,32 @@ for i in range(len(q_5A)):
     data = data[valid]
     error = error[valid]
     resol = resol[valid]
-        
-    # Single lorentzian    
-    # Mq = Curve(qens_models.lorentz, x, data, error, 
-               # scale=20, center=0.0, hwhm=0.1, resolution=resol)
-    # Mq.scale.range(0, 1e2)
-    # Mq.center.range(-0.1,0.1)
-    # Mq.hwhm.range(0,2)
-    # M.append(Mq)
-    
-    # Two lorentzians    
-    # Mq = Curve(qens_models.twoLorentz, x, data, error, 
-               # scale1=10, center1=0.0, hwhm1=0.1, 
-               # scale2=10, center2=0.0, hwhm2=1.0,
-               # resolution=resol)
-    # Mq.scale1.range(0, 1e2)
-    # Mq.center1.range(-0.1,0.1)
-    # Mq.hwhm1.range(0,2)
-    # Mq.scale2.range(0, 1e2)
-    # Mq.center2.range(-0.1,0.1)
-    # Mq.hwhm2.range(0,5)
-    # M.append(Mq)
-    
-    # Jump diffusion    
-    # Mq = Curve(qens_models.jumpDiffusion, x, data, error, 
-               # scale=20, center=0.0, D=0.1, Q=q_5A[i], resolution=resol)
-    # Mq.scale.range(0, 1e2)
-    # Mq.center.range(-0.1,0.1)
-    # Mq.D.range(0,1)
-    # if i == 0:
-        # DDD = Mq.D
-    # else:
-        # Mq.D = DDD    
-    # M.append(Mq)
     
     # Teixeira model    
-    Mq = Curve(qens_models.waterTeixeira, x, data, error, 
-               scale=20, center=0.0, D=0.1, radius=0.98, DR=0.5, Q=q_5A[i], resolution=resol)
+    Mq = Curve(qens_models.sqwWaterTeixeira, x, data, error, q=q_5A[i],
+               scale=10, center=0.0, D=0.13, resTime=0.1, radius=1.0, 
+               DR=0.3, resolution=resol)
+    
+    # Fitted parameters    
     Mq.scale.range(0, 1e2)
     Mq.center.range(-0.1,0.1)
-    Mq.D.range(0,1)
-    Mq.radius.range(0.9, 1.1)
-    Mq.DR.range(0,5)
+    Mq.D.range(0.05, 0.25)
+    Mq.resTime.range(0,1)
+    Mq.radius.range(0.9,1.1)
+    Mq.DR.range(0,1)
+    
     # Q-independent parameters
     if i == 0:
         QD = Mq.D
+        QT = Mq.resTime
         QR = Mq.radius
         QDR = Mq.DR
     else:
         Mq.D = QD
+        Mq.resTime = QT
         Mq.radius = QR
-        Mq.DR = QDR        
+        Mq.DR = QDR
+        
     M.append(Mq)
 
 for i in range(len(q_8A)):
@@ -140,18 +121,24 @@ for i in range(len(q_8A)):
     resol = resol[valid]
     
     # Teixeira model    
-    Mq = Curve(qens_models.waterTeixeira, x, data, error, 
-               scale=20, center=0.0, D=0.1, radius=0.98, DR=0.5, Q=q_8A[i], resolution=resol)
+    Mq = Curve(qens_models.sqwWaterTeixeira, x, data, error, q=q_8A[i],
+               scale=10, center=0.0, D=0.13, resTime=0.1, radius=1.0, 
+               DR=0.3, resolution=resol)
+
+    # Fitted parameters    
     Mq.scale.range(0, 1e2)
     Mq.center.range(-0.1,0.1)
-    Mq.D.range(0,1)
-    Mq.radius.range(0.9, 1.1)
-    Mq.DR.range(0,5)
+    Mq.D.range(0.05, 0.25)
+    Mq.resTime.range(0,1)
+    Mq.radius.range(0.9,1.1)
+    Mq.DR.range(0,1)
+    
     # Q-independent parameters set with 5A data
     Mq.D = QD
+    Mq.resTime = QT
     Mq.radius = QR
-    Mq.DR = QDR        
+    Mq.DR = QDR
+
     M.append(Mq)
 
-    
 problem = FitProblem(M)
