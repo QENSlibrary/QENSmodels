@@ -29,13 +29,12 @@ To do:
 # Other input parameters are single valued params, not vectors
 
 def delta(x, scale, center):
-    model = np.zeros(x.size) 
-    idx = np.argmin(np.abs(x-center))
-    dx = 0.5 * np.abs(x[idx+1]-x[idx-1])
+    model = np.zeros(x.size)
+    idx = np.argmin(np.abs(x - center))
+    dx = 0.5 * np.abs(x[idx+1] - x[idx-1])
     model[idx] = scale / dx
     return model
 
-    
 def lorentz(x, scale, center, hwhm):
     if hwhm == 0:
         model = delta(x, scale, center)
@@ -46,7 +45,7 @@ def lorentz(x, scale, center, hwhm):
   
 def gaussian(x, scale, center, sigma):
     if sigma == 0:
-        model = delta(s, scale, center)
+        model = delta(x, scale, center)
     else:
         model = scale * np.exp(-(x-center)**2/(2*sigma**2)) / (sigma*np.sqrt(2*np.pi))
     return model
@@ -116,7 +115,7 @@ def sqwDeltaLorentz(w, q, scale, center, A0, hwhm, background, resolution=None):
         for i in range(q.size):
             sqw[i,:] = A0[i] * delta(w, scale, center)
             sqw[i,:] += (1-A0[i]) * lorentz(w, scale, center, hwhm[i])
-    else:        
+    else:
         sqw[0,:] = A0 * delta(w, scale, center)
         sqw[0,:] += (1-A0) * lorentz(w, scale, center, hwhm)
       
@@ -165,8 +164,8 @@ def sqwDeltaTwoLorentz(w, q, scale, center, A0, A1, hwhm1, hwhm2, background, re
             sqw[i,:] = A0[i] * delta(w, scale, center)
             sqw[i,:] += A1[i] * lorentz(w, scale, center, hwhm1[i])
             sqw[i,:] += (1-A0[i]-A1[i]) * lorentz(w, scale, center, hwhm2[i])
-    else:        
-        sqw[0,:] = A0 * delta(w, scale, center)
+    else:
+        sqw[0,:] = A0* delta(w, scale, center)
         sqw[0,:] += A1 * lorentz(w, scale, center, hwhm1)
         sqw[0,:] += (1-A0-A1) * lorentz(w, scale, center, hwhm2)
       
@@ -174,10 +173,9 @@ def sqwDeltaTwoLorentz(w, q, scale, center, A0, A1, hwhm1, hwhm2, background, re
     if resolution is not None:
 
         # Input validation: Check if single resolution function or N spectra
-        #                   Check dimensions agree with sqw   
+        #                   Check dimensions agree with sqw
 
         for i in range(q.size):
-        
             if resolution.ndim == 1:
                 tmp = np.convolve(sqw[i,:], resolution/resolution.sum())
             else:
@@ -186,8 +184,8 @@ def sqwDeltaTwoLorentz(w, q, scale, center, A0, A1, hwhm1, hwhm2, background, re
             # Energy axis non necessarily symmetric --> Position model at center                
             idxMax = np.argmax(tmp)
             idxMin = np.argmin(np.abs(w-center))
-            sqw[i,:] = tmp[idxMax-idxMin:idxMax-idxMin+w.size]
-    
+            sqw[i, :] = tmp[idxMax-idxMin: idxMax-idxMin+w.size]
+
     # Add flat background
     sqw += background
 
@@ -364,9 +362,9 @@ def sqwWaterTeixeira(w, q, scale, center, D, resTime, radius, DR, background, re
     
     # Sum of Lorentzians giving the full model
     for i in range(q.size):
-        sqw[i,:] = eisf2[i] * lorentz(w, scale, center, hwhm1[i])
+        sqw[i, :] = eisf2[i] * lorentz(w, scale, center, hwhm1[i])
         for j in range(1, numberLorentz):
-            sqw[i,:] += qisf2[i,j] * lorentz(w, scale, center, hwhm1[i]+hwhm2[i,j])
+            sqw[i, :] += qisf2[i, j] * lorentz(w, scale, center, hwhm1[i]+hwhm2[i,j])
 
     # Convolution with resolution function (if given)
     if resolution is not None:

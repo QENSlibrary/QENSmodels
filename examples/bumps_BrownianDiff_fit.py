@@ -2,11 +2,10 @@ from __future__ import print_function
 
 import h5py
 import numpy as np
-import matplotlib.pyplot as plt
 from bumps.names import *
 from scipy.integrate import simps
 
-import qens_models 
+import qens_models
 
 '''
 
@@ -72,10 +71,11 @@ Usage examples (on Windows) and results:
       D = 0.136
 
 '''
+path_to_data = './data/'
 
 # Read sample
 
-f = h5py.File('BrownianDiff_Sample.hdf', 'r')
+f = h5py.File(path_to_data + 'BrownianDiff_Sample.hdf', 'r')
 hw = f['entry1']['data1']['X'][:]
 q = f['entry1']['data1']['Y'][:]
 sqw = np.transpose(f['entry1']['data1']['DATA'][:])
@@ -84,7 +84,7 @@ f.close()
 
 # Read resolution
 
-f = h5py.File('BrownianDiff_Resol.hdf', 'r')
+f = h5py.File(path_to_data + 'BrownianDiff_Resol.hdf', 'r')
 res = np.transpose(f['entry1']['data1']['DATA'][:])
 f.close()
 
@@ -101,14 +101,14 @@ M = []
 for i in range(len(q)):
     
     # Model = Brownian Translational Diffusion    
-    Mq = Curve(qens_models.sqwBrownianTranslationalDiffusion, hw, sqw[:,i], 
-               err[:,i], q=q[i], scale=1000, center=0.0, D=0.1, background=0, 
-               resolution=res[:,i])
-               
+    Mq = Curve(qens_models.sqwBrownianTranslationalDiffusion, hw, sqw[:, i],
+               err[:, i], q=q[i], scale=1000, center=0.0, D=0.1, background=0,
+               resolution=res[:, i])
+
     Mq.scale.range(0, 1e5)
-    Mq.center.range(-0.1,0.1)
-    Mq.D.range(0,1)
-    #Mq.background.range(0,10)
+    Mq.center.range(-0.1, 0.1)
+    Mq.D.range(0, 1)
+    # Mq.background.range(0, 10)
 
     # Q-independent parameters
     if i == 0:

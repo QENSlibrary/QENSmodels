@@ -10,7 +10,7 @@ from scipy.constants import pi
 
 # Specify path where the data for the examples are i.e. to the content of
 # the /QENSmodels/examples/ folder
-path = '/QENSmodels/examples/'
+path = '/QENSmodels/examples/data/'
 
 # Load experimental data
 ws_5Aini = LoadLamp(path+'H2O_293K_5A.hdf')

@@ -29,43 +29,44 @@ Usage examples (on Windows) and results:
    python -m bumps.cli bumps_JumpDiff_fit.py --fit=lm --store=QENS 
    
       Uses standard Levenberg-Marquardt optimizer
-      overal chisq = 0.96
+      overall chisq = 0.96
       D = 0.139 
       Residence time = 0.93 
 
    python -m bumps.cli bumps_JumpDiff_fit.py --fit=amoeba --store=QENS 
    
       Uses Nelder-Mead Simplex optimizer
-      overal chisq = 1.09
+      overall chisq = 1.09
       D = 0.136
       Residence time = 0.86 
 
    python -m bumps.cli bumps_JumpDiff_fit.py --fit=newton --store=QENS 
    
       Uses Quasi-Newton BFGS optimizer
-      overal chisq = 391
+      overall chisq = 391
       D = 0.083 
       Residence time = 0.50 
  
    python -m bumps.cli bumps_JumpDiff_fit.py --fit=de --store=QENS 
    
       Uses Differential Evolution optimizer
-      overal chisq = 0.96
+      overall chisq = 0.96
       D = 0.139 
       Residence time = 0.94 
  
    python -m bumps.cli bumps_JumpDiff_fit.py --fit=dream --store=QENS 
    
       Uses DREAM (Markov chain) optimizer
-      overal chisq = 3.9
+      overall chisq = 3.9
       D = 0.133 
       Residence time = 0.99
           
 '''
+path_to_data = './data/'
 
 # Read sample
 
-f = h5py.File('JumpDiff_Sample.hdf', 'r')
+f = h5py.File(path_to_data + 'JumpDiff_Sample.hdf', 'r')
 hw = f['entry1']['data1']['X'][:]
 q = f['entry1']['data1']['Y'][:]
 sqw = np.transpose(f['entry1']['data1']['DATA'][:])
@@ -74,7 +75,7 @@ f.close()
 
 # Read resolution
 
-f = h5py.File('JumpDiff_Resol.hdf', 'r')
+f = h5py.File(path_to_data + 'JumpDiff_Resol.hdf', 'r')
 res = np.transpose(f['entry1']['data1']['DATA'][:])
 f.close()
 

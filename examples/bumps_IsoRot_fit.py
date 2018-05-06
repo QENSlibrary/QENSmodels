@@ -26,43 +26,44 @@ Usage examples (on Windows) and results:
    python -m bumps.cli bumps_IsoRot_fit.py --fit=lm --store=QENS 
    
       Uses standard Levenberg-Marquardt optimizer
-      overal chisq = 1.14
+      overall chisq = 1.14
       R = 1.08
       D_rot = 0.120 
 
    python -m bumps.cli bumps_IsoRot_fit.py --fit=amoeba --store=QENS 
    
       Uses Nelder-Mead Simplex optimizer
-      overal chisq = 3.9
+      overall chisq = 3.9
       R = 0.95 
       D_rot = 0.222
 
    python -m bumps.cli bumps_IsoRot_fit.py --fit=newton --store=QENS 
    
       Uses Quasi-Newton BFGS optimizer
-      overal chisq = 711
+      overall chisq = 711
       R = 1.55
       D_rot = 2.00
  
    python -m bumps.cli bumps_IsoRot_fit.py --fit=de --store=QENS 
    
       Uses Differential Evolution optimizer
-      overal chisq = 27.2
+      overall chisq = 27.2
       R = 2.50
       D_rot = 2.00
  
    python -m bumps.cli bumps_IsoRot_fit.py --fit=dream --store=QENS 
    
       Uses DREAM (Markov chain) optimizer
-      overal chisq = 7.3
+      overall chisq = 7.3
       R = 1.05
       D_rot = 0.126 
 
 '''
+path_to_data = './data/'
 
 # Read sample
 
-f = h5py.File('IsoRot_Sample.hdf', 'r')
+f = h5py.File(path_to_data + 'IsoRot_Sample.hdf', 'r')
 hw = f['entry1']['data1']['X'][:]
 q = f['entry1']['data1']['Y'][:]
 sqw = np.transpose(f['entry1']['data1']['DATA'][:])
@@ -71,7 +72,7 @@ f.close()
 
 # Read resolution
 
-f = h5py.File('IsoRot_Resol.hdf', 'r')
+f = h5py.File(path_to_data + 'IsoRot_Resol.hdf', 'r')
 res = np.transpose(f['entry1']['data1']['DATA'][:])
 f.close()
 
@@ -80,6 +81,8 @@ f.close()
 for i in range(len(q)):
     area = simps(res[:,i], hw)
     res[:,i] /= area    
+
+# Fitting model
 
 # Fit
 

@@ -21,15 +21,16 @@ Usage example:
 '''
 
 # Data
+path_to_data = './data/'
 
-f = h5py.File('H2O_293K_5A.hdf', 'r')
+f = h5py.File(path_to_data + 'H2O_293K_5A.hdf', 'r')
 hw_5A = f['entry1']['data1']['X'][:]
 q_5A = f['entry1']['data1']['Y'][:]
 sqw_5A = np.transpose(f['entry1']['data1']['DATA'][:])
 err_5A = np.transpose(f['entry1']['data1']['errors'][:])
 f.close()
 
-f = h5py.File('H2O_293K_8A.hdf', 'r')
+f = h5py.File(path_to_data +'H2O_293K_8A.hdf', 'r')
 hw_8A = f['entry1']['data1']['X'][:]
 q_8A = f['entry1']['data1']['Y'][:]
 sqw_8A = np.transpose(f['entry1']['data1']['DATA'][:])
@@ -38,11 +39,11 @@ f.close()
 
 # Resolution
 
-f = h5py.File('V_273K_5A.hdf', 'r')
+f = h5py.File(path_to_data + 'V_273K_5A.hdf', 'r')
 res_5A = np.transpose(f['entry1']['data1']['DATA'][:])
 f.close()
 
-f = h5py.File('V_273K_8A.hdf', 'r')
+f = h5py.File(path_to_data + 'V_273K_8A.hdf', 'r')
 res_8A = np.transpose(f['entry1']['data1']['DATA'][:])
 f.close()
 
@@ -79,13 +80,13 @@ for i in range(len(q_5A)):
     error = error[valid]
     resol = resol[valid]
     
-    # Teixeira model    
+    # Teixeira model
     Mq = Curve(qens_models.sqwDeltaTwoLorentz, x, data, error, q=q_5A[i],
                scale=20, center=0.0, A0=0.0, A1=0.9, hwhm1=0.05, hwhm2=0.3, 
                resolution=resol)
     
     # Fitted parameters    
-    Mq.scale.range(0, 20)
+    Mq.scale.range(1.e-12, 20)
     Mq.center.range(-0.1, 0.1)
     Mq.A0.range(0, 0.05)
     Mq.A1.range(0, 1)
@@ -121,7 +122,7 @@ for i in range(len(q_8A)):
                resolution=resol)
 
     # Fitted parameters    
-    Mq.scale.range(0, 40)
+    Mq.scale.range(0.1, 40)
     Mq.center.range(-0.1, 0.1)
     Mq.A0.range(0, 0.05)
     Mq.A1.range(0, 1)

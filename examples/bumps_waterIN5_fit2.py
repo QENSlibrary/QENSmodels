@@ -16,20 +16,21 @@ Reference: J. Qvist, H. Schober and B. Halle, J. Chem. Phys. 134, 144508 (2011)
 
 Usage example: 
 
-   python -m bumps.cli bumps_waterIN5_fit.py --fit=dream --samples=1e5 --burn=1e3 --store=QENS2 
+   python -m bumps.cli bumps_waterIN5_fit2.py --fit=dream --samples=1e5 --burn=1e3 --store=QENS2 
  
 '''
+path_to_data = './data/'
 
 # Data
 
-f = h5py.File('H2O_293K_5A.hdf', 'r')
+f = h5py.File(path_to_data + 'H2O_293K_5A.hdf', 'r')
 hw_5A = f['entry1']['data1']['X'][:]
 q_5A = f['entry1']['data1']['Y'][:]
 sqw_5A = np.transpose(f['entry1']['data1']['DATA'][:])
 err_5A = np.transpose(f['entry1']['data1']['errors'][:])
 f.close()
 
-f = h5py.File('H2O_293K_8A.hdf', 'r')
+f = h5py.File(path_to_data + 'H2O_293K_8A.hdf', 'r')
 hw_8A = f['entry1']['data1']['X'][:]
 q_8A = f['entry1']['data1']['Y'][:]
 sqw_8A = np.transpose(f['entry1']['data1']['DATA'][:])
@@ -38,11 +39,11 @@ f.close()
 
 # Resolution
 
-f = h5py.File('V_273K_5A.hdf', 'r')
+f = h5py.File(path_to_data + 'V_273K_5A.hdf', 'r')
 res_5A = np.transpose(f['entry1']['data1']['DATA'][:])
 f.close()
 
-f = h5py.File('V_273K_8A.hdf', 'r')
+f = h5py.File(path_to_data + 'V_273K_8A.hdf', 'r')
 res_8A = np.transpose(f['entry1']['data1']['DATA'][:])
 f.close()
 
