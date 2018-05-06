@@ -1,38 +1,62 @@
 import numpy as np
+import QENSmodels
 
+def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
+    r""" Lorentzian model
 
-def lorentzian(x, scale_factor=1.0, peak_centre=0.0, fwhm=1.0):
+    Parameters
+    ----------
+    scale: float
+        Scale factor. Default to 1.0
+
+    center: float
+        Center of peak. Default to 0.0
+
+    hwhm: float
+        Half Width at Half Maximum. Default to 1.0
+
+    Examples
+    --------
+    >>> QENSmodels.lorentzian(1,1,1,1)
+    0.6366197723675814
+
+    Notes
+    -----
+    * A Lorentzian function is defined as
+
+    .. math::
+       \text{Lorentzian}(x, \text{scale}, \text{center}, \text{hwhm}) =
+       \frac{\text{scale}}{\pi} \frac{\text{hwhm}}
+       {(x-\text{center})^2+\text{hwhm}^2}
+
+    * Note that the maximum of a Lorentzian is
+      :math:`\text{Lorentzian}(\text{center}, \text{scale}, \text{center}, \text{hwhm})=
+      \frac{\text{scale}}{\pi \text{hwhm}}`.
+
+    * **Equivalence**
+      ``Lorentzian`` corresponds to the following implementations in
+      `Mantid <http://docs.mantidproject.org/nightly/fitfunctions/Lorentzian.html>`_ and
+      `DAVE <https://www.ncnr.nist.gov/dave/documentation/pandoc_DAVE.pdf>`_
+
+      +------------------+-----------------+------------------+
+      | Equivalence      | Mantid          |  DAVE            |
+      +==================+=================+==================+
+      | ``Lorentzian``   | ``Lorentzian``  |  ``Lorentzian``  |
+      +------------------+-----------------+------------------+
+      | ``scale``        | Amplitude       |  A               |
+      +------------------+-----------------+------------------+
+      | ``center``       | PeakCentre      |  :math:`x_0`     |
+      +------------------+-----------------+------------------+
+      | ``hwhm``         | FWHM /2         | W/2              |
+      +------------------+-----------------+------------------+
+
+    References
+    ----------
+    None
     """
-    Lorentzian model
+    if hwhm == 0:
+        model = QENSmodels.delta(x, scale, center)
+    else:
+        model = scale * hwhm / ((x-center)**2 + hwhm**2) / np.pi
 
-    Args:
-        scale_factor (float): Scale factor. Default to 1.0
-        peak_centre (float): Centre of peak. Default to 0.0
-        fwhm (float): Full Width at Half Maximum. Default to 1.0
-
-    Returns:
-        Value (float) of Lorentzian function
-
-
-    Examples:
-        >>> QENSmodels.lorentzian(1,1,1,1)
-        0.6366197723675814
-
-    A Lorentzian function is defined as:
-
-    $\text{Lorentzian}(x, \text{scale_factor}, \text{peak_centre}, \text{fwhm})
-    = \frac{\text{scale_factor}}{\pi}\frac{\frac{1}{2}\text{fwhm}}{(x-\text{peak_centre})^2+\big(\frac{1}{2}\text{fwhm}\big)^2}$
-
-    """
-
-    return scale_factor * fwhm / ( np.pi * 2. ) / (
-                (x - peak_centre) ** 2 + (fwhm / 2.) ** 2)
-
-
-name = "Lorentzian"
-category = "peak"
-
-# pylint: disable=bad-whitesapce, line-too-long
-# parameters = [['scale_factor', 1, [], ' Scale factor'],
-#              ['peak_centre', 0, [], 'Centre of peak '],
-#              ['fwhm', 1, [], 'Full Width at Half Maximum']]
+    return model
