@@ -82,10 +82,8 @@ Add link to websites, email addresses...
 
 # TODO
 
-- structure of library: folders and contents
 - complete README.md files
-- add other models
 - add examples: jupyter notebook / python scripts
 - add instructions in Contributing
 - add tests
-- add instructions in installation / setup.py
+- add instructions in installation / setup.py for models and documentation

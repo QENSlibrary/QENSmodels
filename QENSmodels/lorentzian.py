@@ -6,6 +6,9 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
 
     Parameters
     ----------
+    x: to be added
+        to be added
+
     scale: float
         Scale factor. Default to 1.0
 
@@ -17,8 +20,11 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
 
     Examples
     --------
-    >>> QENSmodels.lorentzian(1,1,1,1)
+    >>> QENSmodels.lorentzian(1, 1, 1, 1)
     0.6366197723675814
+
+    >>> QENSmodels.lorentzian(3., 2., 2., 5.)
+    0.12242687930145796
 
     Notes
     -----

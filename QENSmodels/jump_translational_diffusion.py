@@ -2,22 +2,36 @@ import numpy as np
 import QENSmodels
 
 
-def hwhmJumpTranslationalDiffusion(q, D=1, resTime=1):
+def hwhmJumpTranslationalDiffusion(q, D=2.3, resTime=1.25):
     """
+    Returns some characteristics of `JumpTranslationalDiffusion`
+
     Parameters
     ----------
-    q: to be added
-        to be added
+    q: float, list or :class:`~numpy:numpy.ndarray`
+        Momentum transfer
 
     D: float
-        Diffusion coefficient. Default to 1.
+        Diffusion coefficient. Default to 2.3.
 
     resTime: float
-       to be added
+        to be added. Default to 1.25.
 
     Returns
     -------
-    hwhm, eisf, and qisf of JumpTranslationalDiffusion
+    `hwhm`: :class:`~numpy:numpy.ndarray`
+        half-width half maximum
+
+    `eisf`: :class:`~numpy:numpy.ndarray`
+        elastic incoherent structure factor
+
+    `qisf`: :class:`~numpy:numpy.ndarray`
+        quasi-elastic incoherent structure factor
+
+    Notes
+    -----
+    Default values
+
     """
     eisf = np.zeros(q.size)
     qisf = np.ones(q.size)
@@ -28,29 +42,29 @@ def hwhmJumpTranslationalDiffusion(q, D=1, resTime=1):
     return hwhm, eisf, qisf
 
 
-def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=1, resTime=1):
+def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=2.3, resTime=1.25):
     """
     Model = Jump Translational diffusion = Lorentzian of HWHM = D*Q^2 / (1+tau*D*Q^2)
 
     Parameters
     ----------
-    w: to be added
+    w: float, list or :class:`~numpy:numpy.ndarray`
         to be added
 
-    q: to be added
-        to be added
+    q: float, list or :class:`~numpy:numpy.ndarray`
+        Momentum transfer.
 
     scale: float
-        scale factor. Default to 1.
+        Scale factor. Default to 1.
 
     center: float
-        center of peak. Default to 0.
+        Center of peak. Default to 0.
 
     D: float
         Diffusion coefficient. Default to 1
 
     resTime: float
-        Default to 1.
+        Residence time. Default to 1.
     """
     # Input validation
     q = np.asarray(q, dtype=np.float32)
@@ -64,23 +78,6 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=1, resTime=1):
     # Model
     for i in range(q.size):
         sqw[i, :] = QENSmodels.lorentzian(w, scale, center, hwhm[i])
-
-    # # Convolution with resolution function (if given)
-    # if resolution is not None:
-    #  # Input validation: Check if single resolution function or N spectra
-    #  #                   Check dimensions agree with sqw
-    #     for i in range(q.size):
-    #         if resolution.ndim == 1:
-    #             tmp = np.convolve(sqw[i, :], resolution / resolution.sum())
-    #         else:
-    #             tmp = np.convolve(sqw[i, :],
-    #                               resolution[i, :] / resolution[i, :].sum())
-    # # Energy axis non necessarily symmetric --> Position model at center
-    #         idxMax = np.argmax(tmp)
-    #         idxMin = np.argmin(np.abs(w - center))
-    #         sqw[i, :] = tmp[idxMax - idxMin:idxMax - idxMin + w.size]
-    # # Add flat background
-    # sqw += background
 
     # For Bumps use (needed for final plotting)
     # Using a 'Curve' in bumps for each Q --> needs vector array

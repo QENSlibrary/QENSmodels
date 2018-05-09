@@ -2,30 +2,35 @@ import numpy as np
 import QENSmodels
 
 
-# def sqwDeltaTwoLorentz(w, q, scale, center, A0, A1, hwhm1, hwhm2, background,
-#                        resolution=None):
 def sqwDeltaTwoLorentz(w, q, scale, center, A0, A1, hwhm1, hwhm2):
     """
     Model = A0*delta + A1*Lorentzian(Gamma1) + (1-A0-A1)*Lorentzian(Gamma2)
 
     Parameters
     ----------
-    w: to be added
+    w: float, list or :class:`~numpy:numpy.ndarray`
         to be added
-    q: to be added
-        to be added
+
+    q: float, list or :class:`~numpy:numpy.ndarray`
+        Momentum transfer
+
     scale: float
         Scale factor.
+
     center: float
         Peak center.
+
     A0: to be added
         to be added
+
     A1: to be added
         to be added
+
     hwhm1: to be added
-        to be added
+        half-width half maximum
+
     hwhm2: to be added
-        to be added
+        half-width half maximum
     """
 
     # Input validation
@@ -46,26 +51,6 @@ def sqwDeltaTwoLorentz(w, q, scale, center, A0, A1, hwhm1, hwhm2):
         sqw[0, :] += A1 * QENSmodels.lorentzian(w, scale, center, hwhm1)
         sqw[0, :] += (1 - A0 - A1) * QENSmodels.lorentzian(w, scale, center, hwhm2)
 
-    # Convolution with resolution function (if given)
-    # if resolution is not None:
-    #
-    #     # Input validation: Check if single resolution function or N spectra
-    #     #                   Check dimensions agree with sqw
-    #
-    #     for i in range(q.size):
-    #         if resolution.ndim == 1:
-    #             tmp = np.convolve(sqw[i, :], resolution / resolution.sum())
-    #         else:
-    #             tmp = np.convolve(sqw[i, :],
-    #                               resolution[i, :] / resolution[i, :].sum())
-    #
-    #             # Energy axis non necessarily symmetric --> Position model at center
-    #         idxMax = np.argmax(tmp)
-    #         idxMin = np.argmin(np.abs(w - center))
-    #         sqw[i, :] = tmp[idxMax - idxMin: idxMax - idxMin + w.size]
-    #
-    # # Add flat background
-    # sqw += background
 
     # For Bumps use (needed for final plotting)
     # Using a 'Curve' in bumps for each Q --> needs vector array

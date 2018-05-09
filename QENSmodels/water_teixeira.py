@@ -2,12 +2,12 @@ import numpy as np
 import QENSmodels
 
 
-class WaterTeixeira():
-    pass
+#class WaterTeixeira():
+#    pass
 
 
 def sqwWaterTeixeira(w, q, scale, center, D, resTime, radius, DR):
-    """
+    r"""
     Model = convolution(T, R)
     T = Jump Translational diffusion = Lorentz(Gamma_T)
     R = Isotropic rotational diffusion = A0 + A1*L1 + A2*L2 + ...
@@ -15,27 +15,35 @@ def sqwWaterTeixeira(w, q, scale, center, D, resTime, radius, DR):
 
     Parameters
     ----------
-    w: to be added
+    w: float, list or :class:`~numpy:numpy.ndarray`
         to be added
 
-    q: to be added
+    q: float, list or :class:`~numpy:numpy.ndarray`
         to be added
 
-    scale:
+    scale: float
+        Scale factor. Default to
 
-    center:
+    center: float
+        Center of peak. Default to
 
     D: float
-        Diffusion coefficient
+        Diffusion coefficient. Default to
 
     resTime: float
-        to be added
+        Residence time . Default to
 
     radius: float
-        to be added
+        Radius of rotation. Default to
 
     DR: float
-        to be added
+        Rotational diffusion coefficient. Default to
+
+    Notes
+    -----
+
+    .. math::
+       S(\omega, q) =
 
     References
     ----------

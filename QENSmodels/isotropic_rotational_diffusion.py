@@ -3,22 +3,33 @@ from scipy.special import jn
 import QENSmodels
 
 
-def hwhmIsotropicRotationalDiffusion(q, radius, DR):
+def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
     """
+    Returns some characteristics of `IsotropicRotationalDiffusion`
+
     Parameters
     ----------
-    q: to be added
-        to be added
+    q: float, list or :class:`~numpy:numpy.ndarray`
+        Momentum transfer
+
     radius: float
-        to be added
+        Radius of rotation. Default to
+
     DR: float
-        to be added
+        Rotational diffusion coefficient. Default to
 
     Returns
     -------
-    `hwhm`, `eisf`, and `qisf` of IsotropicRotationalDiffusion
+    `hwhm`: :class:`~numpy:numpy.ndarray`
+       half-width half maximum
+
+    `eisf`: :class:`~numpy:numpy.ndarray`
+       elastic incoherent structure factor
+
+    `qisf`: :class:`~numpy:numpy.ndarray`
+       quasi-elastic incoherent structure factor
     """
-    # eisf = np.zeros(q.size)
+
     numberLorentz = 6
     qisf = np.zeros((q.size, numberLorentz))
     hwhm = np.zeros((q.size, numberLorentz))
@@ -40,26 +51,35 @@ def hwhmIsotropicRotationalDiffusion(q, radius, DR):
     return hwhm, eisf, qisf
 
 
-# def sqwIsotropicRotationalDiffusion(w, q, scale, center, radius, DR,
-#                                    background, resolution=None):
-def sqwIsotropicRotationalDiffusion(w, q, scale, center, radius, DR):
+def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=1.0):
     """
     Model = Isotropic rotational diffusion = A0 + Sum of Lorentzians ...
 
     Parameters
     ----------
-    w: to be added
+    w: float, list or :class:`~numpy:numpy.ndarray`
         to be added
-    q: to be added
-        to be added
+
+    q: float, list or :class:`~numpy:numpy.ndarray`
+        Momentum transfer.
+
     scale: float
-        Scale factor.
+        Scale factor. Default to 1.
+
     center: float
-        Center of peak
+        Center of peak. Default to 0.
+
     radius: float
-        to be added
+        Radius of rotation. Default to 1.
+
     DR: float
-        to be added
+        Rotational diffusion coefficient. Default to 1.
+
+    Notes
+    -----
+    * 6 elements in the sum
+
+    * Equivalences: Mantid
     """
 
     # Input validation
@@ -79,28 +99,6 @@ def sqwIsotropicRotationalDiffusion(w, q, scale, center, radius, DR):
         sqw[i, :] = eisf[i] * QENSmodels.delta(w, scale, center)
         for j in range(1, numberLorentz):
             sqw[i, :] += qisf[i, j] * QENSmodels.lorentzian(w, scale, center, hwhm[i, j])
-
-    # Convolution with resolution function (if given)
-    # if resolution is not None:
-    #
-    #     # Input validation: Check if single resolution function or N spectra
-    #     #                   Check dimensions agree with sqw
-    #
-    #     for i in range(q.size):
-    #
-    #         if resolution.ndim == 1:
-    #             tmp = np.convolve(sqw[i, :], resolution / resolution.sum())
-    #         else:
-    #             tmp = np.convolve(sqw[i, :],
-    #                               resolution[i, :] / resolution[i, :].sum())
-    #
-    #             # Energy axis non necessarily symmetric --> Position model at center
-    #         idxMax = np.argmax(tmp)
-    #         idxMin = np.argmin(np.abs(w - center))
-    #         sqw[i, :] = tmp[idxMax - idxMin:idxMax - idxMin + w.size]
-
-    # Add flat background
-    # sqw += background
 
     # For Bumps use (needed for final plotting)
     # Using a 'Curve' in bumps for each Q --> needs vector array
