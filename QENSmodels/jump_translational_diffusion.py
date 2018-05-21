@@ -9,28 +9,31 @@ def hwhmJumpTranslationalDiffusion(q, D=2.3, resTime=1.25):
     Parameters
     ----------
     q: float, list or :class:`~numpy:numpy.ndarray`
-        Momentum transfer
+        momentum transfer
 
     D: float
-        Diffusion coefficient. Default to 2.3.
+        diffusion coefficient. Default to 2.3.
 
     resTime: float
         to be added. Default to 1.25.
 
     Returns
     -------
-    `hwhm`: :class:`~numpy:numpy.ndarray`
+    hwhm: :class:`~numpy:numpy.ndarray`
         half-width half maximum
 
-    `eisf`: :class:`~numpy:numpy.ndarray`
+    eisf: :class:`~numpy:numpy.ndarray`
         elastic incoherent structure factor
 
-    `qisf`: :class:`~numpy:numpy.ndarray`
+    qisf: :class:`~numpy:numpy.ndarray`
         quasi-elastic incoherent structure factor
 
-    Notes
+
+     Notes
     -----
-    Default values
+    The default values for the fitting parameters come from the values
+    for water at 298K and 1 atm, water has D=2.30 10^{-5} cm^2/s and
+    ResTime=1.25 ps.
 
     """
     eisf = np.zeros(q.size)
@@ -43,30 +46,69 @@ def hwhmJumpTranslationalDiffusion(q, D=2.3, resTime=1.25):
 
 
 def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=2.3, resTime=1.25):
-    """
-    Model = Jump Translational diffusion = Lorentzian of HWHM = D*Q^2 / (1+tau*D*Q^2)
+    """ Lorentzian model with half width half maximum equal to :math: \frac{Dq^2}{1+ \text{resTime}Dq^2}
 
     Parameters
     ----------
     w: float, list or :class:`~numpy:numpy.ndarray`
-        to be added
+        energy transfer in hbar units
 
     q: float, list or :class:`~numpy:numpy.ndarray`
-        Momentum transfer.
+        momentum transfer (non-fitting, in 1/Angstrom).
 
     scale: float
-        Scale factor. Default to 1.
+        scale factor. Default to 1.
 
     center: float
-        Center of peak. Default to 0.
+        center of peak. Default to 0.
 
     D: float
-        Diffusion coefficient. Default to 1
+        diffusion coefficient (in 10^{-5} cm^2/s). Default to 2.3
 
     resTime: float
-        Residence time. Default to 1.
+        residence time (in picoseconds). Default to 1.25
+
+    Return
+    ------
+    :class:`~numpy:numpy.ndarray`
+        output array
+
+    Examples
+    --------
+    >>> QENSmodels.sqwJumpTranslationalDiffusion([1,2,3], 1, 1, 0, 1, 1)
+    array([ 0.12732396,  0.03744822,  0.01720594])
+
+
+    >>> QENSmodels.sqwJumpTranslationalDiffusion(1, 1, 1, 0, 1, 1)
+    array([ 0.12732395])
+
+    Notes
+    -----
+
+    * The `sqwJumpTranslationalDiffusion` is expressed as
+
+      .. math::
+
+          S(\omega, q) = \text{Lorentzian}(\omega, \text{scale}, \text{center},
+          \frac{D q^2}{ 1 + \text{resTime} D q^2})
+
+    * The default values for the fitting parameters come from the values
+    for water at 298K and 1 atm, water has D=2.30 10^{-5} cm^2/s and
+    ResTime=1.25 ps.
+
+
+    Reference
+    ----------
+
+    J. Teixeira, M.-C. Bellissent-Funel, S.H. Chen, and A.J, Dianoux,
+    **Phys. Rev. A** *31*, 1913-1917 (1985)
+    `link <https://journals.aps.org/pra/abstract/10.1103/PhysRevA.31.1913>`_
+
+
     """
     # Input validation
+    w = np.asarray(w, dtype=np.float32)
+
     q = np.asarray(q, dtype=np.float32)
 
     # Create output array

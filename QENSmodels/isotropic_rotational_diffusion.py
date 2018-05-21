@@ -10,23 +10,23 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
     Parameters
     ----------
     q: float, list or :class:`~numpy:numpy.ndarray`
-        Momentum transfer
+        momentum transfer (non-fitting, in 1/Angstrom)
 
     radius: float
-        Radius of rotation. Default to
+        radius of rotation. Default to 1.
 
     DR: float
-        Rotational diffusion coefficient. Default to
+        rotational diffusion coefficient. Default to 1.
 
     Returns
     -------
-    `hwhm`: :class:`~numpy:numpy.ndarray`
+    hwhm: :class:`~numpy:numpy.ndarray`
        half-width half maximum
 
-    `eisf`: :class:`~numpy:numpy.ndarray`
+    eisf: :class:`~numpy:numpy.ndarray`
        elastic incoherent structure factor
 
-    `qisf`: :class:`~numpy:numpy.ndarray`
+    qisf: :class:`~numpy:numpy.ndarray`
        quasi-elastic incoherent structure factor
     """
 
@@ -53,36 +53,68 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
 
 def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=1.0):
     """
-    Model = Isotropic rotational diffusion = A0 + Sum of Lorentzians ...
+    Model `Isotropic rotational diffusion` = A_0 delta + Sum of Lorentzians ...
+
+    Continuous rotational diffusion on the surface of a sphere
+
+    In this model, the reorientation of the molecule is due to small-angle random rotations.
+
 
     Parameters
     ----------
-    w: float, list or :class:`~numpy:numpy.ndarray`
-        to be added
+    w: list or :class:`~numpy:numpy.ndarray`
+        energy transfer in hbar units
 
     q: float, list or :class:`~numpy:numpy.ndarray`
-        Momentum transfer.
+        momentum transfer (non-fitting, in 1/Angstrom)
 
     scale: float
-        Scale factor. Default to 1.
+        scale factor. Default to 1.
 
     center: float
-        Center of peak. Default to 0.
+        center of peak. Default to 0.
 
     radius: float
-        Radius of rotation. Default to 1.
+        radius of rotation. Default to 1.
 
     DR: float
-        Rotational diffusion coefficient. Default to 1.
+        rotational diffusion coefficient. Default to 1.
+
+    Return
+    ------
+    :class:`~numpy:numpy.ndarray`
+        output array
+
+    Examples
+    --------
+    >>> QENSmodels.sqwIsotropicRotationalDiffusion([1,2,3], 1, 1, 0, 1, 1)
+    array([ 0.74372757,  0.02258717,  0.01415628])
+
+
+    >>> QENSmodels.sqwIsotropicRotationalDiffusion([-0.1, 0., 0.1], [0.3, 0.4], 1, 0, 1, 0.5)
+    array([[  9.30472971e-03,   9.71297465e+00,   9.30472971e-03],
+          [  1.63369580e-02,   9.49441487e+00,   1.63369580e-02]])
+
 
     Notes
     -----
-    * 6 elements in the sum
+    * There are 6 terms in the sum
 
-    * Equivalences: Mantid
+    * The `sqwIsotropicRotationalDiffusion` is expressed as
+
+     .. math::
+
+        S(\omega, q) = j_0^2(q \text{radius})\delta(\omega, \text{scale},
+        \text{center}) + \sum_{i=1} ^6 (2i + 1) j_i^2(q\text{radius})
+        \text{Lorentzian}(\omega, \text{scale}, \text{center}, \text{DR} i(i+1))
+
+     where :math:`j_i, i=0..6` are spherical Bessel functions.
+
     """
 
     # Input validation
+    w = np.asarray(w, dtype=np.float32)
+
     q = np.asarray(q, dtype=np.float32)
 
     # Create output array

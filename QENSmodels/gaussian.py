@@ -3,22 +3,21 @@ import QENSmodels
 
 
 def gaussian(x, scale=1., center=0., sigma=1.):
-    r"""
-    Gaussian model
+    r""" Gaussian model
 
     Parameters
     ----------
-    x: to be added
-        to be added
+    x: float or list or :class:`~numpy:numpy.ndarray`
+        domain of the function
 
     scale: float
-        Scale factor. Default to 1.0
+        scale factor. Default to 1.0
 
     center: float
-        Center of peak. Default to 0.0
+        center of peak. Default to 0.0
 
     sigma: float
-        Width parameter. Default to 1.0
+        width parameter. Default to 1.0
 
     Examples
     --------
@@ -28,17 +27,25 @@ def gaussian(x, scale=1., center=0., sigma=1.):
     >>> QENSmodels.gaussian(3, 2, 2, 5)
     0.15641707759018236
 
+    >>> QENSmodels.gaussian([1, 3], 1, 1, 1)
+    array([ 0.39894229,  0.05399097], dtype=float32)
+
+
     Notes
     -----
+
     * A Gaussian function is defined as:
 
     .. math::
 
-       \text{Gaussian}(x, \text{scale}, \text{center}, \sigma) = \frac{\text{scale}}{\sqrt{2\pi}\sigma}\exp \big(-\frac{(x-\text{center})^2}{2\sigma^2}\big)
+       \text{Gaussian}(x, \text{scale}, \text{center}, \sigma) =
+       \frac{\text{scale}}{\sqrt{2\pi}\sigma}\exp
+       \big(-\frac{(x-\text{center})^2}{2\sigma^2}\big)
 
-    * The Full Width Half Maximum of a Gaussian equals :math:`2\sqrt{2\ln 2}\mbox{sigma}`
+    * The Full Width Half Maximum of a Gaussian equals :math:`2\sqrt{2\ln 2}\sigma`
 
     * **Equivalence**
+
       ``Gaussian`` corresponds to the following implementations in
       `Mantid <http://docs.mantidproject.org/nightly/fitfunctions/Gaussian.html>`_
 
@@ -54,10 +61,9 @@ def gaussian(x, scale=1., center=0., sigma=1.):
       | ``sigma``    | Sigma                                  |
       +--------------+----------------------------------------+
 
-    References
-    ----------
-    None
+
     """
+    x = np.asarray(x, dtype=np.float32)
 
     if sigma == 0:
         model = QENSmodels.delta(x, scale, center)

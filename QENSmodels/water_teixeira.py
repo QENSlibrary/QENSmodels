@@ -2,54 +2,62 @@ import numpy as np
 import QENSmodels
 
 
-#class WaterTeixeira():
-#    pass
+def sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1):
+    r""" Model corresponding to the convolution of `Jump Translational diffusion`
+    (model T) and `Isotropic rotational diffusion` (model R)
 
 
-def sqwWaterTeixeira(w, q, scale, center, D, resTime, radius, DR):
-    r"""
     Model = convolution(T, R)
+
     T = Jump Translational diffusion = Lorentz(Gamma_T)
+
     R = Isotropic rotational diffusion = A0 + A1*L1 + A2*L2 + ...
-    convolution(T,R) = A0*Lorentz(Gamma_T) + A1*Lorentz(Gamma_T+Gamma_1) + A2*Lorentz(Gamma_T+Gamma_2) + ...
+
+    Model = A0*Lorentz(Gamma_T) + A1*Lorentz(Gamma_T+Gamma_1) + A2*Lorentz(Gamma_T+Gamma_2) + ...
 
     Parameters
     ----------
     w: float, list or :class:`~numpy:numpy.ndarray`
-        to be added
+        energy transfer in hbar units
 
     q: float, list or :class:`~numpy:numpy.ndarray`
-        to be added
+        momentum transfer (non-fitting, in 1/Angstrom`)
 
     scale: float
-        Scale factor. Default to
+        scale factor. Default to 1.
 
     center: float
-        Center of peak. Default to
+        center of peak. Default to 0.
 
     D: float
-        Diffusion coefficient. Default to
+        Diffusion coefficient (in 10^{-5} cm^2/s). Default to 1.
 
     resTime: float
-        Residence time . Default to
+        Residence time (in picoseconds). Default to 1.
 
     radius: float
-        Radius of rotation. Default to
+        radius of rotation (in ..). Default to 1.
 
     DR: float
-        Rotational diffusion coefficient. Default to
+        rotational diffusion coefficient (in ..). Default to 1.
 
-    Notes
-    -----
 
-    .. math::
-       S(\omega, q) =
+    Return
+    ------
+    :class:`~numpy:numpy.ndarray`
+        output array
 
-    References
-    ----------
-    None
+
+    Examples
+    --------
+
+    >>> QENSmodels.sqwWaterTeixeira(1,1,1,1,1,1,1,1)
+    array([ 0.48637626])
+
     """
     # Input validation
+    w = np.asarray(q, dtype=np.float32)
+
     q = np.asarray(q, dtype=np.float32)
 
     # Create output array

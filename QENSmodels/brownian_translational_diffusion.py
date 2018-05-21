@@ -3,26 +3,25 @@ import QENSmodels
 
 
 def hwhmBrownianTranslationalDiffusion(q, D=1.):
-    """
-    Returns some characteristics of `BrownianTranslationalDiffusion` model
+    """ Lorentzian model with HWHM equal to :math:`Dq^2`
 
     Parameters
     ----------
     q: :class:`~numpy:numpy.ndarray`
-        Momentum transfer
+        momentum transfer (non-fitting, in 1/Angstrom)
 
     D: float
-        Diffusion coefficient. Default to 1.
+        diffusion coefficient (in 10^{-5} cm^2/s). Default to 1.
 
     Returns
     -------
-    `hwhm`: :class:`~numpy:numpy.ndarray`
+    hwhm: :class:`~numpy:numpy.ndarray`
         half-width half maximum
 
-    `eisf`: :class:`~numpy:numpy.ndarray`
+    eisf: :class:`~numpy:numpy.ndarray`
         elastic incoherent structure factor
 
-    `qisf`: :class:`~numpy:numpy.ndarray`
+    qisf: :class:`~numpy:numpy.ndarray`
         quasi-elastic incoherent structure factor
     """
     eisf = np.zeros(q.size)
@@ -35,39 +34,53 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
 
 
 def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
-    r"""
-
-    Model = Brownian Translational diffusion = Lorentzian of HWHM = :math:`Dq^2`
+    r""" Lorentzian model with HWHM equal to :math:`Dq^2`
 
     Parameters
     ----------
     w: float, list or :class:`~numpy:numpy.ndarray`
-        to be added
+        energy transfer in hbar units
 
     q: float, list or :class:`~numpy:numpy.ndarray`
-        momentum transfer
+        momentum transfer (non-fitting, in 1/Angstrom)
 
     scale: float
-        Scale factor. Default to 1.
+        scale factor. Default to 1.
 
     center: float
-        Peak center. Default to 0.
+        peak center. Default to 0.
 
     D: float
-        Diffusion coefficient. Default to 1.
+        diffusion coefficient. Default to 1.
+
+    Return
+    ------
+    :class:`~numpy:numpy.ndarray`
+        output array
 
     Examples
     --------
-    >>> QENSmodels.sqwBrownianTranslationalDiffusion()
+    >>> QENSmodels.sqwBrownianTranslationalDiffusion(1, 1, 1, 0, 1)
+    array([ 0.15915494])
+
+    >>> QENSmodels.sqwBrownianTranslationalDiffusion([1, 2, 3], [0.3, 0.4], 1, 0, 1)
+    array([[ 0.02841771,  0.0071475 ,  0.00318024],
+           [ 0.04965834,  0.01265143,  0.00564279]])
 
 
     Notes
     -----
-    .. math::
-        S(\omega, q) = Lorentzian (\omega, scale, center, Dq^2)
-    """
+    The `sqwBrownianTranslationalDiffusion` is expressed as
 
+    .. math::
+
+        S(\omega, q) =
+        \text{Lorentzian}(\omega, \text{scale}, \text{center}, Dq^2)
+
+    """
     # Input validation
+    w = np.asarray(w, dtype=np.float32)
+
     q = np.asarray(q, dtype=np.float32)
 
     # Create output array

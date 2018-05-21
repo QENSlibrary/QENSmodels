@@ -2,44 +2,83 @@ import numpy as np
 
 
 def delta(x, scale=1, center=0):
-    """ Dirac Delta function is equal to zero except for the value of x
-       closest to center.
+    """ Dirac Delta function
+
+    It is equal to zero except for the value of x closest to center.
 
     Parameters
     ----------
-    x: :class:`~numpy:numpy.ndarray` or list
-        Domain of the function
+    x: list or :class:`~numpy:numpy.ndarray`
+        domain of the function
 
     scale: float
-        Integrated intensity of the curve. Default to 1.
+        integrated intensity of the curve. Default to 1.
 
     center: float
-        Position of the peak. Default to 0.
+        position of the peak. Default to 0.
 
     Return
     ------
     :class:`~numpy:numpy.ndarray`
-        Output array containing an impulse signal
+        output array containing an impulse signal
 
     Examples
     --------
     >>> QENSmodels.delta([0, 1, 2], 1, 0)
-    array([ 0.,  1.,  0.])
+    array([ 1.,  0.,  0.])
 
     >>> QENSmodels.delta([0, 1, 2, 3, 4], 5, 2)
     array([ 0.,  0.,  5.,  0.,  0.])
 
+    Notes
+    -----
+    * A Delta (Dirac)function is defined as
+
+
+    .. math::
+
+        \text{Delta}(x, \text{scale}, \text{center}) = \text{scale}
+        \delta(x- \text{center})
+
+
+    * For non-zero values, the amplitude of the Delta function is divided by
+      the x-spacing.
+
+    * **Equivalence**
+
+      +-------------+--------------------+
+      | Equivalence | Mantid             |
+      +=============+====================+
+      | ``delta``   | ``DeltaFunction``  |
+      +-------------+--------------------+
+      | ``scale``   |  Height            |
+      +-------------+--------------------+
+      | ``center``  |  Centre            |
+      +-------------+--------------------+
+
+
     """
     # Input validation
+    if isinstance(x, (float, int)):
+        x=[float(x)]
+
     x = np.asarray(x, dtype=np.float32)
+
+    # sort x in ascending order
+    x.sort()
 
     model = np.zeros(x.size)
     idx = np.argmin(np.abs(x - center))
+
     try:
-        dx = 0.5 * np.abs(x[idx + 1] - x[idx - 1])
+        if x.size>1:
+            dx = (x[-1] - x[0]) / (len(x) - 1)  # domain spacing
+        else:
+            dx = 1.
+        # dx = 0.5 * np.abs(x[idx + 1] - x[idx - 1])
         model[idx] = scale / dx
         return model
     except ZeroDivisionError:
         print('Division by zero')
     except IndexError:
-        print('Index error: x does not hav enough elements')
+        print('Index error: x does not have enough elements')
