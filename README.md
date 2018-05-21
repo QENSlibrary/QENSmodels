@@ -3,10 +3,12 @@
 *QENSlibrary* is a repository containing models (mathematical functions) that
 could be used to fit Quasi Elastic Neutron Scattering (QENS) data.
 
+This project has received funding from the European Union’s Horizon
+2020 research and innovation programme under grant agreement No 654000.
+
 # Installation
 
-
-Support Python 2.7 and 3 (**to check and specify**)
+Support Python 2.7 and 3.6
 
 
 ## Requirements
@@ -45,11 +47,22 @@ pip uninstall QENSmodels
 
 In a terminal, move to the *docs* folder and type
 
-   make html
+   `make html`
 
 This command will generate html files in the subfolder *_build/html*.
 
 # Documentation
+The developers' documentation is built using `Sphinx`. The required packages can be
+installed using the following commands:
+
+```
+pip install sphinx
+pip install sphinx-rtd-theme
+pip install sphinxcontrib-napoleon
+```
+
+Other ways of installing `Sphinx` at be found at
+http://www.sphinx-doc.org/en/stable/install.html#
 
 
 ## License
@@ -83,7 +96,5 @@ Add link to websites, email addresses...
 # TODO
 
 - complete README.md files
-- add examples: jupyter notebook / python scripts
-- add instructions in Contributing
 - add tests
 - add instructions in installation / setup.py for models and documentation
