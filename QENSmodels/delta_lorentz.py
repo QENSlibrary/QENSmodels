@@ -3,7 +3,7 @@ import QENSmodels
 
 
 def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
-    """
+    r"""
     Model corresponding to a delta representing a fraction p of
     fixed atoms and a Lorentzian corresponding to a Brownian
     Translational diffusion model for the remaining (1 - p) atoms.
@@ -13,7 +13,7 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
     Parameters
     ----------
     w: float, list or :class:`~numpy:numpy.ndarray`
-        energy transfer in hbar units, must contain at least three elements
+        energy transfer (in ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom)
@@ -24,7 +24,7 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
     center: float
         peak center. Default to 0.
 
-    A0: float
+    A0: float, list or :class:`~numpy:numpy.ndarray` of the same size as q
         amplitude of the delta function. Default to 0.
 
     hwhm: float, list or :class:`~numpy:numpy.ndarray` of the same size as q
@@ -33,7 +33,6 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
     Return
     ------
     :class:`~numpy:numpy.ndarray`
-        output array
 
 
     Examples

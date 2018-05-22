@@ -2,20 +2,20 @@ import numpy as np
 import QENSmodels
 
 
-def hwhmJumpTranslationalDiffusion(q, D=2.3, resTime=1.25):
+def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
     """
     Returns some characteristics of `JumpTranslationalDiffusion`
 
     Parameters
     ----------
     q: float, list or :class:`~numpy:numpy.ndarray`
-        momentum transfer
+        momentum transfer (in 1/Angstrom)
 
     D: float
-        diffusion coefficient. Default to 2.3.
+        diffusion coefficient (). Default to 0.23.
 
     resTime: float
-        to be added. Default to 1.25.
+        to be added (in ps). Default to 1.25.
 
     Returns
     -------
@@ -32,7 +32,7 @@ def hwhmJumpTranslationalDiffusion(q, D=2.3, resTime=1.25):
      Notes
     -----
     The default values for the fitting parameters come from the values
-    for water at 298K and 1 atm, water has D=2.30 10^{-5} cm^2/s and
+    for water at 298K and 1 atm, water has D=0.230 Angstrom^2/ps and
     ResTime=1.25 ps.
 
     """
@@ -45,13 +45,15 @@ def hwhmJumpTranslationalDiffusion(q, D=2.3, resTime=1.25):
     return hwhm, eisf, qisf
 
 
-def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=2.3, resTime=1.25):
-    """ Lorentzian model with half width half maximum equal to :math: \frac{Dq^2}{1+ \text{resTime}Dq^2}
+def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23, resTime=1.25):
+    r""" Lorentzian model with half width half maximum equal to
+    :math: \frac{Dq^2}{1+ \text{resTime}Dq^2}
 
     Parameters
     ----------
+
     w: float, list or :class:`~numpy:numpy.ndarray`
-        energy transfer in hbar units
+        energy transfer (in ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom).
@@ -63,24 +65,26 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=2.3, resTime=1.25):
         center of peak. Default to 0.
 
     D: float
-        diffusion coefficient (in 10^{-5} cm^2/s). Default to 2.3
+        diffusion coefficient (in Angstrom^2/ps). Default to 0.23.
 
     resTime: float
-        residence time (in picoseconds). Default to 1.25
+        residence time (in ps). Default to 1.25.
 
     Return
     ------
+
     :class:`~numpy:numpy.ndarray`
-        output array
+
 
     Examples
     --------
-    >>> QENSmodels.sqwJumpTranslationalDiffusion([1,2,3], 1, 1, 0, 1, 1)
+    >>> QENSmodels.sqwJumpTranslationalDiffusion([1, 2, 3], 1, 1, 0, 1, 1)
     array([ 0.12732396,  0.03744822,  0.01720594])
 
 
     >>> QENSmodels.sqwJumpTranslationalDiffusion(1, 1, 1, 0, 1, 1)
     array([ 0.12732395])
+
 
     Notes
     -----
@@ -93,7 +97,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=2.3, resTime=1.25):
           \frac{D q^2}{ 1 + \text{resTime} D q^2})
 
     * The default values for the fitting parameters come from the values
-    for water at 298K and 1 atm, water has D=2.30 10^{-5} cm^2/s and
+    for water at 298K and 1 atm, water has D=0.230 Angstrom^2/ps and
     ResTime=1.25 ps.
 
 

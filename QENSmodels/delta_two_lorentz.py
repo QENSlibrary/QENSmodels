@@ -3,13 +3,13 @@ import QENSmodels
 
 
 def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
-    """
+    r"""
     Model = A0*delta + A1*Lorentzian(Gamma1) + (1-A0-A1)*Lorentzian(Gamma2)
 
     Parameters
     ----------
     w: float, list or :class:`~numpy:numpy.ndarray`
-        energy transfer in hbar units
+        energy transfer (in ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom)
@@ -30,12 +30,11 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
         half-width half maximum of the first Lorentzian. Default to 1.
 
     hwhm2: float, list or :class:`~numpy:numpy.ndarray` of the same size as q
-        half-width half maximum of the second Lorentzian. Default to 1
+        half-width half maximum of the second Lorentzian. Default to 1.
 
     Return
     ------
     :class:`~numpy:numpy.ndarray`
-        output array
 
 
     Examples

@@ -11,13 +11,17 @@ def gaussian(x, scale=1., center=0., sigma=1.):
         domain of the function
 
     scale: float
-        scale factor. Default to 1.0
+        scale factor. Default to 1.
 
     center: float
-        center of peak. Default to 0.0
+        center of peak. Default to 0.
 
     sigma: float
-        width parameter. Default to 1.0
+        width parameter. Default to 1.
+
+    Return
+    ------
+    float or :class:`~numpy:numpy.ndarray`
 
     Examples
     --------
@@ -42,7 +46,8 @@ def gaussian(x, scale=1., center=0., sigma=1.):
        \frac{\text{scale}}{\sqrt{2\pi}\sigma}\exp
        \big(-\frac{(x-\text{center})^2}{2\sigma^2}\big)
 
-    * The Full Width Half Maximum of a Gaussian equals :math:`2\sqrt{2\ln 2}\sigma`
+    * The Full Width Half Maximum of a Gaussian equals
+      :math:`2\sqrt{2\ln 2}\sigma`
 
     * **Equivalence**
 

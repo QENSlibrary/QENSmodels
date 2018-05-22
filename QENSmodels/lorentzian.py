@@ -11,23 +11,22 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
         domain of the function
 
     scale: float
-        scale factor. Default to 1.0
+        scale factor. Default to 1.
 
     center: float
-        center of peak. Default to 0.0
+        center of peak. Default to 0.
 
     hwhm: float
-        Half Width at Half Maximum. Default to 1.0
+        Half Width at Half Maximum. Default to 1.
 
     Return
     ------
     float or :class:`~numpy:numpy.ndarray`
-        output array
 
     Examples
     --------
     >>> QENSmodels.lorentzian(1, 1, 1, 1)
-    0.6366197723675814
+    0.31830988618379069
 
     >>> QENSmodels.lorentzian(3., 2., 2., 5.)
     0.12242687930145796
@@ -51,7 +50,8 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
 
     * **Equivalence**
       ``Lorentzian`` corresponds to the following implementations in
-      `Mantid <http://docs.mantidproject.org/nightly/fitfunctions/Lorentzian.html>`_ and
+      `Mantid <http://docs.mantidproject.org/nightly/fitfunctions/Lorentzian.html>`_
+      and
       `DAVE <https://www.ncnr.nist.gov/dave/documentation/pandoc_DAVE.pdf>`_
 
       +------------------+-----------------+------------------+

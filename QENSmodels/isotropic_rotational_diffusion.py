@@ -13,10 +13,10 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
         momentum transfer (non-fitting, in 1/Angstrom)
 
     radius: float
-        radius of rotation. Default to 1.
+        radius of rotation (in Angstrom). Default to 1.
 
     DR: float
-        rotational diffusion coefficient. Default to 1.
+        rotational diffusion coefficient (in 1/ps). Default to 1.
 
     Returns
     -------
@@ -52,18 +52,20 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
 
 
 def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=1.0):
-    """
+    r"""
     Model `Isotropic rotational diffusion` = A_0 delta + Sum of Lorentzians ...
 
     Continuous rotational diffusion on the surface of a sphere
 
-    In this model, the reorientation of the molecule is due to small-angle random rotations.
+    In this model, the reorientation of the molecule is due to small-angle
+    random rotations.
 
 
     Parameters
     ----------
+
     w: list or :class:`~numpy:numpy.ndarray`
-        energy transfer in hbar units
+        energy transfer (in ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom)
@@ -75,20 +77,19 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=
         center of peak. Default to 0.
 
     radius: float
-        radius of rotation. Default to 1.
+        radius of rotation (in Angstrom). Default to 1.
 
     DR: float
-        rotational diffusion coefficient. Default to 1.
+        rotational diffusion coefficient (in 1/ps). Default to 1.
 
     Return
     ------
     :class:`~numpy:numpy.ndarray`
-        output array
 
     Examples
     --------
     >>> QENSmodels.sqwIsotropicRotationalDiffusion([1,2,3], 1, 1, 0, 1, 1)
-    array([ 0.74372757,  0.02258717,  0.01415628])
+    array([ 0.03565415,  0.02258717,  0.01415628])
 
 
     >>> QENSmodels.sqwIsotropicRotationalDiffusion([-0.1, 0., 0.1], [0.3, 0.4], 1, 0, 1, 0.5)

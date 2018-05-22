@@ -2,7 +2,7 @@ import numpy as np
 
 
 def delta(x, scale=1, center=0):
-    """ Dirac Delta function
+    r""" Dirac Delta function
 
     It is equal to zero except for the value of x closest to center.
 
@@ -34,7 +34,6 @@ def delta(x, scale=1, center=0):
     -----
     * A Delta (Dirac)function is defined as
 
-
     .. math::
 
         \text{Delta}(x, \text{scale}, \text{center}) = \text{scale}
@@ -60,23 +59,28 @@ def delta(x, scale=1, center=0):
     """
     # Input validation
     if isinstance(x, (float, int)):
-        x=[float(x)]
+        x = [float(x)]
 
     x = np.asarray(x, dtype=np.float32)
 
-    # sort x in ascending order
-    x.sort()
+    # sort x in ascending order if x has more than 1 element
+    if x.size > 1:
+        x.sort()
 
     model = np.zeros(x.size)
-    idx = np.argmin(np.abs(x - center))
 
     try:
-        if x.size>1:
-            dx = (x[-1] - x[0]) / (len(x) - 1)  # domain spacing
-        else:
-            dx = 1.
+        if x.min() <= center <= x.max():
+            # if center within x-range, delta is non-zero in this interval
+            # otherwise do nothing
+            idx = np.argmin(np.abs(x - center))
+            if len(x) > 1:
+                dx = (x[-1] - x[0]) / (len(x) - 1)  # domain spacing
+            else:
+                dx = 1.
+            model[idx] = scale / dx
         # dx = 0.5 * np.abs(x[idx + 1] - x[idx - 1])
-        model[idx] = scale / dx
+
         return model
     except ZeroDivisionError:
         print('Division by zero')

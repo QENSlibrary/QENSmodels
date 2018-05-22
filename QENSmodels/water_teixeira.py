@@ -13,12 +13,13 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1):
 
     R = Isotropic rotational diffusion = A0 + A1*L1 + A2*L2 + ...
 
-    Model = A0*Lorentz(Gamma_T) + A1*Lorentz(Gamma_T+Gamma_1) + A2*Lorentz(Gamma_T+Gamma_2) + ...
+    Model = A0*Lorentz(Gamma_T) + A1*Lorentz(Gamma_T+Gamma_1)
+    + A2*Lorentz(Gamma_T+Gamma_2) + ...
 
     Parameters
     ----------
     w: float, list or :class:`~numpy:numpy.ndarray`
-        energy transfer in hbar units
+        energy transfer (in ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom`)
@@ -30,22 +31,21 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1):
         center of peak. Default to 0.
 
     D: float
-        Diffusion coefficient (in 10^{-5} cm^2/s). Default to 1.
+        Diffusion coefficient (in Angstrom^2/ps). Default to 1.
 
     resTime: float
-        Residence time (in picoseconds). Default to 1.
+        Residence time (in ps). Default to 1.
 
     radius: float
-        radius of rotation (in ..). Default to 1.
+        radius of rotation (in Angstrom). Default to 1.
 
     DR: float
-        rotational diffusion coefficient (in ..). Default to 1.
+        rotational diffusion coefficient (in 1/ps). Default to 1.
 
 
     Return
     ------
     :class:`~numpy:numpy.ndarray`
-        output array
 
 
     Examples

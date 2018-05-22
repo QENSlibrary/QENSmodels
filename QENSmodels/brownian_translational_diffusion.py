@@ -8,10 +8,10 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
     Parameters
     ----------
     q: :class:`~numpy:numpy.ndarray`
-        momentum transfer (non-fitting, in 1/Angstrom)
+        momentum transfer (non-fitting, in 1/Angstrom).
 
     D: float
-        diffusion coefficient (in 10^{-5} cm^2/s). Default to 1.
+        diffusion coefficient (in Angstrom^2/ps). Default to 1.
 
     Returns
     -------
@@ -39,7 +39,7 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
     Parameters
     ----------
     w: float, list or :class:`~numpy:numpy.ndarray`
-        energy transfer in hbar units
+        energy transfer (in ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom)
@@ -51,12 +51,11 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
         peak center. Default to 0.
 
     D: float
-        diffusion coefficient. Default to 1.
+        diffusion coefficient (in Angstrom^2/ps). Default to 1.
 
     Return
     ------
     :class:`~numpy:numpy.ndarray`
-        output array
 
     Examples
     --------
@@ -74,7 +73,7 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
 
     .. math::
 
-        S(\omega, q) =
+        S(q, \omega) =
         \text{Lorentzian}(\omega, \text{scale}, \text{center}, Dq^2)
 
     """

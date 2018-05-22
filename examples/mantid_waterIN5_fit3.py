@@ -1,18 +1,18 @@
 from mantid.simpleapi import *
+import os
 import numpy as np
-from scipy.integrate import simps
 from scipy.constants import pi
-
 
 import matplotlib.pyplot as plt
 
-path = '/Users/celinedurniak/Documents/WorkESS/QENS_library/QENSmodels/examples/'
-# path='/home/celine/development/QENSmodels-master/examples/'
+# Path to where the data for the examples are (/QENSmodels/examples/data)
+path_to_data = os.path.join(os.getcwd(), 'data/')
+
 # experimental data
-ws_5Aini = LoadLamp(path+'H2O_293K_5A.hdf')
+ws_5Aini = LoadLamp(path_to_data+'H2O_293K_5A.hdf')
 
 # vanadium
-res_5Aini = LoadLamp(path+'V_273K_5A.hdf')
+res_5Aini = LoadLamp(path_to_data+'V_273K_5A.hdf')
 
 hw_5A = ws_5Aini.readX(0)
 
@@ -56,7 +56,7 @@ for ii in range(len(q_5A)):
  We do a global fit (all spectra)
 """
 
-N=6 # maximum number of components for IsoRotDiff
+N = 6  # maximum number of components for IsoRotDiff
 single_model_template="""(composite=Convolution,FixResolution=true,NumDeriv=true;\
 name=Resolution,Workspace=res_5A,WorkspaceIndex=_WI_;\
 (name=IsoRotDiff,Q=_Q_,f0.Height=20,f0.Centre=0,f0.Radius=0.98,Tau=2.;\
@@ -65,20 +65,20 @@ ties=(f1.f0.f0.Height=f1.f1.scale_factor))""".format(pi=pi)
 
 # Now create the string representation of the global model (all spectra, all Q-values):
 global_model="composite=MultiDomainFunction,NumDeriv=true;"
-wi=0
+wi = 0
 for Q in q_5A:
     single_model = single_model_template.replace("_Q_", str(Q))  # insert Q-value
     single_model = single_model.replace("_WI_", str(wi))  # workspace index
     global_model += "(composite=CompositeFunction,NumDeriv=true,$domains=i;{0});\n".format(single_model)
     wi+=1
 # The Radius, Tau, and D are the same for all spectra, thus tie them:
-ties=['='.join(["f{0}.f0.f1.f0.f0.Radius".format(wi) for wi in reversed(range(len(q_5A)))]),
+ties = ['='.join(["f{0}.f0.f1.f0.f0.Radius".format(wi) for wi in reversed(range(len(q_5A)))]),
    '='.join(["f{0}.f0.f1.f0.f1.Tau".format(wi) for wi in reversed(range(len(q_5A)))]),
    '='.join(["f{0}.f0.f1.f1.D".format(wi) for wi in reversed(range(len(q_5A)))])]
 global_model += "ties=("+','.join(ties)+')'  # tie Radius, Tau and D
 
 # Now relate each domain(i.e. spectrum) to each single model
-domain_model=dict()
+domain_model = dict()
 for wi in range(len(q_5A)):
     if wi == 0:
         domain_model.update({"InputWorkspace": ws_5A.name(), "WorkspaceIndex": str(wi),
