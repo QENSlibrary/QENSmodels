@@ -14,11 +14,7 @@ To access the notebooks, type `jupyter notebook` in a terminal and click on
  the notebook you want to open.
 
 The data required to run the notebooks and scripts are located in the `data` 
-subfolder`.
-
-  
-**todo**: add instructions to install anaconda environment to use jupyter
-notebook and have all required libraries installed.
+subfolder.
 
 
 ## Using the jupyter notebooks
@@ -42,14 +38,15 @@ conda create --name mynewenv python numpy scipy matplotlib jupyter
 ```
 
 Note that you can specify which version of `Python`. For example, 
-`conda create --name mynewenv python=3.4` 
+`conda create --name mynewenv python=3.4 numpy scipy matplotlib jupyter` 
 
 Then activate the environment and install the remaining packages
 ```
 source activate mynewenv
-conda install -c conda-forge ipywidgets h5py
-pip install bumps
-pip install lmfit
+conda install -c conda-forge h5py
 ```
 Finally, install the library
 ``` pip install --user path_to/QENSmodels ```
+
+The packages for fitting, *i.e.* `lmfit`, `bumps`, will be installed when 
+running the jupyter notebooks, where they are required.

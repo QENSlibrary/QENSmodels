@@ -22,6 +22,7 @@ def gaussian(x, scale=1., center=0., sigma=1.):
     Return
     ------
     float or :class:`~numpy:numpy.ndarray`
+       output number or array
 
     Examples
     --------

@@ -35,6 +35,7 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     Return
     ------
     :class:`~numpy:numpy.ndarray`
+        output array
 
 
     Examples
@@ -44,7 +45,7 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
            [ 1.,  0.,  0.]])
 
 
-    >>>  QENSmodels.sqwDeltaTwoLorentz([1, 2, 3], [0.1, 0.2], 1, 1, [0.1, 0.5], [0.2, 0.3], [0.01, 0.02], [0.03, 0.06])
+    >>>
     array([[  1.39934275e+01,   7.31505209e-03,   1.82990197e-03],
            [  6.83568108e+00,   5.71511278e-03,   1.43148794e-03]])
 
@@ -53,9 +54,9 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     -----
     .. math::
 
-        S(\omega, q) = A_0 \text{delta}(\omega - \text{center})
-        + A_1 \text{Lorentzian}(\omega, \text{scale}, \text{center}, \text{hwhm_1})
-        + (1 - A_0 - A_1) \text{Lorentzian}(\omega, \text{scale}, \text{center}, \text{hwhm_2})
+        S(q, \omega) &= A_0 \text{delta}(\omega - \text{center}) \\
+        &+ A_1 \text{Lorentzian}(\omega, \text{scale}, \text{center}, \text{hwhm}_1) \\
+        &+ (1 - A_0 - A_1) \text{Lorentzian}(\omega, \text{scale}, \text{center}, \text{hwhm}_2)
 
     """
 

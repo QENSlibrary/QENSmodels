@@ -67,7 +67,8 @@ http://www.sphinx-doc.org/en/stable/install.html#
 
 ## License
 
-Redistribution of the software is permitted under the terms of the [General Public License version 3 or higher](https://www.gnu.org/licenses/gpl-3.0.en.html).
+Redistribution of the software is permitted under the terms of the 
+[General Public License version 3 or higher](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 ## How to use?
 
@@ -88,7 +89,8 @@ https://github.com/QENSlibrary/QENSmodels (2018).
 
 ## Need help / report a problem / found a bug
 
-Bugs and feature requests are collected at https://github.com/QENSlibrary/QENSmodels/issues.
+Bugs and feature requests are collected at 
+https://github.com/QENSlibrary/QENSmodels/issues.
 
 Add link to websites, email addresses...
 

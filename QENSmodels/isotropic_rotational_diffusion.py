@@ -85,6 +85,7 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=
     Return
     ------
     :class:`~numpy:numpy.ndarray`
+        output array
 
     Examples
     --------
@@ -105,9 +106,10 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=
 
      .. math::
 
-        S(\omega, q) = j_0^2(q \text{radius})\delta(\omega, \text{scale},
-        \text{center}) + \sum_{i=1} ^6 (2i + 1) j_i^2(q\text{radius})
-        \text{Lorentzian}(\omega, \text{scale}, \text{center}, \text{DR} i(i+1))
+        S(q, \omega) &= j_0^2(q\ \text{radius})\delta(\omega, \text{scale},
+        \text{center})\\
+        &+ \sum_{i=1} ^6 (2i + 1) j_i^2(q\ \text{radius})
+        \text{Lorentzian}(\omega, \text{scale}, \text{center}, i(i+1)\text{DR})
 
      where :math:`j_i, i=0..6` are spherical Bessel functions.
 

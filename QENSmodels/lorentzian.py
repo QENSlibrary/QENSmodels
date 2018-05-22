@@ -22,6 +22,7 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
     Return
     ------
     float or :class:`~numpy:numpy.ndarray`
+        output number or array
 
     Examples
     --------

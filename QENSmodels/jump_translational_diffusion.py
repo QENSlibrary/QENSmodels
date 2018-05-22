@@ -3,22 +3,23 @@ import QENSmodels
 
 
 def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
-    """
-    Returns some characteristics of `JumpTranslationalDiffusion`
+    """ Returns some characteristics of `JumpTranslationalDiffusion`
 
     Parameters
     ----------
+
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (in 1/Angstrom)
 
     D: float
-        diffusion coefficient (). Default to 0.23.
+        diffusion coefficient (in Angstrom^2/ps). Default to 0.23.
 
     resTime: float
-        to be added (in ps). Default to 1.25.
+        residence time (in ps). Default to 1.25.
 
     Returns
     -------
+
     hwhm: :class:`~numpy:numpy.ndarray`
         half-width half maximum
 
@@ -29,10 +30,10 @@ def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
         quasi-elastic incoherent structure factor
 
 
-     Notes
+    Notes
     -----
     The default values for the fitting parameters come from the values
-    for water at 298K and 1 atm, water has D=0.230 Angstrom^2/ps and
+    for water at 298K and 1 atm, water has D=0.23 Angstrom^2/ps and
     ResTime=1.25 ps.
 
     """
@@ -47,7 +48,7 @@ def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
 
 def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23, resTime=1.25):
     r""" Lorentzian model with half width half maximum equal to
-    :math: \frac{Dq^2}{1+ \text{resTime}Dq^2}
+    :math:`\frac{Dq^2}{1+ \text{resTime}Dq^2}`
 
     Parameters
     ----------
@@ -74,6 +75,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23, resTime=1.25)
     ------
 
     :class:`~numpy:numpy.ndarray`
+        output array
 
 
     Examples
@@ -93,12 +95,12 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23, resTime=1.25)
 
       .. math::
 
-          S(\omega, q) = \text{Lorentzian}(\omega, \text{scale}, \text{center},
-          \frac{D q^2}{ 1 + \text{resTime} D q^2})
+          S(q, \omega) = \text{Lorentzian}(\omega, \text{scale}, \text{center},
+          \frac{D q^2}{ 1 + \text{resTime}\ D q^2})
 
     * The default values for the fitting parameters come from the values
-    for water at 298K and 1 atm, water has D=0.230 Angstrom^2/ps and
-    ResTime=1.25 ps.
+      for water at 298K and 1 atm, water has D=0.230 Angstrom^2/ps and
+      ResTime=1.25 ps.
 
 
     Reference

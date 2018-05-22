@@ -56,6 +56,7 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
     Return
     ------
     :class:`~numpy:numpy.ndarray`
+        output array
 
     Examples
     --------

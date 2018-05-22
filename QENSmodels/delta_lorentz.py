@@ -33,6 +33,7 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
     Return
     ------
     :class:`~numpy:numpy.ndarray`
+        output array
 
 
     Examples
@@ -47,8 +48,8 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
 
     .. math::
 
-        S(\omega, q) = A_0 \delta(\omega, \text{scale}, \text{center})
-        + (1 - A_0) \text{Lorentzian}(\omega, \text{scale}, \text{center}, \text{hwhm})
+        S(q, \omega) &= A_0 \delta(\omega, \text{scale}, \text{center}) \\
+        &+ (1 - A_0) \text{Lorentzian}(\omega, \text{scale}, \text{center}, \text{hwhm})
 
     """
     w = np.asarray(w, dtype=np.float32)
