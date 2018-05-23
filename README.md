@@ -8,18 +8,22 @@ This project has received funding from the European Union’s Horizon
 
 # Installation
 
-Support Python 2.7 and 3.6
+Support [Python](https://www.python.org/downloads/) 2.7 and 3.6
 
 
 ## Requirements
 
-Python modules:
+Python modules to use the models:
 - [numpy](http://www.numpy.org/)
 
 Note that additional modules are required to run the examples. Details can be
 found in the README file of the *examples* folder.
 
 ## How to install?
+
+### Note: 
+If you want to use a virtual environment, please go to [this link](https://conda.io/docs/user-guide/getting-started.html)
+for instructions. 
 
 - Download or clone the repository which can be found at the following [link](https://github.com/QENSlibrary/QENSmodels)
 
@@ -43,16 +47,8 @@ To **uninstall** the library, type
 pip uninstall QENSmodels
 ```
 
-## How to build documentation?
-
-In a terminal, move to the *docs* folder and type
-
-   `make html`
-
-This command will generate html files in the subfolder *_build/html*.
-
 # Documentation
-The developers' documentation is built using `Sphinx`. The required packages can be
+The documentation is built using `Sphinx`. The required packages can be
 installed using the following commands:
 
 ```
@@ -63,6 +59,15 @@ pip install sphinxcontrib-napoleon
 
 Other ways of installing `Sphinx` at be found at
 http://www.sphinx-doc.org/en/stable/install.html#
+
+
+## How to build documentation?
+
+In a terminal, move to the *docs* folder and type
+
+   `make html`
+
+This command will generate html files in the subfolder *_build/html*.
 
 
 ## License
@@ -99,4 +104,5 @@ Add link to websites, email addresses...
 
 - complete README.md files
 - add tests
+- add models
 - add instructions in installation / setup.py for models and documentation
