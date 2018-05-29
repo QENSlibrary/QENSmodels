@@ -1,4 +1,6 @@
 import numpy as np
+import QENSmodels
+import doctest
 
 
 def delta(x, scale=1, center=0):
@@ -24,11 +26,25 @@ def delta(x, scale=1, center=0):
 
     Examples
     --------
-    >>> QENSmodels.delta([0, 1, 2], 1, 0)
-    array([ 1.,  0.,  0.])
+    >>> delta = QENSmodels.delta([0, 1, 2], 1, 0)
+    >>> delta[0]
+    1.0
+    >>> delta[1]
+    0.0
+    >>> delta[2]
+    0.0
 
-    >>> QENSmodels.delta([0, 1, 2, 3, 4], 5, 2)
-    array([ 0.,  0.,  5.,  0.,  0.])
+    >>> delta = QENSmodels.delta([0, 1, 2, 3, 4], 5, 2)
+    >>> delta[0]
+    0.0
+    >>> delta[1]
+    0.0
+    >>> delta[2]
+    5.0
+    >>> delta[3]
+    0.0
+    >>> delta[4]
+    0.0
 
     Notes
     -----
@@ -61,7 +77,7 @@ def delta(x, scale=1, center=0):
     if isinstance(x, (float, int)):
         x = [float(x)]
 
-    x = np.asarray(x, dtype=np.float32)
+    x = np.asarray(x)
 
     # sort x in ascending order if x has more than 1 element
     if x.size > 1:

@@ -62,7 +62,7 @@ Usage examples (on Windows) and results:
       Residence time = 0.99
           
 '''
-path_to_data = './data/'
+path_to_data = '../examples/data/'
 
 # Read sample
 
@@ -100,7 +100,7 @@ for i in range(len(q)):
     Mq.center.range(-0.1,0.1)
     Mq.D.range(0,1)
     Mq.resTime.range(0,5)
-    #Mq.background.range(0,10)
+    # Mq.background.range(0,10)
 
     # Q-independent parameters
     if i == 0:

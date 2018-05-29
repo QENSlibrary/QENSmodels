@@ -19,7 +19,7 @@ Usage example:
    python -m bumps.cli bumps_waterIN5_fit2.py --fit=dream --samples=1e5 --burn=1e3 --store=QENS2 
  
 '''
-path_to_data = './data/'
+path_to_data = '../examples/data/'
 
 # Data
 

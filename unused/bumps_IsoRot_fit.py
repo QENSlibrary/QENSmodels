@@ -59,7 +59,7 @@ Usage examples (on Windows) and results:
       D_rot = 0.126 
 
 '''
-path_to_data = './data/'
+path_to_data = '../examples/data/'
 
 # Read sample
 

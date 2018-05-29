@@ -1,6 +1,6 @@
 import numpy as np
 import QENSmodels
-
+import doctest
 
 def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
     r""" Lorentzian model
@@ -26,14 +26,17 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
 
     Examples
     --------
-    >>> QENSmodels.lorentzian(1, 1, 1, 1)
-    0.31830988618379069
+    >>> round(QENSmodels.lorentzian(1, 1, 1, 1))
+    0.318
 
-    >>> QENSmodels.lorentzian(3., 2., 2., 5.)
-    0.12242687930145796
+    >>> round(QENSmodels.lorentzian(3., 2., 2., 5.), 3)
+    0.122
 
-    >>> QENSmodels.lorentzian([1, 3.], 1., 1., 1.)
-    array([ 0.31830987,  0.06366198], dtype=float32)
+    >>> result = QENSmodels.lorentzian([1, 3.], 1., 1., 1.)
+    >>> round(result[0], 3)
+    0.318
+    >>> round(result[1], 3)
+    0.064
 
     Notes
     -----
@@ -69,7 +72,7 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
 
     """
     # Input validation
-    x = np.asarray(x, dtype=np.float32)
+    x = np.asarray(x)
 
     if hwhm == 0:
         model = QENSmodels.delta(x, scale, center)

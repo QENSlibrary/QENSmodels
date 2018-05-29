@@ -23,7 +23,35 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
 
     qisf: :class:`~numpy:numpy.ndarray`
         quasi-elastic incoherent structure factor
+
+    Examples
+    --------
+    >>> hwhm, eisf, qisf = QENSmodels.hwhmBrownianTranslationalDiffusion(1.)
+    >>> hwhm[0]
+    1.0
+    >>> eisf[0]
+    0.0
+    >>> qisf[0]
+    1.0
+
+    >>> hwhm, eisf, qisf = QENSmodels.hwhmBrownianTranslationalDiffusion([1., 2.], 1.)
+    >>> hwhm[0]
+    1.0
+    >>> hwhm[1]
+    4.0
+    >>> eisf[0]
+    0.0
+    >>> eisf[1]
+    0.0
+    >>> qisf[0]
+    1.0
+    >>> qisf[1]
+    1.0
+
     """
+    # Input validation
+    q = np.asarray(q, dtype=np.float32)
+
     eisf = np.zeros(q.size)
     qisf = np.ones(q.size)
     hwhm = D * q ** 2
@@ -35,6 +63,10 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
 
 def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
     r""" Lorentzian model with HWHM equal to :math:`Dq^2`
+
+    It corresponds to a continuous long-range isotropic translational diffusion.
+
+    The broadening of the elastic line is q-dependent
 
     Parameters
     ----------
@@ -60,13 +92,23 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
 
     Examples
     --------
-    >>> QENSmodels.sqwBrownianTranslationalDiffusion(1, 1, 1, 0, 1)
-    array([ 0.15915494])
+    >>> sqw = QENSmodels.sqwBrownianTranslationalDiffusion(1, 1, 1, 0, 1)
+    >>> round(sqw, 3)
+    0.159
 
-    >>> QENSmodels.sqwBrownianTranslationalDiffusion([1, 2, 3], [0.3, 0.4], 1, 0, 1)
-    array([[ 0.02841771,  0.0071475 ,  0.00318024],
-           [ 0.04965834,  0.01265143,  0.00564279]])
-
+    >>> sqw = QENSmodels.sqwBrownianTranslationalDiffusion([1, 2, 3], [0.3, 0.4], 1, 0, 1)
+    >>> round(sqw[0, 0], 3)
+    0.028
+    >>> round(sqw[0, 1], 3)
+    0.007
+    >>> round(sqw[0, 2], 3)
+    0.003
+    >>> round(sqw[1, 0], 3)
+    0.05
+    >>> round(sqw[1, 1], 3)
+    0.013
+    >>> round(sqw[1, 2], 3)
+    0.006
 
     Notes
     -----
@@ -79,7 +121,8 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
 
     """
     # Input validation
-    w = np.asarray(w, dtype=np.float32)
+    w = np.asarray(w)
+    # print('w size', w.size)
 
     q = np.asarray(q, dtype=np.float32)
 

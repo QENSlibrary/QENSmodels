@@ -13,7 +13,7 @@ Note that in order to open and run these examples, you need [jupyter](http://jup
 To access the notebooks, type `jupyter notebook` in a terminal and click on
  the notebook you want to open.
 
-The data required to run the notebooks and scripts are located in the `data` 
+The data required to run some of the notebooks and scripts are located in the `data` 
 subfolder.
 
 
@@ -31,7 +31,8 @@ run the following command in a terminal:
 conda update conda
 ```
 
-You can create a new environment, which will contain the required packages
+You can create a new environment (called `mynewenv` in the following example), 
+which will contain the required packages
 
 ```
 conda create --name mynewenv python numpy scipy matplotlib jupyter

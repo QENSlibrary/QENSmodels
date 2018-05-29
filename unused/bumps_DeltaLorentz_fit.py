@@ -69,7 +69,7 @@ Usage examples (on Windows) and results:
       Fitting HWHM = D*Q^2 --> D = 0.032
 
 '''
-path_to_data = './data/'
+path_to_data = '../examples/data/'
 
 # Read sample
 
@@ -81,7 +81,6 @@ err = np.transpose(f['entry1']['data1']['errors'][:])
 f.close()
 
 # Read resolution
-
 f = h5py.File(path_to_data + 'DeltaBrownianDiff_Resol.hdf', 'r')
 res = np.transpose(f['entry1']['data1']['DATA'][:])
 f.close()

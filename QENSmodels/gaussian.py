@@ -1,5 +1,6 @@
 import numpy as np
 import QENSmodels
+import doctest
 
 
 def gaussian(x, scale=1., center=0., sigma=1.):
@@ -26,14 +27,17 @@ def gaussian(x, scale=1., center=0., sigma=1.):
 
     Examples
     --------
-    >>> QENSmodels.gaussian(1, 1, 1, 1)
-    0.3989422804014327
+    >>> round(QENSmodels.gaussian(1, 1, 1, 1), 3)
+    0.399
 
-    >>> QENSmodels.gaussian(3, 2, 2, 5)
-    0.15641707759018236
+    >>> round(QENSmodels.gaussian(3, 2, 2, 5), 3)
+    0.156
 
-    >>> QENSmodels.gaussian([1, 3], 1, 1, 1)
-    array([ 0.39894229,  0.05399097], dtype=float32)
+    >>> result = QENSmodels.gaussian([1, 3], 1, 1, 1)
+    >>> round(result[0], 3)
+    0.399
+    >>> round(result[1], 3)
+    0.054
 
 
     Notes
@@ -69,7 +73,7 @@ def gaussian(x, scale=1., center=0., sigma=1.):
 
 
     """
-    x = np.asarray(x, dtype=np.float32)
+    x = np.asarray(x) # , dtype=np.float32)
 
     if sigma == 0:
         model = QENSmodels.delta(x, scale, center)

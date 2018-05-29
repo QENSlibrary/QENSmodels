@@ -1,5 +1,6 @@
 import numpy as np
 import QENSmodels
+import doctest
 
 
 def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
@@ -30,6 +31,16 @@ def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
         quasi-elastic incoherent structure factor
 
 
+    Examples
+    --------
+    >>> hwhm, eisf, qisf = QENSmodels.hwhmJumpTranslationalDiffusion([1.,2.], 0.5, 1.5)
+    >>> round(hwhm[0], 3), round(hwhm[1], 3)
+    (0.286, 0.5)
+    >>> eisf
+    array([0., 0.])
+    >>> qisf
+    array([1., 1.])
+
     Notes
     -----
     The default values for the fitting parameters come from the values
@@ -37,6 +48,9 @@ def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
     ResTime=1.25 ps.
 
     """
+    # Input validation
+    q = np.asarray(q, dtype=np.float32)
+
     eisf = np.zeros(q.size)
     qisf = np.ones(q.size)
     hwhm = D * q ** 2 / (1.0 + resTime * D * q ** 2)
@@ -80,12 +94,17 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23, resTime=1.25)
 
     Examples
     --------
-    >>> QENSmodels.sqwJumpTranslationalDiffusion([1, 2, 3], 1, 1, 0, 1, 1)
-    array([ 0.12732396,  0.03744822,  0.01720594])
+    >>> sqw = QENSmodels.sqwJumpTranslationalDiffusion([1, 2, 3], 1, 1, 0, 1, 1)
+    >>> round(sqw[0], 3)
+    0.127
+    >>> round(sqw[1], 3)
+    0.037
+    >>> round(sqw[2], 3)
+    0.017
 
-
-    >>> QENSmodels.sqwJumpTranslationalDiffusion(1, 1, 1, 0, 1, 1)
-    array([ 0.12732395])
+    >>> sqw = QENSmodels.sqwJumpTranslationalDiffusion(1, 1, 1, 0, 1, 1)
+    >>> round(sqw[0], 3)
+    0.127
 
 
     Notes
@@ -113,7 +132,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23, resTime=1.25)
 
     """
     # Input validation
-    w = np.asarray(w, dtype=np.float32)
+    w = np.asarray(w) # , dtype=np.float32)
 
     q = np.asarray(q, dtype=np.float32)
 

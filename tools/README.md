@@ -8,3 +8,6 @@ This folder contains tools to extract information from the QENS models
   This notebook displays $S(q, \omega)$ in linear and log scale for a selected 
   model from the QENS library. This model can be convoluted with a Gaussian 
   instrument profile .
+
+- run_doctest.sh
+  This script runs doctest through the models in `QENSmodels`.

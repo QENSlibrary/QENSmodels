@@ -1,6 +1,6 @@
 import numpy as np
 import QENSmodels
-
+import doctest
 
 def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     r"""
@@ -8,7 +8,7 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
 
     Parameters
     ----------
-    w: float, list or :class:`~numpy:numpy.ndarray`
+    w: float
         energy transfer (in ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
@@ -40,15 +40,34 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
 
     Examples
     --------
-    >>> QENSmodels.sqwDeltaTwoLorentz([1, 2, 3], [0.1, 0.2], 1, 1, [1, 1], [1, 1], [0.01, 0.01], [0.01, 0.01])
-    array([[ 1.,  0.,  0.],
-           [ 1.,  0.,  0.]])
+    >>> sqw = QENSmodels.sqwDeltaTwoLorentz([1, 2, 3], [0.1, 0.2], 1, 1, [1, 1], [1, 1], [0.01, 0.01], [0.01, 0.01])
+    >>> sqw[0, 0]
+    1.0
+    >>> sqw[0, 1]
+    0.0
+    >>> sqw[0, 2]
+    0.0
+    >>> sqw[1, 0]
+    1.0
+    >>> sqw[1, 1]
+    0.0
+    >>> sqw[1, 2]
+    0.0
 
 
-    >>>
-    array([[  1.39934275e+01,   7.31505209e-03,   1.82990197e-03],
-           [  6.83568108e+00,   5.71511278e-03,   1.43148794e-03]])
-
+    >>> sqw = QENSmodels.sqwDeltaTwoLorentz([1, 2, 3], [0.05, 0.3], 0.5, 2, [0.75, 0.5], [1, 2], [0.05, 0.04], [0.02, 0.03])
+    >>> round(sqw[0, 0], 3)
+    0.006
+    >>> round(sqw[0, 1], 3)
+    -2.41
+    >>> round(sqw[0, 2], 3)
+    0.006
+    >>> round(sqw[1, 0], 3)
+    0.006
+    >>> round(sqw[1, 1], 3)
+    0.25
+    >>> round(sqw[1, 2], 3)
+    0.006
 
     Notes
     -----
@@ -61,7 +80,7 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     """
 
     # Input validation
-    w = np.asarray(w, dtype=np.float32)
+    w = np.asarray(w)
 
     q = np.asarray(q, dtype=np.float32)
 

@@ -305,7 +305,7 @@ def sqwIsotropicRotationalDiffusion(w, q, scale, center, radius, DR, background,
     # Number of Lorentzians used to represent the infinite sum in R    
     numberLorentz = hwhm.shape[1]
     
-   # Sum of Lorentzians    
+   # Sum of Lorentzians
     for i in range(q.size):
         sqw[i,:] = eisf[i] * delta(w, scale, center)
         for j in range(1, numberLorentz):
@@ -324,7 +324,7 @@ def sqwIsotropicRotationalDiffusion(w, q, scale, center, radius, DR, background,
             else:
                 tmp = np.convolve(sqw[i,:], resolution[i,:]/resolution[i,:].sum()) 
             
-            # Energy axis non necessarily symmetric --> Position model at center                
+            # Energy axis non necessarily symmetric --> Position model at center
             idxMax = np.argmax(tmp)
             idxMin = np.argmin(np.abs(w-center))
             sqw[i,:] = tmp[idxMax-idxMin:idxMax-idxMin+w.size]
@@ -397,5 +397,3 @@ def sqwWaterTeixeira(w, q, scale, center, D, resTime, radius, DR, background, re
          sqw = np.reshape(sqw, w.size)    
 
     return sqw
-         
-

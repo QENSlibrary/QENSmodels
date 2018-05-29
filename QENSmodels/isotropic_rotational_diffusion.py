@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.special import jn
 import QENSmodels
-
+import doctest
 
 def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
     """
@@ -28,7 +28,41 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
 
     qisf: :class:`~numpy:numpy.ndarray`
        quasi-elastic incoherent structure factor
+
+
+    Examples
+    --------
+    >>> hwhm, eisf, qisf = QENSmodels.hwhmIsotropicRotationalDiffusion(1., 1., 1.)
+    >>> hwhm[0, 0]
+    0.0
+    >>> hwhm[0, 1]
+    2.0
+    >>> hwhm[0, 2]
+    6.0
+    >>> hwhm[0, 3]
+    12.0
+    >>> hwhm[0, 4]
+    20.0
+    >>> hwhm[0, 5]
+    30.0
+    >>> round(eisf[0], 3)
+    0.708
+    >>> qisf[0, 0]
+    0.0
+    >>> round(qisf[0, 1], 3)
+    0.272
+    >>> round(qisf[0, 2], 3)
+    0.019
+    >>> round(qisf[0, 3], 3)
+    0.001
+    >>> round(qisf[0, 4], 3)
+    0.0
+    >>> round(qisf[0, 5], 3)
+    0.0
+
     """
+    # input validation
+    q = np.asarray(q, dtype=np.float32)
 
     numberLorentz = 6
     qisf = np.zeros((q.size, numberLorentz))
@@ -55,7 +89,7 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=
     r"""
     Model `Isotropic rotational diffusion` = A_0 delta + Sum of Lorentzians ...
 
-    Continuous rotational diffusion on the surface of a sphere
+    Continuous rotational diffusion on the surface of a sphere of radius `radius`
 
     In this model, the reorientation of the molecule is due to small-angle
     random rotations.
@@ -89,13 +123,28 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=
 
     Examples
     --------
-    >>> QENSmodels.sqwIsotropicRotationalDiffusion([1,2,3], 1, 1, 0, 1, 1)
-    array([ 0.03565415,  0.02258717,  0.01415628])
+    >>> sqw = QENSmodels.sqwIsotropicRotationalDiffusion([1,2,3], 1, 1, 0, 1, 1)
+    >>> round(sqw[0], 3)
+    0.036
+    >>> round(sqw[1], 3)
+    0.023
+    >>> round(sqw[2], 3)
+    0.014
 
 
-    >>> QENSmodels.sqwIsotropicRotationalDiffusion([-0.1, 0., 0.1], [0.3, 0.4], 1, 0, 1, 0.5)
-    array([[  9.30472971e-03,   9.71297465e+00,   9.30472971e-03],
-          [  1.63369580e-02,   9.49441487e+00,   1.63369580e-02]])
+    >>> sqw = QENSmodels.sqwIsotropicRotationalDiffusion([-0.1, 0., 0.1], [0.3, 0.4], 1, 0, 1, 0.5)
+    >>> round(sqw[0, 0], 3)
+    0.009
+    >>> round(sqw[0, 1], 3)
+    9.713
+    >>> round(sqw[0, 2], 3)
+    0.009
+    >>> round(sqw[1, 0], 3)
+    0.016
+    >>> round(sqw[1, 1], 3)
+    9.494
+    >>> round(sqw[1, 2], 3)
+    0.016
 
 
     Notes
@@ -111,12 +160,12 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=
         &+ \sum_{i=1} ^6 (2i + 1) j_i^2(q\ \text{radius})
         \text{Lorentzian}(\omega, \text{scale}, \text{center}, i(i+1)\text{DR})
 
-     where :math:`j_i, i=0..6` are spherical Bessel functions.
+     where :math:`j_i, i=0..6` are spherical Bessel functions of order i.
 
     """
 
     # Input validation
-    w = np.asarray(w, dtype=np.float32)
+    w = np.asarray(w)
 
     q = np.asarray(q, dtype=np.float32)
 

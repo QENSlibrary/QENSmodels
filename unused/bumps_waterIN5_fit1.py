@@ -21,7 +21,7 @@ Usage example:
 '''
 
 # Data
-path_to_data = './data/'
+path_to_data = '../examples/data/'
 
 f = h5py.File(path_to_data + 'H2O_293K_5A.hdf', 'r')
 hw_5A = f['entry1']['data1']['X'][:]

@@ -52,8 +52,9 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1):
     Examples
     --------
 
-    >>> QENSmodels.sqwWaterTeixeira(1,1,1,1,1,1,1,1)
-    array([ 0.48637626])
+    >>> result = QENSmodels.sqwWaterTeixeira(1, 1, 1, 1, 1, 1, 1, 1)
+    >>> round(result[0], 3)
+    0.486
 
     """
     # Input validation
