@@ -10,3 +10,4 @@ from .isotropic_rotational_diffusion import hwhmIsotropicRotationalDiffusion
 from .jump_translational_diffusion import hwhmJumpTranslationalDiffusion
 from .jump_translational_diffusion import sqwJumpTranslationalDiffusion
 from .water_teixeira import sqwWaterTeixeira
+from .background_polynomials import background_polynomials

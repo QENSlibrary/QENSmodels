@@ -26,7 +26,7 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
 
     Examples
     --------
-    >>> round(QENSmodels.lorentzian(1, 1, 1, 1))
+    >>> round(QENSmodels.lorentzian(1, 1, 1, 1), 3)
     0.318
 
     >>> round(QENSmodels.lorentzian(3., 2., 2., 5.), 3)

@@ -69,6 +69,13 @@ In a terminal, move to the *docs* folder and type
 
 This command will generate html files in the subfolder *_build/html*.
 
+# Tests
+The script to run the doctests is located in the `tools` folder.
+
+In a terminal, move to the `tools` directory and run
+```
+./run_doctest.sh
+```
 
 ## License
 
