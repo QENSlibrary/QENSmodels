@@ -80,8 +80,8 @@ def delta(x, scale=1, center=0):
     x = np.asarray(x)
 
     # sort x in ascending order if x has more than 1 element
-    if x.size > 1:
-        x.sort()
+    #if x.size > 1:
+    #    x.sort()
 
     model = np.zeros(x.size)
 

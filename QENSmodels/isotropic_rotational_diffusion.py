@@ -3,6 +3,7 @@ from scipy.special import jn
 import QENSmodels
 import doctest
 
+
 def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
     """
     Returns some characteristics of `IsotropicRotationalDiffusion`
@@ -71,8 +72,7 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
     arg = q * radius
     idx = np.argwhere(arg == 0)
     for i in range(numberLorentz):
-        jl[:, i] = np.sqrt(np.pi / 2 / arg) * jn(i + 0.5,
-                                                 arg)  # to solve warnings for arg=0
+        jl[:, i] = np.sqrt(np.pi / 2. / arg) * jn(i + 0.5, arg)  # to solve warnings for arg=0
         hwhm[:, i] = np.repeat(i * (i + 1) * DR, q.size)
         if idx.size > 0:
             if i == 0:
