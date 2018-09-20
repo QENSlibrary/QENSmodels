@@ -9,9 +9,13 @@ Note that in order to open and run these examples, you need [jupyter](http://jup
 [bumps](https://github.com/bumps/bumps) (optional),
 [h5py](https://www.h5py.org/) (for some of the examples).
 
-
 To access the notebooks, type `jupyter notebook` in a terminal and click on
  the notebook you want to open.
+
+
+The notebooks, whose names start with `mantid`, require [Mantid](http://www.mantidproject.org/Main_Page) to be installed on your computer.
+How to run these last notebooks is described [here](https://www.mantidproject.org/Using_IPython_Notebook).
+
 
 The data required to run some of the notebooks and scripts are located in the `data` 
 subfolder.
@@ -43,7 +47,7 @@ Note that you can specify which version of `Python`. For example,
 
 Then activate the environment and install the remaining packages
 ```
-source activate mynewenv
+conda activate mynewenv
 conda install -c conda-forge h5py
 ```
 Finally, install the library
