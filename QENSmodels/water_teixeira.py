@@ -58,7 +58,7 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1):
 
     """
     # Input validation
-    w = np.asarray(q, dtype=np.float32)
+    w = np.asarray(w, dtype=np.float32)
 
     q = np.asarray(q, dtype=np.float32)
 

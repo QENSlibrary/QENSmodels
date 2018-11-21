@@ -4,7 +4,7 @@ import doctest
 
 def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     r"""
-    Model = A0*delta + A1*Lorentzian(Gamma1) + (1-A0-A1)*Lorentzian(Gamma2)
+    Model = A0*delta + A1*Lorentzian1 + (1-A0-A1)*Lorentzian2
 
     Parameters
     ----------
