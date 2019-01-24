@@ -3,7 +3,7 @@ from numpy.polynomial import Polynomial as P
 import QENSmodels
 
 
-def background_polynomials(w,list_coefficients=0.0):
+def background_polynomials(w, list_coefficients=0.0):
     r"""
     Polynomials of variable `w` and with coefficients contained in
     'list_coefficients'
@@ -36,7 +36,7 @@ def background_polynomials(w,list_coefficients=0.0):
     array([ 6., 17., 34.])
     """
 
-    w = np.asarray(w) # , dtype=np.float32)
+    w = np.asarray(w)  # , dtype=np.float32)
 
     # check that list_coeff is a list and all elements are numbers
 

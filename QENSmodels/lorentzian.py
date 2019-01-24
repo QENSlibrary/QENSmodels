@@ -2,6 +2,7 @@ import numpy as np
 import QENSmodels
 import doctest
 
+
 def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
     r""" Lorentzian model
 

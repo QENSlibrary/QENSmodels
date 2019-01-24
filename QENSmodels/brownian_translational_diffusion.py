@@ -122,7 +122,6 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
     """
     # Input validation
     w = np.asarray(w)
-    # print('w size', w.size)
 
     q = np.asarray(q, dtype=np.float32)
 
