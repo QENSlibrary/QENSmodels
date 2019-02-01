@@ -10,9 +10,10 @@ Welcome to QENSmodels's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   description
    modules
+   tools
    references
-
 
 
 Indices and tables

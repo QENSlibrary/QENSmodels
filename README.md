@@ -52,6 +52,7 @@ installed using the following commands:
 pip install sphinx
 pip install sphinx-rtd-theme
 pip install sphinxcontrib-napoleon
+pip install m2r
 ```
 
 Other ways of installing `Sphinx` at be found at
