@@ -101,6 +101,11 @@ particular notebook.
 "QENS models, version 1",<br>
 https://github.com/QENSlibrary/QENSmodels (2018).
 
+## How to contribute?
+
+If you are interested in contributing to this project, please refer to the
+ [CONTRIBUTING document](https://github.com/QENSlibrary/QENSmodels/blob/master/CONTRIBUTING.md)
+
 ## Need help / found a bug
 
 Bugs and feature requests are collected at 
@@ -111,3 +116,5 @@ If you are reporting a bug, please include:
 - Your operating system name and version.
 - Any details about your local setup that might be helpful in troubleshooting.
 - Detailed steps to reproduce the bug.
+
+

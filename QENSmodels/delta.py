@@ -1,6 +1,7 @@
+from __future__ import print_function
+import doctest
 import numpy as np
 import QENSmodels
-import doctest
 
 
 def delta(x, scale=1, center=0):
