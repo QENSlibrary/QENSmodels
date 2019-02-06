@@ -13,21 +13,6 @@ changes and help you finalize your pull requests.
 If you have direct contributions you would like considered for incorporation 
 into the project you can fork this repository and submit a pull request for review.
 
-People interested can contribute to the project in different ways:
-1. adding QENS models
-2. adding new examples of fitting using some of the QENS models and the 
-  fitting engine of their choice 
-  
-### New QENS models
-
-- Contributed models should be written in `Python` (compatibility with 
-  `Python 3.x` is preferred).
-- For each new model, a Python script should be provided alongside with some 
- documentation and tests.
-- Once ready, you need to upload the `Python` source code files to the 
-[git repository](https://github.com/QENSlibrary/QENSmodels) by submitting a 
-pull request.
-
 
 Contributors feeling unsure or inexperienced about contributing to an open-source 
 repository are referred to [this tutorial](https://github.com/firstcontributions/first-contributions).
@@ -37,20 +22,38 @@ series
 [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github) 
 
 
+People interested can contribute to the project in different ways:
+1. adding QENS models
+2. adding new examples of fitting using some of the QENS models and the 
+  fitting engine of their choice 
+  
+### New QENS models
+
+- Contributed models should be written in `Python` (compatibility with 
+  `Python 3.x` is preferred).
+- For each new model, a Python script should be provided alongside some 
+ documentation and tests.
+- Once ready, you need to upload the `Python` source code files to the 
+[git repository](https://github.com/QENSlibrary/QENSmodels) by submitting a 
+pull request.
+
+
+
 #### Python script
 - It should be placed in the `QENS models` folder.
 - The [`doctest`](https://docs.python.org/2/library/doctest.html) module has 
   to be imported (*i.e.* paste `import doctest` at the beginning of your 
   `Python` script).
 - Each function should have a docstring specifying its name, parameters, a 
-  short description and some examples. Please refer to the existing models 
+  short description and some examples. These examples will be used when 
+  running `doctest`. Please refer to the existing models 
   for help. A more general template for docstring can be found [here](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html). 
 - And before submitting your pull request, check that your script, test and 
 built of the documentation run on your machine. 
 
 #### Documentation
 
-- For the QENS models' library, the documentation is built using `Sphinx`.
+- For the QENS models' library, the documentation is built using [`Sphinx`](http://www.sphinx-doc.org/en/master/).
 - The related files are located in the `docs` folder.
 - In addition, as mentioned in the previous section, each model should contain a 
   self-contained description. 
@@ -63,11 +66,15 @@ built of the documentation run on your machine.
     * physical model
     * reference to publication (if any)
     * steps leading to the final results 
-      (reduction, convolution of functions, normalization...)
+      (reduction, convolution of different models, normalization...)
+    * choice of minimizer and link to its documentation
 - If additional reference datasets are required, they can be stored in 
 the `/examples/data` folder. But the preferred option is to generate these 
 reference data on the fly in the notebook or script without creating any 
 permanent external file.
+- If additional `Python` modules are used in the new notebook or script, 
+please add them to the list of requirements in the [README](./examples/README.md) file 
+located in the `examples` directory.
        
 
 ## Other issues
