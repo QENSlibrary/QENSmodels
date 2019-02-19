@@ -1,6 +1,10 @@
+from __future__ import print_function
 import numpy as np
-import QENSmodels
-import doctest
+
+try:
+    import QENSmodels
+except ImportError:
+    print('Module QENSmodels not found')
 
 
 def gaussian(x, scale=1., center=0., sigma=1.):
@@ -27,13 +31,13 @@ def gaussian(x, scale=1., center=0., sigma=1.):
 
     Examples
     --------
-    >>> round(QENSmodels.gaussian(1, 1, 1, 1), 3)
+    >>> round(gaussian(1, 1, 1, 1), 3)
     0.399
 
-    >>> round(QENSmodels.gaussian(3, 2, 2, 5), 3)
+    >>> round(gaussian(3, 2, 2, 5), 3)
     0.156
 
-    >>> result = QENSmodels.gaussian([1, 3], 1, 1, 1)
+    >>> result = gaussian([1, 3], 1, 1, 1)
     >>> round(result[0], 3)
     0.399
     >>> round(result[1], 3)
@@ -57,7 +61,8 @@ def gaussian(x, scale=1., center=0., sigma=1.):
     * **Equivalence**
 
       ``Gaussian`` corresponds to the following implementations in
-      `Mantid <http://docs.mantidproject.org/nightly/fitfunctions/Gaussian.html>`_
+      `Mantid
+      <http://docs.mantidproject.org/nightly/fitfunctions/Gaussian.html>`_
 
       +--------------+----------------------------------------+
       | Equivalence  | Mantid                                 |
@@ -73,7 +78,7 @@ def gaussian(x, scale=1., center=0., sigma=1.):
 
 
     """
-    x = np.asarray(x) # , dtype=np.float32)
+    x = np.asarray(x)  # , dtype=np.float32)
 
     if sigma == 0:
         model = QENSmodels.delta(x, scale, center)
@@ -81,3 +86,8 @@ def gaussian(x, scale=1., center=0., sigma=1.):
         model = scale * np.exp(-(x - center)**2/(2.*sigma**2)) \
                 / (sigma*np.sqrt(2*np.pi))
     return model
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

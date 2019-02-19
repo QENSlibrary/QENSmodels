@@ -1,6 +1,6 @@
 import numpy as np
+
 import QENSmodels
-import doctest
 
 
 def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
@@ -27,13 +27,13 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
 
     Examples
     --------
-    >>> round(QENSmodels.lorentzian(1, 1, 1, 1), 3)
+    >>> round(lorentzian(1, 1, 1, 1), 3)
     0.318
 
-    >>> round(QENSmodels.lorentzian(3., 2., 2., 5.), 3)
+    >>> round(lorentzian(3., 2., 2., 5.), 3)
     0.122
 
-    >>> result = QENSmodels.lorentzian([1, 3.], 1., 1., 1.)
+    >>> result = lorentzian([1, 3.], 1., 1., 1.)
     >>> round(result[0], 3)
     0.318
     >>> round(result[1], 3)
@@ -50,12 +50,13 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
        {(x-\text{center})^2+\text{hwhm}^2}
 
     * Note that the maximum of a Lorentzian is
-      :math:`\text{Lorentzian}(\text{center}, \text{scale}, \text{center}, \text{hwhm})=
-      \frac{\text{scale}}{\pi \text{hwhm}}`.
+      :math:`\text{Lorentzian}(\text{center}, \text{scale}, \text{center},
+      \text{hwhm})=\frac{\text{scale}}{\pi \text{hwhm}}`.
 
     * **Equivalence**
       ``Lorentzian`` corresponds to the following implementations in
-      `Mantid <http://docs.mantidproject.org/nightly/fitfunctions/Lorentzian.html>`_
+      `Mantid
+      <http://docs.mantidproject.org/nightly/fitfunctions/Lorentzian.html>`_
       and
       `DAVE <https://www.ncnr.nist.gov/dave/documentation/pandoc_DAVE.pdf>`_
 
@@ -81,3 +82,8 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
         model = scale * hwhm / ((x-center)**2 + hwhm**2) / np.pi
 
     return model
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

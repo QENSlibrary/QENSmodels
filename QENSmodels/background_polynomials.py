@@ -1,6 +1,6 @@
+from __future__ import print_function
 import numpy as np
 from numpy.polynomial import Polynomial as P
-import QENSmodels
 
 
 def background_polynomials(w, list_coefficients=0.0):
@@ -26,13 +26,13 @@ def background_polynomials(w, list_coefficients=0.0):
 
     Examples
     --------
-    >>> QENSmodels.background_polynomials(5, 1)
-    '1.0'
+    >>> background_polynomials(5, 1)
+    1.0
 
-    >>> QENSmodels.background_polynomials(5, [1, 2])
-    '11.0'
+    >>> background_polynomials(5, [1, 2])
+    11.0
 
-    >>> QENSmodels.background_polynomials([1,2,3], [1,2,3])
+    >>> background_polynomials([1,2,3], [1,2,3])
     array([ 6., 17., 34.])
     """
 
@@ -51,3 +51,8 @@ def background_polynomials(w, list_coefficients=0.0):
 
     else:
         raise ValueError('problem with input')
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

@@ -1,6 +1,11 @@
+from __future__ import print_function
 import numpy as np
-import QENSmodels
-import doctest
+
+try:
+    import QENSmodels
+except ImportError:
+    print('Module QENSmodels not found')
+
 
 def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     r"""
@@ -40,7 +45,7 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
 
     Examples
     --------
-    >>> sqw = QENSmodels.sqwDeltaTwoLorentz([1, 2, 3], [0.1, 0.2], 1, 1, [1, 1], [1, 1], [0.01, 0.01], [0.01, 0.01])
+    >>> sqw = sqwDeltaTwoLorentz([1, 2, 3], [0.1, 0.2], 1, 1, [1, 1], [1, 1], [0.01, 0.01], [0.01, 0.01])  # noqa: E501
     >>> sqw[0, 0]
     1.0
     >>> sqw[0, 1]
@@ -55,7 +60,7 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     0.0
 
 
-    >>> sqw = QENSmodels.sqwDeltaTwoLorentz([1, 2, 3], [0.05, 0.3], 0.5, 2, [0.75, 0.5], [1, 2], [0.05, 0.04], [0.02, 0.03])
+    >>> sqw = sqwDeltaTwoLorentz([1, 2, 3], [0.05, 0.3], 0.5, 2, [0.75, 0.5], [1, 2], [0.05, 0.04], [0.02, 0.03])  # noqa: E501
     >>> round(sqw[0, 0], 3)
     0.006
     >>> round(sqw[0, 1], 3)
@@ -74,8 +79,10 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     .. math::
 
         S(q, \omega) &= A_0 \text{delta}(\omega - \text{center}) \\
-        &+ A_1 \text{Lorentzian}(\omega, \text{scale}, \text{center}, \text{hwhm}_1) \\
-        &+ (1 - A_0 - A_1) \text{Lorentzian}(\omega, \text{scale}, \text{center}, \text{hwhm}_2)
+        &+ A_1 \text{Lorentzian}(\omega, \text{scale}, \text{center},
+        \text{hwhm}_1) \\
+        &+ (1 - A_0 - A_1) \text{Lorentzian}(\omega, \text{scale},
+        \text{center}, \text{hwhm}_2)
 
     """
 
@@ -120,3 +127,8 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
         sqw = np.reshape(sqw, w.size)
 
     return sqw
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

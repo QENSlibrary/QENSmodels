@@ -1,6 +1,10 @@
+from __future__ import print_function
 import numpy as np
-import QENSmodels
-import doctest
+
+try:
+    import QENSmodels
+except ImportError:
+    print('Module QENSmodels not found')
 
 
 def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
@@ -39,7 +43,7 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
 
     Examples
     --------
-    >>> sqw = QENSmodels.sqwDeltaLorentz([1, 2, 3], 0.1)
+    >>> sqw = sqwDeltaLorentz([1, 2, 3], 0.1)
     >>> round(sqw[0], 1)
     0.2
     >>> round(sqw[1], 3)
@@ -55,7 +59,8 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
     .. math::
 
         S(q, \omega) &= A_0 \delta(\omega, \text{scale}, \text{center}) \\
-        &+ (1 - A_0) \text{Lorentzian}(\omega, \text{scale}, \text{center}, \text{hwhm})
+        &+ (1 - A_0) \text{Lorentzian}(\omega, \text{scale}, \text{center},
+                                    \text{hwhm})
 
     """
     w = np.asarray(w)
@@ -70,8 +75,8 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
     if q.size > 1:
         for i in range(q.size):
             sqw[i, :] = A0[i] * QENSmodels.delta(w, scale, center)
-            sqw[i, :] += (1-A0[i]) \
-                         * QENSmodels.lorentzian(w, scale, center, hwhm[i])
+            sqw[i, :] += (1-A0[i]) * \
+                         QENSmodels.lorentzian(w, scale, center, hwhm[i])  # noqa: E127, E501
     else:
         sqw[0, :] = A0 * QENSmodels.delta(w, scale, center)
         sqw[0, :] += (1-A0) * QENSmodels.lorentzian(w, scale, center, hwhm)
@@ -82,3 +87,8 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
         sqw = np.reshape(sqw, w.size)
 
     return sqw
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

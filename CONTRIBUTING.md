@@ -34,9 +34,8 @@ People interested can contribute to the project in different ways:
 - For each new model, a Python script should be provided alongside some 
  documentation and tests.
 - Once ready, you need to upload the `Python` source code files to the 
-[git repository](https://github.com/QENSlibrary/QENSmodels) by submitting a 
-pull request.
-
+  [git repository](https://github.com/QENSlibrary/QENSmodels) by submitting a 
+  pull request.
 
 
 #### Python script
@@ -47,21 +46,26 @@ pull request.
 - Each function should have a docstring specifying its name, parameters, a 
   short description and some examples. These examples will be used when 
   running `doctest`. Please refer to the existing models 
-  for help. A more general template for docstring can be found [here](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html). 
-- And before submitting your pull request, check that your script, test and 
-built of the documentation run on your machine. 
+  for help. A more general template for docstring can be found 
+  [here](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html). 
+- And before submitting your pull request, check that your script, tests and 
+  built of the documentation run on your machine. Please also run ``flake8`` 
+  to check your code matches the project style (by running, for example, 
+  `flake8 new_python_script.py`).
 
 #### Documentation
 
-- For the QENS models' library, the documentation is built using [`Sphinx`](http://www.sphinx-doc.org/en/master/).
+- For the QENS models' library, the documentation is built using 
+  [`Sphinx`](http://www.sphinx-doc.org/en/master/).
 - The related files are located in the `docs` folder.
-- In addition, as mentioned in the previous section, each model should contain a 
-  self-contained description. 
+- In addition, as mentioned in the previous section, each model should contain 
+  a self-contained description. 
 
 
 ### New examples
     
-- Contributed examples should use `Jupyter` notebooks (preferred) or `Python` scripts.
+- Contributed examples should use `Jupyter` notebooks (preferred) or `Python` 
+  scripts.
 - Please add a maximum of information about the case being described: 
     * physical model
     * reference to publication (if any)
@@ -73,8 +77,8 @@ the `/examples/data` folder. But the preferred option is to generate these
 reference data on the fly in the notebook or script without creating any 
 permanent external file.
 - If additional `Python` modules are used in the new notebook or script, 
-please add them to the list of requirements in the [README](./examples/README.md) file 
-located in the `examples` directory.
+please add them to the list of requirements in the 
+[README](./examples/README.md) file located in the `examples` directory.
        
 
 ## Other issues

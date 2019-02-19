@@ -1,6 +1,10 @@
+from __future__ import print_function
 import numpy as np
-import QENSmodels
-import doctest
+
+try:
+    import QENSmodels
+except ImportError:
+    print('Module QENSmodels not found')
 
 
 def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
@@ -33,7 +37,7 @@ def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
 
     Examples
     --------
-    >>> hwhm, eisf, qisf = QENSmodels.hwhmJumpTranslationalDiffusion([1.,2.], 0.5, 1.5)
+    >>> hwhm, eisf, qisf = hwhmJumpTranslationalDiffusion([1., 2.], 0.5, 1.5)
     >>> round(hwhm[0], 3), round(hwhm[1], 3)
     (0.286, 0.5)
     >>> eisf
@@ -60,7 +64,8 @@ def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
     return hwhm, eisf, qisf
 
 
-def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23, resTime=1.25):
+def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
+                                  resTime=1.25):
     r""" Lorentzian model with half width half maximum equal to
     :math:`\frac{Dq^2}{1+ \text{resTime}Dq^2}`
 
@@ -94,7 +99,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23, resTime=1.25)
 
     Examples
     --------
-    >>> sqw = QENSmodels.sqwJumpTranslationalDiffusion([1, 2, 3], 1, 1, 0, 1, 1)
+    >>> sqw = sqwJumpTranslationalDiffusion([1, 2, 3], 1, 1, 0, 1, 1)
     >>> round(sqw[0], 3)
     0.127
     >>> round(sqw[1], 3)
@@ -102,7 +107,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23, resTime=1.25)
     >>> round(sqw[2], 3)
     0.017
 
-    >>> sqw = QENSmodels.sqwJumpTranslationalDiffusion(1, 1, 1, 0, 1, 1)
+    >>> sqw = sqwJumpTranslationalDiffusion(1, 1, 1, 0, 1, 1)
     >>> round(sqw[0], 3)
     0.127
 
@@ -132,7 +137,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23, resTime=1.25)
 
     """
     # Input validation
-    w = np.asarray(w) # , dtype=np.float32)
+    w = np.asarray(w)  # , dtype=np.float32)
 
     q = np.asarray(q, dtype=np.float32)
 
@@ -152,3 +157,8 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23, resTime=1.25)
         sqw = np.reshape(sqw, w.size)
 
     return sqw
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

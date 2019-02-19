@@ -1,5 +1,11 @@
+from __future__ import print_function
+# import doctest
 import numpy as np
-import QENSmodels
+
+try:
+    import QENSmodels
+except ImportError:
+    print('Module QENSmodels not found')
 
 
 def hwhmBrownianTranslationalDiffusion(q, D=1.):
@@ -26,7 +32,7 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
 
     Examples
     --------
-    >>> hwhm, eisf, qisf = QENSmodels.hwhmBrownianTranslationalDiffusion(1.)
+    >>> hwhm, eisf, qisf = hwhmBrownianTranslationalDiffusion(1.)
     >>> hwhm[0]
     1.0
     >>> eisf[0]
@@ -34,7 +40,7 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
     >>> qisf[0]
     1.0
 
-    >>> hwhm, eisf, qisf = QENSmodels.hwhmBrownianTranslationalDiffusion([1., 2.], 1.)
+    >>> hwhm, eisf, qisf = hwhmBrownianTranslationalDiffusion([1., 2.], 1.)
     >>> hwhm[0]
     1.0
     >>> hwhm[1]
@@ -64,7 +70,8 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
 def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
     r""" Lorentzian model with HWHM equal to :math:`Dq^2`
 
-    It corresponds to a continuous long-range isotropic translational diffusion.
+    It corresponds to a continuous long-range isotropic translational
+    diffusion.
 
     The broadening of the elastic line is q-dependent
 
@@ -92,11 +99,11 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
 
     Examples
     --------
-    >>> sqw = QENSmodels.sqwBrownianTranslationalDiffusion(1, 1, 1, 0, 1)
+    >>> sqw = sqwBrownianTranslationalDiffusion(1, 1, 1, 0, 1)
     >>> round(sqw, 3)
     0.159
 
-    >>> sqw = QENSmodels.sqwBrownianTranslationalDiffusion([1, 2, 3], [0.3, 0.4], 1, 0, 1)
+    >>> sqw = sqwBrownianTranslationalDiffusion([1, 2, 3], [0.3, 0.4], 1, 0, 1)
     >>> round(sqw[0, 0], 3)
     0.028
     >>> round(sqw[0, 1], 3)
@@ -141,3 +148,8 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
         sqw = np.reshape(sqw, w.size)
 
     return sqw
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

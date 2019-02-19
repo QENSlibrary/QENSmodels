@@ -1,7 +1,11 @@
+from __future__ import print_function
 import numpy as np
 from scipy.special import jn
-import QENSmodels
-import doctest
+
+try:
+    import QENSmodels
+except ImportError:
+    print('Module QENSmodels not found')
 
 
 def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
@@ -33,7 +37,7 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
 
     Examples
     --------
-    >>> hwhm, eisf, qisf = QENSmodels.hwhmIsotropicRotationalDiffusion(1., 1., 1.)
+    >>> hwhm, eisf, qisf = hwhmIsotropicRotationalDiffusion(1., 1., 1.)
     >>> hwhm[0, 0]
     0.0
     >>> hwhm[0, 1]
@@ -72,7 +76,10 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
     arg = q * radius
     idx = np.argwhere(arg == 0)
     for i in range(numberLorentz):
-        jl[:, i] = np.sqrt(np.pi / 2. / arg) * jn(i + 0.5, arg)  # to solve warnings for arg=0
+
+        # to solve warnings for arg=0
+        jl[:, i] = np.sqrt(np.pi / 2. / arg) * jn(i + 0.5, arg)
+
         hwhm[:, i] = np.repeat(i * (i + 1) * DR, q.size)
         if idx.size > 0:
             if i == 0:
@@ -85,11 +92,13 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
     return hwhm, eisf, qisf
 
 
-def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=1.0):
+def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0,
+                                    DR=1.0):
     r"""
     Model `Isotropic rotational diffusion` = A_0 delta + Sum of Lorentzians ...
 
-    Continuous rotational diffusion on the surface of a sphere of radius `radius`
+    Continuous rotational diffusion on the surface of a sphere of radius
+    `radius`
 
     In this model, the reorientation of the molecule is due to small-angle
     random rotations.
@@ -123,7 +132,7 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=
 
     Examples
     --------
-    >>> sqw = QENSmodels.sqwIsotropicRotationalDiffusion([1,2,3], 1, 1, 0, 1, 1)
+    >>> sqw = sqwIsotropicRotationalDiffusion([1,2,3], 1, 1, 0, 1, 1)
     >>> round(sqw[0], 3)
     0.036
     >>> round(sqw[1], 3)
@@ -132,7 +141,7 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=
     0.014
 
 
-    >>> sqw = QENSmodels.sqwIsotropicRotationalDiffusion([-0.1, 0., 0.1], [0.3, 0.4], 1, 0, 1, 0.5)
+    >>> sqw = sqwIsotropicRotationalDiffusion([-0.1, 0., 0.1], [0.3, 0.4], 1, 0, 1, 0.5)  # noqa: E501
     >>> round(sqw[0, 0], 3)
     0.009
     >>> round(sqw[0, 1], 3)
@@ -182,7 +191,8 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=
     for i in range(q.size):
         sqw[i, :] = eisf[i] * QENSmodels.delta(w, scale, center)
         for j in range(1, numberLorentz):
-            sqw[i, :] += qisf[i, j] * QENSmodels.lorentzian(w, scale, center, hwhm[i, j])
+            sqw[i, :] += qisf[i, j] * QENSmodels.lorentzian(w, scale, center,
+                                                            hwhm[i, j])
 
     # For Bumps use (needed for final plotting)
     # Using a 'Curve' in bumps for each Q --> needs vector array
@@ -190,3 +200,8 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0, DR=
         sqw = np.reshape(sqw, w.size)
 
     return sqw
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

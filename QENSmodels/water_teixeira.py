@@ -1,10 +1,14 @@
 import numpy as np
-import QENSmodels
+
+try:
+    import QENSmodels
+except ImportError:
+    print('Module QENSmodels not found')
 
 
 def sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1):
-    r""" Model corresponding to the convolution of `Jump Translational diffusion`
-    (model T) and `Isotropic rotational diffusion` (model R)
+    r""" Model corresponding to the convolution of `Jump Translational
+    diffusion` (model T) and `Isotropic rotational diffusion` (model R)
 
 
     Model = convolution(T, R)
@@ -52,7 +56,7 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1):
     Examples
     --------
 
-    >>> result = QENSmodels.sqwWaterTeixeira(1, 1, 1, 1, 1, 1, 1, 1)
+    >>> result = sqwWaterTeixeira(1, 1, 1, 1, 1, 1, 1, 1)
     >>> round(result[0], 3)
     0.486
 
@@ -66,18 +70,21 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1):
     sqw = np.zeros((q.size, w.size))
 
     # Get widths, EISFs and QISFs of each model
-    hwhm1, eisf1, qisf1 = QENSmodels.jump_translational_diffusion.hwhmJumpTranslationalDiffusion(q, D, resTime)
-    hwhm2, eisf2, qisf2 = QENSmodels.isotropic_rotational_diffusion.hwhmIsotropicRotationalDiffusion(q, radius, DR)
+    hwhm1, eisf1, qisf1 = QENSmodels.jump_translational_diffusion.\
+        hwhmJumpTranslationalDiffusion(q, D, resTime)
+    hwhm2, eisf2, qisf2 = QENSmodels.isotropic_rotational_diffusion.\
+        hwhmIsotropicRotationalDiffusion(q, radius, DR)
 
     # Number of Lorentzians used to represent the infinite sum in R
     numberLorentz = hwhm2.shape[1]
 
     # Sum of Lorentzians giving the full model
     for i in range(q.size):
-        sqw[i, :] = eisf2[i] * QENSmodels.lorentzian(w, scale, center, hwhm1[i])
+        sqw[i, :] = eisf2[i] * QENSmodels.lorentzian(w, scale, center,
+                                                     hwhm1[i])
         for j in range(1, numberLorentz):
             sqw[i, :] += qisf2[i, j] * QENSmodels.lorentzian(w, scale, center,
-                                               hwhm1[i] + hwhm2[i, j])
+                                                             hwhm1[i] + hwhm2[i, j])  # noqa: E501
 
     # For Bumps use (needed for final plotting)
     # Using a 'Curve' in bumps for each Q --> needs vector array
@@ -85,3 +92,8 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1):
         sqw = np.reshape(sqw, w.size)
 
     return sqw
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()

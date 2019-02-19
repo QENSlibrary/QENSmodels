@@ -10,8 +10,9 @@ Support [Python](https://www.python.org/downloads/) 2.7 and 3.6
 
 ## Requirements
 
-Python modules to use the models:
-- [numpy](http://www.numpy.org/)  
+Python modules to use and test the models:
+- [numpy](http://www.numpy.org/)
+- [flake8](http://flake8.pycqa.org/en/latest/) 
 
 Additional modules are required to run the examples. Details can be
 found in the README file of the *examples* folder.
@@ -30,9 +31,16 @@ command in a terminal
 ```
 pip install --user full_path/to/QENSmodels_folder
 ```
+
+[//]: #  ( git clone https://github.com/QENSlibrary/QENSmodels.git)
+[//]: #  (cd QENSmodels)
+[//]: #  (python )
+
 See [the documentation on pip install](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) for additional information. Run `pip show QENSmodels` to display details about the installed package.
 
 To **test the installation**, type the following command in a terminal
+
+
 
 ```
 python -c "import QENSmodels"

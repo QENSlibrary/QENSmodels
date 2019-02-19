@@ -3,6 +3,8 @@ try:
 except ImportError:
     from distutils.core import setup
 
+author_list = ['Céline Durniak', 'Miguel Gonzalez', 'Anders Markvardsen']
+authors = ', '.join(author_list[:-1]) + ', and ' + author_list[-1]
 
 short = 'Library of models for fitting QENS data'
 
@@ -10,8 +12,9 @@ setup(name='QENSmodels',
       version='0.1',
       description=short,
       url='https://github.com/QENSlibrary/QENSmodels',
-      author='to be added',
+      author=authors,
       author_email='to be added',
       license=open('LICENSE.txt').read(),
       packages=['QENSmodels'],
-      zip_safe=False)
+      install_requires=['numpy', 'flake8'],
+      zip_safe=False,)
