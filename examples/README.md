@@ -23,8 +23,7 @@ How to run these last notebooks is described
 
 
 The data required to run some of the notebooks and scripts are located in the 
-`data` 
-subfolder.
+`data` subfolder.
 
 
 ## Using the jupyter notebooks
