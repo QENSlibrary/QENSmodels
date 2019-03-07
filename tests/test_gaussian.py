@@ -1,0 +1,50 @@
+import unittest
+import numpy
+
+import QENSmodels
+
+
+class TestGaussian(unittest.TestCase):
+    """ Tests QENSmodels.gaussian function"""
+
+    def test_type_output(self):
+        """ Test type of output depending on type of input """
+        # variable is a float
+        self.assertIsInstance(QENSmodels.gaussian(3, 1, 1, 1), numpy.float64)
+        # variable is an array
+        self.assertIsInstance(QENSmodels.gaussian([1, 3], 1, 1, 1),
+                              numpy.ndarray)
+
+    def test_length_output(self):
+        """ Test length of output depending on length of input """
+        input_array = [1, 3]
+        self.assertEqual(len(QENSmodels.gaussian(input_array, 1, 1, 1)),
+                         len(input_array))
+
+        input_array1 = [1, 2, 3]
+        self.assertEqual(len(QENSmodels.gaussian(input_array1, 1, 1, 1)),
+                         len(input_array1))
+
+    def test_reference_data(self):
+        """ Test output values in comparison with reference data
+                   (file in 'reference data' folder) """
+
+        # load reference data
+        ref_data = numpy.loadtxt("./reference_data/gaussian_ref_data.dat")
+
+        # generate data from current model
+        # for info: the parameters' values used for the reference data are
+        # specified in the README file in the 'reference data' folder
+        w = numpy.arange(-2, 2.01, 0.01)
+        actual_data = numpy.column_stack([w,
+                                          QENSmodels.gaussian(w,
+                                                              scale=1,
+                                                              center=0.25,
+                                                              sigma=0.4)])
+
+        # compare the 2 arrays
+        numpy.testing.assert_array_almost_equal(ref_data, actual_data)
+
+
+if __name__ == '__main__':
+    unittest.main()

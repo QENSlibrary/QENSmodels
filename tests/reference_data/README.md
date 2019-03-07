@@ -9,7 +9,7 @@ following reference data files.
 If the model contains more than one function, only the expression of `S(q, w)` 
 was considered and recorded in the data file.
 
-For the momentum transfer, we chose `q=0.71/Angstrom` to `q = numpy.arange(0.25, 2.1, 0.25)`.
+For the momentum transfer, we chose `q = 0.71/Angstrom`.
 
 
 - background_polynomials_ref_data.dat
