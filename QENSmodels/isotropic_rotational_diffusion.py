@@ -67,13 +67,21 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
 
     """
     # input validation
+    if radius <= 0:
+        raise ValueError('radius should be positive')
+    if DR <= 0:
+        raise ValueError('DR, the rotational diffusion coefficient, '
+                         'should be positive')
+
     q = np.asarray(q, dtype=np.float32)
 
     numberLorentz = 6
     qisf = np.zeros((q.size, numberLorentz))
     hwhm = np.zeros((q.size, numberLorentz))
     jl = np.zeros((q.size, numberLorentz))
+
     arg = q * radius
+
     idx = np.argwhere(arg == 0)
     for i in range(numberLorentz):
 
@@ -81,6 +89,7 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
         jl[:, i] = np.sqrt(np.pi / 2. / arg) * jn(i + 0.5, arg)
 
         hwhm[:, i] = np.repeat(i * (i + 1) * DR, q.size)
+
         if idx.size > 0:
             if i == 0:
                 jl[idx, i] = 1.0
@@ -200,6 +209,8 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0,
         sqw = np.reshape(sqw, w.size)
 
     return sqw
+
+# error if no input of q
 
 
 if __name__ == "__main__":

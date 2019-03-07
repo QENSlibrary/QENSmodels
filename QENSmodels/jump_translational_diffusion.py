@@ -53,6 +53,11 @@ def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
 
     """
     # Input validation
+    if D <= 0:
+        raise ValueError("D, the diffusion coefficient, should be positive")
+    if resTime < 0:
+        raise ValueError("resTime, the residence time, should be positive")
+
     q = np.asarray(q, dtype=np.float32)
 
     eisf = np.zeros(q.size)
@@ -137,7 +142,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
 
     """
     # Input validation
-    w = np.asarray(w)  # , dtype=np.float32)
+    w = np.asarray(w)
 
     q = np.asarray(q, dtype=np.float32)
 

@@ -65,11 +65,8 @@ def delta(x, scale=1, center=0):
 
     x = np.asarray(x)
 
-    # sort x in ascending order if x has more than 1 element
-    # if x.size > 1:
-    #    x.sort()
-
     model = np.zeros(x.size)
+
 
     try:
         if x.min() <= center <= x.max():
@@ -77,17 +74,16 @@ def delta(x, scale=1, center=0):
             # otherwise do nothing
             idx = np.argmin(np.abs(x - center))
             if len(x) > 1:
-                dx = (x[-1] - x[0]) / (len(x) - 1)  # domain spacing
+                dx = (x.max() - x.min())/(len(x) - 1)  # domain spacing
             else:
                 dx = 1.
             model[idx] = scale / dx
-        # dx = 0.5 * np.abs(x[idx + 1] - x[idx - 1])
-
+    # except ZeroDivisionError:
+    #     print('Division by zero')
+    # except IndexError:
+    #     print('Index error: x does not have enough elements')
+    finally:
         return model
-    except ZeroDivisionError:
-        print('Division by zero')
-    except IndexError:
-        print('Index error: x does not have enough elements')
 
 
 if __name__ == "__main__":

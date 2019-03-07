@@ -96,18 +96,19 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
 
     # Model
     if q.size > 1:
-        for i in range(q.size):
-            sqw[i, :] = A0[i] * QENSmodels.delta(w,
-                                                 scale,
-                                                 center)
-            sqw[i, :] += A1[i] * QENSmodels.lorentzian(w,
-                                                       scale,
-                                                       center,
-                                                       hwhm1[i])
-            sqw[i, :] += (1 - A0[i] - A1[i]) * QENSmodels.lorentzian(w,
-                                                                     scale,
-                                                                     center,
-                                                                     hwhm2[i])
+        try:
+            for i in range(q.size):
+                sqw[i, :] = A0[i] * QENSmodels.delta(w, scale, center)
+                sqw[i, :] += A1[i] * QENSmodels.lorentzian(w, scale,
+                                                           center, hwhm1[i])
+                sqw[i, :] += (1 - A0[i] - A1[i]) * \
+                             QENSmodels.lorentzian(w, scale, center, hwhm2[i])  # noqa: E127, E501
+        except TypeError as detail:
+            msg = "At least one parameter has an incorrect type"
+            raise TypeError(detail.__str__() + "\n" + msg)
+        except IndexError as detail:
+            msg = "At least one array has an incorrect size"
+            raise IndexError(detail.__str__() + "\n" + msg)
     else:
         sqw[0, :] = A0 * QENSmodels.delta(w,
                                           scale,

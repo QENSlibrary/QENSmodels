@@ -1,5 +1,4 @@
 from __future__ import print_function
-# import doctest
 import numpy as np
 
 try:
@@ -60,7 +59,10 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
 
     eisf = np.zeros(q.size)
     qisf = np.ones(q.size)
-    hwhm = D * q ** 2
+    if D > 0:
+        hwhm = D * q ** 2
+    else:
+        raise ValueError('D, the diffusion coefficient, should be positive')
     # Force hwhm to be numpy array, even if single value
     hwhm = np.asarray(hwhm, dtype=np.float32)
     hwhm = np.reshape(hwhm, hwhm.size)

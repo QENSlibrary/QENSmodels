@@ -78,7 +78,7 @@ def gaussian(x, scale=1., center=0., sigma=1.):
 
 
     """
-    x = np.asarray(x)  # , dtype=np.float32)
+    x = np.asarray(x)
 
     if sigma == 0:
         model = QENSmodels.delta(x, scale, center)
