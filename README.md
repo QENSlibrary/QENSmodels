@@ -6,13 +6,17 @@ This project has received funding from the European Union’s Horizon
 2020 research and innovation programme under grant agreement No 654000.
 
 # Installation
-Support [Python](https://www.python.org/downloads/) 2.7 and 3.6
+Support [Python](https://www.python.org/downloads/) 2.7, 3.6 and 3.7
 
 ## Requirements
 
-Python modules to use and test the models:
+Python modules to use the models:
 - [numpy](http://www.numpy.org/)
+
+Python modules to test the models (for contributors):
 - [flake8](http://flake8.pycqa.org/en/latest/) 
+- unittest
+- doctest
 
 Additional modules are required to run the examples. Details can be
 found in the README file of the *examples* folder.
@@ -39,7 +43,6 @@ pip install --user full_path/to/QENSmodels_folder
 See [the documentation on pip install](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) for additional information. Run `pip show QENSmodels` to display details about the installed package.
 
 To **test the installation**, type the following command in a terminal
-
 
 
 ```
@@ -76,12 +79,14 @@ In a terminal, move to the *docs* folder and type
 This command will generate html files in the subfolder *_build/html*.
 
 # Tests
-The script to run the doctests is located in the `tools` folder.  
+The script to run the tests is located in the `tools` folder. 
+These tests require the installation of `doctest` and `unittest`.  
 In a terminal, move to the `tools` directory and run
 ```
-./run_doctest.sh
+./run_tests.sh
 ```
 
+To run 
 ## License
 
 Redistribution of the software is permitted under the terms of the 
