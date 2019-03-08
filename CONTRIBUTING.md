@@ -118,5 +118,3 @@ please add them to the list of requirements in the
 
 [markdown]: https://daringfireball.net/projects/markdown
 [github]: https://github.com
-
-[comment]: <> (This is a comment, it will not be included)
