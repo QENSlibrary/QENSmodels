@@ -18,7 +18,7 @@ class TestIsotropicRotationalDiffusion(unittest.TestCase):
             len(QENSmodels.hwhmIsotropicRotationalDiffusion([1., 2.])), 3)
 
     def test_type_size_hwhm_isotropic_rotational_diffusion_q_nb(self):
-        """ Tests type and size of outputs if input q is a number """
+        """ Tests type and size of outputs if input q is a float """
         hwhm, eisf, qisf = QENSmodels.hwhmIsotropicRotationalDiffusion(1.)
         self.assertIsInstance(hwhm, numpy.ndarray)
         self.assertIsInstance(eisf, numpy.ndarray)
@@ -63,7 +63,8 @@ class TestIsotropicRotationalDiffusion(unittest.TestCase):
                                                   3.96135373e-03,
                                                   4.99938764e-05,
                                                   3.48743579e-07,
-                                                  1.54388417e-09]])
+                                                  1.54388417e-09]],
+                                                decimal=9)
 
     def test_raised_error_negative_coeffs(self):
         """ test that an error is raised if radius or DR are negative
@@ -93,10 +94,10 @@ class TestIsotropicRotationalDiffusion(unittest.TestCase):
 
     def test_type_sqw_isotropic_rotational_diffusion(self):
         """ Test type of output """
-        # w, q are numbers
+        # w, q are floats
         self.assertIsInstance(QENSmodels.sqwIsotropicRotationalDiffusion(1, 1),
                               numpy.ndarray)
-        # w, q are lists
+        # w, q are vectors
         output = QENSmodels.sqwIsotropicRotationalDiffusion([1, 2, 3],
                                                             [0.3, 0.4])
         self.assertIsInstance(output, numpy.ndarray)
@@ -131,7 +132,9 @@ class TestIsotropicRotationalDiffusion(unittest.TestCase):
                                                            radius=2.0,
                                                            DR=0.05)])
 
-        numpy.testing.assert_array_almost_equal(ref_data, actual_data)
+        numpy.testing.assert_array_almost_equal(ref_data,
+                                                actual_data,
+                                                decimal=11)
 
 
 if __name__ == '__main__':

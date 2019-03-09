@@ -25,6 +25,14 @@ class TestGaussian(unittest.TestCase):
         self.assertEqual(len(QENSmodels.gaussian(input_array1, 1, 1, 1)),
                          len(input_array1))
 
+    def test_parameter_value(self):
+        """ Test the definition of function in border edge cases"""
+        # sigma = 0
+        x = [0, 1, 2, 3, 4, 5]
+        numpy.testing.assert_array_equal(
+            QENSmodels.gaussian(x, 0.3, 0.4, 0.0),
+            QENSmodels.delta(x, 0.3, 0.4))
+
     def test_reference_data(self):
         """ Test output values in comparison with reference data
                    (file in 'reference data' folder) """
@@ -43,7 +51,9 @@ class TestGaussian(unittest.TestCase):
                                                               sigma=0.4)])
 
         # compare the 2 arrays
-        numpy.testing.assert_array_almost_equal(ref_data, actual_data)
+        numpy.testing.assert_array_almost_equal(ref_data,
+                                                actual_data,
+                                                decimal=13)
 
 
 if __name__ == '__main__':

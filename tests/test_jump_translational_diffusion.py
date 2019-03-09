@@ -64,10 +64,10 @@ class TestJumpTranslationalDiffusion(unittest.TestCase):
 
     def test_type_sqw_jump_translational_diffusion(self):
         """ Test type of output """
-        # w, q are numbers
+        # w, q are floats
         self.assertIsInstance(QENSmodels.sqwJumpTranslationalDiffusion(1, 1),
                               numpy.ndarray)
-        # w, q are lists
+        # w, q are vectors
         output = QENSmodels.sqwJumpTranslationalDiffusion([1, 2, 3],
                                                           [0.3, 0.4])
         self.assertIsInstance(output, numpy.ndarray)
@@ -101,7 +101,9 @@ class TestJumpTranslationalDiffusion(unittest.TestCase):
                                                          D=0.23,
                                                          resTime=1.25)])
         # compare the 2 arrays
-        numpy.testing.assert_array_almost_equal(ref_data, actual_data)
+        numpy.testing.assert_array_almost_equal(ref_data,
+                                                actual_data,
+                                                decimal=12)
 
 
 if __name__ == '__main__':

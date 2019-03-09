@@ -22,6 +22,14 @@ class TestLorentzian(unittest.TestCase):
         self.assertEqual(QENSmodels.lorentzian(1).size, 1)
         self.assertEqual(QENSmodels.lorentzian([1, 2]).size, 2)
 
+    def test_parameter_value(self):
+        """ Test the definition of function in border edge cases"""
+        # hwhm = 0
+        x = [0, 1, 2, 3, 4, 5]
+        numpy.testing.assert_array_equal(
+            QENSmodels.lorentzian(x, 0.3, 0.4, 0.0),
+            QENSmodels.delta(x, 0.3, 0.4))
+
     def test_reference_data(self):
         """ Test output values in comparison with reference data
                    (file in 'reference data' folder) """
@@ -39,7 +47,9 @@ class TestLorentzian(unittest.TestCase):
                                                                 hwhm=0.4)])
 
         # compare 2 arrays
-        numpy.testing.assert_array_almost_equal(ref_data, actual_data)
+        numpy.testing.assert_array_almost_equal(ref_data,
+                                                actual_data,
+                                                decimal=12)
 
 
 if __name__ == '__main__':

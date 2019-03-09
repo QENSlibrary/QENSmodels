@@ -36,7 +36,7 @@ def background_polynomials(w, list_coefficients=0.0):
     array([ 6., 17., 34.])
     """
 
-    w = np.asarray(w)  # , dtype=np.float32)
+    w = np.asarray(w)
 
     # check that list_coeff is a list and all elements are numbers
     if isinstance(list_coefficients, list) and \

@@ -92,8 +92,11 @@ class TestBrownianTranslationDiffusion(unittest.TestCase):
         actual_data = numpy.column_stack(
             [w,
              QENSmodels.sqwBrownianTranslationalDiffusion(w, q, 1., 0., 1.)])
+
         # compare the 2 arrays
-        numpy.testing.assert_array_almost_equal(ref_data, actual_data)
+        numpy.testing.assert_array_almost_equal(ref_data,
+                                                actual_data,
+                                                decimal=13)
 
 
 if __name__ == '__main__':

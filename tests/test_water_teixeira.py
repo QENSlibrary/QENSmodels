@@ -13,13 +13,13 @@ class TestWaterTeixeira(unittest.TestCase):
 
     def test_size_output(self):
         """ Test size of output depending on type of input"""
-        # w, q are numbers
+        # w, q are floats
 
         output = QENSmodels.sqwWaterTeixeira(1, 1)
         self.assertEqual(output.size, 1)
         self.assertEqual(output.shape, (1,))
 
-        # w, q are lists
+        # w, q are vectors
         output1 = QENSmodels.sqwWaterTeixeira([1, 2], [0.1, 0.2, 0.3])
         self.assertEqual(output1.size, 6)
         self.assertEqual(output1.shape, (3, 2))
@@ -53,7 +53,9 @@ class TestWaterTeixeira(unittest.TestCase):
                                             radius=1,
                                             DR=1)])
         # compare the 2 arrays
-        numpy.testing.assert_array_almost_equal(ref_data, actual_data)
+        numpy.testing.assert_array_almost_equal(ref_data,
+                                                actual_data,
+                                                decimal=13)
 
 
 if __name__ == '__main__':

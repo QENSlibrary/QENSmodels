@@ -44,7 +44,9 @@ class TestBackgroundPolynomials(unittest.TestCase):
         actual_data = numpy.column_stack([w, QENSmodels.background_polynomials(w, [1, 2, 3])]) # noqa:
 
         # compare the 2 arrays
-        numpy.testing.assert_array_almost_equal(ref_data, actual_data)
+        numpy.testing.assert_array_almost_equal(ref_data,
+                                                actual_data,
+                                                decimal=13)
 
 
 if __name__ == '__main__':
