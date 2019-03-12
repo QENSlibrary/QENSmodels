@@ -67,7 +67,6 @@ def delta(x, scale=1, center=0):
 
     model = np.zeros(x.size)
 
-
     try:
         if x.min() <= center <= x.max():
             # if center within x-range, delta is non-zero in this interval

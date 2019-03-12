@@ -13,3 +13,31 @@ This folder contains tools to extract information from the QENS models
 
 - `run_tests.sh`  
   This script runs unittests and doctests through the models in `QENSmodels`.
+  
+  
+Note that in order to open the Jupyter notebooks, you'll need jupyter, numpy, 
+matplotlib, and ipywidgets (for interactive plots).
+
+To run the jupyter notebooks, you can, for example, create an anaconda 
+environment:
+
+- download and install Anaconda / Miniconda (a mini version of Anaconda 
+that saves you disk space) on Windows, OSX and Linux.
+
+- after installing, to ensure that your packages are up to date, 
+run the following command in a terminal:
+
+  ```
+  conda update conda
+  ```
+
+- create a new environment (called `mynewenv` in the following example), 
+which will contain the required packages
+
+  ```
+  conda create --name mynewenv python numpy matplotlib jupyter
+  ```
+
+- to access the notebooks, open a terminal, move to the folder where the 
+  notebook you want to open is located, type `jupyter notebook`, and click on 
+  the notebook you want to open.
