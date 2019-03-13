@@ -12,17 +12,26 @@ from .jump_translational_diffusion import hwhmJumpTranslationalDiffusion
 from .jump_translational_diffusion import sqwJumpTranslationalDiffusion
 from .water_teixeira import sqwWaterTeixeira
 from .background_polynomials import background_polynomials
+from .chudley_elliot_diffusion import hwhmChudleyElliotDiffusion
+from .chudley_elliot_diffusion import sqwChudleyElliotDiffusion
+from .equivalent_sites_circle import hwhmEquivalentSitesCircle
+from .equivalent_sites_circle import sqwEquivalentSitesCircle
 
-__all__ = ['lorentzian',
+__all__ = ['background_polynomials',
+           'lorentzian',
            'hwhmBrownianTranslationalDiffusion',
            'sqwBrownianTranslationalDiffusion',
+           'hwhmChudleyElliotDiffusion',
+           'sqwChudleyElliotDiffusion',
            'delta',
            'sqwDeltaLorentz',
-           'gaussian',
            'sqwDeltaTwoLorentz',
+           'hwhmEquivalentSitesCircle',
+           'sqwEquivalentSitesCircle',
+           'gaussian',
            'sqwIsotropicRotationalDiffusion',
            'hwhmIsotropicRotationalDiffusion',
            'hwhmJumpTranslationalDiffusion',
            'sqwJumpTranslationalDiffusion',
            'sqwWaterTeixeira',
-           'background_polynomials', ]
+            ]

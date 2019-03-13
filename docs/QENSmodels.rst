@@ -4,10 +4,26 @@ QENSmodels package
 Submodules
 ----------
 
+QENSmodels.background\_polynomials module
+-----------------------------------------
+
+.. automodule:: QENSmodels.background_polynomials
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 QENSmodels.brownian\_translational\_diffusion module
 ----------------------------------------------------
 
 .. automodule:: QENSmodels.brownian_translational_diffusion
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+QENSmodels.chudley\_elliot\_diffusion module
+--------------------------------------------
+
+.. automodule:: QENSmodels.chudley_elliot_diffusion
     :members:
     :undoc-members:
     :show-inheritance:
@@ -32,6 +48,14 @@ QENSmodels.delta\_two\_lorentz module
 -------------------------------------
 
 .. automodule:: QENSmodels.delta_two_lorentz
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+QENSmodels.equivalent\_sites\_circle module
+-------------------------------------------
+
+.. automodule:: QENSmodels.equivalent_sites_circle
     :members:
     :undoc-members:
     :show-inheritance:

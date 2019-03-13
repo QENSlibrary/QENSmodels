@@ -31,7 +31,7 @@ The data required to run some of the notebooks and scripts are located in the
 ### Using via Anaconda
 
 You can download and install Anaconda / Miniconda (a mini version of 
-Anaconda that saves you disk space)  on Windows, OSX and Linux.
+Anaconda that saves you disk space) on Windows, OSX and Linux.
 
 After installing, to ensure that your packages are up to date, 
 run the following command in a terminal:
