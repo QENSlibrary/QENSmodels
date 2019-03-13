@@ -28,6 +28,15 @@ People interested can contribute to the project in different ways:
 2. adding new examples of fitting using some of the QENS models and the 
   fitting engine of their choice 
   
+#### Physical units
+Please note that the following units are used for the QENS models
+
+| Type of parameter | Unit          |
+| ----------------- |---------------|
+| Time              | picosecond    |
+| Length            | Angstrom      |
+| Momentum transfer | 1/Angstrom    |
+  
 ### New QENS models
 
 - Contributed models should be written in `Python` (compatibility with 

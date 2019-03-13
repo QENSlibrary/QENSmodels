@@ -108,6 +108,16 @@ folder. The name of the notebook indicates which fitting engine and QENS model
 are used. Additional tools might have to be installed in order to use a 
 particular notebook.
 
+### Physical units
+Please note that the following units are used for the QENS models
+
+| Type of parameter | Unit          |
+| ----------------- |---------------|
+| Time              | picosecond    |
+| Length            | Angstrom      |
+| Momentum transfer | 1/Angstrom    |
+
+
 ## How to cite?
 
 **add list of authors**<br>
