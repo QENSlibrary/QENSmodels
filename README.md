@@ -1,12 +1,11 @@
 # Introduction
 
-*QENSlibrary* is a repository containing models (mathematical functions) that
-can be used to fit Quasi Elastic Neutron Scattering (QENS) data.  
-This project has received funding from the European Union’s Horizon
-2020 research and innovation programme under grant agreement No 654000.
+*QENSlibrary* is a repository containing models (mathematical functions) written in [Python](https://www.python.org/).
+ These models can be used to fit Quasi Elastic Neutron Scattering (QENS) data.  
+ This project has received funding from the European Union’s Horizon 
+ 2020 research and innovation programme under grant agreement No 654000.
 
 # Installation
-Support [Python](https://www.python.org/downloads/) 2.7, 3.6 and 3.7
 
 ## Requirements
 
@@ -15,8 +14,8 @@ Python modules to use the models:
 
 Python modules to test the models (for contributors):
 - [flake8](http://flake8.pycqa.org/en/latest/) 
-- unittest
-- doctest
+- [unittest](https://docs.python.org/3/library/unittest.html)
+- [doctest](https://docs.python.org/3.7/library/doctest.html)
 
 Additional modules are required to run the examples. Details can be
 found in the README file of the *examples* folder.
@@ -36,11 +35,8 @@ command in a terminal
 pip install --user full_path/to/QENSmodels_folder
 ```
 
-[//]: #  ( git clone https://github.com/QENSlibrary/QENSmodels.git)
-[//]: #  (cd QENSmodels)
-[//]: #  (python )
-
-See [the documentation on pip install](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) for additional information. Run `pip show QENSmodels` to display details about the installed package.
+See [the documentation on pip install](https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs) for 
+additional information. Run `pip show QENSmodels` to display details about the installed package.
 
 To **test the installation**, type the following command in a terminal
 
@@ -85,8 +81,7 @@ In a terminal, move to the `tools` directory and run
 ```
 ./run_tests.sh
 ```
-
-To run 
+ 
 ## License
 
 Redistribution of the software is permitted under the terms of the 
@@ -120,9 +115,15 @@ Please note that the following units are used for the QENS models
 
 ## How to cite?
 
-**add list of authors**<br>
-"QENS models, version 1",<br>
-https://github.com/QENSlibrary/QENSmodels (2018).
+If you found this package useful, please don't forget to acknowledge its use in your publications 
+as suggested below and reference this website: https://github.com/QENSlibrary/QENSmodels. 
+
+Please also consider letting us know by sending us the reference to your work. 
+This will help us to ensure the long term support and development of the software.
+
+    This work benefited from the use of the QENSmodels library, which contains code developed with funding from the 
+    European Union’s Horizon 2020 research and innovation programme under grant agreement No 654000. 
+
 
 ## How to contribute?
 
@@ -139,5 +140,3 @@ If you are reporting a bug, please include:
 - Your operating system name and version.
 - Any details about your local setup that might be helpful in troubleshooting.
 - Detailed steps to reproduce the bug.
-
-

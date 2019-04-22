@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from .lorentzian import lorentzian
 from .brownian_translational_diffusion import \
     hwhmBrownianTranslationalDiffusion
@@ -35,3 +37,6 @@ __all__ = ['background_polynomials',
            'sqwJumpTranslationalDiffusion',
            'sqwWaterTeixeira',
             ]
+
+"""Top-level package for QENSmodels."""
+__version__ = '0.1'
