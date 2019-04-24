@@ -1,4 +1,4 @@
 Tools
 ==========
 
-.. mdinclude:: ../tools/README.md
+.. include:: ../tools/README.rst
