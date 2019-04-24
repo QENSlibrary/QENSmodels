@@ -1,14 +1,15 @@
-.. role:: raw-html-m2r(raw)
-   :format: html
-
+===========
+QENS models
+===========
 
 Introduction
 ============
 
+
 *QENSlibrary* is a repository containing models (mathematical functions) written in `Python <https://www.python.org/>`_.
- These models can be used to fit Quasi Elastic Neutron Scattering (QENS) data.\ :raw-html-m2r:`<br>`
- This project has received funding from the European Union’s Horizon 
- 2020 research and innovation programme under grant agreement No 654000.
+These models can be used to fit Quasi Elastic Neutron Scattering (QENS) data.
+This project has received funding from the European Union’s Horizon
+2020 research and innovation programme under grant agreement No 654000.
 
 Installation
 ============
@@ -37,20 +38,18 @@ How to install?
 Note:
 ^^^^^
 
-If you want to use a virtual environment, please go to `this link <https://conda.io/docs/user-guide/getting-started.html>`_
+If you want to use a virtual environment, please go to `this link <https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html>`_
 for instructions. 
 
 The steps to follow are:  
 
 
-* 
-  Download or clone the repository which can be found at the following `link <https://github.com/QENSlibrary/QENSmodels>`_
+* Download or clone the repository which can be found at the following `link <https://github.com/QENSlibrary/QENSmodels>`_
 
-* 
-  To **install the package** to the Python user install directory for your platform, type the following
+* To **install the package** to the Python user install directory for your platform, type the following
   command in a terminal  
 
-  .. code-block::
+  .. code-block:: console
 
      pip install --user full_path/to/QENSmodels_folder
 
@@ -59,13 +58,13 @@ additional information. Run ``pip show QENSmodels`` to display details about the
 
 To **test the installation**\ , type the following command in a terminal
 
-.. code-block::
+.. code-block:: console
 
    python -c "import QENSmodels"
 
 To **uninstall** the library, type
 
-.. code-block::
+.. code-block:: console
 
    pip uninstall QENSmodels
 
@@ -75,14 +74,13 @@ Documentation
 The documentation is built using ``Sphinx``. The required packages can be
 installed using the following commands:
 
-.. code-block::
+.. code-block:: console
 
    pip install sphinx
    pip install sphinx-rtd-theme
    pip install sphinxcontrib-napoleon
 
-Other ways of installing ``Sphinx`` at be found at
-http://www.sphinx-doc.org/en/stable/install.html#
+Other ways of installing ``Sphinx`` at be found at http://www.sphinx-doc.org/en/stable/install.html#
 
 How to build documentation?
 ---------------------------
@@ -97,10 +95,11 @@ Tests
 =====
 
 The script to run the tests is located in the ``tools`` folder. 
-These tests require the installation of ``doctest`` and ``unittest``.\ :raw-html-m2r:`<br>`
+These tests require the installation of ``doctest`` and ``unittest``.
+
 In a terminal, move to the ``tools`` directory and run
 
-.. code-block::
+.. code-block:: console
 
    ./run_tests.sh
 
@@ -110,6 +109,7 @@ License
 Redistribution of the software is permitted under the terms of the 
 `General Public License version 3 or higher <https://www.gnu.org/licenses/gpl-3.0.en.html>`_.
 
+
 How to use?
 -----------
 
@@ -118,7 +118,8 @@ How to use?
    import QENSmodels
    value = QENSmodels.lorentzian(1, 1, 1, 1)
 
-or copy and paste the script related to the Lorentzian function.\ :raw-html-m2r:`<br>`
+or copy and paste the script related to the Lorentzian function.
+
 The scripts can be found in the 
 `git repository <https://github.com/QENSlibrary/QENSmodels>`_
 
@@ -154,7 +155,6 @@ as suggested below and reference this website: https://github.com/QENSlibrary/QE
 Please also consider letting us know by sending us the reference to your work. 
 This will help us to ensure the long term support and development of the software.
 
-.. code-block::
 
    This work benefited from the use of the QENSmodels library, which contains code developed with funding from the 
    European Union’s Horizon 2020 research and innovation programme under grant agreement No 654000. 

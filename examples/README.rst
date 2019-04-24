@@ -36,14 +36,14 @@ Anaconda that saves you disk space) on Windows, OSX and Linux.
 After installing, to ensure that your packages are up to date, 
 run the following command in a terminal:
 
-.. code-block::
+.. code-block:: console
 
    conda update conda
 
 You can create a new environment (called ``mynewenv`` in the following example), 
 which will contain the required packages
 
-.. code-block::
+.. code-block:: console
 
    conda create --name mynewenv python numpy scipy matplotlib jupyter
 
@@ -53,7 +53,7 @@ install ``Python`` version 3.4.
 
 Then activate the environment and install the remaining packages
 
-.. code-block::
+.. code-block:: console
 
    conda activate mynewenv
    conda install -c conda-forge h5py
@@ -68,11 +68,8 @@ Short tutorials on Jupyter notebooks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-* 
-  `https://www.tutorialspoint.com/jupyter/jupyter_project_overview.htm <https://www.tutorialspoint.com/jupyter/jupyter_project_overview.htm>`_
+* `https://www.tutorialspoint.com/jupyter/jupyter_project_overview.htm <https://www.tutorialspoint.com/jupyter/jupyter_project_overview.htm>`_
 
-* 
-  `tutorials from DataCamp <https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook?utm_source=adwords_ppc&utm_campaignid=898687156&utm_adgroupid=48947256715&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=1t1&utm_creative=229765585183&utm_targetid=dsa-473406581035&utm_loc_interest_ms=&utm_loc_physical_ms=1005010&gclid=EAIaIQobChMIpZn9hPqc4QIVzh0YCh2c1ARQEAAYASAAEgK81fD_BwE>`_
+* `tutorials from DataCamp <https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook?utm_source=adwords_ppc&utm_campaignid=898687156&utm_adgroupid=48947256715&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=1t1&utm_creative=229765585183&utm_targetid=dsa-473406581035&utm_loc_interest_ms=&utm_loc_physical_ms=1005010&gclid=EAIaIQobChMIpZn9hPqc4QIVzh0YCh2c1ARQEAAYASAAEgK81fD_BwE>`_
 
-* 
-  `Jupyter notebook documentation on ReadTheDocs (pdf file) <https://buildmedia.readthedocs.org/media/pdf/jupyter-notebook/latest/jupyter-notebook.pdf>`_
+* `Jupyter notebook documentation on ReadTheDocs (pdf file) <https://buildmedia.readthedocs.org/media/pdf/jupyter-notebook/latest/jupyter-notebook.pdf>`_

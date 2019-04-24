@@ -16,6 +16,7 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
 
+import QENSmodels
 
 # -- Project information -----------------------------------------------------
 
@@ -23,10 +24,10 @@ project = u'QENSmodels'
 copyright = u'2018, -'
 author = u'-'
 
-# The short X.Y version
-version = u''
-# The full version, including alpha/beta/rc tags
-release = u''
+# The short X.Y version.
+version = QENSmodels.__version__
+# The full version, including alpha/beta/rc tags.
+release = QENSmodels.__version__
 
 
 # -- General configuration ---------------------------------------------------
