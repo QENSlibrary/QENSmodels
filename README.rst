@@ -80,14 +80,16 @@ installed using the following commands:
    pip install sphinx-rtd-theme
    pip install sphinxcontrib-napoleon
 
-Other ways of installing ``Sphinx`` at be found at http://www.sphinx-doc.org/en/stable/install.html#
+Other ways of installing ``Sphinx`` at be found at http://www.sphinx-doc.org/en/master/usage/installation.html
 
 How to build documentation?
 ---------------------------
 
 In a terminal, move to the *docs* folder and type
 
-   ``make html``
+.. code-block:: console
+
+   make html
 
 This command will generate html files in the subfolder *_build/html*.
 
@@ -123,7 +125,7 @@ or copy and paste the script related to the Lorentzian function.
 The scripts can be found in the 
 `git repository <https://github.com/QENSlibrary/QENSmodels>`_
 
-Jupyter notebooks using some of the QENS models are located in the ``examples`` 
+Jupyter notebooks using some of the QENS models are located in the *examples*
 folder. The name of the notebook indicates which fitting engine and QENS model 
 are used. Additional tools might have to be installed in order to use a 
 particular notebook.
