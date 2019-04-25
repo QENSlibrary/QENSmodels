@@ -2,6 +2,10 @@
 Description
 ===========
 
+.. image:: https://readthedocs.org/projects/qensmodels/badge/?version=latest
+   :target: https://qensmodels.readthedocs.io/?badge=latest
+   :alt: Documentation Status
+
 Introduction
 ============
 
@@ -71,27 +75,28 @@ To **uninstall** the library, type
 Documentation
 =============
 
-The documentation is built using ``Sphinx``. The required packages can be
-installed using the following commands:
+The documentation is available at https://qensmodels.readthedocs.io .
 
-.. code-block:: console
+.. The documentation is built using ``Sphinx``. The required packages can be installed using the following commands:
 
-   pip install sphinx
-   pip install sphinx-rtd-theme
-   pip install sphinxcontrib-napoleon
+.. .. code-block:: console
 
-Other ways of installing ``Sphinx`` at be found at http://www.sphinx-doc.org/en/master/usage/installation.html
+..    pip install sphinx
+..    pip install sphinx-rtd-theme
+..    pip install sphinxcontrib-napoleon
 
-How to build documentation?
----------------------------
+.. Other ways of installing ``Sphinx`` at be found at http://www.sphinx-doc.org/en/master/usage/installation.html
 
-In a terminal, move to the *docs* folder and type
+.. How to build documentation?
+.. ---------------------------
 
-.. code-block:: console
+.. In a terminal, move to the *docs* folder and type
 
-   make html
+.. .. code-block:: console
 
-This command will generate html files in the subfolder *_build/html*.
+..    make html
+
+.. This command will generate html files in the subfolder *_build/html*.
 
 Tests
 =====
