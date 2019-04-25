@@ -39,4 +39,4 @@ __all__ = ['background_polynomials',
             ]
 
 """Top-level package for QENSmodels."""
-__version__ = '0.1'
+__version__ = '0.1.0'
