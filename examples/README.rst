@@ -6,7 +6,7 @@ Note that in order to open and run these examples, you need
 `jupyter <http://jupyter.org/>`_\ ,
 `scipy <https://www.scipy.org/>`_\ ,
 `matplotlib <https://matplotlib.org/>`_\ ,
-`ipywidgets <https://ipywidgets.readthedocs.io/en/latest/>`_ (for interactive 
+`panel <https://panel.pyviz.org/>`_  and `pandas <https://pandas.pydata.org/>`_ (for interactive
 plots),
 `lmfit <https://lmfit.github.io/lmfit-py/>`_ (optional),
 `bumps <https://github.com/bumps/bumps>`_ (optional),
@@ -45,10 +45,10 @@ which will contain the required packages
 
 .. code-block:: console
 
-   conda create --name mynewenv python numpy scipy matplotlib jupyter
+   conda create --name mynewenv python numpy scipy matplotlib jupyter pandas
 
 Note that you can specify which version of ``Python``. For example, 
-``conda create --name mynewenv python=3.4 numpy scipy matplotlib jupyter`` to 
+``conda create --name mynewenv python=3.4 numpy scipy matplotlib jupyter pandas`` to
 install ``Python`` version 3.4.
 
 Then activate the environment and install the remaining packages
@@ -56,6 +56,7 @@ Then activate the environment and install the remaining packages
 .. code-block:: console
 
    conda activate mynewenv
+   conda install -c pyviz panel
    conda install -c conda-forge h5py
 
 Finally, install the library
