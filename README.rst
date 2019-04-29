@@ -25,6 +25,7 @@ Python modules to use the models:
 
 
 * `numpy <http://www.numpy.org/>`_
+* `scipy <https://www.scipy.org/>`_
 
 Python modules to test the models (for contributors):
 
