@@ -102,7 +102,7 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
     Examples
     --------
     >>> sqw = sqwBrownianTranslationalDiffusion(1, 1, 1, 0, 1)
-    >>> round(sqw, 3)
+    >>> round(sqw[0], 3)
     0.159
 
     >>> sqw = sqwBrownianTranslationalDiffusion([1, 2, 3], [0.3, 0.4], 1, 0, 1)

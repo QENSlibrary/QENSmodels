@@ -36,7 +36,7 @@ __all__ = ['background_polynomials',
            'hwhmJumpTranslationalDiffusion',
            'sqwJumpTranslationalDiffusion',
            'sqwWaterTeixeira',
-            ]
+           ]
 
 """Top-level package for QENSmodels."""
 __version__ = '0.1.0'

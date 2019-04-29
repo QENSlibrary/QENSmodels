@@ -83,7 +83,7 @@ Python script
 * And before submitting your pull request, check that your script, tests and 
   built of the documentation run on your machine. Please also run ``flake8`` 
   to check your code matches the project style (by running, for example, 
-  ``flake8 new_python_script.py``\ ).
+  ``python -m flake8 new_python_script.py``\ ).
 
 Documentation
 ~~~~~~~~~~~~~
