@@ -48,7 +48,7 @@ def hwhmChudleyElliotDiffusion(q, D=0.23, L=1.0):
 
     eisf = np.zeros(q.size)
     qisf = np.ones(q.size)
-    hwhm = 6 * D * (1-np.sin(q*L)/(q*L)) / L**2 
+    hwhm = 6 * D * (1-np.sin(q*L)/(q*L)) / L**2
     # Force hwhm to be numpy array, even if single value
     hwhm = np.asarray(hwhm, dtype=np.float32)
     hwhm = np.reshape(hwhm, hwhm.size)
@@ -56,7 +56,7 @@ def hwhmChudleyElliotDiffusion(q, D=0.23, L=1.0):
 
 
 def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23,
-                                  L=1.00):
+                              L=1.00):
     r""" Lorentzian model with half width half maximum equal to
     :math:`\frac{6D}{l^2}(1 - \frac{sin(Ql)}{Ql})`
 
@@ -109,18 +109,17 @@ def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23,
           S(q, \omega) = \text{Lorentzian}(\omega, \text{scale}, \text{center},
           \frac{1}{\tau}(1 - \frac{sin(Ql)}{Ql}))
 
-      with 
+      with
 
       .. math::
 
           \tau = \frac{l^2}{6D}
 
 
-
     Reference
     ----------
 
-    R. Hempelmann, 
+    R. Hempelmann,
     Quasielastic Neutron Scattering and Solid State Diffusion (Oxford, 2000)
 
     """

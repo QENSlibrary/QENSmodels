@@ -10,6 +10,7 @@ import QENSmodels
 this_module_path = sys.modules[__name__].__file__
 data_dir = pjn(os.path.dirname(this_module_path), 'reference_data')
 
+
 class TestWaterTeixeira(unittest.TestCase):
     """ Tests QENSmodels.water_teixeira function"""
 

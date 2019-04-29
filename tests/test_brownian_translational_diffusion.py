@@ -88,8 +88,8 @@ class TestBrownianTranslationDiffusion(unittest.TestCase):
                    (file in 'reference data' folder) """
 
         # load reference data
-        ref_data = numpy.loadtxt(pjn(data_dir, 'brownian_translational_diffusion_ref_data.dat'))
-        # "./reference_data/brownian_translational_diffusion_ref_data.dat")
+        ref_data = numpy.loadtxt(
+            pjn(data_dir, 'brownian_translational_diffusion_ref_data.dat'))
 
         # generate data from current model
         # for info: the parameters' values used for the reference data are

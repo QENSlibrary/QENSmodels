@@ -1,6 +1,5 @@
 from __future__ import print_function
 import numpy as np
-from scipy.special import jn
 
 try:
     import QENSmodels
@@ -45,7 +44,8 @@ def hwhmEquivalentSitesCircle(q, N=3, radius=1.0, resTime=1.0):
     # input validation
     q = np.asarray(q, dtype=np.float32)
 
-    # Need to decide what to do if N < 2: Get out immediately with message that N_min = 2?
+    # Need to decide what to do if N < 2:
+    # Get out immediately with message that N_min = 2?
     # Set N = 2 and show warning that N_min = 2?
 
     # number of sites has to be an integer
@@ -69,19 +69,22 @@ def hwhmEquivalentSitesCircle(q, N=3, radius=1.0, resTime=1.0):
     isf = np.zeros(QR.shape)
     for i in range(N):
         for j in range(N):
-            isf[:,i] += sphBessel[:,j] * np.cos(2*i*j*np.pi/N)
-        isf[:,i] /= N
+            isf[:, i] += sphBessel[:, j] * np.cos(2*i*j*np.pi/N)
+        isf[:, i] /= N
 
-    eisf = isf[:,0]
+    eisf = isf[:, 0]
     qisf = isf[:, 1:]
 
     return hwhm, eisf, qisf
 
 
-def sqwEquivalentSitesCircle(w, q, scale=1.0, center=0.0, N=3, radius=1.0,
-                                    resTime=1.0):
+def sqwEquivalentSitesCircle(w, q,
+                             scale=1.0, center=0.0, N=3,
+                             radius=1.0, resTime=1.0):
     r"""
-    Model `Jumps between N equivalent sites on a circle` = A_0 delta + Sum of Lorentzians ...
+    Model
+    `Jumps between N equivalent sites on a circle`
+    = A_0 delta + Sum of Lorentzians ...
 
 
     Parameters
@@ -106,7 +109,8 @@ def sqwEquivalentSitesCircle(w, q, scale=1.0, center=0.0, N=3, radius=1.0,
         radius of rotation (in Angstrom). Default to 1.
 
     resTime: float
-        residence time in a site before jumping to another site (in 1/ps). Default to 1.
+        residence time in a site before jumping to another site (in 1/ps).
+        Default to 1.
 
     Return
     ------
@@ -121,7 +125,6 @@ def sqwEquivalentSitesCircle(w, q, scale=1.0, center=0.0, N=3, radius=1.0,
     -----
 
     """
-
     # Input validation
     w = np.asarray(w)
 
@@ -132,17 +135,18 @@ def sqwEquivalentSitesCircle(w, q, scale=1.0, center=0.0, N=3, radius=1.0,
 
     # Get widths, EISFs and QISFs of model
     hwhm, eisf, qisf = hwhmEquivalentSitesCircle(q, N, radius, resTime)
-
     # Number of Lorentzians (= N-1)
     numberLorentz = hwhm.shape[1] - 1
-
-    # Sum of Lorentzians 
-    # (Note that hwhm has dimensions [q.size, N], as hwhm[:,0] contains a width=0, 
-    #  corresponding to the elastic line (eisf), while qisf has dimensions [q.size, N-1])
+    # Sum of Lorentzians
+    # (Note that hwhm has dimensions [q.size, N], as hwhm[:,0]
+    # contains a width=0, corresponding to the elastic line
+    # (eisf), while qisf has dimensions [q.size, N-1])
     for i in range(q.size):
         sqw[i, :] = eisf[i] * QENSmodels.delta(w, scale, center)
         for j in range(numberLorentz):
-            sqw[i, :] += qisf[i, j] * QENSmodels.lorentzian(w, scale, center,
+            sqw[i, :] += qisf[i, j] * QENSmodels.lorentzian(w,
+                                                            scale,
+                                                            center,
                                                             hwhm[i, j+1])
 
     # For Bumps use (needed for final plotting)
