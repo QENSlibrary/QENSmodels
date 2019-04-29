@@ -1,7 +1,14 @@
+import os
+import sys
 import unittest
 import numpy
+from os.path import join as pjn
 
 import QENSmodels
+
+# resolve path to reference_data
+this_module_path = sys.modules[__name__].__file__
+data_dir = pjn(os.path.dirname(this_module_path), 'reference_data')
 
 
 class TestDeltaLorentz(unittest.TestCase):
@@ -52,7 +59,7 @@ class TestDeltaLorentz(unittest.TestCase):
                    (file in 'reference data' folder) """
 
         # load reference data
-        ref_data = numpy.loadtxt("./reference_data/delta_lorentz_ref_data.dat")
+        ref_data = numpy.loadtxt(pjn(data_dir, "delta_lorentz_ref_data.dat"))
 
         # generate data from current model
         # for info: the parameters' values used for the reference data are
