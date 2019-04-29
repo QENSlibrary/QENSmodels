@@ -35,20 +35,19 @@ class TestDelta(unittest.TestCase):
                    (file in 'reference data' folder) """
 
         # load reference data
-        ref_data = numpy.loadtxt(pjn(data_dir,
-                                     "background_polynomials_ref_data.dat"))
+        ref_data = numpy.loadtxt(pjn(data_dir, "delta_ref_data.dat"))
 
         # generate data from current model
         # for info: the parameters' values used for the reference data are
         # specified in the README file in the 'reference data' folder
         w = numpy.arange(-2, 2.01, 0.01)
         actual_data = numpy.column_stack(
-            [w, QENSmodels.background_polynomials(w, [1, 2, 3])])
+            [w, QENSmodels.delta(w, scale=3.3, center=0)])
 
         # compare the 2 arrays
         numpy.testing.assert_array_almost_equal(ref_data,
                                                 actual_data,
-                                                decimal=13)
+                                                decimal=10)
 
 
 if __name__ == '__main__':
