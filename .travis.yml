@@ -3,7 +3,7 @@
 # https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/use-conda-with-travis-ci.html
 #  and
 #  https://github.com/jmborr/qef
-sudo: required
+dist: xenial
 language: python
 python:
   - 3.6
@@ -27,7 +27,8 @@ install:
   - conda create -q -n testenv python=$TRAVIS_PYTHON_VERSION numpy scipy flake8
   - source activate testenv
   - pip install sphinx sphinx_rtd_theme
-  - pip install --user git+https://github.com/QENSlibrary/QENSmodels
+  # install QENSmodels
+  - python setup.py install
 
 script:
   - python -m flake8;
@@ -37,4 +38,3 @@ script:
 notifications:
   - on_success: never
   - on_failure: never
-
