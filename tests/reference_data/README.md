@@ -36,7 +36,11 @@ For the momentum transfer, we chose `q = 0.71/Angstrom`.
 - delta_two_lorentz_ref_data.dat
 
   `sqwDeltaTwoLorentz(w, q, scale=1., center=0, A0=0.01, A1=0.4, hwhm1=0.25, hwhm2=0.75)`
+  
+- equivalent
 
+  `sqwEquivalentSitesCircle(w, q, scale=.01, center=0.5, N=3, radius=100.0, resTime=10.)`
+  
 - gaussian_ref_data.dat
 
   `gaussian(w, scale=1, center=0.25, sigma=0.4)`
@@ -56,4 +60,3 @@ For the momentum transfer, we chose `q = 0.71/Angstrom`.
 - water_teixeira_ref_data.dat
 
   `sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1)`
-

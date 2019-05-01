@@ -39,6 +39,19 @@ def hwhmEquivalentSitesCircle(q, N=3, radius=1.0, resTime=1.0):
 
     Examples
     --------
+    >>> hwhm, eisf, qisf = hwhmEquivalentSitesCircle([1., 2.], 6, 0.5, 1.5)
+    >>> round(hwhm[0, 1], 3)
+    0.333
+    >>> round(hwhm[0, 3], 3)
+    1.333
+    >>> round(eisf[0], 3)
+    0.92
+    >>> round(eisf[1], 3)
+    0.713
+    >>> round(qisf[0, 1], 6)
+    0.000503
+    >>> round(qisf[1, 4],6)
+    0.13616
 
     """
     # input validation
@@ -54,7 +67,7 @@ def hwhmEquivalentSitesCircle(q, N=3, radius=1.0, resTime=1.0):
     # index of sites in circle
     sites = np.arange(N)
 
-    hwhm = 2.0 * resTime * np.sin(sites*np.pi/N)**2
+    hwhm = 2.0 / resTime * np.sin(sites*np.pi/N)**2
     hwhm = np.tile(hwhm, (q.size, 1))
 
     # jump distances between sites
@@ -119,6 +132,23 @@ def sqwEquivalentSitesCircle(w, q,
 
     Examples
     --------
+    >>> sqw = sqwEquivalentSitesCircle(1, 1, 1, 0, 4, 1, 1)
+    >>> round(sqw[0], 3)
+    0.045
+
+    >>> sqw = sqwEquivalentSitesCircle([1, 2, 3], [0.3, 0.4], 1, 0, 5, 1, 1)
+    >>> round(sqw[0, 0], 3)
+    0.004
+    >>> round(sqw[0, 1], 3)
+    0.001
+    >>> round(sqw[0, 2], 3)
+    0.001
+    >>> round(sqw[1, 0], 3)
+    0.008
+    >>> round(sqw[1, 1], 3)
+    0.003
+    >>> round(sqw[1, 2], 3)
+    0.001
 
 
     Notes
