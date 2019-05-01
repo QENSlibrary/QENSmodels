@@ -20,6 +20,10 @@ For the momentum transfer, we chose `q = 0.71/Angstrom`.
 - brownian_translational_diffusion_ref_data.dat
 
   `sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.)`
+  
+- chudley_elliot_diffusion_ref_data.dat
+
+  `sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23, L=1.)`
 
 - delta_ref_data.dat
 

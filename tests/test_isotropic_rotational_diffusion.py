@@ -111,14 +111,6 @@ class TestIsotropicRotationalDiffusion(unittest.TestCase):
         self.assertEqual(output.size, 6)
         self.assertEqual(output.shape, (2, 3))
 
-    def test_raised_error_negative_diffusion_coeff(self):
-        """ test that an error is raised if no values of q are given as input
-        """
-        self.assertRaises(ValueError,
-                          QENSmodels.hwhmBrownianTranslationalDiffusion,
-                          1,
-                          -1)
-
     def test_reference_data(self):
         """ Test output values in comparison with reference data
                   (file in 'reference data' folder) """

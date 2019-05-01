@@ -38,25 +38,37 @@ def hwhmChudleyElliotDiffusion(q, D=0.23, L=1.0):
 
     Examples
     --------
-
-    Notes
-    -----
+    >>> hwhm, eisf, qisf = hwhmChudleyElliotDiffusion([1., 2.], 0.5, 1.5)
+    >>> round(hwhm[0], 3), round(hwhm[1], 3)
+    (0.447, 1.271)
+    >>> eisf
+    array([0., 0.])
+    >>> qisf
+    array([1., 1.])
 
     """
     # Input validation
+    # input validation
+    if D <= 0:
+        raise ValueError('The diffusion coefficient should be positive')
+    if L <= 0:
+        raise ValueError('L, the jump length, should be positive')
+
     q = np.asarray(q, dtype=np.float32)
 
     eisf = np.zeros(q.size)
     qisf = np.ones(q.size)
-    hwhm = 6 * D * (1-np.sin(q*L)/(q*L)) / L**2
+    hwhm = 6. * D * (1. - np.sinc(q*L)) / L**2
+
     # Force hwhm to be numpy array, even if single value
     hwhm = np.asarray(hwhm, dtype=np.float32)
     hwhm = np.reshape(hwhm, hwhm.size)
+
     return hwhm, eisf, qisf
 
 
 def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23,
-                              L=1.00):
+                              L=1.0):
     r""" Lorentzian model with half width half maximum equal to
     :math:`\frac{6D}{l^2}(1 - \frac{sin(Ql)}{Ql})`
 
@@ -90,6 +102,17 @@ def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23,
 
     Examples
     --------
+    >>> sqw = sqwChudleyElliotDiffusion([1, 2, 3], 1, 1, 0, 1, 1)
+    >>> round(sqw[0], 3)
+    0.159
+    >>> round(sqw[1], 3)
+    0.062
+    >>> round(sqw[2], 3)
+    0.031
+
+    >>> sqw = sqwChudleyElliotDiffusion(1, 1, 1, 0, 1, 1)
+    >>> round(sqw[0], 3)
+    0.159
 
 
     Notes
