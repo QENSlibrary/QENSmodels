@@ -58,7 +58,6 @@ class TestChudleyElliotDiffusion(unittest.TestCase):
 
         self.assertSequenceEqual(qisf1.tolist(), numpy.ones(2).tolist())
 
-
     def test_raised_error_negative_coeffs(self):
         """ test that an error is raised if D or L are negative
         """
@@ -110,11 +109,13 @@ class TestChudleyElliotDiffusion(unittest.TestCase):
         # specified in the README file in the 'reference data' folder
         w = numpy.arange(-2, 2.01, 0.01)
         q = 0.7
-        actual_data = numpy.column_stack([w, QENSmodels.sqwChudleyElliotDiffusion(w, q,
-                                                                                  scale=1,
-                                                                                  center=0,
-                                                                                  D=0.23,
-                                                                                  L=1.)])
+        actual_data = numpy.column_stack(
+            [w, QENSmodels.sqwChudleyElliotDiffusion(w,
+                                                     q,
+                                                     scale=1,
+                                                     center=0,
+                                                     D=0.23,
+                                                     L=1.)])
         numpy.testing.assert_array_almost_equal(ref_data,
                                                 actual_data,
                                                 decimal=12)

@@ -35,7 +35,8 @@ class TestEquivalentSitesCircle(unittest.TestCase):
         self.assertEqual(qisf.shape, (1, 2))
 
         self.assertEqual(round(eisf[0], 3), 0.713)
-        self.assertSequenceEqual(numpy.round(qisf, 3).tolist(), [[0.143, 0.143]])
+        self.assertSequenceEqual(numpy.round(qisf, 3).tolist(),
+                                 [[0.143, 0.143]])
 
     def test_type_size_hwhm_equivalent_sites_circles_q_array(self):
         """ Tests type and size of outputs if input q is an array """
@@ -95,7 +96,7 @@ class TestEquivalentSitesCircle(unittest.TestCase):
                               numpy.ndarray)
         # w, q are vectors
         output = QENSmodels.sqwEquivalentSitesCircle([1, 2, 3],
-                                                    [0.3, 0.4])
+                                                     [0.3, 0.4])
         self.assertIsInstance(output, numpy.ndarray)
         self.assertEqual(output.size, 6)
         self.assertEqual(output.shape, (2, 3))
@@ -112,12 +113,14 @@ class TestEquivalentSitesCircle(unittest.TestCase):
         # specified in the README file in the 'reference data' folder
         w = numpy.arange(-2, 2.01, 0.01)
         q = 0.7
-        actual_data = numpy.column_stack([w, QENSmodels.sqwEquivalentSitesCircle(w, q,
-                                                                                 scale=.01,
-                                                                                 center=0.5,
-                                                                                 N=3,
-                                                                                 radius=100.0,
-                                                                                 resTime=10.)])
+        actual_data = numpy.column_stack(
+            [w, QENSmodels.sqwEquivalentSitesCircle(w,
+                                                    q,
+                                                    scale=.01,
+                                                    center=0.5,
+                                                    N=3,
+                                                    radius=100.0,
+                                                    resTime=10.)])
         numpy.testing.assert_array_almost_equal(ref_data,
                                                 actual_data,
                                                 decimal=12)
