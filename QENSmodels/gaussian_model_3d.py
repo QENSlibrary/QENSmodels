@@ -20,8 +20,8 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
         diffusion coefficient (in Angstrom^2/ps). Default to 1.
 
     variance_ux: float
-        variance <u_x>**2 of Gaussian random variable u_x, displacement from the origin.
-        Default to 1.
+        variance <u_x>**2 of Gaussian random variable u_x, displacement
+        from the origin. Default to 1.
 
     Returns
     -------
@@ -69,7 +69,6 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
 
     arg = q**2 * variance_ux
 
-    # idx = np.argwhere(arg == 0)
     for i in range(numberLorentz):
 
         # to solve warnings for arg=0
@@ -91,9 +90,10 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
 def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
     r""" Gaussian model for localized translational motion in 3D
 
-    Supposing a particle that can move along the direction x about a fixed point
-    taken as the origin and being u_x the displacement from the origin, the model
-    assumes that u_x is a Gaussian random variable with variance <u_x^2>.
+    Supposing a particle that can move along the direction x about a
+    fixed point taken as the origin and being u_x the displacement
+    from the origin, the model assumes that u_x is a Gaussian random
+    variable with variance <u_x^2>.
     For the 3D case, the model assumes also <u_x^2> = <u_y^2> = <u_z^2>.
 
 
@@ -116,8 +116,8 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
         diffusion coefficient (in Angstrom^2/ps). Default to 1.
 
     variance_ux: float
-        variance <u_x>**2 of Gaussian random variable u_x, displacement from the origin.
-        Default to 1.
+        variance <u_x>**2 of Gaussian random variable u_x, displacement
+        from the origin. Default to 1.
 
     Return
     ------
@@ -151,15 +151,16 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
             S(q, \omega) =
 
     * The number of terms in the infinite sume is limited to 100.
-      According to Volino's paper, as a rule of thumb, the number of terms to be
-      considered in practical calculations must be (much) larger than Q^2<u_x^2>.
-      Therefore this condition should be checked when using this model.
+      According to Volino's paper, as a rule of thumb, the number of
+      terms to be considered in practical calculations must be (much)
+      larger than Q^2<u_x^2>. Therefore this condition should be
+      checked when using this model.
 
     Reference
     ----------
 
     F. Volino, J.-C. Perrin, and S. Lyonnard,
-    **Phys. Chem. B** *110*, 11217-11223 (2006)
+    **J. Phys. Chem. B** *110*, 11217-11223 (2006)
     `link <https://pubs.acs.org/doi/10.1021/jp061103s>`_
 
     """
@@ -181,7 +182,9 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
     for i in range(q.size):
         sqw[i, :] = eisf[i] * QENSmodels.delta(w, scale, center)
         for j in range(1, numberLorentz):
-            sqw[i, :] += qisf[i, j] * QENSmodels.lorentzian(w, scale, center,
+            sqw[i, :] += qisf[i, j] * QENSmodels.lorentzian(w,
+                                                            scale,
+                                                            center,
                                                             hwhm[i, j])
 
     # For Bumps use (needed for final plotting)

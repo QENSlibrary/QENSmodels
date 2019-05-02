@@ -57,9 +57,14 @@ def hwhmEquivalentSitesCircle(q, N=3, radius=1.0, resTime=1.0):
     # input validation
     q = np.asarray(q, dtype=np.float32)
 
-    # Need to decide what to do if N < 2:
-    # Get out immediately with message that N_min = 2?
-    # Set N = 2 and show warning that N_min = 2?
+    if radius <= 0:
+        raise ValueError("radius, the radius of the circle, should be positive")
+
+    if resTime < 0:
+        raise ValueError("resTime, the residence time, should be positive")
+
+    if N < 2:
+        raise ValueError("the minimum number of sites N is 2")
 
     # number of sites has to be an integer
     N = np.int(N)
@@ -156,6 +161,7 @@ def sqwEquivalentSitesCircle(w, q,
 
     """
     # Input validation
+
     w = np.asarray(w)
 
     q = np.asarray(q, dtype=np.float32)
