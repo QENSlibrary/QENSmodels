@@ -58,7 +58,8 @@ def hwhmEquivalentSitesCircle(q, N=3, radius=1.0, resTime=1.0):
     q = np.asarray(q, dtype=np.float32)
 
     if radius <= 0:
-        raise ValueError("radius, the radius of the circle, should be positive")
+        raise ValueError("radius, the radius of the circle, "
+                         "should be positive")
 
     if resTime < 0:
         raise ValueError("resTime, the residence time, should be positive")
