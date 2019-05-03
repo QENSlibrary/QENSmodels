@@ -96,7 +96,7 @@ def hwhmJumpSitesLogNormDist(q, N=3, radius=1.0, resTime=1.0, sigma=1.0):
             hwhm[qiter, isite, :] = hwhm_equiv[qiter, isite] * ratio
 
     # quasielastic terms
-    qisf = np.zeros((q.size, N, 2 * n_max + 1))
+    qisf = np.zeros((q.size, N-1, 2 * n_max + 1))
     for qiter in range(q.size):
         for ilor in range(2 * n_max + 1):
             for isite in range(0, N-1):
@@ -225,4 +225,3 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, N=3,
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-

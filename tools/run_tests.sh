@@ -15,7 +15,9 @@ python -m unittest -v test_delta_lorentz
 python -m unittest -v test_delta_two_lorentz
 python -m unittest -v test_equivalent_sites_circle
 python -m unittest -v test_gaussian
+python -m unittest -v test_gaussian_model_3d
 python -m unittest -v test_isotropic_rotational_diffusion
+python -m unittest -v test_jump_sites_log_norm_dist
 python -m unittest -v test_jump_translational_diffusion
 python -m unittest -v test_lorentzian
 python -m unittest -v test_water_teixeira
