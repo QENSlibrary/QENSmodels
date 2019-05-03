@@ -36,7 +36,8 @@ class TestJumpsSitesLogNorm(unittest.TestCase):
 
         self.assertEqual(round(eisf[0], 3), 0.713)
         # eisf should be the same as in hwhmEquivalentSitesCircle
-        hwhm_equiv, eisf_equiv, qisf_equiv = QENSmodels.hwhmEquivalentSitesCircle(1.)
+        hwhm_equiv, eisf_equiv, qisf_equiv = \
+            QENSmodels.hwhmEquivalentSitesCircle(1.)
         self.assertEqual(eisf[0], eisf_equiv[0])
 
         self.assertSequenceEqual(numpy.round(qisf[0, 0], 3).tolist(),
@@ -73,7 +74,10 @@ class TestJumpsSitesLogNorm(unittest.TestCase):
         numpy.testing.assert_array_equal(numpy.round(eisf1, 3), [0.713, 0.256])
         # eisf should be the same as in hwhmEquivalentSitesCircle
         hwhm_equiv, eisf_equiv, qisf_equiv = \
-            QENSmodels.hwhmEquivalentSitesCircle(q_input, N=6, radius=1.0, resTime=1.0)
+            QENSmodels.hwhmEquivalentSitesCircle(q_input,
+                                                 N=6,
+                                                 radius=1.0,
+                                                 resTime=1.0)
 
         self.assertSequenceEqual(eisf1.tolist(), eisf_equiv.tolist())
 

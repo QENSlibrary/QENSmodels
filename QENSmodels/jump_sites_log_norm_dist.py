@@ -57,9 +57,11 @@ def hwhmJumpSitesLogNormDist(q, N=3, radius=1.0, resTime=1.0, sigma=1.0):
     """
     # Input validation
     if radius <= 0:
-        raise ValueError("radius, the radius of the circle, should be positive")
+        raise ValueError("radius, the radius of the circle, "
+                         "should be positive")
     if resTime < 0:
-        raise ValueError("resTime, the residence time, should be positive")
+        raise ValueError("resTime, the residence time, "
+                         "should be positive")
     if N < 2:
         raise ValueError("the minimum number of sites N is 2")
 
@@ -68,7 +70,8 @@ def hwhmJumpSitesLogNormDist(q, N=3, radius=1.0, resTime=1.0, sigma=1.0):
     # number of sites has to be an integer
     N = np.int(N)
 
-    hwhm_equiv, eisf, qisf_equiv = QENSmodels.hwhmEquivalentSitesCircle(q, N, radius, resTime)
+    hwhm_equiv, eisf, qisf_equiv = \
+        QENSmodels.hwhmEquivalentSitesCircle(q, N, radius, resTime)
 
     # number of lorentzians used in distribution is 2 * nmax + 1
     n_max = 10
@@ -85,7 +88,7 @@ def hwhmJumpSitesLogNormDist(q, N=3, radius=1.0, resTime=1.0, sigma=1.0):
 
     # distribution  of weights
 
-    gi= np.exp(-0.5 * np.log(ratio) ** 2 / sigma ** 2)
+    gi = np.exp(-0.5 * np.log(ratio) ** 2 / sigma ** 2)
     gi /= np.sum(gi)  # normalize so sum gi = 1
 
     # distribution of hwhm for each jumping distance
@@ -209,10 +212,11 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, N=3,
         for j in range(numberLorentz):
             for k in range(numberSamplingDistrib):
                 # quasielastic terms
-                sqw[i, :] += qisf[i, j, k] * QENSmodels.lorentzian(w,
-                                                            scale,
-                                                            center,
-                                                            hwhm[i, j + 1, k])
+                sqw[i, :] += qisf[i, j, k] * \
+                             QENSmodels.lorentzian(w,
+                                                   scale,
+                                                   center,
+                                                   hwhm[i, j + 1, k])
 
     # For Bumps use (needed for final plotting)
     # Using a 'Curve' in bumps for each Q --> needs vector array
