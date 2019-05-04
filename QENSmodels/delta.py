@@ -38,7 +38,7 @@ def delta(x, scale=1, center=0):
 
     .. math::
 
-        \text{Delta}(x, \text{scale}, \text{center}) = \text{scale}
+        \text{Delta}(x, \text{scale}, \text{center}) = \text{scale}\
         \delta(x- \text{center})
 
 
