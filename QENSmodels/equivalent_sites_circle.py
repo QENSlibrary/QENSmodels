@@ -164,7 +164,9 @@ def sqwEquivalentSitesCircle(w, q,
 
       .. math::
 
-          S(q, \omega) = \text{delta}(\omega, A_0(q), \text{center} ) + \sum_{i=1}^{N-1} A_i(Q)\text{Lorentzian}(\omega, A_i(Q)\Gamma_i, \text{center},
+          S(q, \omega) = \text{delta}(\omega, A_0(q), \text{center} )
+          + \sum_{i=1}^{N-1}
+          A_i(Q)\text{Lorentzian}(\omega, A_i(Q)\Gamma_i, \text{center},
           \Gamma_i^2)
 
       where

@@ -57,7 +57,8 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
     if D <= 0:
         raise ValueError("D, the diffusion coefficient, should be positive")
     if variance_ux <= 0:
-        raise ValueError("variance_ux, the variance, should be strictly positive")
+        raise ValueError("variance_ux, the variance, should be "
+                         "strictly positive")
 
     q = np.asarray(q, dtype=np.float64)
 

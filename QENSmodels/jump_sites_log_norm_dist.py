@@ -116,16 +116,18 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, N=3,
     r""" Model of jumps between N equivalent sites in a circle with a log-norm
     distribution of relaxation times
 
-    For each jumping distance, instead of a single :math:\Gamma_i value,
-    a distribution of HWHMs is used. The distribution is represented by L values
-    of the HWHM (:math:\Gamma_{i,j}) with associated weights :math: g_j taken
-    from a log-Gaussian distribution of standard distribution :math: \sigma and
-    normalized such that :math: \sum_{j=1}^L g_j=1. The :math:\Sigma_{i,j} are
-    chosen equally spaced in logarithmic scale in the range
-    [:math:\exp(-\sigma\sqrt{-2\ln A_{min}}), :math:\exp(\sigma\sqrt{-2\ln A_{min}})]
-    where :math: A_{min} is the cut-off chosen for the value of the distribution
-    function with respect to its maximum. This model uses :math: L=21
-    and :math: A_{min}=0.1
+    For each jumping distance, instead of a single :math:`\Gamma_i` value,
+    a distribution of HWHMs is used. The distribution is represented by L
+    values of the HWHM (:math:`\Gamma_{i,j}`) with associated weights
+    :math:`g_j` taken from a log-Gaussian distribution of standard
+     distribution :math:`\sigma` and normalized such that
+     :math: \sum_{j=1}^L g_j=1. The :math:`\Sigma_{i,j}` are chosen equally
+     spaced in logarithmic scale in the range
+    [:math:`\exp(-\sigma\sqrt{-2\ln A_{min}})`,
+    :math:`\exp(\sigma\sqrt{-2\ln A_{min}})`]
+    where :math:`A_{min}` is the cut-off chosen for the value of the
+    distribution function with respect to its maximum. This model uses
+    :math:`L`=21 and :math:`A_{min}`=0.1
 
     Parameters
     ----------
@@ -191,7 +193,8 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, N=3,
 
           S(q, \omega) = \text{delta}(\omega, A_0(q), \text{center} )
           + \sum_{i=1}^{N-1} A_i(q) \Big(\sum_{j=1}^L g_j
-          \frac{1}{\pi} \frac{\Gamma_{i,j}}{(\omega-\text{center})^2+\Gamma_{i,j}^2} \Big)
+          \frac{1}{\pi}
+          \frac{\Gamma_{i,j}}{(\omega-\text{center})^2+\Gamma_{i,j}^2} \Big)
 
       where
 
