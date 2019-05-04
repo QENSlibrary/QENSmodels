@@ -87,7 +87,8 @@ class TestGaussianModel3D(unittest.TestCase):
                                                 decimal=9)
 
     def test_raised_error_negative_coeffs(self):
-        """ test that an error is raised if D or variance_ux are negative or variance_ux=0
+        """ test that an error is raised if D or variance_ux are negative
+        or variance_ux=0
         """
         # D = -1, variance_ux = 1
         self.assertRaises(ValueError,
