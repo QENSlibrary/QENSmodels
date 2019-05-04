@@ -45,8 +45,10 @@ def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
     >>> qisf
     array([1., 1.])
 
+
     Notes
     -----
+
     The default values for the fitting parameters come from the values
     for water at 298K and 1 atm, water has D=0.23 Angstrom^2/ps and
     ResTime=1.25 ps.
@@ -128,8 +130,11 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
           \frac{D q^2}{ 1 + \text{resTime}\ D q^2})
 
     * The default values for the fitting parameters come from the values
-      for water at 298K and 1 atm, water has D=0.230 Angstrom^2/ps and
+      for water at 298K and 1 atm, water has D=0.230 Angstrom :math:^2 /ps and
       ResTime=1.25 ps.
+
+    * If Restime is equal to 0,  this model reduces to
+      `sqwBrownianTranslationalDiffusion`.
 
 
     Reference

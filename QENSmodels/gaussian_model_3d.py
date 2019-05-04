@@ -148,9 +148,20 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
 
         .. math::
 
-            S(q, \omega) =
+            S(q, \omega) = \text{delta}(\omega, A_0(q), \text{center} )
+            + \sum_{i=1}^{N-1} A_i(Q)
+            \text{Lorentzian}(\omega, A_i(Q)\Gamma_i, \text{center},
+          \Gamma_i^2)
 
-    * The number of terms in the infinite sume is limited to 100.
+      where
+
+      .. math::
+
+         A_i(Q) = \exp(-q^2<u_x^2>) \frac{(q^2<u_x^2>)^i}{i!}
+
+         \Gamma_i = \frac{i D}{<u_x^2>}
+
+    * The number of terms in the infinite sum is limited to 100.
       According to Volino's paper, as a rule of thumb, the number of
       terms to be considered in practical calculations must be (much)
       larger than Q^2<u_x^2>. Therefore this condition should be

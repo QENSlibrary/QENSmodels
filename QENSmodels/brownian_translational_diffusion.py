@@ -8,7 +8,7 @@ except ImportError:
 
 
 def hwhmBrownianTranslationalDiffusion(q, D=1.):
-    """ Lorentzian model with HWHM equal to :math:`Dq^2`
+    """ Lorentzian model with half width half maximum equal to :math:`Dq^2`
 
     Parameters
     ----------
@@ -70,12 +70,23 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
 
 
 def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
-    r""" Lorentzian model with HWHM equal to :math:`Dq^2`
+    r""" Lorentzian model with half width half maximum  equal to :math:`Dq^2`
 
     It corresponds to a continuous long-range isotropic translational
     diffusion.
 
-    The broadening of the elastic line is q-dependent
+    This model corresponds to a Brownian motion, where particles collide
+    randomly between them. Between two collisions, one particle moves
+    along a straight line. After a collision, it goes in a random direction,
+    independent of the previous one.
+
+    This model can be used to represent the translation component of the
+    dynamic structure factor at low Q, where the corresponding investigated
+    distance in real space are large enough to imply a large number of jumps.
+    Deviations are expected at high Q values, where specific details of the
+    jump mechanism start to be observable. In this case, such details need
+    to be introduced in the scattering model, as e.g. in the Chudley-Elliot
+    model.
 
     Parameters
     ----------
