@@ -105,6 +105,11 @@ class TestJumpsSitesLogNorm(unittest.TestCase):
                           QENSmodels.hwhmJumpSitesLogNormDist,
                           1, 4, 1, -1, 1)
 
+        # sigma <= 0
+        self.assertRaises(ValueError,
+                          QENSmodels.hwhmJumpSitesLogNormDist,
+                          1, 4, 1, 1, -0.5)
+
     def test_raised_error_no_q_input(self):
         """ test that an error is raised if no values of q are given as input
         """

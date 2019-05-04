@@ -138,12 +138,11 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
 
 
     Reference
-    ----------
+    ---------
 
     J. Teixeira, M.-C. Bellissent-Funel, S.H. Chen, and A.J, Dianoux,
     **Phys. Rev. A** *31*, 1913-1917 (1985)
     `link <https://journals.aps.org/pra/abstract/10.1103/PhysRevA.31.1913>`_
-
 
     """
     # Input validation

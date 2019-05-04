@@ -65,6 +65,9 @@ def hwhmJumpSitesLogNormDist(q, N=3, radius=1.0, resTime=1.0, sigma=1.0):
     if N < 2:
         raise ValueError("the minimum number of sites N is 2")
 
+    if sigma <= 0:
+        raise ValueError("sigma should be different from zero")
+
     q = np.asarray(q, dtype=np.float32)
 
     # number of sites has to be an integer
@@ -209,7 +212,7 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, N=3,
 
 
     Reference
-    ----------
+    ---------
 
     A. Chahid, A. Alegria, and J. Colmenero,
     **Macromolecules** *27*, 3282-3288 (1994)

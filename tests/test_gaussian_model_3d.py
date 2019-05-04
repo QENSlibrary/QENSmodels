@@ -87,7 +87,7 @@ class TestGaussianModel3D(unittest.TestCase):
                                                 decimal=9)
 
     def test_raised_error_negative_coeffs(self):
-        """ test that an error is raised if D or variance_ux are negative
+        """ test that an error is raised if D or variance_ux are negative or variance_ux=0
         """
         # D = -1, variance_ux = 1
         self.assertRaises(ValueError,
@@ -104,6 +104,11 @@ class TestGaussianModel3D(unittest.TestCase):
                           QENSmodels.hwhmGaussianModel3D,
                           1,
                           -1, -1)
+        # D = -1, variance_ux = 0
+        self.assertRaises(ValueError,
+                          QENSmodels.hwhmGaussianModel3D,
+                          1,
+                          -1, 0)
 
     def test_raised_error_no_q_input(self):
         """ test that an error is raised if no values of q are given as input

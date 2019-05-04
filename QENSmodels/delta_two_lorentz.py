@@ -59,7 +59,6 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     >>> sqw[1, 2]
     0.0
 
-
     >>> sqw = sqwDeltaTwoLorentz([1, 2, 3], [0.05, 0.3], 0.5, 2, [0.75, 0.5], [1, 2], [0.05, 0.04], [0.02, 0.03])  # noqa: E501
     >>> round(sqw[0, 0], 3)
     0.006

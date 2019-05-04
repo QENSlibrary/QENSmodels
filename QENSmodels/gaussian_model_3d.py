@@ -56,8 +56,8 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
     # Input validation
     if D <= 0:
         raise ValueError("D, the diffusion coefficient, should be positive")
-    if variance_ux < 0:
-        raise ValueError("variance_ux, the variance, should be positive")
+    if variance_ux <= 0:
+        raise ValueError("variance_ux, the variance, should be strictly positive")
 
     q = np.asarray(q, dtype=np.float64)
 
@@ -168,7 +168,7 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
       checked when using this model.
 
     Reference
-    ----------
+    ---------
 
     F. Volino, J.-C. Perrin, and S. Lyonnard,
     **J. Phys. Chem. B** *110*, 11217-11223 (2006)

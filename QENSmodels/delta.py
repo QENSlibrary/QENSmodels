@@ -57,7 +57,6 @@ def delta(x, scale=1, center=0):
       | ``center``  |  Centre            |
       +-------------+--------------------+
 
-
     """
     # Input validation
     if isinstance(x, (float, int)):

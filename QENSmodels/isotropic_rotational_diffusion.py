@@ -68,10 +68,10 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
     """
     # input validation
     if radius <= 0:
-        raise ValueError('radius should be positive')
+        raise ValueError('radius should be strictly positive')
     if DR <= 0:
         raise ValueError('DR, the rotational diffusion coefficient, '
-                         'should be positive')
+                         'should be strictly positive')
 
     q = np.asarray(q, dtype=np.float32)
 
