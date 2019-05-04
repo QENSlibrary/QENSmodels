@@ -3,7 +3,7 @@ import numpy as np
 from numpy.polynomial import Polynomial as P
 
 
-def background_polynomials(w, list_coefficients=0.0):
+def background_polynomials(x, list_coefficients=0.0):
     r"""
     Polynomials of variable `w` and with coefficients contained in
     'list_coefficients'
@@ -11,8 +11,8 @@ def background_polynomials(w, list_coefficients=0.0):
     Parameters
     ----------
 
-    w: list or :class:`~numpy:numpy.ndarray`
-        energy transfer (in ps)
+    x: list or :class:`~numpy:numpy.ndarray`
+        domain of the function
 
     list_coefficients: list or float
         list of coefficients for the polynomials in ascending order, i.e.
@@ -36,17 +36,17 @@ def background_polynomials(w, list_coefficients=0.0):
     array([ 6., 17., 34.])
     """
 
-    w = np.asarray(w)
+    x = np.asarray(x)
 
     # check that list_coeff is a list and all elements are numbers
     if isinstance(list_coefficients, list) and \
-            all(isinstance(x, (int, float)) for x in list_coefficients):
+            all(isinstance(w, (int, float)) for w in list_coefficients):
 
-        return P(list_coefficients)(w)
+        return P(list_coefficients)(x)
 
     elif isinstance(list_coefficients, (int, float)):
 
-        return P(list_coefficients)(w)
+        return P(list_coefficients)(x)
 
     else:
         raise ValueError('problem with input')
