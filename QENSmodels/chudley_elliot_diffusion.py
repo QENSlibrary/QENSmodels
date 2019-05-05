@@ -132,22 +132,18 @@ def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23,
           S(q, \omega) = \text{Lorentzian}(\omega, \text{scale}, \text{center},
           \frac{1}{\tau}(1 - \frac{sin(Ql)}{Ql}))
 
-      with
-
-      .. math::
-
-          \tau = \frac{l^2}{6D}
+      with :math:`\tau=\frac{l^2}{6D}`.
 
 
-    Reference
-    ---------
+    References
+    ----------
 
     R. Hempelmann,
-    Quasielastic Neutron Scattering and Solid State Diffusion (Oxford, 2000)
+    Quasielastic Neutron Scattering and Solid State Diffusion (Oxford, 2000).
 
     """
     # Input validation
-    w = np.asarray(w)  # , dtype=np.float32)
+    w = np.asarray(w)
 
     q = np.asarray(q, dtype=np.float32)
 

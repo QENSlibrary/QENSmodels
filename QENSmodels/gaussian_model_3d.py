@@ -17,10 +17,10 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
         momentum transfer (in 1/Angstrom)
 
     D: float
-        diffusion coefficient (in Angstrom^2/ps). Default to 1.
+        diffusion coefficient (in Angstrom:math:`^2`/ps). Default to 1.
 
     variance_ux: float
-        variance <u_x>**2 of Gaussian random variable u_x, displacement
+        variance :math:`<u_x^2>` of Gaussian random variable :math:`u_x`, displacement
         from the origin. Default to 1.
 
     Returns
@@ -114,10 +114,10 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
         center of peak. Default to 0.
 
     D: float
-        diffusion coefficient (in Angstrom^2/ps). Default to 1.
+        diffusion coefficient (in Angstrom:math:`^2`/ps). Default to 1.
 
     variance_ux: float
-        variance <u_x>**2 of Gaussian random variable u_x, displacement
+        variance :math:`<u_x^2>` of Gaussian random variable :math:`u_x`, displacement
         from the origin. Default to 1.
 
     Return
@@ -165,14 +165,14 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
     * The number of terms in the infinite sum is limited to 100.
       According to Volino's paper, as a rule of thumb, the number of
       terms to be considered in practical calculations must be (much)
-      larger than Q^2<u_x^2>. Therefore this condition should be
+      larger than :math:`Q^2<u_x^2>`. Therefore this condition should be
       checked when using this model.
 
-    Reference
-    ---------
+    References
+    ----------
 
     F. Volino, J.-C. Perrin, and S. Lyonnard,
-    **J. Phys. Chem. B** *110*, 11217-11223 (2006)
+    *J. Phys. Chem. B* **110**, 11217-11223 (2006)
     `link <https://pubs.acs.org/doi/10.1021/jp061103s>`_
 
     """

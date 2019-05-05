@@ -191,10 +191,10 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, N=3,
 
       .. math::
 
-          S(q, \omega) = \text{delta}(\omega, A_0(q), \text{center} )
-          + \sum_{i=1}^{N-1} A_i(q) \Big(\sum_{j=1}^L g_j
-          \frac{1}{\pi}
-          \frac{\Gamma_{i,j}}{(\omega-\text{center})^2+\Gamma_{i,j}^2} \Big)
+        S(q, \omega) = \text{delta}(\omega, A_0(q), \text{center} )
+        + \sum_{i=1}^{N-1} A_i(q) \Big(\sum_{j=1}^L g_j
+        \frac{1}{\pi}
+        \frac{\Gamma_{i,j}}{(\omega-\text{center})^2+\Gamma_{i,j}^2} \Big)
 
       where
 
@@ -214,11 +214,11 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, N=3,
       It should **not** be used as a fitting parameter.
 
 
-    Reference
-    ---------
+    References
+    ----------
 
     A. Chahid, A. Alegria, and J. Colmenero,
-    **Macromolecules** *27*, 3282-3288 (1994)
+    *Macromolecules* **27**, 3282-3288 (1994)
     `link <https://pubs.acs.org/doi/abs/10.1021/ma00090a022>`_
 
 

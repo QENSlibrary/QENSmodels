@@ -92,7 +92,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
         center of peak. Default to 0.
 
     D: float
-        diffusion coefficient (in Angstrom^2/ps). Default to 0.23.
+        diffusion coefficient (in Angstrom:math:`^2`/ps). Default to 0.23.
 
     resTime: float
         residence time (in ps). Default to 1.25.
@@ -130,18 +130,18 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
           \frac{D q^2}{ 1 + \text{resTime}\ D q^2})
 
     * The default values for the fitting parameters come from the values
-      for water at 298K and 1 atm, water has D=0.230 Angstrom :math:`^2`/ps and
+      for water at 298K and 1 atm, water has D=0.23 Angstrom:math:`^2`/ps and
       ResTime=1.25 ps.
 
     * If Restime is equal to 0,  this model reduces to
       `sqwBrownianTranslationalDiffusion`.
 
 
-    Reference
-    ---------
+    References
+    ----------
 
     J. Teixeira, M.-C. Bellissent-Funel, S.H. Chen, and A.J, Dianoux,
-    **Phys. Rev. A** *31*, 1913-1917 (1985)
+    *Phys. Rev. A* **31**, 1913-1917 (1985)
     `link <https://journals.aps.org/pra/abstract/10.1103/PhysRevA.31.1913>`_
 
     """
