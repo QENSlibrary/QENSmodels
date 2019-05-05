@@ -19,16 +19,16 @@ sys.path.insert(0, os.path.abspath('.'))
 #######
 sys.path.insert(0, os.path.abspath('../'))
 
-# Get the project root dir, which is the parent dir of this
+# # Get the project root dir, which is the parent dir of this
 cwd = os.getcwd()
 project_root = os.path.dirname(cwd)
-
-# Insert the project root dir as the first element in the PYTHONPATH.
-# This lets us ensure that the source package is imported, and that its
-# version is used.
+#
+# # Insert the project root dir as the first element in the PYTHONPATH.
+# # This lets us ensure that the source package is imported, and that its
+# # version is used.
 sys.path.insert(0, project_root)
 
-import QENSmodels
+# import QENSmodels
 
 # -- Project information -----------------------------------------------------
 
@@ -37,9 +37,9 @@ copyright = u'2018, -'
 author = u'-'
 
 # The short X.Y version.
-version = QENSmodels.__version__  # '0.1.0'
+version = '0.1.0'  # QENSmodels.__version__  # '0.1.0'
 # The full version, including alpha/beta/rc tags.
-release = QENSmodels.__version__  # '0.1.0'
+release = '0.1.0'  # QENSmodels.__version__  # '0.1.0'
 
 
 # -- General configuration ---------------------------------------------------
