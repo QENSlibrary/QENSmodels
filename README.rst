@@ -54,12 +54,13 @@ The steps to follow are:
 
 * Download or clone the repository which can be found at the following `link <https://github.com/QENSlibrary/QENSmodels>`_
 
-* To **install the package** to the Python user install directory for your platform, type the following
+* To **install the package**, type the following
   command in a terminal  
 
   .. code-block:: console
 
-     pip install --user full_path/to/QENSmodels_folder
+     pip install full_path/to/QENSmodels_folder
+
 
 See `the documentation on pip install <https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs>`_ for 
 additional information. Run ``pip show QENSmodels`` to display details about the installed package.
