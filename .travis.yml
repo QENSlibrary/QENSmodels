@@ -33,7 +33,7 @@ install:
 
 script:
   - python -m flake8;
-  - sphinx-build -nT -b html docs docs/_build/html;
+  - sphinx-build -nT -b html docs/source/ docs/_build/html;
   - bash tools/run_tests.sh;
 
 notifications:
