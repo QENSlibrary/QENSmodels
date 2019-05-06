@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 #######
 sys.path.insert(0, os.path.abspath('../'))
-sys.path.insert(0, os.path.abspath('../QENSmodels/'))
+sys.path.insert(0, os.path.abspath('./QENSmodels/'))
 
 # # Get the project root dir, which is the parent dir of this
 # cwd = os.getcwd()
@@ -38,9 +38,9 @@ copyright = u'2018, -'
 author = u'-'
 
 # The short X.Y version.
-version = '0.1.0'  # QENSmodels.__version__  # '0.1.0'
+version = '0.1.0'  # QENSmodels.__version__
 # The full version, including alpha/beta/rc tags.
-release = '0.1.0'  # QENSmodels.__version__  # '0.1.0'
+release = '0.1.0'  # QENSmodels.__version__
 
 
 # -- General configuration ---------------------------------------------------
@@ -64,8 +64,17 @@ extensions = [
     'sphinx.ext.napoleon',
 ]
 
+# Napoleon settings
 napoleon_google_docstring = False
+napoleon_numpy_docstring = True
+napoleon_include_init_with_doc = False
+napoleon_include_private_with_doc = False
+napoleon_include_special_with_doc = True
+napoleon_use_admonition_for_examples = False
+napoleon_use_admonition_for_notes = False
+napoleon_use_admonition_for_references = False
 napoleon_use_param = False
+napoleon_use_rtype = True
 napoleon_use_ivar = True
 
 # Add any paths that contain templates here, relative to this directory.
@@ -193,15 +202,4 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
 
-# Napoleon settings
-napoleon_google_docstring = True
-napoleon_numpy_docstring = True
-napoleon_include_init_with_doc = False
-napoleon_include_private_with_doc = False
-napoleon_include_special_with_doc = True
-napoleon_use_admonition_for_examples = False
-napoleon_use_admonition_for_notes = False
-napoleon_use_admonition_for_references = False
-napoleon_use_ivar = False
-napoleon_use_param = True
-napoleon_use_rtype = True
+
