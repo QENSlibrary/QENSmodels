@@ -56,9 +56,9 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
     * **Equivalence**
       ``Lorentzian`` corresponds to the following implementations in
       `Mantid
-      <http://docs.mantidproject.org/nightly/fitfunctions/Lorentzian.html>`_
+      <http://docs.mantidproject.org/nightly/fitfunctions/Lorentzian.html>`__
       and
-      `DAVE <https://www.ncnr.nist.gov/dave/documentation/pandoc_DAVE.pdf>`_
+      `DAVE <https://www.ncnr.nist.gov/dave/documentation/pandoc_DAVE.pdf>`__
 
       +------------------+-----------------+------------------+
       | Equivalence      | Mantid          |  DAVE            |
