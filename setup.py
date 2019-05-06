@@ -16,5 +16,5 @@ setup(name='QENSmodels',
       author_email='to be added',
       license=open('LICENSE.txt').read(),
       packages=['QENSmodels'],
-      install_requires=['scipy', 'numpy', 'flake8'],
+      install_requires=['scipy', 'numpy', 'flake8',],
       zip_safe=False,)
