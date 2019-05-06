@@ -46,7 +46,7 @@ environment:
 
 * to access the notebooks,
   * activate your conda environment. For example, if the environment was created using the above commands, simply
-    type `conda activate mynewenv` in a terminal.
+  type `conda activate mynewenv` in a terminal.
   * move to the folder where the notebook you want to open is located,
   * type ``jupyter notebook``
   * click on the notebook you want to open.
