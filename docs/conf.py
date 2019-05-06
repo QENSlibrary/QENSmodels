@@ -18,7 +18,6 @@ sys.path.insert(0, os.path.abspath('.'))
 
 #######
 sys.path.insert(0, os.path.abspath('../'))
-sys.path.insert(0, os.path.abspath('./QENSmodels/'))
 
 # # Get the project root dir, which is the parent dir of this
 # cwd = os.getcwd()
