@@ -208,7 +208,8 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'numpy': ('http://docs.scipy.org/doc/numpy', None),
-    'python': ('https://docs.python.org/{}'.format(sys.version_info[0]), None)
+    'python': ('https://docs.python.org/{}'.format(sys.version_info[0]), None),
+    'scipy': ('https://docs.scipy.org/doc/scipy/reference', None),
 }
 
 # -- Options for todo extension ----------------------------------------------
