@@ -26,7 +26,8 @@ def hwhmJumpSitesLogNormDist(q, N=3, radius=1.0, resTime=1.0, sigma=1.0):
         residence time (in ps). Default to 1.
 
     sigma: float
-        standard deviation of the Gaussian distribution (no unit). Default to 1.
+        standard deviation of the Gaussian distribution (no unit).
+        Default to 1.
 
     Returns
     -------
