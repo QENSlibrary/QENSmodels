@@ -14,14 +14,15 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
     ----------
 
     q: float, list or :class:`~numpy:numpy.ndarray`
-        momentum transfer (in 1/Angstrom)
+        momentum transfer (non-fitting, in 1/Angstrom)
 
     D: float
         diffusion coefficient (in Angstrom:math:`^2`/ps). Default to 1.
 
     variance_ux: float
-        variance :math:`<u_x^2>` of Gaussian random variable :math:`u_x`,
-        displacement from the origin. Default to 1.
+        variance :math:`<u_x^2>` of Gaussian random variable :math:`u_x`
+        (in Angstrom:math:`^2`), displacement from the origin.
+        Default to 1.
 
     Returns
     -------
@@ -102,7 +103,7 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
     ----------
 
     w: float, list or :class:`~numpy:numpy.ndarray`
-        energy transfer (in ps)
+        energy transfer (in 1/ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom).
@@ -117,8 +118,9 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
         diffusion coefficient (in Angstrom:math:`^2`/ps). Default to 1.
 
     variance_ux: float
-        variance :math:`<u_x^2>` of Gaussian random variable :math:`u_x`,
-        displacement from the origin. Default to 1.
+        variance :math:`<u_x^2>` of Gaussian random variable :math:`u_x`
+        (in Angstrom:math:`^2`), displacement from the origin.
+        Default to 1.
 
     Return
     ------

@@ -117,7 +117,7 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0,
     ----------
 
     w: list or :class:`~numpy:numpy.ndarray`
-        energy transfer (in ps)
+        energy transfer (in 1/ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom)

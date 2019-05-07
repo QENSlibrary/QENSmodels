@@ -14,7 +14,7 @@ def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
     ----------
 
     q: float, list or :class:`~numpy:numpy.ndarray`
-        momentum transfer (in 1/Angstrom)
+        momentum transfer (non-fitting, in 1/Angstrom)
 
     D: float
         diffusion coefficient (in Angstrom^2/ps). Default to 0.23.
@@ -80,7 +80,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
     ----------
 
     w: float, list or :class:`~numpy:numpy.ndarray`
-        energy transfer (in ps)
+        energy transfer (in 1/ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom).

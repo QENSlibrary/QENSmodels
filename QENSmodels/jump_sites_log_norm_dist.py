@@ -14,19 +14,19 @@ def hwhmJumpSitesLogNormDist(q, N=3, radius=1.0, resTime=1.0, sigma=1.0):
     ----------
 
     q: float, list or :class:`~numpy:numpy.ndarray`
-        momentum transfer (in 1/Angstrom)
+        momentum transfer (non-fitting, in 1/Angstrom)
 
     N: integer
-        number of sites in circle. Default to 3.
+        number of sites in circle (non-fitting). Default to 3.
 
     radius: float
         radius of the circle (in Angstrom). Default to 1.
 
     resTime: float
-        residence time (in NEED TO CHECK UNITS). Default to 1.
+        residence time (in ps). Default to 1.
 
     sigma: float
-        standard deviation of the Gaussian distribution. Default to 1.
+        standard deviation of the Gaussian distribution (no unit). Default to 1.
 
     Returns
     -------
@@ -133,7 +133,7 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, N=3,
     ----------
 
     w: list or :class:`~numpy:numpy.ndarray`
-        energy transfer (in ps)
+        energy transfer (in 1/ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom)
@@ -145,7 +145,7 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, N=3,
         center of peak. Default to 0.
 
     N: integer
-        number of sites in circle. Default to 3.
+        number of sites in circle (non-fitting). Default to 3.
 
     radius: float
         radius of rotation (in Angstrom). Default to 1.

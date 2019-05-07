@@ -17,13 +17,13 @@ def hwhmEquivalentSitesCircle(q, N=3, radius=1.0, resTime=1.0):
         momentum transfer (non-fitting, in 1/Angstrom)
 
     N: integer
-        number of sites in circle. Default to 3.
+        number of sites in circle (non-fitting). Default to 3.
 
     radius: float
         radius of the circle (in Angstrom). Default to 1.
 
     resTime: float
-        residence time (in NEED TO CHECK UNITS). Default to 1.
+        residence time (in ps). Default to 1.
 
     Returns
     -------
@@ -110,7 +110,7 @@ def sqwEquivalentSitesCircle(w, q,
     ----------
 
     w: list or :class:`~numpy:numpy.ndarray`
-        energy transfer (in ps)
+        energy transfer (in 1/ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom)
@@ -122,13 +122,13 @@ def sqwEquivalentSitesCircle(w, q,
         center of peak. Default to 0.
 
     N: integer
-        number of sites in circle. Default to 3.
+        number of sites in circle (non-fitting). Default to 3.
 
     radius: float
         radius of rotation (in Angstrom). Default to 1.
 
     resTime: float
-        residence time in a site before jumping to another site (in 1/ps).
+        residence time in a site before jumping to another site (in ps).
         Default to 1.
 
     Return

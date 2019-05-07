@@ -76,10 +76,7 @@ def delta(x, scale=1, center=0):
             else:
                 dx = 1.
             model[idx] = scale / dx
-    # except ZeroDivisionError:
-    #     print('Division by zero')
-    # except IndexError:
-    #     print('Index error: x does not have enough elements')
+
     finally:
         return model
 

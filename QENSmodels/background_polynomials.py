@@ -17,7 +17,7 @@ def background_polynomials(x, list_coefficients=0.0):
     list_coefficients: list or float
         list of coefficients for the polynomials in ascending order, i.e.
         the first element is the coefficient for the constant term.
-        Default to 0.0 (no background)
+        Default to 0 (no background).
 
     Return
     ------
