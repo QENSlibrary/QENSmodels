@@ -92,8 +92,8 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
 def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
     r""" Gaussian model for localized translational motion in 3D
 
-    Supposing a particle that can move along the direction x about a
-    fixed point taken as the origin and being u_x the displacement
+    Considering a particle moving along the direction x about a
+    fixed point taken as the origin and u_x being the displacement
     from the origin, the model assumes that u_x is a Gaussian random
     variable with variance <u_x^2>.
     For the 3D case, the model assumes also <u_x^2> = <u_y^2> = <u_z^2>.
