@@ -15,11 +15,12 @@ plots),
 To access the notebooks, type ``jupyter notebook`` in a terminal and click on
  the notebook you want to open.
 
-The notebooks, whose names start with ``mantid``\ , require 
-`Mantid <http://www.mantidproject.org/Main_Page>`_ to be installed on your 
-computer.
-How to run these last notebooks is described 
-`here <https://www.mantidproject.org/Using_IPython_Notebook>`_.
+.. important:: The notebook, whose name starts with ``mantid``\ , requires
+   `Mantid <http://www.mantidproject.org/Main_Page>`_ to be installed on your computer,
+   since it uses `Mantid Notebook`. How to run these last notebooks is described
+   `here <https://www.mantidproject.org/Using_IPython_Notebook>`_.
+   Note that this **particular notebook** is still a work in progress.
+
 
 The data required to run some of the notebooks and scripts are located in the 
 ``data`` subfolder.
