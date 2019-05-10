@@ -34,7 +34,10 @@ install:
 script:
   - python -m flake8;
   - sphinx-build -nT -b html docs docs/_build/html;
-  - bash tools/run_tests.sh;
+  # Run unittests
+  - python -m unittest discover tests
+  # Run doctests
+  # to be added
 
 notifications:
   - on_success: never
