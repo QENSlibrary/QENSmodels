@@ -1,6 +1,6 @@
 from __future__ import print_function
 import numpy as np
-from scipy.special import jn
+from scipy.special import spherical_jn
 
 try:
     import QENSmodels
@@ -86,7 +86,7 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
     for i in range(numberLorentz):
 
         # to solve warnings for arg=0
-        jl[:, i] = np.sqrt(np.pi / 2. / arg) * jn(i + 0.5, arg)
+        jl[:, i] = spherical_jn(i, arg)
 
         hwhm[:, i] = np.repeat(i * (i + 1) * DR, q.size)
 

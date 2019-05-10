@@ -40,7 +40,7 @@ def hwhmChudleyElliotDiffusion(q, D=0.23, L=1.0):
     --------
     >>> hwhm, eisf, qisf = hwhmChudleyElliotDiffusion([1., 2.], 0.5, 1.5)
     >>> round(hwhm[0], 3), round(hwhm[1], 3)
-    (0.447, 1.271)
+    (1.616, 1.333)
     >>> eisf
     array([0., 0.])
     >>> qisf
@@ -103,15 +103,15 @@ def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23,
     --------
     >>> sqw = sqwChudleyElliotDiffusion([1, 2, 3], 1, 1, 0, 1, 1)
     >>> round(sqw[0], 3)
-    0.159
+    0.052
     >>> round(sqw[1], 3)
-    0.062
+    0.048
     >>> round(sqw[2], 3)
-    0.031
+    0.042
 
     >>> sqw = sqwChudleyElliotDiffusion(1, 1, 1, 0, 1, 1)
     >>> round(sqw[0], 3)
-    0.159
+    0.052
 
 
     Notes

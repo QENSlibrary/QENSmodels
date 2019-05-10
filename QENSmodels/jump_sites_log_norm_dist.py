@@ -44,13 +44,15 @@ def hwhmJumpSitesLogNormDist(q, N=3, radius=1.0, resTime=1.0, sigma=1.0):
 
     Examples
     --------
-    >>> hwhm, eisf, qisf = hwhmJumpSitesLogNormDist([1., 2.], 0.5, 1.5, 1.0)
-    >>> round(hwhm[0], 3), round(hwhm[1], 3)
-    (0.286, 0.5)
-    >>> eisf
-    array([0., 0.])
-    >>> qisf
-    array([1., 1.])
+    >>> hwhm, eisf, qisf = hwhmJumpSitesLogNormDist([1., 2.], 4, 0.5, 1.5, 1.0)
+    >>> round(hwhm[1, 3, 20], 3), round(hwhm[1, 1, 5], 3)
+    (5.7, 0.228)
+    >>> round(eisf[0], 3)
+    0.92
+    >>> round(eisf[1], 3)
+    0.713
+    >>> round(qisf[0, 2, 19], 6), round(qisf[1, 1, 5], 6)
+    (0.000538, 0.000712)
 
     Notes
     -----
@@ -173,7 +175,7 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, N=3,
     0.0014
     >>> round(sqw[0, 2], 4)
     0.0008
-    >>> round(sqw[1, 0], 3)
+    >>> round(sqw[1, 0], 4)
     0.0061
     >>> round(sqw[1, 1], 4)
     0.0025

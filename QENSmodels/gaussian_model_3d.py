@@ -41,17 +41,17 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
     --------
     >>> hwhm, eisf, qisf = hwhmGaussianModel3D([1., 2.], 0.5, 1.5)
     >>> round(hwhm[0,10], 3), round(hwhm[1, 10], 3)
-    (2.033, 2.033)
+    (3.333, 3.333)
     >>> round(hwhm[0,99], 3), round(hwhm[1, 99], 3)
-    (20.122, 20.122)
+    (33.0, 33.0)
     >>> round(eisf[0], 3)
-    0.292
+    0.223
     >>> round(eisf[1], 3)
-    0.007
+    0.002
     >>> round(qisf[0, 1], 4)
-    0.3595
+    0.3347
     >>> round(qisf[1, 1], 4)
-    0.0359
+    0.0149
 
     """
     # Input validation
@@ -133,15 +133,15 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
     --------
     >>> sqw = sqwGaussianModel3D([1, 2, 3], 1, 1, 0, 1, 1)
     >>> round(sqw[0], 3)
-    0.127
+    0.089
     >>> round(sqw[1], 3)
-    0.037
+    0.044
     >>> round(sqw[2], 3)
-    0.017
+    0.025
 
     >>> sqw = sqwGaussianModel3D(1, 1, 1, 0, 1, 1)
     >>> round(sqw[0], 3)
-    0.127
+    0.089
 
 
     Notes
