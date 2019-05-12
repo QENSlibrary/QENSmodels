@@ -1,0 +1,5 @@
+numpy
+scipy
+matplotlib
+ipywidgets
+-e git://github.com/QENSlibrary/QENSmodels.git#egg=QENSmodels
