@@ -20,14 +20,6 @@ QENSmodels.brownian\_translational\_diffusion module
     :undoc-members:
     :show-inheritance:
 
-QENSmodels.chudley\_elliot\_diffusion module
---------------------------------------------
-
-.. automodule:: QENSmodels.chudley_elliot_diffusion
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 QENSmodels.delta module
 -----------------------
 
@@ -52,14 +44,6 @@ QENSmodels.delta\_two\_lorentz module
     :undoc-members:
     :show-inheritance:
 
-QENSmodels.equivalent\_sites\_circle module
--------------------------------------------
-
-.. automodule:: QENSmodels.equivalent_sites_circle
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 QENSmodels.gaussian module
 --------------------------
 
@@ -68,26 +52,10 @@ QENSmodels.gaussian module
     :undoc-members:
     :show-inheritance:
 
-QENSmodels.gaussian\_model\_3d module
--------------------------------------
-
-.. automodule:: QENSmodels.gaussian_model_3d
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 QENSmodels.isotropic\_rotational\_diffusion module
 --------------------------------------------------
 
 .. automodule:: QENSmodels.isotropic_rotational_diffusion
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-QENSmodels.jump\_sites\_log\_norm\_dist module
-----------------------------------------------
-
-.. automodule:: QENSmodels.jump_sites_log_norm_dist
     :members:
     :undoc-members:
     :show-inheritance:
