@@ -140,6 +140,13 @@ folder. The name of the notebook indicates which fitting engine and QENS model
 are used. Additional tools might have to be installed in order to use a 
 particular notebook.
 
+One of these examples can be interactively tested online.
+
+To do so, click on `launch binder` below. Please note that the notebook can be slow to load.
+
+.. image:: https://mybinder.org/badge_logo.svg
+   :target: https://mybinder.org/v2/gh/QENSlibrary/QENSmodels/master?filepath=examples-binder%2Fscipy_lorentzian_fit_binder_ipywidgets.ipynb
+
 Physical units
 ^^^^^^^^^^^^^^
 
