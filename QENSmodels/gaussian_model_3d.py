@@ -17,11 +17,11 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
         momentum transfer (non-fitting, in 1/Angstrom)
 
     D: float
-        diffusion coefficient (in Angstrom:math:`^2`/ps). Default to 1.
+        diffusion coefficient (in Angstrom**2/ps). Default to 1.
 
     variance_ux: float
-        variance :math:`<u_x^2>` of Gaussian random variable :math:`u_x`
-        (in Angstrom:math:`^2`), displacement from the origin.
+        variance <u_x**2> of Gaussian random variable `u_x
+        (in Angstrom**2), displacement from the origin.
         Default to 1.
 
     Returns
@@ -115,10 +115,10 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
         center of peak. Default to 0.
 
     D: float
-        diffusion coefficient (in Angstrom:math:`^2`/ps). Default to 1.
+        diffusion coefficient (in Angstrom**2/ps). Default to 1.
 
     variance_ux: float
-        variance :math:`<u_x^2>` of Gaussian random variable :math:`u_x`
+        variance :math:`<u_x^2>` of Gaussian random variable u_x
         (in Angstrom:math:`^2`), displacement from the origin.
         Default to 1.
 
