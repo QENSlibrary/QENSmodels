@@ -34,7 +34,7 @@ def delta(x, scale=1, center=0):
 
     Notes
     -----
-    * A Delta (Dirac)function is defined as
+    * A Delta (Dirac) function is defined as
 
     .. math::
 

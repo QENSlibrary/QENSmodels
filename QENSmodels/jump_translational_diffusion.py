@@ -92,7 +92,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
         center of peak. Default to 0.
 
     D: float
-        diffusion coefficient (in Angstrom:math:`^2`/ps). Default to 0.23.
+        diffusion coefficient (in Angstrom :math:`^2` /ps). Default to 0.23.
 
     resTime: float
         residence time (in ps). Default to 1.25.
