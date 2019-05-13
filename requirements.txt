@@ -4,4 +4,4 @@ matplotlib
 pandas
 panel
 ipywidgets
--e git://github.com/QENSlibrary/QENSmodels.git#egg=QENSmodels
+git://github.com/QENSlibrary/QENSmodels.git#egg=QENSmodels
