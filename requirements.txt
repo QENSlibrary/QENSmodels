@@ -1,7 +1,5 @@
 numpy
 scipy
 matplotlib
-pandas
-panel
 ipywidgets
 git+git://github.com/QENSlibrary/QENSmodels.git
