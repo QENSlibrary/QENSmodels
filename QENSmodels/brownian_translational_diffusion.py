@@ -60,7 +60,8 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
 
     eisf = np.zeros(q.size)
     qisf = np.ones(q.size)
-    hwhm = D * q ** 2
+    hwhm = D * q ** 2  # (A^2 / ps) * A^-2 --> ps^-1
+    hwhm *= 0.6582 # --> meV
     # Force hwhm to be numpy array, even if single value
     hwhm = np.asarray(hwhm, dtype=np.float32)
     hwhm = np.reshape(hwhm, hwhm.size)
