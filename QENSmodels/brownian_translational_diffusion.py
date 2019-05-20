@@ -1,5 +1,7 @@
 from __future__ import print_function
 import numpy as np
+import scipy.constants
+
 
 try:
     import QENSmodels
@@ -64,9 +66,11 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
         hwhm = D * q ** 2
     else:
         raise ValueError('D, the diffusion coefficient, should be positive')
-    
-    # Convert units: (A^2 / ps) * A^-2 = ps^-1 --> meV 
-    hwhm *= 0.6582
+
+    # Convert units: (A^2 / ps) * A^-2 = ps^-1 --> meV
+    hwhm *= \
+        scipy.constants.physical_constants["Planck constant over 2 pi in eV s"][0]\
+        * scipy.constants.peta  # coefficient peta to convert eV s -> meV ps
 
     # Force hwhm to be numpy array, even if single value
     hwhm = np.asarray(hwhm, dtype=np.float32)
