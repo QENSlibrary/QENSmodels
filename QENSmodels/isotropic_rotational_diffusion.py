@@ -167,7 +167,7 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0,
 
     Notes
     -----
-    * There are 6 terms in the sum
+    * There are 6 terms in the sum (see the mathematical expression below)
 
     * The `sqwIsotropicRotationalDiffusion` is expressed as
 

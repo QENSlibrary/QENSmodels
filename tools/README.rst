@@ -18,10 +18,10 @@ This folder contains tools to extract information from the QENS models
 
   This script runs unittests and doctests through the models in ``QENSmodels``.
 
-Note that in order to open the Jupyter notebooks, you'll need jupyter, numpy, 
-matplotlib, and panel + pandas (for interactive plots).
+Note that in order to open the Jupyter notebooks, you'll need `jupyter`, `numpy`,
+`matplotlib`, and `panel` + `pandas` (for interactive plots).
 
-To run the jupyter notebooks, you can, for example, create an anaconda 
+To run the Jupyter notebooks, you can, for example, create an anaconda
 environment:
 
 
@@ -45,8 +45,8 @@ environment:
      conda install -c pyviz panel
 
 * to access the notebooks,
-  * activate your conda environment. For example, if the environment was created using the above commands, simply
+  - activate your conda environment. For example, if the environment was created using the above commands, simply
   type `conda activate mynewenv` in a terminal.
-  * move to the folder where the notebook you want to open is located,
-  * type ``jupyter notebook``
-  * click on the notebook you want to open.
+  -  move to the folder where the notebook you want to open is located,
+  -  type ``jupyter notebook``
+  - click on the notebook you want to open.

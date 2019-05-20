@@ -45,10 +45,10 @@ def delta(x, scale=1, center=0):
     * For non-zero values, the amplitude of the Delta function is divided by
       the x-spacing.
 
-    * **Equivalence**
+    * **Equivalence between different implementations**
 
       +-------------+--------------------+
-      | Equivalence | Mantid             |
+      | QENSmodels  | Mantid             |
       +=============+====================+
       | ``delta``   | ``DeltaFunction``  |
       +-------------+--------------------+

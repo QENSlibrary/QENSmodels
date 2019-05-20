@@ -53,7 +53,7 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
       :math:`\text{Lorentzian}(\text{center}, \text{scale}, \text{center},
       \text{hwhm})=\frac{\text{scale}}{\pi \text{hwhm}}`.
 
-    * **Equivalence**
+    * **Equivalence between different implementations**
       ``Lorentzian`` corresponds to the following implementations in
       `Mantid
       <http://docs.mantidproject.org/nightly/fitfunctions/Lorentzian.html>`__
@@ -61,7 +61,7 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
       `DAVE <https://www.ncnr.nist.gov/dave/documentation/pandoc_DAVE.pdf>`__
 
       +------------------+-----------------+------------------+
-      | Equivalence      | Mantid          |  DAVE            |
+      | QENSmodels       | Mantid          |  DAVE            |
       +==================+=================+==================+
       | ``Lorentzian``   | ``Lorentzian``  |  ``Lorentzian``  |
       +------------------+-----------------+------------------+

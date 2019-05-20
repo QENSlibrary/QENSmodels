@@ -58,14 +58,14 @@ def gaussian(x, scale=1., center=0., sigma=1.):
     * The Full Width Half Maximum of a Gaussian equals
       :math:`2\sqrt{2\ln 2}\sigma`
 
-    * **Equivalence**
+    * **Equivalence between different implementations**
 
       ``Gaussian`` corresponds to the following implementations in
       `Mantid
       <http://docs.mantidproject.org/nightly/fitfunctions/Gaussian.html>`_
 
       +--------------+----------------------------------------+
-      | Equivalence  | Mantid                                 |
+      | QENSmodels   | Mantid                                 |
       +==============+========================================+
       | ``Gaussian`` | ``Gaussian``                           |
       +--------------+----------------------------------------+

@@ -38,16 +38,13 @@ Python modules to test the models (for contributors):
 * `doctest <https://docs.python.org/3.7/library/doctest.html>`_
 
 Additional modules are required to run the examples. Details can be
-found in the README file of the *examples* folder.
+found in the `README file <https://github.com/QENSlibrary/QENSmodels/blob/master/examples/README.rst>`_ of the *examples* folder.
 
 How to install?
 ---------------
 
-Note:
-^^^^^
-
-If you want to use a virtual environment, please go to `this link <https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html>`_
-for instructions. 
+.. NOTE:: If you want to use a virtual environment, please go to
+   `this link <https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html>`_ for instructions.
 
 The steps to follow are:  
 
@@ -59,7 +56,7 @@ The steps to follow are:
 
   .. code-block:: console
 
-     pip install full_path/to/QENSmodels_folder
+     pip install full_path_to_QENSmodels_folder
 
 
 See `the documentation on pip install <https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs>`_ for 
@@ -122,8 +119,8 @@ Redistribution of the software is permitted under the terms of the
 `General Public License version 3 or higher <https://www.gnu.org/licenses/gpl-3.0.en.html>`_.
 
 
-How to use?
------------
+How to use the library?
+-----------------------
 
 .. code-block:: python
 
@@ -132,17 +129,17 @@ How to use?
 
 or copy and paste the script related to the Lorentzian function.
 
-The scripts can be found in the 
-`git repository <https://github.com/QENSlibrary/QENSmodels>`_
+The scripts of the models can be found in the
+`git repository <https://github.com/QENSlibrary/QENSmodels>`_.
 
-Jupyter notebooks using some of the QENS models are located in the *examples*
+Jupyter notebooks showing how to use some of the QENS models are located in the *examples*
 folder. The name of the notebook indicates which fitting engine and QENS model 
 are used. Additional tools might have to be installed in order to use a 
-particular notebook.
+particular notebook. Please refer to the README file in the `examples` folder for details.
 
-One of these examples can be interactively tested online.
+If you do not want to download neither install any component, one example can be interactively tested online.
 
-To do so, click on `launch binder` below. Please note that the notebook can be slow to load.
+To open it, click on `launch binder` below. Please note that the notebook can be slow to load.
 
 .. image:: https://mybinder.org/badge_logo.svg
    :target: https://mybinder.org/v2/gh/QENSlibrary/QENSmodels/master?filepath=examples-binder%2Fscipy_lorentzian_fit_binder_ipywidgets.ipynb

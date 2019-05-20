@@ -120,17 +120,17 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, N=3,
     distribution of relaxation times
 
     For each jumping distance, instead of a single :math:`\Gamma_i` value,
-    a distribution of HWHMs is used. The distribution is represented by L
+    a distribution of HWHMs is used. The distribution is represented by `L`
     values of the HWHM (:math:`\Gamma_{i,j}`) with associated weights
     :math:`g_j` taken from a log-Gaussian distribution of standard
     distribution :math:`\sigma` and normalized such that
-    :math: \sum_{j=1}^L g_j=1. The :math:`\Sigma_{i,j}` are chosen equally
+    :math:`\sum_{j=1}^L g_j=1`. The :math:`\Gamma_{i,j}` are chosen equally
     spaced in logarithmic scale in the range
     [:math:`\exp(-\sigma\sqrt{-2\ln A_{min}})`,
     :math:`\exp(\sigma\sqrt{-2\ln A_{min}})`]
     where :math:`A_{min}` is the cut-off chosen for the value of the
     distribution function with respect to its maximum. This model uses
-    :math:`L`=21 and :math:`A_{min}`=0.1
+    :math:`L=21` and :math:`A_{min}=0.1`
 
     Parameters
     ----------
@@ -203,13 +203,10 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, N=3,
 
        .. math::
 
-         A_i(Q) = \frac{1}{N}\sum_{j=1}^N j_0(qr_j)\cos(2ij\pi/N)
-
-         r_j = 2R \sin(j\pi/N)
-
-         \Gamma_i = \frac{2}{\tau}\sin^2(i\pi/N)
-
-         g_j = \frac{1}{\sigma \sqrt{2\pi}}
+         A_i(Q) &= \frac{1}{N}\sum_{j=1}^N j_0(qr_j)\cos(2ij\pi/N) \\
+         r_j &= 2R \sin(j\pi/N) \\
+         \Gamma_i &= \frac{2}{\tau}\sin^2(i\pi/N) \\
+         g_j &= \frac{1}{\sigma \sqrt{2\pi}}
          \exp \Big(-\frac{1}{\sigma^2}\ln^2(\Gamma_{i,j}/\Gamma_i) \Big)
 
 

@@ -119,7 +119,7 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
 
     variance_ux: float
         variance :math:`<u_x^2>` of Gaussian random variable u_x
-        (in Angstrom:math:`^2`), displacement from the origin.
+        (in Angstrom^2), displacement from the origin.
         Default to 1.
 
     Return
@@ -160,9 +160,8 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
 
       .. math::
 
-         A_i(Q) = \exp(-q^2<u_x^2>) \frac{(q^2<u_x^2>)^i}{i!}
-
-         \Gamma_i = \frac{i D}{<u_x^2>}
+         A_i(Q) &= \exp(-q^2<u_x^2>) \frac{(q^2<u_x^2>)^i}{i!} \\
+         \Gamma_i &= \frac{i D}{<u_x^2>}
 
     * The number of terms in the infinite sum is limited to 100.
       According to Volino's paper, as a rule of thumb, the number of
