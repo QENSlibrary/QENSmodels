@@ -1,6 +1,6 @@
 from __future__ import print_function
 import numpy as np
-import scipy.constants as csts
+# import scipy.constants as csts
 
 
 try:
@@ -67,9 +67,10 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
     else:
         raise ValueError('D, the diffusion coefficient, should be positive')
 
+    # TODO discuss with users to find most suitable option for units
     # Convert units: (A^2 / ps) * A^-2 = ps^-1 --> meV
     # coefficient peta to convert eV s -> meV ps
-    hwhm *= csts.physical_constants["Planck constant over 2 pi in eV s"][0] * csts.peta  # noqa
+    # hwhm *= csts.physical_constants["Planck constant over 2 pi in eV s"][0] * csts.peta  # noqa
 
     # Force hwhm to be numpy array, even if single value
     hwhm = np.asarray(hwhm, dtype=np.float32)
