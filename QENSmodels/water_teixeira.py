@@ -23,10 +23,10 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1):
     Parameters
     ----------
     w: float, list or :class:`~numpy:numpy.ndarray`
-        energy transfer (in ps)
+        energy transfer (in 1/ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
-        momentum transfer (non-fitting, in 1/Angstrom`)
+        momentum transfer (non-fitting, in 1/Angstrom)
 
     scale: float
         scale factor. Default to 1.

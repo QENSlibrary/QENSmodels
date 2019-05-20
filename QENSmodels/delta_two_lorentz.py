@@ -14,7 +14,7 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     Parameters
     ----------
     w: float
-        energy transfer (in ps)
+        energy transfer (in 1/ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom)
@@ -59,7 +59,6 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     >>> sqw[1, 2]
     0.0
 
-
     >>> sqw = sqwDeltaTwoLorentz([1, 2, 3], [0.05, 0.3], 0.5, 2, [0.75, 0.5], [1, 2], [0.05, 0.04], [0.02, 0.03])  # noqa: E501
     >>> round(sqw[0, 0], 3)
     0.006
@@ -96,18 +95,19 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
 
     # Model
     if q.size > 1:
-        for i in range(q.size):
-            sqw[i, :] = A0[i] * QENSmodels.delta(w,
-                                                 scale,
-                                                 center)
-            sqw[i, :] += A1[i] * QENSmodels.lorentzian(w,
-                                                       scale,
-                                                       center,
-                                                       hwhm1[i])
-            sqw[i, :] += (1 - A0[i] - A1[i]) * QENSmodels.lorentzian(w,
-                                                                     scale,
-                                                                     center,
-                                                                     hwhm2[i])
+        try:
+            for i in range(q.size):
+                sqw[i, :] = A0[i] * QENSmodels.delta(w, scale, center)
+                sqw[i, :] += A1[i] * QENSmodels.lorentzian(w, scale,
+                                                           center, hwhm1[i])
+                sqw[i, :] += (1 - A0[i] - A1[i]) * \
+                             QENSmodels.lorentzian(w, scale, center, hwhm2[i])  # noqa: E127, E501
+        except TypeError as detail:
+            msg = "At least one parameter has an incorrect type"
+            raise TypeError(detail.__str__() + "\n" + msg)
+        except IndexError as detail:
+            msg = "At least one array has an incorrect size"
+            raise IndexError(detail.__str__() + "\n" + msg)
     else:
         sqw[0, :] = A0 * QENSmodels.delta(w,
                                           scale,

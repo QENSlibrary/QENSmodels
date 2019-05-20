@@ -1,5 +1,4 @@
 from __future__ import print_function
-# import doctest
 import numpy as np
 
 try:
@@ -9,7 +8,7 @@ except ImportError:
 
 
 def hwhmBrownianTranslationalDiffusion(q, D=1.):
-    """ Lorentzian model with HWHM equal to :math:`Dq^2`
+    """ Lorentzian model with half width half maximum equal to :math:`Dq^2`
 
     Parameters
     ----------
@@ -17,7 +16,8 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
         momentum transfer (non-fitting, in 1/Angstrom).
 
     D: float
-        diffusion coefficient (in Angstrom^2/ps). Default to 1.
+        diffusion coefficient (in Angstrom**2/ps). Default to 1.
+
 
     Returns
     -------
@@ -60,8 +60,14 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
 
     eisf = np.zeros(q.size)
     qisf = np.ones(q.size)
-    hwhm = D * q ** 2  # (A^2 / ps) * A^-2 --> ps^-1
-    hwhm *= 0.6582 # --> meV
+    if D > 0:
+        hwhm = D * q ** 2
+    else:
+        raise ValueError('D, the diffusion coefficient, should be positive')
+    
+    # Convert units: (A^2 / ps) * A^-2 = ps^-1 --> meV 
+    hwhm *= 0.6582
+
     # Force hwhm to be numpy array, even if single value
     hwhm = np.asarray(hwhm, dtype=np.float32)
     hwhm = np.reshape(hwhm, hwhm.size)
@@ -69,17 +75,15 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
 
 
 def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
-    r""" Lorentzian model with HWHM equal to :math:`Dq^2`
+    r""" Lorentzian model with half width half maximum  equal to :math:`Dq^2`
 
     It corresponds to a continuous long-range isotropic translational
     diffusion.
 
-    The broadening of the elastic line is q-dependent
-
     Parameters
     ----------
     w: float, list or :class:`~numpy:numpy.ndarray`
-        energy transfer (in ps)
+        energy transfer (in 1/ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom)
@@ -91,7 +95,7 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
         peak center. Default to 0.
 
     D: float
-        diffusion coefficient (in Angstrom^2/ps). Default to 1.
+        diffusion coefficient (in Angstrom**2/ps). Default to 1.
 
     Return
     ------
@@ -101,7 +105,7 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
     Examples
     --------
     >>> sqw = sqwBrownianTranslationalDiffusion(1, 1, 1, 0, 1)
-    >>> round(sqw, 3)
+    >>> round(sqw[0], 3)
     0.159
 
     >>> sqw = sqwBrownianTranslationalDiffusion([1, 2, 3], [0.3, 0.4], 1, 0, 1)

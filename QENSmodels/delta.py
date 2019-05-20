@@ -34,11 +34,11 @@ def delta(x, scale=1, center=0):
 
     Notes
     -----
-    * A Delta (Dirac)function is defined as
+    * A Delta (Dirac) function is defined as
 
     .. math::
 
-        \text{Delta}(x, \text{scale}, \text{center}) = \text{scale}
+        \text{Delta}(x, \text{scale}, \text{center}) = \text{scale}\
         \delta(x- \text{center})
 
 
@@ -57,17 +57,12 @@ def delta(x, scale=1, center=0):
       | ``center``  |  Centre            |
       +-------------+--------------------+
 
-
     """
     # Input validation
     if isinstance(x, (float, int)):
         x = [float(x)]
 
     x = np.asarray(x)
-
-    # sort x in ascending order if x has more than 1 element
-    # if x.size > 1:
-    #    x.sort()
 
     model = np.zeros(x.size)
 
@@ -77,17 +72,13 @@ def delta(x, scale=1, center=0):
             # otherwise do nothing
             idx = np.argmin(np.abs(x - center))
             if len(x) > 1:
-                dx = (x[-1] - x[0]) / (len(x) - 1)  # domain spacing
+                dx = (x.max() - x.min())/(len(x) - 1)  # domain spacing
             else:
                 dx = 1.
             model[idx] = scale / dx
-        # dx = 0.5 * np.abs(x[idx + 1] - x[idx - 1])
 
+    finally:
         return model
-    except ZeroDivisionError:
-        print('Division by zero')
-    except IndexError:
-        print('Index error: x does not have enough elements')
 
 
 if __name__ == "__main__":

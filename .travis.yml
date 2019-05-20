@@ -1,0 +1,57 @@
+# Config file for automatic testing at travis-ci.org
+# References:
+# https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/use-conda-with-travis-ci.html
+#  and
+#  https://github.com/jmborr/qef
+
+dist: xenial
+language: python
+python:
+  - 3.6
+
+branches:
+  only:
+    - master
+    - stable
+
+before_install:
+  - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+  - bash miniconda.sh -b -p $HOME/miniconda
+  - export PATH="$HOME/miniconda/bin:$PATH"
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  # Useful for debugging any issues with conda
+  - conda info -a
+
+install:
+  - conda create -q -n testenv python=$TRAVIS_PYTHON_VERSION numpy scipy flake8
+  - source activate testenv
+  - pip install sphinx sphinx_rtd_theme
+  # install QENSmodels
+  - python setup.py install
+
+script:
+  - python -m flake8;
+  - sphinx-build -nT -b html docs docs/_build/html;
+  # Run unittests
+  - python -m unittest discover tests
+  # Run doctests
+  - python QENSmodels/background_polynomials.py -v
+  - python QENSmodels/brownian_translational_diffusion.py -v
+  - python QENSmodels/chudley_elliot_diffusion.py  -v
+  - python QENSmodels/delta.py  -v
+  - python QENSmodels/delta_lorentz.py  -v
+  - python QENSmodels/delta_two_lorentz.py -v
+  - python QENSmodels/equivalent_sites_circle.py -v
+  - python QENSmodels/gaussian.py -v
+  - python QENSmodels/gaussian_model_3d.py -v
+  - python QENSmodels/isotropic_rotational_diffusion.py  -v
+  - python QENSmodels/jump_sites_log_norm_dist.py -v
+  - python QENSmodels/jump_translational_diffusion.py  -v
+  - python QENSmodels/lorentzian.py  -v
+  - python QENSmodels/water_teixeira.py -v
+
+notifications:
+  - on_success: never
+  - on_failure: never

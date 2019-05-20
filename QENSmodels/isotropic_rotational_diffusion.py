@@ -1,6 +1,6 @@
 from __future__ import print_function
 import numpy as np
-from scipy.special import jn
+from scipy.special import spherical_jn
 
 try:
     import QENSmodels
@@ -67,20 +67,29 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
 
     """
     # input validation
+    if radius <= 0:
+        raise ValueError('radius should be strictly positive')
+    if DR <= 0:
+        raise ValueError('DR, the rotational diffusion coefficient, '
+                         'should be strictly positive')
+
     q = np.asarray(q, dtype=np.float32)
 
     numberLorentz = 6
     qisf = np.zeros((q.size, numberLorentz))
     hwhm = np.zeros((q.size, numberLorentz))
     jl = np.zeros((q.size, numberLorentz))
+
     arg = q * radius
+
     idx = np.argwhere(arg == 0)
     for i in range(numberLorentz):
 
         # to solve warnings for arg=0
-        jl[:, i] = np.sqrt(np.pi / 2. / arg) * jn(i + 0.5, arg)
+        jl[:, i] = spherical_jn(i, arg)
 
         hwhm[:, i] = np.repeat(i * (i + 1) * DR, q.size)
+
         if idx.size > 0:
             if i == 0:
                 jl[idx, i] = 1.0
@@ -108,7 +117,7 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0,
     ----------
 
     w: list or :class:`~numpy:numpy.ndarray`
-        energy transfer (in ps)
+        energy transfer (in 1/ps)
 
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom)
@@ -200,6 +209,8 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0,
         sqw = np.reshape(sqw, w.size)
 
     return sqw
+
+# error if no input of q
 
 
 if __name__ == "__main__":

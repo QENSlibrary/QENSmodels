@@ -14,8 +14,34 @@
 #
 import os
 import sys
+# from unittest.mock import MagicMock
+
 sys.path.insert(0, os.path.abspath('.'))
 
+#######
+sys.path.insert(0, os.path.abspath('../'))
+
+
+# class Mock(MagicMock):
+#     @classmethod
+#     def __getattr__(cls, name):
+#         return MagicMock()
+#
+#
+# # MOCK_MODULES = ['pygtk', 'gtk', 'gobject', 'argparse', 'numpy', 'pandas']
+# MOCK_MODULES = ['numpy', 'pandas']
+# sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
+
+# # Get the project root dir, which is the parent dir of this
+# cwd = os.getcwd()
+# project_root = os.path.dirname(cwd)
+#
+# # Insert the project root dir as the first element in the PYTHONPATH.
+# # This lets us ensure that the source package is imported, and that its
+# # version is used.
+# sys.path.insert(0, project_root)
+
+# import QENSmodels
 
 # -- Project information -----------------------------------------------------
 
@@ -23,17 +49,17 @@ project = u'QENSmodels'
 copyright = u'2018, -'
 author = u'-'
 
-# The short X.Y version
-version = u''
-# The full version, including alpha/beta/rc tags
-release = u''
+# The short X.Y version.
+version = '0.1.0'  # QENSmodels.__version__
+# The full version, including alpha/beta/rc tags.
+release = '0.1.0'  # QENSmodels.__version__
 
 
 # -- General configuration ---------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
 #
-# needs_sphinx = '1.0'
+# needs_sphinx = '1.8'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -48,8 +74,20 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinx.ext.napoleon',
-    'm2r'
 ]
+
+# Napoleon settings
+napoleon_google_docstring = False
+napoleon_numpy_docstring = True
+napoleon_include_init_with_doc = False
+napoleon_include_private_with_doc = False
+napoleon_include_special_with_doc = True
+napoleon_use_admonition_for_examples = False
+napoleon_use_admonition_for_notes = False
+napoleon_use_admonition_for_references = False
+napoleon_use_param = False
+napoleon_use_rtype = True
+napoleon_use_ivar = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -57,8 +95,7 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-source_suffix = ['.rst', '.md']
-# source_suffix = '.rst'
+source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
@@ -84,7 +121,7 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme' #'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -170,22 +207,13 @@ texinfo_documents = [
 # -- Options for intersphinx extension ---------------------------------------
 
 # Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
+intersphinx_mapping = {
+    'numpy': ('http://docs.scipy.org/doc/numpy', None),
+    'python': ('https://docs.python.org/{}'.format(sys.version_info[0]), None),
+    'scipy': ('https://docs.scipy.org/doc/scipy/reference', None),
+}
 
 # -- Options for todo extension ----------------------------------------------
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
-
-# Napoleon settings
-napoleon_google_docstring = True
-napoleon_numpy_docstring = True
-napoleon_include_init_with_doc = False
-napoleon_include_private_with_doc = False
-napoleon_include_special_with_doc = True
-napoleon_use_admonition_for_examples = False
-napoleon_use_admonition_for_notes = False
-napoleon_use_admonition_for_references = False
-napoleon_use_ivar = False
-napoleon_use_param = True
-napoleon_use_rtype = True

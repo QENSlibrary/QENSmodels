@@ -13,7 +13,6 @@ Welcome to QENSmodels's documentation!
    description
    modules
    tools
-   references
 
 
 Indices and tables
