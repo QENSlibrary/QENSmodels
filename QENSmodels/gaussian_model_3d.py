@@ -71,19 +71,27 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
 
     arg = q**2 * variance_ux
 
-    for i in range(numberLorentz):
+    if q.size == 1:
+        item = q * q * variance_ux
+        for i in range(numberLorentz):
+            if item > 0:
+                al[:, i] = np.exp(-arg) * arg**i / np.math.factorial(i)
+            else:
+                if i == 0:
+                    al[:, 0] = 1.
+                else:
+                    al[:, 1] = 0.
+    else:
+        al[:, 0] = [np.exp(-item) if item > 0 else 1. for item in arg]
 
-        # to solve warnings for arg=0
-        if arg.all() > 0:
-            al[:, i] = np.exp(-arg) * arg**i / np.math.factorial(i)
-        else:
-            al[:, i] = 0.
-
-        hwhm[:, i] = np.repeat(i*D/variance_ux, q.size)
+        for i in range(1, numberLorentz):
+            al[:, i] = [np.exp(-item) * item**i / np.math.factorial(i)
+                        if item > 0 else 0. for item in arg]
 
     eisf = al[:, 0]
 
     for i in range(1, numberLorentz):
+        hwhm[:, i] = np.repeat(i*D/variance_ux, q.size)
         qisf[:, i] = al[:, i]
 
     return hwhm, eisf, qisf
@@ -188,7 +196,7 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
     # Get widths, EISFs and QISFs of model
     hwhm, eisf, qisf = hwhmGaussianModel3D(q, D, variance_ux)
 
-    # Number of Lorentzians used to represent the infinite sum in R
+    # # Number of Lorentzians used to represent the infinite sum in R
     numberLorentz = hwhm.shape[1]
 
     # Sum of Lorentzians
