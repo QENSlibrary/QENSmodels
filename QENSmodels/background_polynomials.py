@@ -34,6 +34,10 @@ def background_polynomials(x, list_coefficients=0.0):
 
     >>> background_polynomials([1,2,3], [1,2,3])
     array([ 6., 17., 34.])
+
+
+    Mathematically, background_polynomials(x, [1,2,3]) corresponds to
+    :math: 1 + 2x + 3x^2.
     """
 
     x = np.asarray(x)
