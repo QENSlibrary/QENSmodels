@@ -21,16 +21,8 @@ sys.path.insert(0, os.path.abspath('.'))
 #######
 sys.path.insert(0, os.path.abspath('../'))
 
-
-# class Mock(MagicMock):
-#     @classmethod
-#     def __getattr__(cls, name):
-#         return MagicMock()
-#
-#
-# # MOCK_MODULES = ['pygtk', 'gtk', 'gobject', 'argparse', 'numpy', 'pandas']
-# MOCK_MODULES = ['numpy', 'pandas']
-# sys.modules.update((mod_name, Mock()) for mod_name in MOCK_MODULES)
+# Addition to remove module from documentation of api
+add_module_names = False
 
 # # Get the project root dir, which is the parent dir of this
 # cwd = os.getcwd()

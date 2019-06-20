@@ -8,7 +8,10 @@ except ImportError:
 
 
 def hwhmJumpSitesLogNormDist(q, N=3, radius=1.0, resTime=1.0, sigma=1.0):
-    """ Returns some characteristics of `JumpSitesLogNormDist`
+    """ Returns some characteristics of `JumpSitesLogNormDist` as functions
+    of the momentum transfer `q`:
+    the half-width half-maximum (`hwhm`), the elastic incoherent structure
+    factor (`eisf`), and the quasi-elastic incoherent structure factor (`qisf`)
 
     Parameters
     ----------

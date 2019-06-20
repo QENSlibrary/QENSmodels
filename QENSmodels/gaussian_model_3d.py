@@ -8,7 +8,10 @@ except ImportError:
 
 
 def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
-    """ Returns some characteristics of `JumpTranslationalDiffusion`
+    """ Returns some characteristics of `GaussianModel3D` as functions
+    of the momentum transfer `q`:
+    the half-width half-maximum (`hwhm`), the elastic incoherent structure
+    factor (`eisf`), and the quasi-elastic incoherent structure factor (`qisf`)
 
     Parameters
     ----------

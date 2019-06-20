@@ -8,7 +8,10 @@ except ImportError:
 
 
 def hwhmChudleyElliotDiffusion(q, D=0.23, L=1.0):
-    """ Returns some characteristics of `ChudleyElliotDiffusion`
+    """ Returns some characteristics of `ChudleyElliotDiffusion` as functions
+    of the momentum transfer `q`:
+    the half-width half-maximum (`hwhm`), the elastic incoherent structure
+    factor (`eisf`), and the quasi-elastic incoherent structure factor (`qisf`)
 
     Parameters
     ----------
@@ -69,7 +72,8 @@ def hwhmChudleyElliotDiffusion(q, D=0.23, L=1.0):
 def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23,
                               L=1.0):
     r""" Lorentzian model with half width half maximum equal to
-    :math:`\frac{6D}{l^2}(1 - \frac{sin(Ql)}{Ql})`
+    :math:`\frac{6D}{L^2}(1 - \frac{sin(QL)}{QL})`
+
 
     Parameters
     ----------
@@ -137,8 +141,12 @@ def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23,
     References
     ----------
 
-    R. Hempelmann,
+    * R. Hempelmann,
     Quasielastic Neutron Scattering and Solid State Diffusion (Oxford, 2000).
+
+    * C. T. Chudley and R. J. Elliott,  *Proc. Phys. Soc.* **77**,
+      353-361 (1961)
+    `link <https://iopscience.iop.org/article/10.1088/0370-1328/77/2/319/meta>`_  # noqa: E501
 
     """
     # Input validation

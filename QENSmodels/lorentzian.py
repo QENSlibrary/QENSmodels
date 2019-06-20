@@ -1,6 +1,9 @@
 import numpy as np
 
-import QENSmodels
+try:
+    import QENSmodels
+except ImportError:
+    print('Module QENSmodels not found')
 
 
 def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):

@@ -12,6 +12,11 @@ except ImportError:
 def hwhmBrownianTranslationalDiffusion(q, D=1.):
     """ Lorentzian model with half width half maximum equal to :math:`Dq^2`
 
+    Returns some characteristics of `BrownianTranslationalDiffusion` as
+    functions of the momentum transfer `q`:
+    the half-width half-maximum (`hwhm`), the elastic incoherent structure
+    factor (`eisf`), and the quasi-elastic incoherent structure factor (`qisf`)
+
     Parameters
     ----------
     q: :class:`~numpy:numpy.ndarray`
@@ -128,12 +133,37 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
 
     Notes
     -----
-    The `sqwBrownianTranslationalDiffusion` is expressed as
+    * The `sqwBrownianTranslationalDiffusion` is expressed as
 
     .. math::
 
         S(q, \omega) =
         \text{Lorentzian}(\omega, \text{scale}, \text{center}, Dq^2)
+
+
+    * The incoherent dynamic structure factor
+      `sqwBrownianTranslationalDiffusion` corresponds to
+
+      - in real space, the probability of finding a particle at a distance `r`
+        from its initial position is a Gaussian function of space `r`
+
+        .. math::
+
+           G(r, t) = \frac{\text{scale}}{4\pi D t}^{3/2} \exp{-r^2/(4Dt)}
+
+      - in reciprocal space, the autocorrelation function
+
+        .. math::
+
+           I(q, t) = \int G(r, t) dr = \text{scale} \exp{-Dq^2 t}
+
+    References
+    ----------
+
+    T. Springer, *Quasielastic neutron scattering for the investigation
+     of diffusive motions in liquids and solids*,
+     *Springer Tracts in Modern Physics* **64** (1972)
+    `link <https://www.springer.com/gp/book/9783662149577>`_
 
     """
     # Input validation

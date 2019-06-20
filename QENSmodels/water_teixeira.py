@@ -6,7 +6,8 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1):
+def sqwWaterTeixeira(w, q, scale=1, center=0, D=0.23, resTime=1.25, radius=1,
+                     DR=1):
     r""" Model corresponding to the convolution of `Jump Translational
     diffusion` (model T) and `Isotropic rotational diffusion` (model R)
 
@@ -59,6 +60,13 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=1, resTime=1, radius=1, DR=1):
     >>> result = sqwWaterTeixeira(1, 1, 1, 1, 1, 1, 1, 1)
     >>> round(result[0], 3)
     0.486
+
+     Notes
+    -----
+
+    * The default values for the fitting parameters come from the values
+      for water at 298K and 1 atm, water has D=0.23 Angstrom^2/ps and
+      ResTime=1.25 ps.
 
     """
     # Input validation

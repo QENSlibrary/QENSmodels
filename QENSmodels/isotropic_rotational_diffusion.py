@@ -10,7 +10,10 @@ except ImportError:
 
 def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
     """
-    Returns some characteristics of `IsotropicRotationalDiffusion`
+    Returns some characteristics of `IsotropicRotationalDiffusion` as functions
+    of the momentum transfer `q`:
+    the half-width half-maximum (`hwhm`), the elastic incoherent structure
+    factor (`eisf`), and the quasi-elastic incoherent structure factor (`qisf`)
 
     Parameters
     ----------
@@ -178,7 +181,7 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0,
         &+ \sum_{i=1} ^6 (2i + 1) j_i^2(q\ \text{radius})
         \text{Lorentzian}(\omega, \text{scale}, \text{center}, i(i+1)\text{DR})
 
-     where :math:`j_i, i=0..6` are spherical Bessel functions of order i.
+     where :math:`j_i, i=0..5` are spherical Bessel functions of order i.
 
     """
 

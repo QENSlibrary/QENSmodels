@@ -8,7 +8,10 @@ except ImportError:
 
 
 def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
-    """ Returns some characteristics of `JumpTranslationalDiffusion`
+    """ Returns some characteristics of `JumpTranslationalDiffusion` as functions
+    of the momentum transfer `q`:
+    the half-width half-maximum (`hwhm`), the elastic incoherent structure
+    factor (`eisf`), and the quasi-elastic incoherent structure factor (`qisf`)
 
     Parameters
     ----------
