@@ -165,7 +165,7 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
             S(q, \omega) = \text{delta}(\omega, A_0(q), \text{center} )
             + \sum_{i=1}^{N-1} A_i(Q)
             \text{Lorentzian}(\omega, A_i(Q)\Gamma_i, \text{center},
-          \Gamma_i^2)
+          \Gamma_i)
 
       where
 

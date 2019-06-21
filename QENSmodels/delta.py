@@ -5,7 +5,7 @@ import numpy as np
 def delta(x, scale=1, center=0):
     r""" Dirac Delta function
 
-    It is equal to zero except for the value of x closest to center.
+    It is equal to zero except for the value of `x` closest to `center`.
 
     Parameters
     ----------

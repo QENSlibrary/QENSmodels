@@ -149,21 +149,21 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
 
         .. math::
 
-           G(r, t) = \frac{\text{scale}}{4\pi D t}^{3/2} \exp{-r^2/(4Dt)}
+           G(r, t)=(\frac{\text{scale}}{4\pi D t})^{3/2}\exp (-\frac{r^2}{4Dt})
 
-      - in reciprocal space, the autocorrelation function
+      - in reciprocal space, the autocorrelation function is
 
         .. math::
 
-           I(q, t) = \int G(r, t) dr = \text{scale} \exp{-Dq^2 t}
+           I(q, t) = \int G(r, t) dr = \text{scale} \exp (-Dq^2 t)
 
     References
     ----------
 
-    T. Springer, *Quasielastic neutron scattering for the investigation
-     of diffusive motions in liquids and solids*,
+    T. Springer, Quasielastic neutron scattering for the investigation
+     of diffusive motions in liquids and solids,
      *Springer Tracts in Modern Physics* **64** (1972)
-    `link <https://www.springer.com/gp/book/9783662149577>`_
+     `link <https://www.springer.com/gp/book/9783662149577>`_
 
     """
     # Input validation
