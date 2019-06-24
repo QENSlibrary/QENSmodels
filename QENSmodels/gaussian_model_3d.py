@@ -39,7 +39,6 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
     qisf: :class:`~numpy:numpy.ndarray`
         quasi-elastic incoherent structure factor
 
-
     Examples
     --------
     >>> hwhm, eisf, qisf = hwhmGaussianModel3D([1., 2.], 0.5, 1.5)

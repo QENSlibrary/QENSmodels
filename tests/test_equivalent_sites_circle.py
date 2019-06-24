@@ -43,7 +43,7 @@ class TestEquivalentSitesCircle(unittest.TestCase):
         # new parameters: q as an array of several values
         q_input = [1., 2.]
         hwhm1, eisf1, qisf1 = QENSmodels.hwhmEquivalentSitesCircle(
-            q_input, N=6, radius=1.0, resTime=1.0)
+            q_input, Nsites=6, radius=1.0, resTime=1.0)
         self.assertIsInstance(hwhm1, numpy.ndarray)
         self.assertIsInstance(eisf1, numpy.ndarray)
         self.assertIsInstance(qisf1, numpy.ndarray)
@@ -118,7 +118,7 @@ class TestEquivalentSitesCircle(unittest.TestCase):
                                                     q,
                                                     scale=.01,
                                                     center=0.5,
-                                                    N=3,
+                                                    Nsites=3,
                                                     radius=100.0,
                                                     resTime=10.)])
         numpy.testing.assert_array_almost_equal(ref_data,

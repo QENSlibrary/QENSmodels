@@ -39,7 +39,7 @@ For the momentum transfer, we chose `q = 0.7/Angstrom`.
   
 - equivalent_site_circle_ref_data.dat
 
-  `sqwEquivalentSitesCircle(w, q, scale=.01, center=0.5, N=3, radius=100.0, resTime=10.)`
+  `sqwEquivalentSitesCircle(w, q, scale=.01, center=0.5, Nsites=3, radius=100.0, resTime=10.)`
   
 - gaussian_ref_data.dat
 
@@ -55,7 +55,7 @@ For the momentum transfer, we chose `q = 0.7/Angstrom`.
   
 - jump_sites_log_norm_dist_ref_data.dat
 
-  `sqwJumpSitesLogNormDist(w, q, scale=2, center=0.8, N=7, radius=5, resTime=2, sigma=0.6)`
+  `sqwJumpSitesLogNormDist(w, q, scale=2, center=0.8, Nsites=7, radius=5, resTime=2, sigma=0.6)`
 
 - jump_translational_diffusion_ref_data.dat
 

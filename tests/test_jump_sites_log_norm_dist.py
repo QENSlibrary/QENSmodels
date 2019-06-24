@@ -52,7 +52,7 @@ class TestJumpsSitesLogNorm(unittest.TestCase):
         # new parameters: q as an array of several values
         q_input = [1., 2.]
         hwhm1, eisf1, qisf1 = QENSmodels.hwhmJumpSitesLogNormDist(
-            q_input, N=6, radius=1.0, resTime=1.0, sigma=0.5)
+            q_input, Nsites=6, radius=1.0, resTime=1.0, sigma=0.5)
 
         self.assertIsInstance(hwhm1, numpy.ndarray)
         self.assertIsInstance(eisf1, numpy.ndarray)
@@ -75,7 +75,7 @@ class TestJumpsSitesLogNorm(unittest.TestCase):
         # eisf should be the same as in hwhmEquivalentSitesCircle
         hwhm_equiv, eisf_equiv, qisf_equiv = \
             QENSmodels.hwhmEquivalentSitesCircle(q_input,
-                                                 N=6,
+                                                 Nsites=6,
                                                  radius=1.0,
                                                  resTime=1.0)
 
@@ -145,7 +145,7 @@ class TestJumpsSitesLogNorm(unittest.TestCase):
             [w, QENSmodels.sqwJumpSitesLogNormDist(w, q,
                                                    scale=2,
                                                    center=0.8,
-                                                   N=7,
+                                                   Nsites=7,
                                                    radius=5,
                                                    resTime=2,
                                                    sigma=0.6)])

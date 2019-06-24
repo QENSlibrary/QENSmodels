@@ -213,8 +213,6 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0,
 
     return sqw
 
-# error if no input of q
-
 
 if __name__ == "__main__":
     import doctest

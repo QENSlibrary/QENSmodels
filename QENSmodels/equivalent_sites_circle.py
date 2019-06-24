@@ -7,7 +7,7 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def hwhmEquivalentSitesCircle(q, N=3, radius=1.0, resTime=1.0):
+def hwhmEquivalentSitesCircle(q, Nsites=3, radius=1.0, resTime=1.0):
     """
     Returns some characteristics of `EquivalentSitesCircle` as functions
     of the momentum transfer `q`:
@@ -19,7 +19,7 @@ def hwhmEquivalentSitesCircle(q, N=3, radius=1.0, resTime=1.0):
     q: float, list or :class:`~numpy:numpy.ndarray`
         momentum transfer (non-fitting, in 1/Angstrom)
 
-    N: integer
+    Nsites: integer
         number of sites in circle (non-fitting). Default to 3.
 
     radius: float
@@ -67,20 +67,20 @@ def hwhmEquivalentSitesCircle(q, N=3, radius=1.0, resTime=1.0):
     if resTime < 0:
         raise ValueError("resTime, the residence time, should be positive")
 
-    if N < 2:
+    if Nsites < 2:
         raise ValueError("the minimum number of sites N is 2")
 
     # number of sites has to be an integer
-    N = np.int(N)
+    Nsites = np.int(Nsites)
 
     # index of sites in circle
-    sites = np.arange(N)
+    sites = np.arange(Nsites)
 
-    hwhm = 2.0 / resTime * np.sin(sites*np.pi/N)**2
+    hwhm = 2.0 / resTime * np.sin(sites*np.pi/Nsites)**2
     hwhm = np.tile(hwhm, (q.size, 1))
 
     # jump distances between sites
-    jump_distance = 2.0 * radius * np.sin(sites*np.pi/N)
+    jump_distance = 2.0 * radius * np.sin(sites*np.pi/Nsites)
 
     # QR matrix [q.size, N] and corresponding spherical Bessel functions
     QR = np.outer(q, jump_distance)
@@ -89,10 +89,10 @@ def hwhmEquivalentSitesCircle(q, N=3, radius=1.0, resTime=1.0):
     sphBessel[idx] = np.sin(QR[idx]) / QR[idx]
 
     isf = np.zeros(QR.shape)
-    for i in range(N):
-        for j in range(N):
-            isf[:, i] += sphBessel[:, j] * np.cos(2*i*j*np.pi/N)
-        isf[:, i] /= N
+    for i in range(Nsites):
+        for j in range(Nsites):
+            isf[:, i] += sphBessel[:, j] * np.cos(2*i*j*np.pi/Nsites)
+        isf[:, i] /= Nsites
 
     eisf = isf[:, 0]
     qisf = isf[:, 1:]
@@ -101,7 +101,7 @@ def hwhmEquivalentSitesCircle(q, N=3, radius=1.0, resTime=1.0):
 
 
 def sqwEquivalentSitesCircle(w, q,
-                             scale=1.0, center=0.0, N=3,
+                             scale=1.0, center=0.0, Nsites=3,
                              radius=1.0, resTime=1.0):
     r"""
     Model
@@ -124,7 +124,7 @@ def sqwEquivalentSitesCircle(w, q,
     center: float
         center of peak. Default to 0.
 
-    N: integer
+    Nsites: integer
         number of sites in circle (non-fitting). Default to 3.
 
     radius: float
@@ -196,7 +196,7 @@ def sqwEquivalentSitesCircle(w, q,
     sqw = np.zeros((q.size, w.size))
 
     # Get widths, EISFs and QISFs of model
-    hwhm, eisf, qisf = hwhmEquivalentSitesCircle(q, N, radius, resTime)
+    hwhm, eisf, qisf = hwhmEquivalentSitesCircle(q, Nsites, radius, resTime)
     # Number of Lorentzians (= N-1)
     numberLorentz = hwhm.shape[1] - 1
     # Sum of Lorentzians

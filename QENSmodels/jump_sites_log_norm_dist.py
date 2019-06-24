@@ -225,7 +225,6 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, Nsites=3,
     *Macromolecules* **27**, 3282-3288 (1994)
     `link <https://pubs.acs.org/doi/abs/10.1021/ma00090a022>`_
 
-
     """
     # Input validation
 

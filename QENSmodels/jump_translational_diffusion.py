@@ -136,7 +136,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
       for water at 298K and 1 atm, water has D=0.23 Angstrom^2/ps and
       ResTime=1.25 ps.
 
-    * If Restime is equal to 0,  this model reduces to
+    * If Restime is equal to 0, this model reduces to
       `sqwBrownianTranslationalDiffusion`.
 
 
