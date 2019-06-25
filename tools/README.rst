@@ -1,17 +1,23 @@
-This folder contains tools to extract information from the QENS models
+This folder contains tools to extract information from the QENS models or to
+help users converting units
 
+* ``Convert_units.ipynb``
+
+  This notebook gives a few references and tips to convert physical units
+  in order to be able to use the QENS models if the experimental data are expressed in
+  different units.
 
 * ``Explore_model.ipynb``
 
-  This notebook displays the characteristics of 
-  a selected model of the QENS library: the peak half-width half-maximum 
-  (\ *hwhm*\ ), the elastic incoherent structure factor (\ *eisf*\ ) and the 
+  This notebook displays the characteristics of
+  a selected model of the QENS library: the peak half-width half-maximum
+  (\ *hwhm*\ ), the elastic incoherent structure factor (\ *eisf*\ ) and the
   quasielastic incoherent structure factor (\ *qisf*\ ).
 
 * ``Test_models.ipynb``
 
-  This notebook displays *S(omega,q)* in linear and log scale for a selected 
-  model from the QENS library. This model can be convoluted with a Gaussian 
+  This notebook displays *S(omega,q)* in linear and log scale for a selected
+  model from the QENS library. This model can be convoluted with a Gaussian
   instrument profile .
 
 * ``run_tests.sh``
