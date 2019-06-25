@@ -64,7 +64,7 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
 
     """
     # Validator for A0. We must have 0<= A0 <= 1
-    if A0 > 1 or A0 < 0:
+    if any(item > 1 or item < 0 for item in A0):
         raise ValueError('A0, the proportion of immobile atoms, '
                          'should be comprised between 0 and 1, included.')
 

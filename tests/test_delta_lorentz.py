@@ -32,8 +32,8 @@ class TestDeltaLorentz(unittest.TestCase):
         q_input_array = [0.1, 0.2]
         output_array = QENSmodels.sqwDeltaLorentz(w_input,
                                                   q_input_array,
-                                                  0,
                                                   1,
+                                                  0,
                                                   [0, 0],
                                                   [1, 1])
         size_output = output_array.shape
