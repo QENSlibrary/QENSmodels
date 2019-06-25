@@ -74,6 +74,14 @@ def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23,
     r""" Lorentzian model with half width half maximum equal to
     :math:`\frac{6D}{L^2}(1 - \frac{sin(QL)}{QL})`
 
+    It is a model originally developed for jump diffusion in
+    liquids. But it can also be applied to diffusion in
+    crystalline lattices.
+
+    Atoms or molecules are `caged` by other atoms and jump into
+    a neighbouring cage from time to time.
+
+    The jump length `L` is identical for all sites.
 
     Parameters
     ----------

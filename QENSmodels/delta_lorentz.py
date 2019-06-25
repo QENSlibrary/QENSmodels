@@ -30,7 +30,7 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
         peak center. Default to 0.
 
     A0: float, list or :class:`~numpy:numpy.ndarray` of the same size as q
-        amplitude of the delta function. Default to 0.
+        proportion of immobile atoms, must be between 0 and 1. Default to 0.
 
     hwhm: float, list or :class:`~numpy:numpy.ndarray` of the same size as q
         half width half maximum. Default to 1.
@@ -63,6 +63,11 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
                                     \text{hwhm})
 
     """
+    # Validator for A0. We must have 0<= A0 <= 1
+    if A0 > 1 or A0 < 0:
+        raise ValueError('A0, the proportion of immobile atoms, '
+                         'should be comprised between 0 and 1, included.')
+
     w = np.asarray(w)
 
     # Input validation

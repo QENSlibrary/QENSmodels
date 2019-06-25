@@ -79,6 +79,10 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
     r""" Lorentzian model with half width half maximum equal to
     :math:`\frac{Dq^2}{1+ \text{resTime}Dq^2}`
 
+    It models a particle which performs jumps, randomly, between sites
+    where it spends an average time `resTime`. `resTime` is very long
+    compared to the duration of the jump.
+
     Parameters
     ----------
 
@@ -133,11 +137,15 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
           \frac{D q^2}{ 1 + \text{resTime}\ D q^2})
 
     * The default values for the fitting parameters come from the values
-      for water at 298K and 1 atm, water has D=0.23 Angstrom^2/ps and
-      ResTime=1.25 ps.
+      for water at 298K and 1 atm, water has `D`=0.23 Angstrom^2/ps and
+      `resTime`=1.25 ps.
 
-    * If Restime is equal to 0, this model reduces to
+    * If `resTime` is equal to 0, this model reduces to
       `sqwBrownianTranslationalDiffusion`.
+
+    * At small `q`, `hwhm` is similar to the
+    `hwhmBrownianTranslationalDiffusion`, *i.e.* equivalent to
+    :math:Dq^2. And at large `q`, `hwhm` :math:`\propto` 1/`resTime`.
 
 
     References

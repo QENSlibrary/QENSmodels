@@ -105,8 +105,12 @@ def sqwEquivalentSitesCircle(w, q,
                              radius=1.0, resTime=1.0):
     r"""
     Model
-    `Jumps between N equivalent sites on a circle`
+    `Jumps between Nsites equivalent sites on a circle with
+    a radius equal to `radius` `
     = A_0 delta + Sum of Lorentzians ...
+
+    It models a circular random walk among these `Nsites`
+    sites.
 
 
     Parameters
@@ -169,7 +173,7 @@ def sqwEquivalentSitesCircle(w, q,
 
           S(q, \omega) = \text{delta}(\omega, A_0(q), \text{center} )
           + \sum_{i=1}^{N-1}
-          A_i(q)\text{Lorentzian}(\omega, A_i(q)\Gamma_i, \text{center},
+          \text{Lorentzian}(\omega, A_i(q)\text{scale}, \text{center},
           \Gamma_i)
 
       where
@@ -180,10 +184,20 @@ def sqwEquivalentSitesCircle(w, q,
 
          r_j = 2R \sin(j\pi/N)
 
-         \Gamma_i = \frac{2}{\tau}\sin^2(i\pi/N)
+         \Gamma_i = \frac{2}{\text{resTime}}\sin^2(i\pi/N)
 
     * The number of sites `N` is converted to an integer by the function.
       It should **not** be used as a fitting parameter.
+
+
+    References
+    ----------
+
+    * R. Hempelmann,
+    Quasielastic Neutron Scattering and Solid State Diffusion (Oxford, 2000).
+
+    * J. D. Barnes, *Journal of Chemical Physics* **58**, 5193-5201 (1973).
+`link <https://aip.scitation.org/doi/abs/10.1063/1.1679130?journalCode=jcp>`_
 
     """
     # Input validation

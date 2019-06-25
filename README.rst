@@ -14,7 +14,7 @@ Introduction
 
 
 *QENSmodels* is a repository containing models (mathematical functions) written in `Python <https://www.python.org/>`_.
-These models can be used to fit Quasi Elastic Neutron Scattering (QENS) data :math:`S(Q, \omega)`.
+These models can be used to fit Quasi Elastic Neutron Scattering (QENS) data `S(Q, omega)`.
 This project has received funding from the European Union’s Horizon
 2020 research and innovation programme under grant agreement No 654000.
 

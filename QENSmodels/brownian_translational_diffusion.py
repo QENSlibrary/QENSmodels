@@ -25,7 +25,6 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
     D: float
         diffusion coefficient (in Angstrom**2/ps). Default to 1.
 
-
     Returns
     -------
     hwhm: :class:`~numpy:numpy.ndarray`
@@ -157,13 +156,20 @@ def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
 
            I(q, t) = \int G(r, t) dr = \text{scale} \exp (-Dq^2 t)
 
+    * This model works reasonably well at low *q*. Other models, such as
+    "Chudley-Elliot", have been developed to describe the microscopic
+    mechanisms that deviate from the Fickian behavior (`hwhm` proportional
+    to `q` squared)
+
     References
     ----------
 
-    T. Springer, Quasielastic neutron scattering for the investigation
-     of diffusive motions in liquids and solids,
-     *Springer Tracts in Modern Physics* **64** (1972)
-     `link <https://www.springer.com/gp/book/9783662149577>`_
+    * T. Springer, Quasielastic neutron scattering for the investigation
+      of diffusive motions in liquids and solids,
+      *Springer Tracts in Modern Physics* **64** (1972)
+      `link <https://www.springer.com/gp/book/9783662149577>`_
+
+    * G. H. Vineyard, *Phys. Rev.* **110**, 999-1010 (1958)
 
     """
     # Input validation

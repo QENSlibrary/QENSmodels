@@ -11,12 +11,13 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=0.23, resTime=1.25, radius=1,
     r""" Model corresponding to the convolution of `Jump Translational
     diffusion` (model T) and `Isotropic rotational diffusion` (model R)
 
-
-    Model = convolution(T, R)
+    Model = convolution(T, R), where
 
     T = Jump Translational diffusion = Lorentz(Gamma_T)
 
     R = Isotropic rotational diffusion = A0 + A1*L1 + A2*L2 + ...
+
+    This results in
 
     Model = A0*Lorentz(Gamma_T) + A1*Lorentz(Gamma_T+Gamma_1)
     + A2*Lorentz(Gamma_T+Gamma_2) + ...
@@ -67,6 +68,13 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=0.23, resTime=1.25, radius=1,
     * The default values for the fitting parameters come from the values
       for water at 298K and 1 atm, water has D=0.23 Angstrom^2/ps and
       ResTime=1.25 ps.
+
+    References
+    ----------
+
+    J. Teixeira, M.-C. Bellissent-Funel, S.H. Chen, and A.J, Dianoux,
+    *Phys. Rev. A* **31**, 1913-1917 (1985)
+    `link <https://journals.aps.org/pra/abstract/10.1103/PhysRevA.31.1913>`_
 
     """
     # Input validation

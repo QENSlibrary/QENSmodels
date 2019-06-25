@@ -9,6 +9,12 @@ except ImportError:
 
 def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     r"""
+    Model corresponding to a delta representing a fraction p of
+    fixed atoms and two Lorentzians corresponding to Brownian
+    Translational diffusion model at different time scales for the remaining
+    atoms.
+
+
     Model = A0*delta + A1*Lorentzian1 + (1-A0-A1)*Lorentzian2
 
     Parameters
