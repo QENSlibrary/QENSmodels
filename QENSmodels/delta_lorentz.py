@@ -63,11 +63,6 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
                                     \text{hwhm})
 
     """
-    # Validator for A0. We must have 0<= A0 <= 1
-    if any(item > 1 or item < 0 for item in A0):
-        raise ValueError('A0, the proportion of immobile atoms, '
-                         'should be comprised between 0 and 1, included.')
-
     w = np.asarray(w)
 
     # Input validation
@@ -78,6 +73,12 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
 
     # Model
     if q.size > 1:
+
+        # Validator for A0. We must have 0<= A0 <= 1
+        if any(item > 1 or item < 0 for item in A0):
+            raise ValueError('A0, the proportion of immobile atoms, '
+                             'should be comprised between 0 and 1, included.')
+
         try:
             for i in range(q.size):
                 sqw[i, :] = A0[i] * QENSmodels.delta(w, scale, center)
@@ -90,6 +91,10 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
             msg = "At least one array has an incorrect size"
             raise IndexError(detail.__str__() + "\n" + msg)
     else:
+        if A0 > 1 or A0 < 0:
+            raise ValueError('A0, the proportion of immobile atoms, '
+                             'should be comprised between 0 and 1, included.')
+
         sqw[0, :] = A0 * QENSmodels.delta(w, scale, center)
         sqw[0, :] += (1 - A0) * QENSmodels.lorentzian(w, scale, center, hwhm)
 
