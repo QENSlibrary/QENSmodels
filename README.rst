@@ -146,20 +146,9 @@ To open it, click on `launch binder` below. Please note that the notebook can be
 
 Physical units
 ^^^^^^^^^^^^^^
+For information about unit conversion, please refer to the jupyter notebook called `Convert_units.ipynb`
+in the `tools` folder.
 
-Please note that the following units are used for the QENS models
-
-.. list-table::
-   :header-rows: 1
-
-   * - Type of parameter
-     - Unit
-   * - Time
-     - picosecond
-   * - Length
-     - Angstrom
-   * - Momentum transfer
-     - 1/Angstrom
 
 
 How to cite?

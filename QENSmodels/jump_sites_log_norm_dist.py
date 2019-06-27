@@ -161,7 +161,8 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, Nsites=3,
         Default to 1.
 
     sigma: float
-        standard deviation of the Gaussian distribution. Default to 1.
+        standard deviation of the Gaussian distribution (no unit).
+        Default to 1.
 
     Return
     ------

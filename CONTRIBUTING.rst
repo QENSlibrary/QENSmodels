@@ -38,19 +38,8 @@ People interested can contribute to the project in different ways:
 Physical units
 ~~~~~~~~~~~~~~
 
-Please note that the following units are used for the QENS models
-
-.. list-table::
-   :header-rows: 1
-
-   * - Type of parameter
-     - Unit
-   * - Time
-     - picosecond
-   * - Length
-     - Angstrom
-   * - Momentum transfer
-     - 1/Angstrom
+For information about unit conversion, please refer to the jupyter notebook called
+`Convert_units.ipynb` in the `tools` folder.
 
 
 New QENS models

@@ -18,7 +18,7 @@ help users converting units
 
   This notebook displays *S(omega,q)* in linear and log scale for a selected
   model from the QENS library. This model can be convoluted with a Gaussian
-  instrument profile .
+  instrument profile.
 
 * ``run_tests.sh``
 

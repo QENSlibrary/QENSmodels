@@ -149,13 +149,12 @@ def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23,
     References
     ----------
 
-    * R. Hempelmann,
-    Quasielastic Neutron Scattering and Solid State Diffusion (Oxford, 2000).
+    * R. Hempelmann, Quasielastic Neutron Scattering and Solid State Diffusion
+     (Oxford, 2000).
 
     * C. T. Chudley and R. J. Elliott,  *Proc. Phys. Soc.* **77**,
       353-361 (1961)
-    `link
-    <https://iopscience.iop.org/article/10.1088/0370-1328/77/2/319/meta>`_
+`link <https://iopscience.iop.org/article/10.1088/0370-1328/77/2/319/meta>`_
 
     """
     # Input validation
