@@ -74,15 +74,14 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
     arg = q**2 * variance_ux
 
     if q.size == 1:
-        item = q * q * variance_ux
         for i in range(numberLorentz):
-            if item > 0:
+            if arg > 0:
                 al[:, i] = np.exp(-arg) * arg**i / np.math.factorial(i)
             else:
                 if i == 0:
                     al[:, 0] = 1.
                 else:
-                    al[:, 1] = 0.
+                    al[:, i] = 0.
     else:
         al[:, 0] = [np.exp(-item) if item > 0 else 1. for item in arg]
 
