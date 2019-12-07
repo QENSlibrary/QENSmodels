@@ -121,7 +121,7 @@ Other issues
    :target: https://img.shields.io/badge/-question-%23d876e3.svg 
    :alt: `question <https://github.com/QENSlibrary/QENSmodels/labels/question>`_ 
 
-.. |EnhancementTag|  image:: https://img.shields.io/badge/-enhancement-%23a2eeef.svg
+.. |EnhancementTag| image:: https://img.shields.io/badge/-enhancement-%23a2eeef.svg
    :target: https://img.shields.io/badge/-enhancement-%23a2eeef.svg
    :alt: `Enhancement <https://github.com/QENSlibrary/QENSmodels/labels/enhancement>`_
 
@@ -129,7 +129,7 @@ Other issues
   similar issue does not already exist. If one does exist, you add a comment to 
   it; most simply even with just a :+1: to show your support for that issue.
 * If you find any bugs, please report them by submitted a new issue labelled 
-  as |BugTag|.
+  as |BugTag| .
 
 .. |BugTag| image:: https://img.shields.io/badge/-bug-%23d73a4a.svg
    :target: https://img.shields.io/badge/-bug-%23d73a4a.svg
@@ -137,7 +137,7 @@ Other issues
 
   The more details you can provide the better. If you know how to fix the bug, 
    please open an issue first and then submit a pull request.
-* |GoodFirstIssueTag|
+* |GoodFirstIssueTag|  
   
 .. |GoodFirstIssueTag| image:: https://img.shields.io/badge/-good%20first%20issue-%237057ff.svg
    :target: https://img.shields.io/badge/-good%20first%20issue-%237057ff.svg
