@@ -60,7 +60,7 @@ Python script
 
 * It should be placed in the ``QENS models`` folder. The associated ``Python`` 
   script for the tests should be placed in the ``tests`` folder. 
-* The `\ ``doctest`` <https://docs.python.org/2/library/doctest.html>`_ module has 
+* The `doctest <https://docs.python.org/2/library/doctest.html>_` module has 
   to be imported (\ *i.e.* paste ``import doctest`` in your 
   ``Python`` script. Please refer to the existing models 
   for help).
@@ -79,7 +79,7 @@ Documentation
 
 
 * For the QENS models' library, the documentation is built using 
-  `\ ``Sphinx`` <http://www.sphinx-doc.org/en/master/>`_.
+  `Sphinx <http://www.sphinx-doc.org/en/master/>`_.
 * The related files are located in the ``docs`` folder.
 * In addition, as mentioned in the previous section, each model should contain 
   a self-contained description. 
@@ -88,12 +88,14 @@ New examples
 ^^^^^^^^^^^^
 
 
-* Contributed examples should use `
-  .. image:: https://img.shields.io/badge/-jupyter-%236091f2.svg
-     :target: https://img.shields.io/badge/-jupyter-%236091f2.svg
-     :alt: jupyter
-   <https://github.com/QENSlibrary/QENSmodels/labels/jupyter>`_ notebooks (preferred) or ``Python`` 
+* Contributed examples should use |JupyterTag| notebooks (preferred) or ``Python`` 
   scripts.
+
+.. |JupyterTag| image:: https://img.shields.io/badge/-jupyter-%236091f2.svg
+   :target: https://img.shields.io/badge/-jupyter-%236091f2.svg
+   :alt: jupyter <https://github.com/QENSlibrary/QENSmodels/labels/jupyter>`_ 
+
+
 * Please add a maximum of information about the case being described: 
 
   * physical model
@@ -113,47 +115,50 @@ New examples
 Other issues
 ------------
 
+* |QuestionTag| and |EnhancementTag| related to the library can be asked on the issues page. 
 
-* `
-  .. image:: https://img.shields.io/badge/-question-%23d876e3.svg
-     :target: https://img.shields.io/badge/-question-%23d876e3.svg
-     :alt: question
-   <https://github.com/QENSlibrary/QENSmodels/labels/question>`_ 
-  or `
-  .. image:: https://img.shields.io/badge/-enhancement-%23a2eeef.svg
-     :target: https://img.shields.io/badge/-enhancement-%23a2eeef.svg
-     :alt: Enhancement
-   <https://github.com/QENSlibrary/QENSmodels/labels/enhancement>`_ related to the library can be asked on the issues page. 
+.. |QuestionTag| image:: https://img.shields.io/badge/-question-%23d876e3.svg
+   :target: https://img.shields.io/badge/-question-%23d876e3.svg 
+   :alt: `question <https://github.com/QENSlibrary/QENSmodels/labels/question>`_ 
+
+.. |EnhancementTag|  image:: https://img.shields.io/badge/-enhancement-%23a2eeef.svg
+   :target: https://img.shields.io/badge/-enhancement-%23a2eeef.svg
+   :alt: `Enhancement <https://github.com/QENSlibrary/QENSmodels/labels/enhancement>`_
+
 * Before creating a new issue, please take a moment to search and make sure a 
   similar issue does not already exist. If one does exist, you add a comment to 
   it; most simply even with just a :+1: to show your support for that issue.
 * If you find any bugs, please report them by submitted a new issue labelled 
-  as `
-  .. image:: https://img.shields.io/badge/-bug-%23d73a4a.svg
-     :target: https://img.shields.io/badge/-bug-%23d73a4a.svg
-     :alt: bug
-   <https://github.com/QENSlibrary/QENSmodels/labels/bug>`_. 
+  as |BugTag|.
+
+.. |BugTag| image:: https://img.shields.io/badge/-bug-%23d73a4a.svg
+   :target: https://img.shields.io/badge/-bug-%23d73a4a.svg
+   :alt: `bug <https://github.com/QENSlibrary/QENSmodels/labels/bug>`_
+
   The more details you can provide the better. If you know how to fix the bug, 
    please open an issue first and then submit a pull request.
-* 
-  `
-  .. image:: https://img.shields.io/badge/-good%20first%20issue-%237057ff.svg
-     :target: https://img.shields.io/badge/-good%20first%20issue-%237057ff.svg
-     :alt: good-first-issue
-   <https://github.com/QENSlibrary/QENSmodels/labels/good%20first%20issue>`_ 
+* |GoodFirstIssueTag|
+  
+.. |GoodFirstIssueTag| image:: https://img.shields.io/badge/-good%20first%20issue-%237057ff.svg
+   :target: https://img.shields.io/badge/-good%20first%20issue-%237057ff.svg
+   :alt: `good-first-issue <https://github.com/QENSlibrary/QENSmodels/labels/good%20first%20issue>`_ 
+    
+  *These issues are particularly appropriate if it is your first 
+  contribution.*
+  If you're not sure about how to go about contributing, these are good 
+  places to start. You'll be mentored through the process by the maintainers 
+  team. If you're a seasoned contributor, please select a different issue to 
+  work from and keep these available for the newer and potentially more 
+  anxious team members.
 
-    *These issues are particularly appropriate if it is your first 
-    contribution.*
-    If you're not sure about how to go about contributing, these are good 
-    places to start. You'll be mentored through the process by the maintainers 
-    team. If you're a seasoned contributor, please select a different issue to 
-    work from and keep these available for the newer and potentially more 
-    anxious team members.
+*  |HelpTag| contains a task that you can contribute to. We especially encourage you to do so 
+   if you feel you can help.
 
-* `
-  .. image:: https://img.shields.io/badge/-help%20wanted-%23008672.svg
-     :target: https://img.shields.io/badge/-help%20wanted-%23008672.svg
-     :alt: help-wanted
-   <https://github.com/QENSlibrary/QENSmodels/labels/help%20wanted>`_ 
-    contain a task that you can contribute to. We especially 
-    encourage you to do so if you feel you can help.
+.. |HelpTag| image:: https://img.shields.io/badge/-help%20wanted-%23008672.svg
+   :target: https://img.shields.io/badge/-help%20wanted-%23008672.svg
+   :alt: `help-wanted <https://github.com/QENSlibrary/QENSmodels/labels/help%20wanted>`_
+    
+    
+
+
+
