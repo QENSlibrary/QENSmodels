@@ -129,27 +129,24 @@ Other issues
   similar issue does not already exist. If one does exist, you add a comment to 
   it; most simply even with just a :+1: to show your support for that issue.
 * If you find any bugs, please report them by submitted a new issue labelled 
-  as |BugTag| .
+  as |BugTag|. The more details you can provide the better. If you know how to 
+  fix the bug, please open an issue first and then submit a pull request.
 
 .. |BugTag| image:: https://img.shields.io/badge/-bug-%23d73a4a.svg
    :target: https://img.shields.io/badge/-bug-%23d73a4a.svg
    :alt: `bug <https://github.com/QENSlibrary/QENSmodels/labels/bug>`_
 
-  The more details you can provide the better. If you know how to fix the bug, 
-   please open an issue first and then submit a pull request.
-* |GoodFirstIssueTag|  
-  
-.. |GoodFirstIssueTag| image:: https://img.shields.io/badge/-good%20first%20issue-%237057ff.svg
-   :target: https://img.shields.io/badge/-good%20first%20issue-%237057ff.svg
-   :alt: `good-first-issue <https://github.com/QENSlibrary/QENSmodels/labels/good%20first%20issue>`_ 
-    
-  *These issues are particularly appropriate if it is your first 
+* |GoodFirstIssueTag| *issues are particularly appropriate if it is your first 
   contribution.*
   If you're not sure about how to go about contributing, these are good 
   places to start. You'll be mentored through the process by the maintainers 
   team. If you're a seasoned contributor, please select a different issue to 
   work from and keep these available for the newer and potentially more 
   anxious team members.
+  
+.. |GoodFirstIssueTag| image:: https://img.shields.io/badge/-good%20first%20issue-%237057ff.svg
+   :target: https://img.shields.io/badge/-good%20first%20issue-%237057ff.svg
+   :alt: `good-first-issue <https://github.com/QENSlibrary/QENSmodels/labels/good%20first%20issue>`_ 
 
 *  |HelpTag| contains a task that you can contribute to. We especially encourage you to do so 
    if you feel you can help.
@@ -157,8 +154,3 @@ Other issues
 .. |HelpTag| image:: https://img.shields.io/badge/-help%20wanted-%23008672.svg
    :target: https://img.shields.io/badge/-help%20wanted-%23008672.svg
    :alt: `help-wanted <https://github.com/QENSlibrary/QENSmodels/labels/help%20wanted>`_
-    
-    
-
-
-
