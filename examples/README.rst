@@ -12,8 +12,7 @@ plots),
 `bumps <https://github.com/bumps/bumps>`_ (optional),
 `h5py <https://www.h5py.org/>`_ (for some of the examples).
 
-To access the notebooks, type ``jupyter notebook`` in a terminal and click on
- the notebook you want to open.
+To access the notebooks, type ``jupyter notebook`` in a terminal and click on the notebook you want to open.
 
 .. important:: The notebook, whose name starts with ``mantid``\ , requires
    `Mantid <http://www.mantidproject.org/Main_Page>`_ to be installed on your computer,
