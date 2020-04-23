@@ -106,7 +106,7 @@ Then activate the environment and install the remaining packages
    conda install -c conda-forge h5py
 
 Finally, install the library
-``pip install --user path_to/QENSmodels``
+``python -m pip install --user path_to/QENSmodels``
 
 The packages for fitting, *i.e.* ``lmfit``\ , ``bumps``\ , will be installed when 
 running the jupyter notebooks, where they are required.
