@@ -56,7 +56,7 @@ The steps to follow are:
 
   .. code-block:: console
 
-     pip install full_path_to_QENSmodels_folder
+     python -m pip install full_path_to_QENSmodels_folder
 
 
 See `the documentation on pip install <https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs>`_ for 
