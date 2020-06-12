@@ -1,8 +1,8 @@
 
 This folder contains different jupyter notebooks showing how to use models of
-the QENS library.  
+the QENS library. The sub-folder `using_mantid` details how to proceed if you want to use Mantid.
 
-Note that in order to open and run these examples, you need 
+Note that in order to open and run these examples, you need
 `jupyter <http://jupyter.org/>`_\ ,
 `scipy <https://www.scipy.org/>`_\ ,
 `matplotlib <https://matplotlib.org/>`_\ ,
@@ -14,14 +14,8 @@ plots),
 
 To access the notebooks, type ``jupyter notebook`` in a terminal and click on the notebook you want to open.
 
-.. important:: The notebook, whose name starts with ``mantid``\ , requires
-   `Mantid <http://www.mantidproject.org/Main_Page>`_ to be installed on your computer,
-   since it uses `Mantid Notebook`. How to run these last notebooks is described
-   `here <https://www.mantidproject.org/Using_IPython_Notebook>`_.
-   Note that this **particular notebook** is still a work in progress.
 
-
-The data required to run some of the notebooks and scripts are located in the 
+The data required to run some of the notebooks and scripts are located in the
 ``data`` subfolder.
 
 Summary of the Jupyter notebooks
@@ -63,8 +57,6 @@ The following table summarizes some of the main features of the Jupyter notebook
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
 | lmfit_waterIN5_teixeira                   | X                       |                    |                 |            | X          |
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| mantid_waterIN5_with_QENSmodels           | X                       |                    | X               |            | X          |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
 | scipy_JumpSitesLogNormDist                |                         | X                  |                 |            |            |
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
 | scipy_lorentzian                          |                         | X                  |                 |            |            |
@@ -76,26 +68,26 @@ Using the jupyter notebooks
 Using via Anaconda
 ^^^^^^^^^^^^^^^^^^
 
-You can download and install Anaconda / Miniconda (a mini version of 
+You can download and install Anaconda / Miniconda (a mini version of
 Anaconda that saves you disk space) on Windows, OSX and Linux.
 
-After installing, to ensure that your packages are up to date, 
+After installing, to ensure that your packages are up to date,
 run the following command in a terminal:
 
 .. code-block:: console
 
    conda update conda
 
-You can create a new environment (called ``mynewenv`` in the following example), 
+You can create a new environment (called ``mynewenv`` in the following example),
 which will contain the required packages
 
 .. code-block:: console
 
    conda create --name mynewenv python numpy scipy matplotlib jupyter pandas
 
-Note that you can specify which version of ``Python``. For example, 
-``conda create --name mynewenv python=3.4 numpy scipy matplotlib jupyter pandas`` to
-install ``Python`` version 3.4.
+Note that you can specify which version of ``Python``. For example,
+``conda create --name mynewenv python=3.8 numpy scipy matplotlib jupyter pandas`` to
+install ``Python`` version 3.8.
 
 Then activate the environment and install the remaining packages
 
@@ -106,9 +98,12 @@ Then activate the environment and install the remaining packages
    conda install -c conda-forge h5py
 
 Finally, install the library
-``python -m pip install --user path_to/QENSmodels``
+``python -m pip install path_to_QENSmodels_folder
+``
+where `path_to_QENSmodels_folder` is the location of the QENSmodels' folder on your computer (for
+example `/Users/my_username/Desktop/QENSmodels`).
 
-The packages for fitting, *i.e.* ``lmfit``\ , ``bumps``\ , will be installed when 
+The packages for fitting, *i.e.* ``lmfit``\ , ``bumps``\ , will be installed when
 running the jupyter notebooks, where they are required.
 
 Short tutorials on Jupyter notebooks
