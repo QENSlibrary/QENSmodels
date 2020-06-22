@@ -81,19 +81,17 @@ which will contain the required packages
 
 .. code-block:: console
 
-   conda create --name mynewenv python numpy scipy matplotlib jupyter pandas
+   conda create --name mynewenv python=3.7 ipypwidgets h5py numpy scipy matplotlib jupyter
 
-Note that you can specify which version of ``Python``. For example,
-``conda create --name mynewenv python=3.8 numpy scipy matplotlib jupyter pandas`` to
-install ``Python`` version 3.8.
+Note that we force the installation of version 3.7 of Python because of some
+incompatibilities with one of the fitting package, `bumps`, whose version 0.7.12
+ will be installed in the dedicated notebooks.
 
 Then activate the environment and install the remaining packages
 
 .. code-block:: console
 
    conda activate mynewenv
-   conda install -c conda-forge ipywidgets
-   conda install -c conda-forge h5py
 
 Finally, install the library
 ``python -m pip install path_to_QENSmodels_folder
