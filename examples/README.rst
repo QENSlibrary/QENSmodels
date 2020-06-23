@@ -94,8 +94,10 @@ Then activate the environment and install the remaining packages
    conda activate mynewenv
 
 Finally, install the library
+
 ``python -m pip install path_to_QENSmodels_folder
 ``
+
 where `path_to_QENSmodels_folder` is the location of the QENSmodels' folder on your computer (for
 example `/Users/my_username/Desktop/QENSmodels`).
 
