@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 # Configuration file for the Sphinx documentation builder.
 #
 # This file does only contain a selection of the most common options. For a
@@ -70,17 +68,17 @@ extensions = [
 ]
 
 # Napoleon settings
-napoleon_google_docstring = False
-napoleon_numpy_docstring = True
-napoleon_include_init_with_doc = False
-napoleon_include_private_with_doc = False
-napoleon_include_special_with_doc = True
-napoleon_use_admonition_for_examples = False
-napoleon_use_admonition_for_notes = False
-napoleon_use_admonition_for_references = False
-napoleon_use_param = False
-napoleon_use_rtype = True
-napoleon_use_ivar = True
+# napoleon_google_docstring = False
+# napoleon_numpy_docstring = True
+# napoleon_include_init_with_doc = False
+# napoleon_include_private_with_doc = False
+# napoleon_include_special_with_doc = True
+# napoleon_use_admonition_for_examples = False
+# napoleon_use_admonition_for_notes = False
+# napoleon_use_admonition_for_references = False
+# napoleon_use_param = False
+# napoleon_use_rtype = True
+# napoleon_use_ivar = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -92,7 +90,6 @@ source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
-
 
 highlight_language = 'none'
 
