@@ -1,10 +1,10 @@
+QENS models and Mantid
+######################
 
-.. highlight:: rst
+Introduction
+============
 
-.. important::
-
-This folder contains different files to use the QENS library and Mantid. Several options are
-possible depending on your operating system.
+Several options are possible to use QENS library and Mantid depending on your operating system.
 
 Since Mantidplot is being replaced by Mantid Workbench, the tips and methods details in this
 document have been tested using the latter only.
@@ -29,7 +29,7 @@ On Mac
 - Save the above file to Desktop (for example).
   In a terminal run these lines to install pip and use it to install the QENSmodels library:
 
-  .. code_block:: console
+  .. code-block:: console
 
       cd ~/Desktop
 
@@ -45,15 +45,15 @@ On Windows
 
 In a command prompt,
 
-- cd into `MantidInstall\bin`
+- `cd` into `MantidInstall\bin`
 
 - type
 
-  .. code_block:: console
+  .. code-block:: console
 
      Scripts\pip install path_to_QENSmodels
 
-  where path_to_QENSmodels is the location of the QENSmodels's folder on your computer
+  where path_to_QENSmodels is the location of the QENSmodels folder on your computer
 
 
 On Linux
@@ -64,6 +64,8 @@ In a terminal, type
 .. code-block:: console
 
     python3 -m pip install path_to_QENSmodels
+
+ where path_to_QENSmodels is the location of the QENSmodels's folder on your computer
 
 
 Testing the installation

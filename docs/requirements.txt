@@ -5,6 +5,6 @@ git+git://github.com/QENSlibrary/QENSmodels.git
 h5py
 nbsphinx
 jupyter
-bumps
+bumps==0.7.12
 lmfit
 ipywidgets

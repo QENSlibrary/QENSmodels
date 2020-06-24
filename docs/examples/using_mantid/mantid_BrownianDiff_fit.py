@@ -1,3 +1,12 @@
+"""
+mantid_BrownianDiff_fit
+===========================
+
+This example shows how to use one of the models of the QENS library in MantidWorkbench
+
+To use, simply open this script in MantidWorkbench and run it.
+"""
+
 import mantid.simpleapi as mapi
 import matplotlib.pyplot as plt
 import numpy as np
