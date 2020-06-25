@@ -87,8 +87,8 @@ which will contain the required packages
    conda create --name mynewenv python=3.7 ipypwidgets h5py numpy scipy matplotlib jupyter
 
 Note that we force the installation of version 3.7 of Python because of some
-incompatibilities with one of the fitting package, `bumps`, whose version 0.7.12
- will be installed in the dedicated notebooks.
+incompatibilities with one of the fitting package, `bumps`, whose version 
+0.7.12 will be installed in the dedicated notebooks.
 
 Then activate the environment and install the remaining packages
 
