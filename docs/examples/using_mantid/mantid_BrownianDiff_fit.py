@@ -2,8 +2,8 @@
 mantid_BrownianDiff_fit
 ===========================
 
-This example shows how to use one of the models of the QENS library in MantidWorkbench
-
+This example shows how to use one of the models of the QENS library in 
+MantidWorkbench
 To use, simply open this script in MantidWorkbench and run it.
 """
 
