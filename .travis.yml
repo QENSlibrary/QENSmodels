@@ -27,7 +27,7 @@ before_install:
 install:
   - conda create -q -n testenv python=$TRAVIS_PYTHON_VERSION numpy scipy flake8
   - source activate testenv
-  - pip install pytest sphinx nbsphinx sphinx_rtd_theme jupyter_client
+  - pip install pytest sphinx nbsphinx sphinx_rtd_theme jupyter_client ipykernel
   # install QENSmodels
   - python setup.py install
 
