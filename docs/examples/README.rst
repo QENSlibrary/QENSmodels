@@ -1,7 +1,7 @@
 Introduction
 ^^^^^^^^^^^^
 
-This section contains different jupyter notebooks showing how to use models of
+This section contains different Jupyter notebooks showing how to use models of
 the QENS library. The sub-folder `using_mantid` details how to proceed if you want to use Mantid.
 
 Note that in order to open and run these examples, you need
