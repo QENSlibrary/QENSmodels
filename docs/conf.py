@@ -199,7 +199,7 @@ intersphinx_mapping = {
 # todo_include_todos = True
 
 # -- Nbsphinx settings --------------------------------------------------------
-nbsphinx_allow_errors = True
+nbsphinx_allow_errors = False
 
 nbsphinx_epilog = """
 ----
