@@ -1,10 +1,5 @@
 numpy
 scipy
 matplotlib
-git+git://github.com/QENSlibrary/QENSmodels.git
-h5py
-nbsphinx
-jupyter
-bumps
-lmfit
 ipywidgets
+git+git://github.com/QENSlibrary/QENSmodels.git
