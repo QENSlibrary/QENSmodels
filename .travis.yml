@@ -27,7 +27,7 @@ before_install:
 install:
   - conda create -q -n testenv -c conda-forge python=$TRAVIS_PYTHON_VERSION numpy scipy flake8 pandoc
   - source activate testenv
-  - pip install pytest sphinx nbsphinx sphinx_rtd_theme jupyter_client ipykernel ipywidgets bumps==0.7.12 lmfit h5py
+  - pip install pytest sphinx nbsphinx sphinx_rtd_theme jupyter_client ipykernel ipywidgets bumps==0.7.12 matplotlib lmfit h5py
   # install QENSmodels
   - python setup.py install
 
