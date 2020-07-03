@@ -38,7 +38,7 @@ The installation of these modules will be checked when installing the QENSmodels
 be performed if they are missing. Additional modules are required to run the examples. These
 examples show you how to run a fit with different minimizers using some of the QENS models. Details
 can be found in the
-`README file <https://github.com/QENSlibrary/QENSmodels/blob/master/examples/README.rst>`_
+`README file <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/README.rst>`_
 of the *examples* folder or in the online documentation.
 
 How to install?
@@ -119,8 +119,9 @@ The scripts of the models can be found in the
 Jupyter notebooks showing how to use some of the QENS models are located in the *docs/examples*
 folder. The name of the notebook indicates which fitting engine and QENS model 
 are used. Additional tools might have to be installed in order to use a 
-particular notebook. Please refer to the README file in the `examples` folder or to the `examples`
-section of the online documentation for details.
+particular notebook. Please refer to the Please refer to the
+`README file <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/README.rst>`_ in
+the `examples` folder or to the `examples` section of the online documentation for details.
 
 If you do not want to download neither install any component, one example can be interactively
 tested online. To open it, click on `launch binder` below. Please note that the notebook can be
