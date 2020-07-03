@@ -39,7 +39,8 @@ be performed if they are missing. Additional modules are required to run the exa
 examples show you how to run a fit with different minimizers using some of the QENS models. Details
 can be found in the
 `README file <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/README.rst>`_
-of the *examples* folder or in the online documentation.
+of the *examples* folder or in the online documentation. How to use Mantid to fit is described in
+this `document <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/using_mantid/README.rst>`_ .
 
 How to install?
 ---------------
