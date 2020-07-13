@@ -1,6 +1,3 @@
-===========
-Description
-===========
 
 .. image:: https://readthedocs.org/projects/qensmodels/badge/?version=latest
    :target: https://qensmodels.readthedocs.io/?badge=latest
@@ -38,11 +35,12 @@ Python modules to test the models (for contributors):
 * `doctest <https://docs.python.org/3.7/library/doctest.html>`_
 
 The installation of these modules will be checked when installing the QENSmodels library and will
-be added to your system if missing. Additional modules are required to run the examples. These
+be performed if they are missing. Additional modules are required to run the examples. These
 examples show you how to run a fit with different minimizers using some of the QENS models. Details
 can be found in the
-`README file <https://github.com/QENSlibrary/QENSmodels/blob/master/examples/README.rst>`_
-of the *examples* folder or in the online documentation.
+`README file <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/README.rst>`_
+of the *examples* folder or in the online documentation. How to use Mantid to fit is described in
+this `document <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/using_mantid/README.rst>`_ .
 
 How to install?
 ---------------
@@ -80,16 +78,11 @@ To **uninstall** the library, type
 
    python -m pip uninstall QENSmodels
 
-Documentation
-=============
-
-The documentation is available at https://qensmodels.readthedocs.io .
-
 
 Tests
-=====
+-----
 
-The script to run the tests is located in the ``tools`` folder. 
+The script to run the tests is located in the ``tools`` folder.
 These tests require the installation of ``doctest`` and ``unittest``.
 
 In a terminal, move to the ``tools`` directory and run
@@ -97,6 +90,12 @@ In a terminal, move to the ``tools`` directory and run
 .. code-block:: console
 
    ./run_tests.sh
+
+Documentation
+=============
+
+The documentation is available at https://qensmodels.readthedocs.io .
+
 
 License
 -------
@@ -118,24 +117,24 @@ or copy and paste the script related to the Lorentzian function.
 The scripts of the models can be found in the
 `git repository <https://github.com/QENSlibrary/QENSmodels>`_.
 
-Jupyter notebooks showing how to use some of the QENS models are located in the *examples*
+Jupyter notebooks showing how to use some of the QENS models are located in the *docs/examples*
 folder. The name of the notebook indicates which fitting engine and QENS model 
 are used. Additional tools might have to be installed in order to use a 
-particular notebook. Please refer to the README file in the `examples` folder or to the `examples`
-section of the online documentation for details.
+particular notebook. Please refer to the Please refer to the
+`README file <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/README.rst>`_ in
+the `examples` folder or to the `examples` section of the online documentation for details.
 
 If you do not want to download neither install any component, one example can be interactively
-tested online.
-
-To open it, click on `launch binder` below. Please note that the notebook can be slow to load.
+tested online. To open it, click on `launch binder` below. Please note that the notebook can be
+slow to load.
 
 .. image:: https://mybinder.org/badge_logo.svg
    :target: https://mybinder.org/v2/gh/QENSlibrary/QENSmodels/master?filepath=examples-binder%2Fscipy_lorentzian_fit_binder_ipywidgets.ipynb
 
 Physical units
 ^^^^^^^^^^^^^^
-For information about unit conversion, please refer to the jupyter notebook called `
-Convert_units.ipynb` in the `tools` folder.
+For information about unit conversion, please refer to the jupyter notebook called
+`Convert_units.ipynb` in the `tools` folder.
 
 
 

@@ -1,6 +1,9 @@
+Introduction
+^^^^^^^^^^^^
 
-This folder contains different jupyter notebooks showing how to use models of
-the QENS library. The sub-folder `using_mantid` details how to proceed if you want to use Mantid.
+This section contains different Jupyter notebooks showing how to use models of
+the QENS library. The sub-folder `using_mantid` details how to proceed if you want to use Mantid
+(`link <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/using_mantid/README.rst>`_ ).
 
 Note that in order to open and run these examples, you need
 `jupyter <http://jupyter.org/>`_\ ,
@@ -12,7 +15,8 @@ plots),
 `bumps <https://github.com/bumps/bumps>`_ (optional),
 `h5py <https://www.h5py.org/>`_ (for some of the examples).
 
-To access the notebooks, type ``jupyter notebook`` in a terminal and click on the notebook you want to open.
+To access the notebooks, type ``jupyter notebook`` in a terminal and click on the notebook you want
+to open.
 
 
 The data required to run some of the notebooks and scripts are located in the
@@ -84,8 +88,8 @@ which will contain the required packages
    conda create --name mynewenv python=3.7 ipypwidgets h5py numpy scipy matplotlib jupyter
 
 Note that we force the installation of version 3.7 of Python because of some
-incompatibilities with one of the fitting package, `bumps`, whose version 0.7.12
- will be installed in the dedicated notebooks.
+incompatibilities with one of the fitting package, `bumps`, whose version 
+0.7.12 will be installed in the dedicated notebooks.
 
 Then activate the environment and install the remaining packages
 
