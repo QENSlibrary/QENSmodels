@@ -145,9 +145,9 @@ If the input data correspond to :math:`S(Q, \omega)` with :math:`\omega` in
 |Ang^2| :math:`/\text{ps}` (if :math:`Q` was in |Ang^-1|) or in
 :math:`\text{nm}^2/\text{ps}` (if :math:`Q` was in :math:`\text{nm}^{-1}`).
 
-Finally, if the input is :math:`S(Q, \nu)` with :math:`\nu` in
- :math:`\text{THz}` and :math:`Q` in |Ang^-1|, then :math:`D` will be in
- |Ang^2| :math:`\times \text{THz}`, and:
+Finally, if the input is :math:`S(Q, \nu)` with :math:`\nu` in :math:`\text{THz}` 
+and :math:`Q` in |Ang^-1|, then :math:`D` will be in 
+|Ang^2| :math:`\times \text{THz}`, and:
 
 :math:`1` |Ang^2| :math:`\times \text{THz} = 6.283\times 10^{-12} \text{m}^2/\text{s}
 = 6.283\times 10^{-8} \text{cm}^2/\text{s} = 6.283\times 10^{-4}` |Ang^2|
