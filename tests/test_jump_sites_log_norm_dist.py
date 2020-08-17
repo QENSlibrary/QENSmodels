@@ -133,8 +133,7 @@ class TestJumpsSitesLogNorm(unittest.TestCase):
         """ Test output values in comparison with reference data
                   (file in 'reference data' folder) """
         # load reference data
-        ref_data = numpy.loadtxt(
-           pjn(data_dir, "jump_sites_log_norm_dist_ref_data.dat"))
+        ref_data = numpy.loadtxt(pjn(data_dir, "jump_sites_log_norm_dist_ref_data.dat"))
 
         # generate data from current model
         # for info: the parameters' values used for the reference data are

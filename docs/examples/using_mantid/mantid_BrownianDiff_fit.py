@@ -32,8 +32,8 @@ added_noise = np.random.normal(0, 1, nb_points)
 brownian_diff_noisy = QENSmodels.sqwBrownianTranslationalDiffusion(hw, Q,
                                                                    scale=10,
                                                                    center=0.1,
-                                                                   D=5) * \
-                      (1 + 0.1 * added_noise) + 0.01 * added_noise
+                                                                   D=5) * (1 + 0.1 * added_noise)
+brownian_diff_noisy += 0.01 * added_noise
 
 # store in mantid workspace
 QENS_data = mapi.CreateWorkspace(DataX=hw,
