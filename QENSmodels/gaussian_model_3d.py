@@ -92,7 +92,7 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
     eisf = al[:, 0]
 
     for i in range(1, numberLorentz):
-        hwhm[:, i] = np.repeat(i*D/variance_ux, q.size)
+        hwhm[:, i] = np.repeat(i * D / variance_ux, q.size)
         qisf[:, i] = al[:, i]
 
     return hwhm, eisf, qisf

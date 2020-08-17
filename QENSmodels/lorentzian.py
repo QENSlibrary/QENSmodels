@@ -82,7 +82,7 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
     if hwhm == 0:
         model = QENSmodels.delta(x, scale, center)
     else:
-        model = scale * hwhm / ((x-center)**2 + hwhm**2) / np.pi
+        model = scale * hwhm / ((x - center)**2 + hwhm**2) / np.pi
 
     return model
 

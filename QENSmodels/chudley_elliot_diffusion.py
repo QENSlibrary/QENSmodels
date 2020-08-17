@@ -60,7 +60,7 @@ def hwhmChudleyElliotDiffusion(q, D=0.23, L=1.0):
 
     eisf = np.zeros(q.size)
     qisf = np.ones(q.size)
-    hwhm = 6. * D * (1. - np.sinc(q*L)) / L**2
+    hwhm = 6. * D * (1. - np.sinc(q * L)) / L**2
 
     # Force hwhm to be numpy array, even if single value
     hwhm = np.asarray(hwhm, dtype=np.float32)

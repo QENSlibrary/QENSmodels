@@ -72,7 +72,7 @@ def delta(x, scale=1, center=0):
             # otherwise do nothing
             idx = np.argmin(np.abs(x - center))
             if len(x) > 1:
-                dx = (x.max() - x.min())/(len(x) - 1)  # domain spacing
+                dx = (x.max() - x.min()) / (len(x) - 1)  # domain spacing
             else:
                 dx = 1.
             model[idx] = scale / dx

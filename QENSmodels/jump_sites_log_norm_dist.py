@@ -108,10 +108,10 @@ def hwhmJumpSitesLogNormDist(q, Nsites=3, radius=1.0, resTime=1.0, sigma=1.0):
             hwhm[qiter, isite, :] = hwhm_equiv[qiter, isite] * ratio
 
     # quasielastic terms
-    qisf = np.zeros((q.size, Nsites-1, 2 * n_max + 1))
+    qisf = np.zeros((q.size, Nsites - 1, 2 * n_max + 1))
     for qiter in range(q.size):
         for ilor in range(2 * n_max + 1):
-            for isite in range(0, Nsites-1):
+            for isite in range(0, Nsites - 1):
                 qisf[qiter, isite, ilor] = qisf_equiv[qiter, isite] * gi[ilor]
 
     return hwhm, eisf, qisf
@@ -253,11 +253,8 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, Nsites=3,
         for j in range(numberLorentz):
             for k in range(numberSamplingDistrib):
                 # quasielastic terms
-                sqw[i, :] += qisf[i, j, k] * \
-                             QENSmodels.lorentzian(w,
-                                                   scale,
-                                                   center,
-                                                   hwhm[i, j + 1, k])
+                sqw[i, :] += qisf[i, j, k] * QENSmodels.lorentzian(w, scale, center,
+                                                                   hwhm[i, j + 1, k])
 
     # For Bumps use (needed for final plotting)
     # Using a 'Curve' in bumps for each Q --> needs vector array
