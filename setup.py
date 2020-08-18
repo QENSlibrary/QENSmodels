@@ -11,7 +11,7 @@ authors = ', '.join(author_list[:-1]) + ', and ' + author_list[-1]
 short = 'Library of models for fitting QENS data'
 
 setup(name='QENSmodels',
-      version='0.1.0',
+      version='0.2.0',
       description=short,
       url='https://github.com/QENSlibrary/QENSmodels',
       author=authors,
