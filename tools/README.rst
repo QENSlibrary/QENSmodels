@@ -1,5 +1,5 @@
-This folder contains tools to extract information from the QENS models or to
-help users converting units
+This folder contains tools to extract information from the QENS models, to
+help users converting units and to convert Notebooks to Python scripts
 
 * ``Convert_units.ipynb``
 
@@ -23,6 +23,17 @@ help users converting units
 * ``run_tests.sh``
 
   This script runs unittests and doctests through the models in ``QENSmodels``.
+
+* ``Notebook_converter.py``
+
+  This Python script converts all the Jupyter notebooks in the `docs/examples` folder to Python
+  scripts. These scripts are written in the `python_scripts` subfolder. The path to the reference
+  datafiles is modified during the conversion. Any values in the Jupyter notebooks requiring input
+  from `ipywidgets` widgets are set to default values also during the conversion process.
+
+  To convert the notebooks to Python scripts, in a terminal, "cd" to the `tools` folder and then
+  type `python Notebook_converter.py`.
+
 
 Note that in order to open the Jupyter notebooks, you'll need `jupyter`, `numpy`,
 `matplotlib`, and `ipywidgets` (for interactive plots).
@@ -50,8 +61,8 @@ environment:
      conda activate mynewenv
 
 * to access the notebooks,
-  - activate your conda environment. For example, if the environment was created using the above commands, simply
-  type `conda activate mynewenv` in a terminal.
+  - activate your conda environment. For example, if the environment was created using the above
+  commands, simply type `conda activate mynewenv` in a terminal.
   -  move to the folder where the notebook you want to open is located,
   -  type ``jupyter notebook``
   - click on the notebook you want to open.
