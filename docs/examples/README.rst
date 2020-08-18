@@ -85,7 +85,7 @@ which will contain the required packages
 
 .. code-block:: console
 
-   conda create --name mynewenv python=3.7 ipypwidgets h5py numpy scipy matplotlib jupyter
+   conda create --name mynewenv python=3.7 ipywidgets h5py numpy scipy matplotlib jupyter
 
 Note that we force the installation of version 3.7 of Python because of some
 incompatibilities with one of the fitting package, `bumps`, whose version 
