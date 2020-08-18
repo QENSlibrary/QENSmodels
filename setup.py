@@ -5,7 +5,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-author_list = ['Céline Durniak', 'Miguel Gonzalez', 'Anders Markvardsen']
+author_list = ['Céline Durniak', 'Miguel Gonzalez', 'Anders Markvardsen', 'Thomas Farmer']
 authors = ', '.join(author_list[:-1]) + ', and ' + author_list[-1]
 
 short = 'Library of models for fitting QENS data'
