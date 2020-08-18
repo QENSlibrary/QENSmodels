@@ -18,11 +18,9 @@ class TestJumpTranslationalDiffusion(unittest.TestCase):
     def test_size_hwhm_jump_translational_diffusion(self):
         """ Test size of output of hwhmJumpTranslationalDiffusion
                  The output should contains 3 elements """
-        self.assertEqual(
-            len(QENSmodels.hwhmJumpTranslationalDiffusion(1.)), 3)
+        self.assertEqual(len(QENSmodels.hwhmJumpTranslationalDiffusion(1.)), 3)
 
-        self.assertEqual(
-            len(QENSmodels.hwhmJumpTranslationalDiffusion([1., 2.])), 3)
+        self.assertEqual(len(QENSmodels.hwhmJumpTranslationalDiffusion([1., 2.])), 3)
 
     def test_type_size_hwhm_jump_translational_diffusion_q_nb(self):
         """ Tests type and size of outputs if input q is a number """
@@ -37,9 +35,7 @@ class TestJumpTranslationalDiffusion(unittest.TestCase):
     def test_type_size_hwhm_jump_translational_diffusion_q_array(self):
         """ Tests type and size of outputs if input q is an array """
         q_input = [1., 2.]
-        hwhm, eisf, qisf = QENSmodels.hwhmJumpTranslationalDiffusion(q_input,
-                                                                     0.5,
-                                                                     1.5)
+        hwhm, eisf, qisf = QENSmodels.hwhmJumpTranslationalDiffusion(q_input, 0.5, 1.5)
         self.assertIsInstance(hwhm, numpy.ndarray)
         self.assertIsInstance(eisf, numpy.ndarray)
         self.assertIsInstance(qisf, numpy.ndarray)
@@ -51,50 +47,34 @@ class TestJumpTranslationalDiffusion(unittest.TestCase):
         self.assertSequenceEqual(qisf.tolist(), numpy.ones(2).tolist())
 
     def test_raised_error_negative_coeffs(self):
-        """ test that an error is raised if D or resTime are negative
-        """
+        """ test that an error is raised if D or resTime are negative """
         # D = -1, resTime = 1
-        self.assertRaises(ValueError,
-                          QENSmodels.hwhmJumpTranslationalDiffusion,
-                          1,
-                          -1, 1)
+        self.assertRaises(ValueError, QENSmodels.hwhmJumpTranslationalDiffusion, 1, -1, 1)
         # D = 1, resTime = -1
-        self.assertRaises(ValueError,
-                          QENSmodels.hwhmJumpTranslationalDiffusion,
-                          1,
-                          1, -1)
+        self.assertRaises(ValueError, QENSmodels.hwhmJumpTranslationalDiffusion, 1, 1, -1)
         # D = -1, resTime = -1
-        self.assertRaises(ValueError,
-                          QENSmodels.hwhmJumpTranslationalDiffusion,
-                          1,
-                          -1, -1)
+        self.assertRaises(ValueError, QENSmodels.hwhmJumpTranslationalDiffusion, 1, -1, -1)
 
     def test_type_sqw_jump_translational_diffusion(self):
         """ Test type of output """
         # w, q are floats
-        self.assertIsInstance(QENSmodels.sqwJumpTranslationalDiffusion(1, 1),
-                              numpy.ndarray)
+        self.assertIsInstance(QENSmodels.sqwJumpTranslationalDiffusion(1, 1), numpy.ndarray)
         # w, q are vectors
-        output = QENSmodels.sqwJumpTranslationalDiffusion([1, 2, 3],
-                                                          [0.3, 0.4])
+        output = QENSmodels.sqwJumpTranslationalDiffusion([1, 2, 3], [0.3, 0.4])
         self.assertIsInstance(output, numpy.ndarray)
         self.assertEqual(output.size, 6)
         self.assertEqual(output.shape, (2, 3))
 
     def test_raised_error_no_q_input(self):
-        """ test that an error is raised if no values of q are given as input
-        """
-        self.assertRaises(TypeError,
-                          QENSmodels.sqwJumpTranslationalDiffusion,
-                          1)
+        """ test that an error is raised if no values of q are given as input """
+        self.assertRaises(TypeError, QENSmodels.sqwJumpTranslationalDiffusion, 1)
 
     def test_reference_data(self):
         """ Test output values in comparison with reference data
                   (file in 'reference data' folder) """
 
         # load reference data
-        ref_data = numpy.loadtxt(
-            pjn(data_dir, "jump_translational_diffusion_ref_data.dat"))
+        ref_data = numpy.loadtxt(pjn(data_dir, "jump_translational_diffusion_ref_data.dat"))
 
         # generate data from current model
         # for info: the parameters' values used for the reference data are
@@ -108,9 +88,7 @@ class TestJumpTranslationalDiffusion(unittest.TestCase):
                                                          D=0.23,
                                                          resTime=1.25)])
         # compare the 2 arrays
-        numpy.testing.assert_array_almost_equal(ref_data,
-                                                actual_data,
-                                                decimal=12)
+        numpy.testing.assert_array_almost_equal(ref_data, actual_data, decimal=12)
 
 
 if __name__ == '__main__':

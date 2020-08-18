@@ -21,8 +21,7 @@ class TestLorentzian(unittest.TestCase):
         # x = list
         self.assertIsInstance(QENSmodels.lorentzian([1, 2]), numpy.ndarray)
         # x = numpy.array
-        self.assertIsInstance(QENSmodels.lorentzian(numpy.array([1, 2])),
-                              numpy.ndarray)
+        self.assertIsInstance(QENSmodels.lorentzian(numpy.array([1, 2])), numpy.ndarray)
 
     def test_size_output(self):
         """ Test size of output depending on type of input x """
@@ -49,14 +48,13 @@ class TestLorentzian(unittest.TestCase):
         # specified in the README file in the 'reference data' folder
         w = numpy.arange(-2, 2.01, 0.01)
         actual_data = numpy.column_stack([w,
-                                          QENSmodels.lorentzian(w, scale=3.,
+                                          QENSmodels.lorentzian(w,
+                                                                scale=3.,
                                                                 center=0.25,
                                                                 hwhm=0.4)])
 
         # compare 2 arrays
-        numpy.testing.assert_array_almost_equal(ref_data,
-                                                actual_data,
-                                                decimal=12)
+        numpy.testing.assert_array_almost_equal(ref_data, actual_data, decimal=12)
 
 
 if __name__ == '__main__':

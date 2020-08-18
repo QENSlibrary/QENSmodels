@@ -27,18 +27,16 @@ hw = np.linspace(-5, 5, nb_points)
 
 Q = np.linspace(0.1, 0.4, selected_wi)
 # created fake reference data adding noise to one of the QENS models
-added_noise = np.random.normal(0, 1, nb_points)
+added_noise = 0.1 * np.random.normal(0, 1, nb_points)
 
 brownian_diff_noisy = QENSmodels.sqwBrownianTranslationalDiffusion(hw, Q,
                                                                    scale=10,
                                                                    center=0.1,
-                                                                   D=5) * (1 + 0.1 * added_noise)
-brownian_diff_noisy += 0.01 * added_noise
+                                                                   D=5) * (1 + added_noise)
+brownian_diff_noisy += 0.1 * added_noise
 
 # store in mantid workspace
-QENS_data = mapi.CreateWorkspace(DataX=hw,
-                                 DataY=brownian_diff_noisy,
-                                 NSpec=selected_wi)
+QENS_data = mapi.CreateWorkspace(DataX=hw, DataY=brownian_diff_noisy, NSpec=selected_wi)
 
 
 # wrap to create mantid fitting function
@@ -62,8 +60,7 @@ class my_sqwBrownian_Diffusion(mapi.IFunction1D):
 
         q = self.getAttributeValue("Q")
 
-        return QENSmodels.sqwBrownianTranslationalDiffusion(xvals,
-                                                            q,
+        return QENSmodels.sqwBrownianTranslationalDiffusion(xvals, q,
                                                             scale=scale,
                                                             center=center,
                                                             D=D)
@@ -117,8 +114,7 @@ for wi in range(selected_wi):
              "EndX_" + str(wi): str(maxE)})
 
 # Perform fitting
-mapi.Fit(Function=global_model, **domain_model,
-         CreateOutput=True, MaxIteractions=500, Output='fit')
+mapi.Fit(Function=global_model, **domain_model, CreateOutput=True, MaxIteractions=500, Output='fit')
 
 """
  As a result of the fit, three workspaces are created:
@@ -142,15 +138,9 @@ fig, ax = plt.subplots(2, 2)
 indx_plot = [(0, 0), (0, 1), (1, 0), (1, 1)]
 for indx, item in enumerate(mapi.mtd['fit_Workspaces']):
     ax[indx_plot[indx][0], indx_plot[indx][1]].grid()
-    ax[indx_plot[indx][0], indx_plot[indx][1]].plot(item.readX(0),
-                                                    item.readY(0),
-                                                    label='exp')
-    ax[indx_plot[indx][0], indx_plot[indx][1]].plot(item.readX(1),
-                                                    item.readY(1),
-                                                    label='calc')
-    ax[indx_plot[indx][0], indx_plot[indx][1]].plot(item.readX(2),
-                                                    item.readY(2),
-                                                    label='diff')
+    ax[indx_plot[indx][0], indx_plot[indx][1]].plot(item.readX(0), item.readY(0), label='exp')
+    ax[indx_plot[indx][0], indx_plot[indx][1]].plot(item.readX(1), item.readY(1), label='calc')
+    ax[indx_plot[indx][0], indx_plot[indx][1]].plot(item.readX(2), item.readY(2), label='diff')
 
 ax[indx_plot[indx][0], indx_plot[indx][1]].legend()
 fig.show()

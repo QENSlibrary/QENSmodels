@@ -36,18 +36,17 @@ def modify_notebook(input_notebook):
                 'remove_cell' in all_cells[cell_index]['metadata']['tags']:
             continue
         else:
-            # Convert to dictionary to modify content
-            content_to_modify = all_cells[cell_index] #  dict(all_cells[cell_index])
+            content_to_modify = all_cells[cell_index]
 
-            # add 'import matplotlib.pyplot as plt'
-            if 'tags' in all_cells[cell_index]['metadata'] \
-                    and 'import_cell' in all_cells[cell_index]['metadata']['tags'] and \
+            # Add 'import matplotlib.pyplot as plt'
+            if 'tags' in content_to_modify['metadata'] \
+                    and 'import_cell' in content_to_modify['metadata']['tags'] and \
                     not check_import_matplotlib:
                 content_to_modify['source'] += '\n' + 'import matplotlib.pyplot as plt' + '\n'
 
-            #
-            if 'tags' in all_cells[cell_index]['metadata'] \
-                    and 'ipywidgets_data_cell' in all_cells[cell_index]['metadata']['tags']:
+            # Replace values from ipywidgets by default values
+            if 'tags' in content_to_modify['metadata'] \
+                    and 'ipywidgets_data_cell' in content_to_modify['metadata']['tags']:
 
                 value_of_source = content_to_modify['source'].split('\n')
                 for line_index, line in enumerate(value_of_source):
@@ -59,6 +58,7 @@ def modify_notebook(input_notebook):
 
                 content_to_modify['source'] = "\n".join(map(str, value_of_source))
 
+            # Update path to reference datafiles
             if 'path_to_data' in content_to_modify['source']:
                 value_of_source = content_to_modify['source'].split('\n')
                 for line_index, line in enumerate(value_of_source):
@@ -70,7 +70,7 @@ def modify_notebook(input_notebook):
                 content_to_modify['source'] = "\n".join(map(str, value_of_source))
 
         # Convert to dictionary to modify content
-        new_notebook['cells'][cell_index] = nbformat.from_dict(content_to_modify)
+        new_notebook['cells'][cell_index] = content_to_modify
 
     # add 'plt.show()' to display plots when running Python scripts
     all_cells[-1]['source'] += '\n' + 'plt.show()' + '\n'

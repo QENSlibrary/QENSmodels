@@ -19,18 +19,15 @@ class TestGaussian(unittest.TestCase):
         # variable is a float
         self.assertIsInstance(QENSmodels.gaussian(3, 1, 1, 1), numpy.float64)
         # variable is an array
-        self.assertIsInstance(QENSmodels.gaussian([1, 3], 1, 1, 1),
-                              numpy.ndarray)
+        self.assertIsInstance(QENSmodels.gaussian([1, 3], 1, 1, 1), numpy.ndarray)
 
     def test_length_output(self):
         """ Test length of output depending on length of input """
         input_array = [1, 3]
-        self.assertEqual(len(QENSmodels.gaussian(input_array, 1, 1, 1)),
-                         len(input_array))
+        self.assertEqual(len(QENSmodels.gaussian(input_array, 1, 1, 1)), len(input_array))
 
         input_array1 = [1, 2, 3]
-        self.assertEqual(len(QENSmodels.gaussian(input_array1, 1, 1, 1)),
-                         len(input_array1))
+        self.assertEqual(len(QENSmodels.gaussian(input_array1, 1, 1, 1)), len(input_array1))
 
     def test_parameter_value(self):
         """ Test the definition of function in border edge cases"""
@@ -51,16 +48,13 @@ class TestGaussian(unittest.TestCase):
         # for info: the parameters' values used for the reference data are
         # specified in the README file in the 'reference data' folder
         w = numpy.arange(-2, 2.01, 0.01)
-        actual_data = numpy.column_stack([w,
-                                          QENSmodels.gaussian(w,
-                                                              scale=1,
-                                                              center=0.25,
-                                                              sigma=0.4)])
+        actual_data = numpy.column_stack([w, QENSmodels.gaussian(w,
+                                                                 scale=1,
+                                                                 center=0.25,
+                                                                 sigma=0.4)])
 
         # compare the 2 arrays
-        numpy.testing.assert_array_almost_equal(ref_data,
-                                                actual_data,
-                                                decimal=13)
+        numpy.testing.assert_array_almost_equal(ref_data, actual_data, decimal=13)
 
 
 if __name__ == '__main__':

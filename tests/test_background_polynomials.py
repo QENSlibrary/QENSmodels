@@ -15,10 +15,8 @@ class TestBackgroundPolynomials(unittest.TestCase):
     """ Tests QENSmodels.background_polynomials function"""
 
     def test_type_output(self):
-        """ test types of outputs depending on types of inputs of x
-        (float or array)"""
-        self.assertIsInstance(QENSmodels.background_polynomials(1, [1, 2, 3]),
-                              numpy.float64)
+        """ test types of outputs depending on types of inputs of x (float or array) """
+        self.assertIsInstance(QENSmodels.background_polynomials(1, [1, 2, 3]), numpy.float64)
 
         self.assertIsInstance(QENSmodels.background_polynomials([1, 2, 3],
                                                                 [1, 2, 3]),
@@ -32,17 +30,14 @@ class TestBackgroundPolynomials(unittest.TestCase):
     def test_raised_error(self):
         """ test that an exception is raised if the input list of coefficients
         is incorrect, for example, if not all elements are numbers"""
-        self.assertRaises(ValueError, QENSmodels.background_polynomials,
-                          [1, 2, 3],
-                          [1, 2, 'a'])
+        self.assertRaises(ValueError, QENSmodels.background_polynomials, [1, 2, 3], [1, 2, 'a'])
 
     def test_reference_data(self):
         """ Test output values in comparison with reference data
                    (file in 'reference data' folder) """
 
         # load reference data
-        ref_data = numpy.loadtxt(pjn(data_dir,
-                                     "background_polynomials_ref_data.dat"))
+        ref_data = numpy.loadtxt(pjn(data_dir, "background_polynomials_ref_data.dat"))
 
         # generate data from current model
         # for info: the parameters' values used for the reference data are
@@ -51,9 +46,7 @@ class TestBackgroundPolynomials(unittest.TestCase):
         actual_data = numpy.column_stack([w, QENSmodels.background_polynomials(w, [1, 2, 3])]) # noqa:
 
         # compare the 2 arrays
-        numpy.testing.assert_array_almost_equal(ref_data,
-                                                actual_data,
-                                                decimal=13)
+        numpy.testing.assert_array_almost_equal(ref_data, actual_data, decimal=13)
 
 
 if __name__ == '__main__':

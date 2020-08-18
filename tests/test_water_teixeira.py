@@ -34,17 +34,14 @@ class TestWaterTeixeira(unittest.TestCase):
     def test_raised_error_no_q_input(self):
         """ test that an error is raised if no values of q are given as input
         """
-        self.assertRaises(TypeError,
-                          QENSmodels.sqwWaterTeixeira,
-                          1)
+        self.assertRaises(TypeError, QENSmodels.sqwWaterTeixeira, 1)
 
     def test_reference_data(self):
         """ Test output values in comparison with reference data
            (file in 'reference data' folder) """
 
         # load reference data
-        ref_data = \
-            numpy.loadtxt(pjn(data_dir, "water_teixeira_ref_data.dat"))
+        ref_data = numpy.loadtxt(pjn(data_dir, "water_teixeira_ref_data.dat"))
 
         # generate data from current model
         # for info: the parameters' values used for the reference data are
@@ -60,9 +57,7 @@ class TestWaterTeixeira(unittest.TestCase):
                                             radius=1,
                                             DR=1)])
         # compare the 2 arrays
-        numpy.testing.assert_array_almost_equal(ref_data,
-                                                actual_data,
-                                                decimal=13)
+        numpy.testing.assert_array_almost_equal(ref_data, actual_data, decimal=13)
 
 
 if __name__ == '__main__':

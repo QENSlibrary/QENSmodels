@@ -17,11 +17,9 @@ class TestEquivalentSitesCircle(unittest.TestCase):
     def test_size_hwhm_equivalent_sites_circle(self):
         """ Test size of output of hwhmEquivalentSitesCircle
          The output should contains 3 elements """
-        self.assertEqual(
-            len(QENSmodels.hwhmEquivalentSitesCircle(1.)), 3)
+        self.assertEqual(len(QENSmodels.hwhmEquivalentSitesCircle(1.)), 3)
 
-        self.assertEqual(
-            len(QENSmodels.hwhmEquivalentSitesCircle([1., 2.])), 3)
+        self.assertEqual(len(QENSmodels.hwhmEquivalentSitesCircle([1., 2.])), 3)
 
     def test_type_size_hwhm_equivalent_sites_circle_q_nb(self):
         """ Tests type and size of outputs if input q is a float """
@@ -35,8 +33,7 @@ class TestEquivalentSitesCircle(unittest.TestCase):
         self.assertEqual(qisf.shape, (1, 2))
 
         self.assertEqual(round(eisf[0], 3), 0.713)
-        self.assertSequenceEqual(numpy.round(qisf, 3).tolist(),
-                                 [[0.143, 0.143]])
+        self.assertSequenceEqual(numpy.round(qisf, 3).tolist(), [[0.143, 0.143]])
 
     def test_type_size_hwhm_equivalent_sites_circles_q_array(self):
         """ Tests type and size of outputs if input q is an array """
@@ -64,39 +61,24 @@ class TestEquivalentSitesCircle(unittest.TestCase):
                                           [0.289, 0.075, 0.016, 0.075, 0.289]])
 
     # def test_raised_error_negative_coeffs(self):
-    #     """ test that an error is raised if D or L are negative
-    #     """
+    #     """ test that an error is raised if D or L are negative """
     #     # D = -1, L = 1
-    #     self.assertRaises(ValueError,
-    #                       QENSmodels.hwhmEquivalentSitesCircle,
-    #                       1,
-    #                       -1, 1)
+    #     self.assertRaises(ValueError, QENSmodels.hwhmEquivalentSitesCircle, 1, -1, 1)
     #     # D = 1, L = -1
-    #     self.assertRaises(ValueError,
-    #                       QENSmodels.hwhmEquivalentSitesCircle,
-    #                       1,
-    #                       1, -1)
+    #     self.assertRaises(ValueError, QENSmodels.hwhmEquivalentSitesCircle, 1, 1, -1)
     #     # D = -1, L = -1
-    #     self.assertRaises(ValueError,
-    #                       QENSmodels.hwhmEquivalentSitesCircle,
-    #                       1,
-    #                       -1, -1)
+    #     self.assertRaises(ValueError, QENSmodels.hwhmEquivalentSitesCircle, 1, -1, -1)
 
     def test_raised_error_no_q_input(self):
-        """ test that an error is raised if no values of q are given as input
-        """
-        self.assertRaises(TypeError,
-                          QENSmodels.sqwEquivalentSitesCircle,
-                          1)
+        """ test that an error is raised if no values of q are given as input """
+        self.assertRaises(TypeError, QENSmodels.sqwEquivalentSitesCircle, 1)
 
     def test_type_sqw_equivalent_sites_circle(self):
         """ Test type of output """
         # w, q are floats
-        self.assertIsInstance(QENSmodels.sqwEquivalentSitesCircle(1, 1),
-                              numpy.ndarray)
+        self.assertIsInstance(QENSmodels.sqwEquivalentSitesCircle(1, 1), numpy.ndarray)
         # w, q are vectors
-        output = QENSmodels.sqwEquivalentSitesCircle([1, 2, 3],
-                                                     [0.3, 0.4])
+        output = QENSmodels.sqwEquivalentSitesCircle([1, 2, 3], [0.3, 0.4])
         self.assertIsInstance(output, numpy.ndarray)
         self.assertEqual(output.size, 6)
         self.assertEqual(output.shape, (2, 3))
@@ -105,8 +87,7 @@ class TestEquivalentSitesCircle(unittest.TestCase):
         """ Test output values in comparison with reference data
                   (file in 'reference data' folder) """
         # load reference data
-        ref_data = numpy.loadtxt(
-            pjn(data_dir, "equivalent_sites_circle_ref_data.dat"))
+        ref_data = numpy.loadtxt(pjn(data_dir, "equivalent_sites_circle_ref_data.dat"))
 
         # generate data from current model
         # for info: the parameters' values used for the reference data are
@@ -121,9 +102,7 @@ class TestEquivalentSitesCircle(unittest.TestCase):
                                                     Nsites=3,
                                                     radius=100.0,
                                                     resTime=10.)])
-        numpy.testing.assert_array_almost_equal(ref_data,
-                                                actual_data,
-                                                decimal=12)
+        numpy.testing.assert_array_almost_equal(ref_data, actual_data, decimal=12)
 
 
 if __name__ == '__main__':
