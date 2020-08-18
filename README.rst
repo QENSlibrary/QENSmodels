@@ -47,7 +47,7 @@ How to install?
 
 .. NOTE:: If you want to use a virtual environment, please go to
    `this link <https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html>`_
-    for instructions.
+   for instructions.
 
 The steps to follow are:  
 

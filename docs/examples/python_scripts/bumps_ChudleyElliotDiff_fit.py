@@ -25,6 +25,7 @@ chudley_elliot_noisy = QENSmodels.sqwChudleyElliotDiffusion(xx,
                                                             D=0.23,
                                                             L=1.) * (1. + added_noise) 
 chudley_elliot_noisy += 0.1 * added_noise
+err = np.ones(chudley_elliot_noisy.shape)
 
 
 # Units of parameters for selected QENS model and experimental data
@@ -36,12 +37,13 @@ dict_physical_units = {'omega': "1/ps",
                        'center': "1/ps"}
 
 
-M = []
+Model = []
 for i in range(len(q)):
-    # Bumps fitting model
+    # Bumps fitting model  
     Mq = bmp.Curve(QENSmodels.sqwChudleyElliotDiffusion,
                    xx,
                    chudley_elliot_noisy[i],
+                   err[i],
                    q[i],
                    scale=1,
                    center=0,
@@ -61,9 +63,9 @@ for i in range(len(q)):
         Mq.D = QD
         Mq.L = QL
 
-    M.append(Mq)
+    Model.append(Mq)
 
-problem = bmp.FitProblem(M)
+problem = bmp.FitProblem(Model)
 
 
 # Preview of the settings

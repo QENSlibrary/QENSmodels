@@ -25,7 +25,6 @@ with h5py.File(path_to_data + 'H2O_293K_5A.hdf', 'r') as f:
     sqw_5A = np.transpose(f['entry1']['data1']['DATA'][:])
     err_5A = np.transpose(f['entry1']['data1']['errors'][:])
 
-
 # Wavelength 8 Angstrom
 with h5py.File(path_to_data + 'H2O_293K_8A.hdf', 'r') as f:
     hw_8A = f['entry1']['data1']['X'][:]
