@@ -21,23 +21,31 @@ Installation
 Requirements
 ------------
 
-Python modules to use the models:
+*Python modules to use the models:*
 
 
 * `numpy <http://www.numpy.org/>`_
 * `scipy <https://www.scipy.org/>`_
 
-Python modules to test the models (for contributors):
+The installation of these modules will be checked when installing the QENSmodels library and will
+be performed if they are missing.
+
+*Python modules to test the models (for contributors):*
 
 
 * `flake8 <http://flake8.pycqa.org/en/latest/>`_ 
 * `unittest <https://docs.python.org/3/library/unittest.html>`_
 * `doctest <https://docs.python.org/3.7/library/doctest.html>`_
 
-The installation of these modules will be checked when installing the QENSmodels library and will
-be performed if they are missing. Additional modules are required to run the examples. These
-examples show you how to run a fit with different minimizers using some of the QENS models. Details
-can be found in the
+`flake8` can be installed using
+
+.. code-block:: console
+
+     python -m pip install flake8
+
+
+Additional modules are required to run the examples. These examples show you how to run a fit with
+different minimizers using some of the QENS models. Details can be found in the
 `README file <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/README.rst>`_
 of the *examples* folder or in the online documentation. How to use Mantid to fit is described in
 this `document <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/using_mantid/README.rst>`_ .

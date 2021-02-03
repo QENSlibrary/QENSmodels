@@ -7,7 +7,9 @@
 dist: xenial
 language: python
 python:
-  - 3.6
+  - 3.7
+  - 3.8
+  - 3.9
 
 branches:
   only:
@@ -27,7 +29,7 @@ before_install:
 install:
   - conda create -q -n testenv -c conda-forge python=$TRAVIS_PYTHON_VERSION numpy scipy flake8 pandoc
   - source activate testenv
-  - pip install pytest sphinx nbsphinx sphinx_rtd_theme jupyter_client ipykernel ipywidgets bumps==0.7.12 matplotlib lmfit h5py
+  - pip install pytest sphinx nbsphinx sphinx_rtd_theme jupyter_client ipykernel ipywidgets bumps matplotlib lmfit h5py
   # install QENSmodels
   - python setup.py install
 
@@ -38,20 +40,6 @@ script:
   - python -m unittest discover tests
   # Run doctests
   - pytest --doctest-modules ./QENSmodels
-#  - python QENSmodels/background_polynomials.py -v
-#  - python QENSmodels/brownian_translational_diffusion.py -v
-#  - python QENSmodels/chudley_elliot_diffusion.py  -v
-#  - python QENSmodels/delta.py  -v
-#  - python QENSmodels/delta_lorentz.py  -v
-#  - python QENSmodels/delta_two_lorentz.py -v
-#  - python QENSmodels/equivalent_sites_circle.py -v
-#  - python QENSmodels/gaussian.py -v
-#  - python QENSmodels/gaussian_model_3d.py -v
-#  - python QENSmodels/isotropic_rotational_diffusion.py  -v
-#  - python QENSmodels/jump_sites_log_norm_dist.py -v
-#  - python QENSmodels/jump_translational_diffusion.py  -v
-#  - python QENSmodels/lorentzian.py  -v
-#  - python QENSmodels/water_teixeira.py -v
 
 notifications:
   - on_success: never
