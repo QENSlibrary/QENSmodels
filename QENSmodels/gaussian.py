@@ -83,8 +83,9 @@ def gaussian(x, scale=1., center=0., sigma=1.):
     if sigma == 0:
         model = QENSmodels.delta(x, scale, center)
     else:
-        model = scale * np.exp(-(x - center)**2/(2.*sigma**2)) \
-                / (sigma*np.sqrt(2*np.pi))
+        model = scale / (sigma * np.sqrt(2. * np.pi)) \
+            * np.exp(- (x - center) ** 2 / (2. * sigma ** 2))
+
     return model
 
 

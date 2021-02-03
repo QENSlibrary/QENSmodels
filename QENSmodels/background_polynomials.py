@@ -1,6 +1,6 @@
 from __future__ import print_function
 import numpy as np
-from numpy.polynomial import Polynomial as P
+from numpy.polynomial import Polynomial
 
 
 def background_polynomials(x, list_coefficients=0.0):
@@ -46,11 +46,11 @@ def background_polynomials(x, list_coefficients=0.0):
     if isinstance(list_coefficients, list) and \
             all(isinstance(w, (int, float)) for w in list_coefficients):
 
-        return P(list_coefficients)(x)
+        return Polynomial(list_coefficients)(x)
 
     elif isinstance(list_coefficients, (int, float)):
 
-        return P(list_coefficients)(x)
+        return Polynomial(list_coefficients)(x)
 
     else:
         raise ValueError('problem with input')

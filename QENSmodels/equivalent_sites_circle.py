@@ -76,11 +76,11 @@ def hwhmEquivalentSitesCircle(q, Nsites=3, radius=1.0, resTime=1.0):
     # index of sites in circle
     sites = np.arange(Nsites)
 
-    hwhm = 2.0 / resTime * np.sin(sites*np.pi/Nsites)**2
+    hwhm = 2.0 / resTime * np.sin(sites * np.pi / Nsites) ** 2
     hwhm = np.tile(hwhm, (q.size, 1))
 
     # jump distances between sites
-    jump_distance = 2.0 * radius * np.sin(sites*np.pi/Nsites)
+    jump_distance = 2.0 * radius * np.sin(sites * np.pi / Nsites)
 
     # QR matrix [q.size, N] and corresponding spherical Bessel functions
     QR = np.outer(q, jump_distance)
@@ -91,7 +91,7 @@ def hwhmEquivalentSitesCircle(q, Nsites=3, radius=1.0, resTime=1.0):
     isf = np.zeros(QR.shape)
     for i in range(Nsites):
         for j in range(Nsites):
-            isf[:, i] += sphBessel[:, j] * np.cos(2*i*j*np.pi/Nsites)
+            isf[:, i] += sphBessel[:, j] * np.cos(2. * i * j * np.pi / Nsites)
         isf[:, i] /= Nsites
 
     eisf = isf[:, 0]
@@ -223,7 +223,7 @@ def sqwEquivalentSitesCircle(w, q,
             sqw[i, :] += qisf[i, j] * QENSmodels.lorentzian(w,
                                                             scale,
                                                             center,
-                                                            hwhm[i, j+1])
+                                                            hwhm[i, j + 1])
 
     # For Bumps use (needed for final plotting)
     # Using a 'Curve' in bumps for each Q --> needs vector array

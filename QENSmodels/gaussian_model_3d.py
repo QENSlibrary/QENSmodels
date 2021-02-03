@@ -76,7 +76,7 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
     if q.size == 1:
         for i in range(numberLorentz):
             if arg > 0:
-                al[:, i] = np.exp(-arg) * arg**i / np.math.factorial(i)
+                al[:, i] = np.exp(-arg) * arg ** i / np.math.factorial(i)
             else:
                 if i == 0:
                     al[:, 0] = 1.
@@ -86,13 +86,13 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
         al[:, 0] = [np.exp(-item) if item > 0 else 1. for item in arg]
 
         for i in range(1, numberLorentz):
-            al[:, i] = [np.exp(-item) * item**i / np.math.factorial(i)
+            al[:, i] = [np.exp(-item) * item ** i / np.math.factorial(i)
                         if item > 0 else 0. for item in arg]
 
     eisf = al[:, 0]
 
     for i in range(1, numberLorentz):
-        hwhm[:, i] = np.repeat(i*D/variance_ux, q.size)
+        hwhm[:, i] = np.repeat(i * D / variance_ux, q.size)
         qisf[:, i] = al[:, i]
 
     return hwhm, eisf, qisf

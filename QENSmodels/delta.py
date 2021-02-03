@@ -39,7 +39,7 @@ def delta(x, scale=1, center=0):
     .. math::
 
         \text{Delta}(x, \text{scale}, \text{center}) = \text{scale}\
-        \delta(x- \text{center})
+        \delta(x - \text{center})
 
 
     * For non-zero values, the amplitude of the Delta function is divided by
@@ -67,12 +67,12 @@ def delta(x, scale=1, center=0):
     model = np.zeros(x.size)
 
     try:
-        if x.min() <= center <= x.max():
+        if min(x) <= center <= max(x):
             # if center within x-range, delta is non-zero in this interval
             # otherwise do nothing
             idx = np.argmin(np.abs(x - center))
             if len(x) > 1:
-                dx = (x.max() - x.min())/(len(x) - 1)  # domain spacing
+                dx = (max(x) - min(x)) / (len(x) - 1)  # domain spacing
             else:
                 dx = 1.
             model[idx] = scale / dx

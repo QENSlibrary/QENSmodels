@@ -82,8 +82,12 @@ def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
         try:
             for i in range(q.size):
                 sqw[i, :] = A0[i] * QENSmodels.delta(w, scale, center)
-                sqw[i, :] += (1 - A0[i]) * \
-                             QENSmodels.lorentzian(w, scale, center, hwhm[i])  # noqa: E127, E501
+                sqw[i, :] += (1 - A0[i]) * QENSmodels.lorentzian(
+                    w,
+                    scale,
+                    center,
+                    hwhm[i])
+
         except TypeError as detail:
             msg = "At least one parameter has an incorrect type"
             raise TypeError(detail.__str__() + "\n" + msg)
