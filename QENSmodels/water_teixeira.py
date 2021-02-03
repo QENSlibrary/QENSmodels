@@ -96,11 +96,19 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=0.23, resTime=1.25, radius=1,
 
     # Sum of Lorentzians giving the full model
     for i in range(q.size):
-        sqw[i, :] = eisf2[i] * QENSmodels.lorentzian(w, scale, center,
-                                                     hwhm1[i])
+        sqw[i, :] = eisf2[i] * QENSmodels.lorentzian(
+            w,
+            scale,
+            center,
+            hwhm1[i]
+        )
         for j in range(1, numberLorentz):
-            sqw[i, :] += qisf2[i, j] * QENSmodels.lorentzian(w, scale, center,
-                                                             hwhm1[i] + hwhm2[i, j])  # noqa: E501
+            sqw[i, :] += qisf2[i, j] * QENSmodels.lorentzian(
+                w,
+                scale,
+                center,
+                hwhm1[i] + hwhm2[i, j]
+            )
 
     # For Bumps use (needed for final plotting)
     # Using a 'Curve' in bumps for each Q --> needs vector array

@@ -41,9 +41,9 @@ The following table summarizes some of the main features of the Jupyter notebook
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
 | bumps_JumpDiffIsoRot                      | X                       |                    |                 |            | X          |
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| bumps_JumpDiff                            | X                       |                    |                 |            |            |
+| bumps_JumpDiff                            | X                       |                    |                 |            | X          |
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| bumps_waterIN5_delta_two_lorentz          | X                       |                    |                 |            |            |
+| bumps_waterIN5_delta_two_lorentz          | X                       |                    |                 |            | X          |
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
 | bumps_waterIN5_lorentzian_plus_isorotdiff | X                       |                    | X               |            | X          |
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
@@ -85,11 +85,7 @@ which will contain the required packages
 
 .. code-block:: console
 
-   conda create --name mynewenv python=3.7 ipypwidgets h5py numpy scipy matplotlib jupyter
-
-Note that we force the installation of version 3.7 of Python because of some
-incompatibilities with one of the fitting package, `bumps`, whose version 
-0.7.12 will be installed in the dedicated notebooks.
+   conda create --name mynewenv python ipywidgets h5py numpy scipy matplotlib jupyter
 
 Then activate the environment and install the remaining packages
 
@@ -99,8 +95,10 @@ Then activate the environment and install the remaining packages
 
 Finally, install the library
 
-``python -m pip install path_to_QENSmodels_folder
-``
+.. code-block:: console
+
+    python -m pip install path_to_QENSmodels_folder
+
 
 where `path_to_QENSmodels_folder` is the location of the QENSmodels' folder on your computer (for
 example `/Users/my_username/Desktop/QENSmodels`).

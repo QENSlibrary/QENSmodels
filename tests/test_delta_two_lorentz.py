@@ -32,7 +32,8 @@ class TestDeltaTwoLorentz(unittest.TestCase):
 
     def test_raised_exception(self):
         """ Test that exceptions are raised if the sizes of A0, A1, hwhm1
-        and hwhm2 do not match the size of q """
+        and hwhm2 do not match the size of q
+        """
         w = [0, 1, 2]
         q = [0.1, 0.2, 0.3]
         self.assertRaises(TypeError, QENSmodels.sqwDeltaTwoLorentz, w, q)
@@ -47,7 +48,8 @@ class TestDeltaTwoLorentz(unittest.TestCase):
 
     def test_reference_data(self):
         """ Test output values in comparison with reference data
-                   (file in 'reference data' folder) """
+        (file in 'reference data' folder)
+        """
 
         # load reference data
         ref_data = numpy.loadtxt(pjn(data_dir,

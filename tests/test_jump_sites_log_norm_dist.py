@@ -16,7 +16,8 @@ class TestJumpsSitesLogNorm(unittest.TestCase):
 
     def test_size_hwhm_jump_sites_log_norm(self):
         """ Test size of output of hwhmJumpSitesLogNormDist
-         The output should contains 3 elements """
+        The output should contains 3 elements
+        """
         self.assertEqual(
             len(QENSmodels.hwhmJumpSitesLogNormDist(1.)), 3)
 
@@ -73,11 +74,12 @@ class TestJumpsSitesLogNorm(unittest.TestCase):
 
         numpy.testing.assert_array_equal(numpy.round(eisf1, 3), [0.713, 0.256])
         # eisf should be the same as in hwhmEquivalentSitesCircle
-        hwhm_equiv, eisf_equiv, qisf_equiv = \
-            QENSmodels.hwhmEquivalentSitesCircle(q_input,
-                                                 Nsites=6,
-                                                 radius=1.0,
-                                                 resTime=1.0)
+        hwhm_equiv, eisf_equiv, qisf_equiv = QENSmodels.hwhmEquivalentSitesCircle(
+            q_input,
+            Nsites=6,
+            radius=1.0,
+            resTime=1.0
+        )
 
         self.assertSequenceEqual(eisf1.tolist(), eisf_equiv.tolist())
 
@@ -131,10 +133,12 @@ class TestJumpsSitesLogNorm(unittest.TestCase):
 
     def test_reference_data(self):
         """ Test output values in comparison with reference data
-                  (file in 'reference data' folder) """
+        (file in 'reference data' folder)
+        """
         # load reference data
         ref_data = numpy.loadtxt(
-           pjn(data_dir, "jump_sites_log_norm_dist_ref_data.dat"))
+            pjn(data_dir, "jump_sites_log_norm_dist_ref_data.dat")
+        )
 
         # generate data from current model
         # for info: the parameters' values used for the reference data are

@@ -13,11 +13,13 @@ data_dir = pjn(os.path.dirname(this_module_path), 'reference_data')
 
 class TestIsotropicRotationalDiffusion(unittest.TestCase):
     """ Tests functions related to QENSmodels Isotropic Rotational Diffusion
-    model """
+    model
+    """
 
     def test_size_hwhm_isotropic_rotational_diffusion(self):
         """ Test size of output of hwhmIsotropicRotationalDiffusion
-         The output should contains 3 elements """
+         The output should contains 3 elements
+        """
         self.assertEqual(
             len(QENSmodels.hwhmIsotropicRotationalDiffusion(1.)), 3)
 
@@ -113,7 +115,8 @@ class TestIsotropicRotationalDiffusion(unittest.TestCase):
 
     def test_reference_data(self):
         """ Test output values in comparison with reference data
-                  (file in 'reference data' folder) """
+        (file in 'reference data' folder)
+        """
 
         # load reference data
         ref_data = numpy.loadtxt(

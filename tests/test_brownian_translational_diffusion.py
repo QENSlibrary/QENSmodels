@@ -13,7 +13,8 @@ data_dir = pjn(os.path.dirname(this_module_path), 'reference_data')
 
 class TestBrownianTranslationDiffusion(unittest.TestCase):
     """ Tests functions related to QENSmodels Brownian Translation Diffusion
-    model """
+    model
+    """
 
     def test_size_hwhm_brownian_translation_diffusion(self):
         """ test number of output of hwhm function of
@@ -85,7 +86,8 @@ class TestBrownianTranslationDiffusion(unittest.TestCase):
 
     def test_reference_data(self):
         """ test output values in comparison with reference data
-                   (file in 'reference data' folder) """
+        (file in 'reference data' folder)
+        """
 
         # load reference data
         ref_data = numpy.loadtxt(
