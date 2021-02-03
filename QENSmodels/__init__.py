@@ -44,6 +44,3 @@ from .equivalent_sites_circle import sqwEquivalentSitesCircle  # noqa
 #            'sqwJumpTranslationalDiffusion',
 #            'sqwWaterTeixeira',
 #            ]
-
-"""Top-level package for QENSmodels."""
-__version__ = '0.1.0'
