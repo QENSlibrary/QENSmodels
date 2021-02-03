@@ -16,7 +16,8 @@ class TestChudleyElliotDiffusion(unittest.TestCase):
 
     def test_size_hwhm_chudley_elliot_diffusion(self):
         """ Test size of output of hwhmChudleyElliotDiffusion
-         The output should contains 3 elements """
+        The output should contains 3 elements
+        """
         self.assertEqual(
             len(QENSmodels.hwhmChudleyElliotDiffusion(1.)), 3)
 
@@ -98,7 +99,8 @@ class TestChudleyElliotDiffusion(unittest.TestCase):
 
     def test_reference_data(self):
         """ Test output values in comparison with reference data
-                  (file in 'reference data' folder) """
+        (file in 'reference data' folder)
+        """
 
         # load reference data
         ref_data = numpy.loadtxt(

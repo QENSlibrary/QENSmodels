@@ -32,7 +32,8 @@ class TestDelta(unittest.TestCase):
 
     def test_reference_data(self):
         """ Test output values in comparison with reference data
-                   (file in 'reference data' folder) """
+        (file in 'reference data' folder)
+        """
 
         # load reference data
         ref_data = numpy.loadtxt(pjn(data_dir, "delta_ref_data.dat"))

@@ -16,7 +16,8 @@ class TestGaussianModel3D(unittest.TestCase):
 
     def test_size_hwhm_gaussian_model_3d(self):
         """ Test size of output of hwhmGaussianModel3D
-         The output should contains 3 elements """
+        The output should contains 3 elements
+        """
         self.assertEqual(
             len(QENSmodels.hwhmGaussianModel3D(1.)), 3)
 
@@ -52,7 +53,7 @@ class TestGaussianModel3D(unittest.TestCase):
         vector_to_test_hwhm1 = [
             0., 0.33, 0.66, 0.99, 1.32, 1.65, 1.98, 2.31, 2.64,
             2.97, 3.3, 3.63, 3.96, 4.29, 4.62, 4.95, 5.28, 5.61,
-            5.94, 6.27, 6.6, 6.93, 7.26, 7.59, 7.92,  8.25, 8.58,
+            5.94, 6.27, 6.6, 6.93, 7.26, 7.59, 7.92, 8.25, 8.58,
             8.91, 9.24, 9.57, 9.9, 10.23, 10.56, 10.89, 11.22,
             11.55, 11.88, 12.21, 12.54, 12.87, 13.20, 13.53, 13.86,
             14.19, 14.52, 14.85, 15.18, 15.51, 15.84, 16.17, 16.50,
@@ -131,7 +132,8 @@ class TestGaussianModel3D(unittest.TestCase):
 
     def test_reference_data(self):
         """ Test output values in comparison with reference data
-                  (file in 'reference data' folder) """
+        (file in 'reference data' folder)
+        """
 
         # load reference data
         ref_data = numpy.loadtxt(

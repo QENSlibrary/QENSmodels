@@ -16,7 +16,8 @@ class TestEquivalentSitesCircle(unittest.TestCase):
 
     def test_size_hwhm_equivalent_sites_circle(self):
         """ Test size of output of hwhmEquivalentSitesCircle
-         The output should contains 3 elements """
+        The output should contains 3 elements
+        """
         self.assertEqual(
             len(QENSmodels.hwhmEquivalentSitesCircle(1.)), 3)
 
@@ -103,7 +104,8 @@ class TestEquivalentSitesCircle(unittest.TestCase):
 
     def test_reference_data(self):
         """ Test output values in comparison with reference data
-                  (file in 'reference data' folder) """
+        (file in 'reference data' folder)
+        """
         # load reference data
         ref_data = numpy.loadtxt(
             pjn(data_dir, "equivalent_sites_circle_ref_data.dat"))

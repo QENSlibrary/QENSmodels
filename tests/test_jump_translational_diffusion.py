@@ -13,11 +13,13 @@ data_dir = pjn(os.path.dirname(this_module_path), 'reference_data')
 
 class TestJumpTranslationalDiffusion(unittest.TestCase):
     """ Tests functions related to QENSmodels Jump Translational Diffusion
-    model """
+    model
+    """
 
     def test_size_hwhm_jump_translational_diffusion(self):
         """ Test size of output of hwhmJumpTranslationalDiffusion
-                 The output should contains 3 elements """
+        The output should contains 3 elements
+        """
         self.assertEqual(
             len(QENSmodels.hwhmJumpTranslationalDiffusion(1.)), 3)
 
@@ -90,7 +92,8 @@ class TestJumpTranslationalDiffusion(unittest.TestCase):
 
     def test_reference_data(self):
         """ Test output values in comparison with reference data
-                  (file in 'reference data' folder) """
+        (file in 'reference data' folder)
+        """
 
         # load reference data
         ref_data = numpy.loadtxt(
