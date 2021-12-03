@@ -17,8 +17,8 @@ from .jump_translational_diffusion import hwhmJumpTranslationalDiffusion  # noqa
 from .jump_translational_diffusion import sqwJumpTranslationalDiffusion  # noqa
 from .water_teixeira import sqwWaterTeixeira  # noqa
 from .background_polynomials import background_polynomials  # noqa
-from .chudley_elliot_diffusion import hwhmChudleyElliotDiffusion  # noqa
-from .chudley_elliot_diffusion import sqwChudleyElliotDiffusion  # noqa
+from .chudley_elliott_diffusion import hwhmChudleyElliottDiffusion  # noqa
+from .chudley_elliott_diffusion import sqwChudleyElliottDiffusion  # noqa
 from .equivalent_sites_circle import hwhmEquivalentSitesCircle  # noqa
 from .equivalent_sites_circle import sqwEquivalentSitesCircle  # noqa
 #
@@ -26,8 +26,8 @@ from .equivalent_sites_circle import sqwEquivalentSitesCircle  # noqa
 #            'lorentzian',
 #            'hwhmBrownianTranslationalDiffusion',
 #            'sqwBrownianTranslationalDiffusion',
-#            'hwhmChudleyElliotDiffusion',
-#            'sqwChudleyElliotDiffusion',
+#            'hwhmChudleyElliottDiffusion',
+#            'sqwChudleyElliottDiffusion',
 #            'delta',
 #            'sqwDeltaLorentz',
 #            'sqwDeltaTwoLorentz',

@@ -7,8 +7,8 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def hwhmChudleyElliotDiffusion(q, D=0.23, L=1.0):
-    """ Returns some characteristics of `ChudleyElliotDiffusion` as functions
+def hwhmChudleyElliottDiffusion(q, D=0.23, L=1.0):
+    """ Returns some characteristics of `ChudleyElliottDiffusion` as functions
     of the momentum transfer `q`:
     the half-width half-maximum (`hwhm`), the elastic incoherent structure
     factor (`eisf`), and the quasi-elastic incoherent structure factor (`qisf`)
@@ -41,9 +41,9 @@ def hwhmChudleyElliotDiffusion(q, D=0.23, L=1.0):
 
     Examples
     --------
-    >>> hwhm, eisf, qisf = hwhmChudleyElliotDiffusion([1., 2.], 0.5, 1.5)
+    >>> hwhm, eisf, qisf = hwhmChudleyElliottDiffusion([1., 2.], 0.5, 1.5)
     >>> round(hwhm[0], 3), round(hwhm[1], 3)
-    (1.616, 1.333)
+    (0.447, 1.271)
     >>> eisf
     array([0., 0.])
     >>> qisf
@@ -60,7 +60,7 @@ def hwhmChudleyElliotDiffusion(q, D=0.23, L=1.0):
 
     eisf = np.zeros(q.size)
     qisf = np.ones(q.size)
-    hwhm = 6. * D * (1. - np.sinc(q * L)) / L ** 2
+    hwhm = 6. * D * (1. - np.sinc(q * L / np.pi)) / L ** 2
 
     # Force hwhm to be numpy array, even if single value
     hwhm = np.asarray(hwhm, dtype=np.float32)
@@ -69,9 +69,9 @@ def hwhmChudleyElliotDiffusion(q, D=0.23, L=1.0):
     return hwhm, eisf, qisf
 
 
-def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23, L=1.0):
+def sqwChudleyElliottDiffusion(w, q, scale=1, center=0, D=0.23, L=1.0):
     r""" Lorentzian model with half width half maximum equal to
-    :math:`\frac{6D}{L^2}(1 - \frac{sin(QL)}{QL})`
+    :math:`\frac{6D}{L^2}(1 - \frac{sin(QL/pi)}{QL/pi})`
 
     It is a model originally developed for jump diffusion in
     liquids. But it can also be applied to diffusion in
@@ -112,35 +112,35 @@ def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23, L=1.0):
 
     Examples
     --------
-    >>> sqw = sqwChudleyElliotDiffusion([1, 2, 3], 1, 1, 0, 1, 1)
+    >>> sqw = sqwChudleyElliottDiffusion([1, 2, 3], 1, 1, 0, 1, 1)
     >>> round(sqw[0], 3)
-    0.052
+    0.159
     >>> round(sqw[1], 3)
-    0.048
+    0.062
     >>> round(sqw[2], 3)
-    0.042
+    0.031
 
-    >>> sqw = sqwChudleyElliotDiffusion(1, 1, 1, 0, 1, 1)
+    >>> sqw = sqwChudleyElliottDiffusion(1, 1, 1, 0, 1, 1)
     >>> round(sqw[0], 3)
-    0.052
+    0.159
 
 
     Notes
     -----
 
-    * The `sqwChudleyElliotDiffusion` is expressed as
+    * The `sqwChudleyElliottDiffusion` is expressed as
 
       .. math::
 
           S(q, \omega) = \text{Lorentzian}(\omega, \text{scale}, \text{center},
-          \frac{6D}{l^2}(1 - \frac{sin(Ql)}{Ql}))
+          \frac{6D}{l^2}(1 - \frac{sin(Ql/pi)}{Ql/pi}))
 
     * Note that an equivalent expression is
 
       .. math::
 
           S(q, \omega) = \text{Lorentzian}(\omega, \text{scale}, \text{center},
-          \frac{1}{\tau}(1 - \frac{sin(Ql)}{Ql}))
+          \frac{1}{\tau}(1 - \frac{sin(Ql/pi)}{Ql/pi}))
 
       with :math:`\tau=\frac{l^2}{6D}`.
 
@@ -165,7 +165,7 @@ def sqwChudleyElliotDiffusion(w, q, scale=1, center=0, D=0.23, L=1.0):
     sqw = np.zeros((q.size, w.size))
 
     # Get widths, EISFs and QISFs of model
-    hwhm, eisf, qisf = hwhmChudleyElliotDiffusion(q, D, L)
+    hwhm, eisf, qisf = hwhmChudleyElliottDiffusion(q, D, L)
 
     # Model
     for i in range(q.size):

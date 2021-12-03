@@ -25,7 +25,7 @@ Welcome to QENSmodels's documentation!
 
    examples/README
    examples/bumps_BrownianDiff_fit
-   examples/bumps_ChudleyElliotDiff_fit
+   examples/bumps_ChudleyElliottDiff_fit
    examples/bumps_DeltaLorentz_fit
    examples/bumps_IsoRot_fit
    examples/bumps_JumpDiffIsoRot_fit
