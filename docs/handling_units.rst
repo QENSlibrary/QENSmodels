@@ -154,14 +154,14 @@ and :math:`Q` in |Ang^-1|, then :math:`D` will be in
 :math:`/\text{ps}`
 
 Naturally, the same unit conversions can be applied to the parameter :math:`D`
-in the Chudley-Elliot, jump translational diffusion, or the Gaussian localized
+in the Chudley-Elliott, jump translational diffusion, or the Gaussian localized
 diffusion models, or in any other derived model where :math:`D` represents a
 translational diffusion coefficient.
 
 Distance parameters (*e.g.* jump length or radius)
 ==================================================
 
-They appear in many models, *e.g.* :math:`L` in the Chudley-Elliot model for
+They appear in many models, *e.g.* :math:`L` in the Chudley-Elliott model for
 translational diffusion, or radius in the models of jumps among equivalent sites
 in a circle (simple or including a log-norm distribution) and isotropic
 rotational diffusion. They are in units of [:math:`L`], *i.e.* the inverse of
