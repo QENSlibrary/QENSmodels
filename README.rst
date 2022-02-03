@@ -108,8 +108,7 @@ The documentation is available at https://qensmodels.readthedocs.io .
 License
 -------
 
-Redistribution of the software is permitted under the terms of the 
-`General Public License version 3 or higher <https://www.gnu.org/licenses/gpl-3.0.en.html>`_.
+Redistribution of the software is permitted under the terms of the 3-Clause BSD license.
 
 
 How to use the library?
