@@ -75,14 +75,36 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
       | ``hwhm``         | FWHM /2         | W/2              |
       +------------------+-----------------+------------------+
 
+    * Numerical issues:
+      The definition of the Lorentzian function used here is such that
+      the integral between :math:`-\infty` and :math:`-\infty` is 1.
+      However, when the hwhm is comparable or smaller than the x step,
+      the sampling of the function will result in a numerical integral > 1.
+      E.g., in the extreme case where hwhm tends to zero, the numerical
+      sampling at x points will result in a delta-like function, but with
+      a value at maximum approaching :math:`-\infty` instead of the
+      value 1/:math:`\Delta x` used in the definition of the delta function.
+      Therefore, the value of the integral of the function is checked
+      and used to renormalize the returned function whenever the integral
+      is larger than 1.
+
     """
     # Input validation
     x = np.asarray(x)
 
     if hwhm == 0:
-        model = QENSmodels.delta(x, scale, center)
+        model = QENSmodels.delta(x, 1.0, center)
     else:
-        model = scale * hwhm / ((x - center) ** 2 + hwhm ** 2) / np.pi
+        model = hwhm / ((x - center) ** 2 + hwhm ** 2) / np.pi
+
+    # Area normalization
+    if x.size > 1:
+        area = np.trapz(model, x)
+        if area > 1:
+            model /= area
+
+    # Scale by amplitude
+    model *= scale
 
     return model
 
