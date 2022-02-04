@@ -93,15 +93,16 @@ def gaussian(x, scale=1., center=0., sigma=1.):
     x = np.asarray(x)
 
     if sigma == 0:
-        model = QENSmodels.delta(x, scale, center)
+        model = QENSmodels.delta(x, 1.0, center)
     else:
         model = (sigma * np.sqrt(2. * np.pi)) \
             * np.exp(- (x - center) ** 2 / (2. * sigma ** 2))
 
     # Area normalization
-    area = np.trapz(model, x)
-    if area > 1:
-        model /= area
+    if x.size > 1:
+        area = np.trapz(model, x)
+        if area > 1:
+            model /= area
 
     # Scale by amplitude
     model *= scale

@@ -93,14 +93,15 @@ def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
     x = np.asarray(x)
 
     if hwhm == 0:
-        model = QENSmodels.delta(x, scale, center)
+        model = QENSmodels.delta(x, 1.0, center)
     else:
         model = hwhm / ((x - center) ** 2 + hwhm ** 2) / np.pi
 
     # Area normalization
-    area = np.trapz(model, x)
-    if area > 1:
-        model /= area
+    if x.size > 1:
+        area = np.trapz(model, x)
+        if area > 1:
+            model /= area
 
     # Scale by amplitude
     model *= scale
