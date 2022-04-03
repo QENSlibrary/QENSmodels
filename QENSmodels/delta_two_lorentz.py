@@ -52,14 +52,14 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
     Examples
     --------
     >>> sqw = sqwDeltaTwoLorentz([1, 2, 3], [0.1, 0.2], 1, 1, [1, 1], [1, 1], [0.01, 0.01], [0.01, 0.01])  # noqa: E501
-    >>> sqw[0, 0]
-    1.0
+    >>> round(sqw[0, 0])
+    1
     >>> sqw[0, 1]
     0.0
     >>> sqw[0, 2]
     0.0
-    >>> sqw[1, 0]
-    1.0
+    >>> round(sqw[1, 0])
+    1
     >>> sqw[1, 1]
     0.0
     >>> sqw[1, 2]
@@ -67,17 +67,17 @@ def sqwDeltaTwoLorentz(w, q, scale=1, center=0, A0=1, A1=1, hwhm1=1, hwhm2=1):
 
     >>> sqw = sqwDeltaTwoLorentz([1, 2, 3], [0.05, 0.3], 0.5, 2, [0.75, 0.5], [1, 2], [0.05, 0.04], [0.02, 0.03])  # noqa: E501
     >>> round(sqw[0, 0], 3)
-    0.006
+    0.001
     >>> round(sqw[0, 1], 3)
-    -2.41
+    0.499
     >>> round(sqw[0, 2], 3)
-    0.006
+    0.001
     >>> round(sqw[1, 0], 3)
-    0.006
+    0.001
     >>> round(sqw[1, 1], 3)
-    0.25
+    0.499
     >>> round(sqw[1, 2], 3)
-    0.006
+    0.001
 
     Notes
     -----
