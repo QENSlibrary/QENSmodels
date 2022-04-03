@@ -77,7 +77,7 @@ def hwhmJumpSitesLogNormDist(q, Nsites=3, radius=1.0, resTime=1.0, sigma=1.0):
     q = np.asarray(q, dtype=np.float32)
 
     # number of sites has to be an integer
-    Nsites = np.int(Nsites)
+    Nsites = int(Nsites)
 
     hwhm_equiv, eisf, qisf_equiv = \
         QENSmodels.hwhmEquivalentSitesCircle(q, Nsites, radius, resTime)
