@@ -3,9 +3,6 @@
    :target: https://qensmodels.readthedocs.io/?badge=latest
    :alt: Documentation Status
 
-.. image:: https://travis-ci.com/QENSlibrary/QENSmodels.svg?branch=master
-    :target: https://travis-ci.com/QENSlibrary/QENSmodels
-
 Introduction
 ============
 

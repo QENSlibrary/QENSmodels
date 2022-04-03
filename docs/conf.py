@@ -36,7 +36,7 @@ sys.path.insert(0, os.path.abspath('../'))
 # -- Project information -----------------------------------------------------
 
 project = u'QENSmodels'
-copyright = u'2018, -'
+copyright = u'2022, -'
 author = u'-'
 
 # The short X.Y version.
