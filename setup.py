@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-from setuptools import setup, find_packages
+from setuptools import setup
 
 author_list = ['Céline Durniak', 'Miguel Gonzalez', 'Anders Markvardsen', 'Thomas Farmer']
 authors = ', '.join(author_list[:-1]) + ', and ' + author_list[-1]
