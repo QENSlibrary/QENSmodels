@@ -71,7 +71,7 @@ def hwhmEquivalentSitesCircle(q, Nsites=3, radius=1.0, resTime=1.0):
         raise ValueError("the minimum number of sites N is 2")
 
     # number of sites has to be an integer
-    Nsites = np.int(Nsites)
+    Nsites = int(Nsites)
 
     # index of sites in circle
     sites = np.arange(Nsites)
