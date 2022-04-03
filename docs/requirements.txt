@@ -1,7 +1,7 @@
 numpy
 scipy
 matplotlib
-git+git://github.com/QENSlibrary/QENSmodels.git
+git+https://github.com/QENSlibrary/QENSmodels.git
 h5py
 nbsphinx
 jupyter
