@@ -32,16 +32,16 @@ def gaussian(x, scale=1., center=0., sigma=1.):
     Examples
     --------
     >>> round(gaussian(1, 1, 1, 1), 3)
-    0.399
+    2.507
 
     >>> round(gaussian(3, 2, 2, 5), 3)
-    0.156
+    24.57
 
     >>> result = gaussian([1, 3], 1, 1, 1)
     >>> round(result[0], 3)
-    0.399
+    0.881
     >>> round(result[1], 3)
-    0.054
+    0.119
 
 
     Notes
