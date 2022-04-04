@@ -2,6 +2,10 @@
 .. image:: https://readthedocs.org/projects/qensmodels/badge/?version=latest
    :target: https://qensmodels.readthedocs.io/?badge=latest
    :alt: Documentation Status
+   
+.. image:: https://github.com/QENSlibrary/QENSmodels/actions/workflows/qens_ci.yml/badge.svg
+   :target: https://github.com/QENSlibrary/QENSmodels/actions/workflows/qens_ci.yml
+   :alt: CI Status
 
 Introduction
 ============
