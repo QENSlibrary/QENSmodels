@@ -2,10 +2,11 @@
 .. image:: https://readthedocs.org/projects/qensmodels/badge/?version=latest
    :target: https://qensmodels.readthedocs.io/?badge=latest
    :alt: Documentation Status
-   
-.. image:: https://github.com/QENSlibrary/QENSmodels/actions/workflows/qens_ci.yml/badge.svg
-   :target: https://github.com/QENSlibrary/QENSmodels/actions/workflows/qens_ci.yml
-   :alt: CI Status
+
+.. image:: https://img.shields.io/badge/License-BSD_3--Clause-blue.svg
+   :target: https://opensource.org/licenses/BSD-3-Clause
+   :alt: License
+
 
 Introduction
 ============
@@ -104,12 +105,6 @@ Documentation
 =============
 
 The documentation is available at https://qensmodels.readthedocs.io .
-
-
-License
--------
-
-Redistribution of the software is permitted under the terms of the 3-Clause BSD license.
 
 
 How to use the library?
