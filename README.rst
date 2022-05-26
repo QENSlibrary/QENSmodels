@@ -3,8 +3,9 @@
    :target: https://qensmodels.readthedocs.io/?badge=latest
    :alt: Documentation Status
 
-.. image:: https://travis-ci.com/QENSlibrary/QENSmodels.svg?branch=master
-    :target: https://travis-ci.com/QENSlibrary/QENSmodels
+.. image:: https://img.shields.io/badge/License-BSD_3--Clause-blue.svg
+   :target: https://opensource.org/licenses/BSD-3-Clause
+   :alt: License
 
 Introduction
 ============
@@ -103,14 +104,6 @@ Documentation
 =============
 
 The documentation is available at https://qensmodels.readthedocs.io .
-
-
-License
--------
-
-Redistribution of the software is permitted under the terms of the 
-`General Public License version 3 or higher <https://www.gnu.org/licenses/gpl-3.0.en.html>`_.
-
 
 How to use the library?
 -----------------------
