@@ -9,7 +9,7 @@ cd $TESTS_DIR
 ## TO RUN UNITTEST
 python -m unittest -v test_background_polynomials
 python -m unittest -v test_brownian_translational_diffusion
-python -m unittest -v test_chudley_elliot_diffusion
+python -m unittest -v test_chudley_elliott_diffusion
 python -m unittest -v test_delta
 python -m unittest -v test_delta_lorentz
 python -m unittest -v test_delta_two_lorentz

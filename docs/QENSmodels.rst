@@ -20,10 +20,10 @@ QENSmodels.brownian\_translational\_diffusion module
     :undoc-members:
     :show-inheritance:
 
-QENSmodels.chudley\_elliot\_diffusion module
+QENSmodels.chudley\_elliott\_diffusion module
 --------------------------------------------
 
-.. automodule:: QENSmodels.chudley_elliot_diffusion
+.. automodule:: QENSmodels.chudley_elliott_diffusion
     :members:
     :undoc-members:
     :show-inheritance:

@@ -7,6 +7,7 @@
    :target: https://opensource.org/licenses/BSD-3-Clause
    :alt: License
 
+
 Introduction
 ============
 
@@ -104,6 +105,7 @@ Documentation
 =============
 
 The documentation is available at https://qensmodels.readthedocs.io .
+
 
 How to use the library?
 -----------------------
