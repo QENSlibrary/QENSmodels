@@ -193,11 +193,11 @@ def sqwEquivalentSitesCircle(w, q,
     References
     ----------
 
-    * R. Hempelmann,
-    Quasielastic Neutron Scattering and Solid State Diffusion (Oxford, 2000).
+    * R. Hempelmann, Quasielastic Neutron Scattering and Solid State Diffusion
+      (Oxford, 2000).
 
     * J. D. Barnes, *Journal of Chemical Physics* **58**, 5193-5201 (1973).
-`link <https://aip.scitation.org/doi/abs/10.1063/1.1679130?journalCode=jcp>`_
+      `link <https://aip.scitation.org/doi/abs/10.1063/1.1679130?journalCode=jcp>`__
 
     """
     # Input validation

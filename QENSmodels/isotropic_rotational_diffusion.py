@@ -187,7 +187,7 @@ def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0,
     ----------
 
     P. A. Egelstaff, *J. Chem. Phys.* **53**, 2590-2598 (1970)
-  `link <https://aip.scitation.org/doi/abs/10.1063/1.1674374?journalCode=jcp>`_
+    `link <https://aip.scitation.org/doi/abs/10.1063/1.1674374?journalCode=jcp>`__
 
     """
 

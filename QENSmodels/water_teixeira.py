@@ -8,7 +8,8 @@ except ImportError:
 
 def sqwWaterTeixeira(w, q, scale=1, center=0, D=0.23, resTime=1.25, radius=1,
                      DR=1):
-    r""" Model corresponding to the convolution of `Jump Translational
+    r"""
+    Model corresponding to the convolution of `Jump Translational
     diffusion` (model T) and `Isotropic rotational diffusion` (model R)
 
     Model = convolution(T, R), where
@@ -51,6 +52,7 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=0.23, resTime=1.25, radius=1,
 
     Return
     ------
+
     :class:`~numpy:numpy.ndarray`
         output array
 
@@ -62,19 +64,20 @@ def sqwWaterTeixeira(w, q, scale=1, center=0, D=0.23, resTime=1.25, radius=1,
     >>> round(result[0], 3)
     0.486
 
-     Notes
+
+    Notes
     -----
 
-    * The default values for the fitting parameters come from the values
-      for water at 298K and 1 atm, water has D=0.23 Angstrom^2/ps and
-      ResTime=1.25 ps.
+    The default values for the fitting parameters come from the values
+    for water at 298K and 1 atm, water has D=0.23 Angstrom^2/ps and
+    ResTime=1.25 ps.
 
     References
     ----------
 
     J. Teixeira, M.-C. Bellissent-Funel, S.H. Chen, and A.J, Dianoux,
     *Phys. Rev. A* **31**, 1913-1917 (1985)
-    `link <https://journals.aps.org/pra/abstract/10.1103/PhysRevA.31.1913>`_
+    `link <https://journals.aps.org/pra/abstract/10.1103/PhysRevA.31.1913>`__
 
     """
     # Input validation

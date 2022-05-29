@@ -215,8 +215,8 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, Nsites=3,
 
 
     * The number of sites (`N` in the previous two formula) is converted
-    to an integer by the function. It should **not** be used as a fitting
-    parameter.
+      to an integer by the function. It should **not** be used as a fitting
+      parameter.
 
 
     References
@@ -224,7 +224,7 @@ def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, Nsites=3,
 
     A. Chahid, A. Alegria, and J. Colmenero,
     *Macromolecules* **27**, 3282-3288 (1994)
-    `link <https://pubs.acs.org/doi/abs/10.1021/ma00090a022>`_
+    `link <https://pubs.acs.org/doi/abs/10.1021/ma00090a022>`__
 
     """
     # Input validation

@@ -8,7 +8,8 @@ except ImportError:
 
 
 def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
-    """ Returns some characteristics of `GaussianModel3D` as functions
+    """
+    Returns some characteristics of `GaussianModel3D` as functions
     of the momentum transfer `q`:
     the half-width half-maximum (`hwhm`), the elastic incoherent structure
     factor (`eisf`), and the quasi-elastic incoherent structure factor (`qisf`)
@@ -17,13 +18,14 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
     ----------
 
     q: float, list or :class:`~numpy:numpy.ndarray`
+
         momentum transfer (non-fitting, in 1/Angstrom)
 
     D: float
         diffusion coefficient (in Angstrom**2/ps). Default to 1.
 
     variance_ux: float
-        variance <u_x**2> of Gaussian random variable `u_x
+        variance <u_x**2> of Gaussian random variable `u_x`
         (in Angstrom**2), displacement from the origin.
         Default to 1.
 
@@ -99,7 +101,8 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
 
 
 def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
-    r""" Model based on Gaussian statistics
+    r"""
+    Model based on Gaussian statistics
 
     It describes localized diffusive translational motion in 1, 2 or 3D
 
@@ -108,6 +111,7 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
     from the origin, the model assumes that u_x is a Gaussian random
     variable with variance <u_x^2>, which quantifies the size of the
     region of confinement.
+
     For the 3D case, the model assumes also <u_x^2> = <u_y^2> = <u_z^2>.
 
 
@@ -184,9 +188,8 @@ def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
     References
     ----------
 
-    F. Volino, J.-C. Perrin, and S. Lyonnard,
-    *J. Phys. Chem. B* **110**, 11217-11223 (2006)
-    `link <https://pubs.acs.org/doi/10.1021/jp061103s>`_
+    F. Volino, J.-C. Perrin, and S. Lyonnard, *J. Phys. Chem. B* **110**,
+    11217-11223 (2006) `link <https://pubs.acs.org/doi/10.1021/jp061103s>`__
 
     """
     # Input validation

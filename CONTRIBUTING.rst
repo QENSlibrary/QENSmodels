@@ -9,10 +9,32 @@ Introduction
 ------------
 
 First of all, thank you for considering contributing to the QENS models' 
-library. Contributions are welcome from the community.\ :raw-html-m2r:`<br>`
+library. Contributions are welcome from the community.
+
 This document describes some guidelines that are intended to help to communicate 
 with the developers' team, so that it can address your issue, assess your 
 changes and help you finalize your pull requests.
+
+Installation
+------------
+
+
+In order to contribute to the development of the library, in a terminal
+
+- activate your virtual environment (see the `installation <https://github.com/QENSlibrary/QENSmodels/blob/master/README.rst>`_ )
+
+- run:
+
+.. code-block:: console
+
+   python -m pip install -r requirements-dev.txt
+
+This will install what is needed to
+
+- build the documentation
+- run the unit tests and doc tests and analyse the code
+- run the examples (Jupyter notebooks)
+
 
 Ground rules
 ------------
@@ -26,7 +48,7 @@ repository are referred to `this tutorial <https://github.com/firstcontributions
 
 **Working on your first Pull Request?** You can learn how from this *free* 
 series 
-`How to Contribute to an Open Source Project on GitHub <https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github>`_ 
+`How to Contribute to an Open Source Project on GitHub <https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github>`_
 
 People interested can contribute to the project in different ways:
 
@@ -35,32 +57,31 @@ People interested can contribute to the project in different ways:
 #. adding new examples of fitting using some of the QENS models and the 
    fitting engine of their choice 
 
-Physical units
-~~~~~~~~~~~~~~
-
-For information about unit conversion, please refer to the jupyter notebook called
-`Convert_units.ipynb` in the `tools` folder.
-
-
 New QENS models
 ^^^^^^^^^^^^^^^
 
 
-* Contributed models should be written in ``Python`` (compatibility with 
-  ``Python 3.x`` is preferred).
+* Contributed models should be written in ``Python 3.x``.
 * For each new model, a Python script should be provided alongside some 
   documentation and tests.
 * Once ready, you need to upload the ``Python`` source code files to the 
   `git repository <https://github.com/QENSlibrary/QENSmodels>`_ by submitting a 
   pull request.
 
+Physical units
+~~~~~~~~~~~~~~
+
+For information about unit conversion, please refer to the jupyter notebook called
+`Convert_units.ipynb` in the `tools` folder.
+
 Python script
 ~~~~~~~~~~~~~
 
 
 * It should be placed in the ``QENS models`` folder. The associated ``Python`` 
-  script for the tests should be placed in the ``tests`` folder. 
-* The `doctest <https://docs.python.org/2/library/doctest.html>_` module has 
+  script for the tests should be placed in the ``tests`` folder and added to
+  the list in ``run_tests.sh``.
+* The `doctest <https://docs.python.org/3/library/doctest.html>_` module has
   to be imported (\ *i.e.* paste ``import doctest`` in your 
   ``Python`` script. Please refer to the existing models 
   for help).
@@ -74,21 +95,47 @@ Python script
   to check your code matches the project style (by running, for example, 
   ``python -m flake8 new_python_script.py``\ ).
 
+
 Documentation
 ~~~~~~~~~~~~~
-
 
 * For the QENS models' library, the documentation is built using 
   `Sphinx <http://www.sphinx-doc.org/en/master/>`_.
 * The related files are located in the ``docs`` folder.
 * In addition, as mentioned in the previous section, each model should contain 
-  a self-contained description. 
+  a self-contained description.
+
+
+**Building the documentation locally**
+
+In a terminal, run
+
+.. code-block:: console
+
+  python -m sphinx path_to_docs_folder build_folder
+
+
+where `build_folder` is where you want to build the documentation of the library.
+
+
+Tests
+~~~~~
+
+The script to run the tests is located in the ``tools`` folder.
+These tests require the installation of ``doctest`` and ``unittest``.
+
+In a terminal, move to the ``tools`` directory and run
+
+.. code-block:: console
+
+   ./run_tests.sh
+
 
 New examples
 ^^^^^^^^^^^^
 
 
-* Contributed examples should use |JupyterTag| notebooks (preferred) or ``Python`` 
+* Contributed examples should use |JupyterTag| notebooks (preferred) or ``Python``
   scripts.
 
 .. |JupyterTag| image:: https://img.shields.io/badge/-jupyter-%236091f2.svg
@@ -109,8 +156,7 @@ New examples
   reference data on the fly in the notebook or script without creating any 
   permanent external file.
 * If additional ``Python`` modules are used in the new notebook or script, 
-  please add them to the list of requirements in the 
-  `README <./examples/README.md>`_ file located in the ``examples`` directory.
+  please add them to the list of requirements in `requirements` files and `setup.py`.
 
 Other issues
 ------------
