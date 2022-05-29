@@ -1,7 +1,11 @@
+pytest
+flake8
 git+https://github.com/QENSlibrary/QENSmodels.git@master
 matplotlib
 ipympl
 h5py
+nbsphinx
+sphinx-rtd-theme
 jupyterlab
 bumps >= 0.7.6
 lmfit

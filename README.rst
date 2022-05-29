@@ -7,80 +7,106 @@
    :target: https://opensource.org/licenses/BSD-3-Clause
    :alt: License
 
+.. image:: https://github.com/QENSlibrary/QENSmodels/actions/workflows/qens_ci.yml/badge.svg
+   :target: https://github.com/QENSlibrary/QENSmodels/actions/workflows/qens_ci.yml
+   :alt: CI Status
+
 
 Introduction
 ============
 
 
-*QENSmodels* is a repository containing models (mathematical functions) written in
-`Python <https://www.python.org/>`_. These models can be used to fit Quasi Elastic Neutron
-Scattering (QENS) data `S(Q, omega)`. This project has received funding from the European Union’s
+*QENSmodels* is a repository containing `Python <https://www.python.org/>`_ models
+( *i.e.*, mathematical functions) that can be used to fit Quasi Elastic Neutron
+Scattering (QENS) data `S(Q, omega)`.
+
+
+This project has received funding from the European Union’s
 Horizon 2020 research and innovation programme under grant agreement No 654000.
 
-Installation
-============
 
-Requirements
-------------
-
-*Python modules to use the models:*
+Getting started
+===============
 
 
-* `numpy <http://www.numpy.org/>`_
-* `scipy <https://www.scipy.org/>`_
+To get a glimpse of what can be done with the library, click on `launch binder` below.
+Please note that the notebooks can be slow to load.
 
-The installation of these modules will be checked when installing the QENSmodels library and will
-be performed if they are missing.
-
-*Python modules to test the models (for contributors):*
+.. image:: https://mybinder.org/badge_logo.svg
+   :target: https://mybinder.org/v2/gh/QENSlibrary/QENSmodels/master?filepath=examples-binder%2Fscipy_lorentzian_fit_binder_ipywidgets.ipynb
 
 
-* `flake8 <http://flake8.pycqa.org/en/latest/>`_ 
-* `unittest <https://docs.python.org/3/library/unittest.html>`_
-* `doctest <https://docs.python.org/3.7/library/doctest.html>`_
+Install the QENS models
+-----------------------
 
-`flake8` can be installed using
+Currently the QENS models library has not been released on pypi. Please use the alternative
+method described below to install it.
 
-.. code-block:: console
+- If not already installed on your computer, download and install Python (version>=3.8),
+for example, from https://www.python.org/downloads/.
+  In the following instructions, replace `python` by the path to the version of python
+you want to use.
 
-     python -m pip install flake8
-
-
-Additional modules are required to run the examples. These examples show you how to run a fit with
-different minimizers using some of the QENS models. Details can be found in the
-`README file <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/README.rst>`_
-of the *examples* folder or in the online documentation. How to use Mantid to fit is described in
-this `document <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/using_mantid/README.rst>`_ .
-
-How to install?
----------------
-
-.. NOTE:: If you want to use a virtual environment, please go to
-   `this link <https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html>`_
-    for instructions.
-
-The steps to follow are:  
-
-
-* Download or clone the repository which can be found at the following
-  `link <https://github.com/QENSlibrary/QENSmodels>`_
-
-* To **install the package**, type the following command in a terminal
+- Create and go to, e.g., QENSmodels directory (optional)
 
   .. code-block:: console
 
-     python -m pip install full_path_to_QENSmodels_folder
+      mkdir QENSmodels && cd QENSmodels
 
 
-See `the documentation on pip install <https://pip.pypa.io/en/stable/reference/pip_install/#editable-installs>`_
-for additional information. Run ``pip show QENSmodels`` to display details about the installed
-package.
+- Create a virtual environment and activate it (optional)
+
+  .. code-block:: console
+
+      python -m venv .venv
+      source .venv/bin/activate
+
+
+  Note that the prompt of the terminal will change and contain ``(.venv)``.
+  You can choose the folder name that contains your virtual environment when you create it by
+  passing a name other than `.venv`. Once done working with this virtual environment, you can
+  deactivate it by typing ``deactivate``.
+
+
+- Upgrade pip (optional)
+
+  .. code-block:: console
+
+     python -m pip install --upgrade pip
+
+- Install the library
+
+   - *method 1*: if you want to modify the models at a later stage
+
+      - download or clone the repository at https://github.com/QENSlibrary/QENSmodels
+
+      - In a terminal run
+
+        .. code-block:: console
+
+           python -m pip install -e full_path_to_QENSmodels_folder --use-feature=in-tree-build
+
+
+   - *method 2*: if you only want to use the version of the models available in the repository
+
+     .. code-block:: console
+
+        python -m pip install git+https://github.com/QENSlibrary/QENSmodels.git@master
+
+
+    See `the documentation on pip install <https://pip.pypa.io/en/stable/cli/pip_install/>`_
+    for additional information. Run ``pip show QENSmodels`` to display details about the installed package.
+
+
 
 To **test the installation**\ , type the following command in a terminal
 
 .. code-block:: console
 
    python -c "import QENSmodels"
+
+
+
 
 To **uninstall** the library, type
 
@@ -89,82 +115,36 @@ To **uninstall** the library, type
    python -m pip uninstall QENSmodels
 
 
-Tests
------
-
-The script to run the tests is located in the ``tools`` folder.
-These tests require the installation of ``doctest`` and ``unittest``.
-
-In a terminal, move to the ``tools`` directory and run
-
-.. code-block:: console
-
-   ./run_tests.sh
 
 Documentation
-=============
+-------------
 
 The documentation is available at https://qensmodels.readthedocs.io .
 
+Note that the Jupyter notebooks are available in the repository in the `docs/examples` folder.
+But they require the installation of additional libraries. Please refer to the README file in
+the same folder for instructions.
 
-How to use the library?
------------------------
+
+Quick example to use the models
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: python
 
    import QENSmodels
    value = QENSmodels.lorentzian(1, 1, 1, 1)
 
-or copy and paste the script related to the Lorentzian function.
 
-The scripts of the models can be found in the
-`git repository <https://github.com/QENSlibrary/QENSmodels>`_.
-
-Jupyter notebooks showing how to use some of the QENS models are located in the *docs/examples*
-folder. The name of the notebook indicates which fitting engine and QENS model 
-are used. Additional tools might have to be installed in order to use a 
-particular notebook. Please refer to the Please refer to the
-`README file <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/README.rst>`_ in
-the `examples` folder or to the `examples` section of the online documentation for details.
-
-If you do not want to download neither install any component, one example can be interactively
-tested online. To open it, click on `launch binder` below. Please note that the notebook can be
-slow to load.
-
-.. image:: https://mybinder.org/badge_logo.svg
-   :target: https://mybinder.org/v2/gh/QENSlibrary/QENSmodels/master?filepath=examples-binder%2Fscipy_lorentzian_fit_binder_ipywidgets.ipynb
 
 Physical units
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 For information about unit conversion, please refer to the jupyter notebook called
 `Convert_units.ipynb` in the `tools` folder.
 
 
 
-How to cite?
-------------
-
-If you found this package useful, please don't forget to acknowledge its use in your publications 
-as suggested below and reference this website: https://github.com/QENSlibrary/QENSmodels. 
-
-Please also consider letting us know by sending us the reference to your work. 
-This will help us to ensure the long term support and development of the software.
-
-
-   This work benefited from the use of the QENSmodels library, which contains code developed with
-   funding from the European Union’s Horizon 2020 research and innovation programme under grant
-   agreement No 654000.
-
-
-
-How to contribute?
-------------------
-
-If you are interested in contributing to this project, please refer to the
-`CONTRIBUTING document <https://github.com/QENSlibrary/QENSmodels/blob/master/CONTRIBUTING.rst>`_
-
-Need help / found a bug
------------------------
+Needing help / Reporting a bug
+------------------------------
 
 Bugs and feature requests are collected at https://github.com/QENSlibrary/QENSmodels/issues.
 
@@ -174,3 +154,36 @@ If you are reporting a bug, please include:
 * Your operating system name and version.
 * Any details about your local setup that might be helpful in troubleshooting.
 * Detailed steps to reproduce the bug.
+
+
+
+Contributing
+------------
+
+If you are interested in contributing to this project, please refer to the
+`CONTRIBUTING document <https://github.com/QENSlibrary/QENSmodels/blob/master/CONTRIBUTING.rst>`_
+
+
+
+
+Referring to the library
+------------------------
+
+If you found this package useful, please don't forget to acknowledge its use in your publications
+as suggested below and reference this website: https://github.com/QENSlibrary/QENSmodels.
+
+Please also consider letting us know by sending us the reference to your work.
+This will help us to ensure the long term support and development of the software.
+
+
+   This work benefited from the use of the QENSmodels library, which contains code developed with
+   funding from the European Union's Horizon 2020 research and innovation programme under grant
+   agreement No 654000.
+
+
+
+License
+-------
+
+Redistribution of the software is permitted under the terms of the
+`BSD 3-Clause license <https://opensource.org/licenses/BSD-3-Clause>`_.

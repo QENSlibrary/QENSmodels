@@ -31,18 +31,18 @@ sys.path.insert(0, os.path.abspath('../'))
 # # version is used.
 # sys.path.insert(0, project_root)
 
-# import QENSmodels
+import QENSmodels
 
 # -- Project information -----------------------------------------------------
 
 project = u'QENSmodels'
-copyright = u'2018, -'
+copyright = u'2022, -'
 author = u'-'
 
 # The short X.Y version.
-version = '0.1.0'  # QENSmodels.__version__
+version = QENSmodels.__version__
 # The full version, including alpha/beta/rc tags.
-release = '0.1.0'  # QENSmodels.__version__
+release = QENSmodels.__version__
 
 
 # -- General configuration ---------------------------------------------------
@@ -112,7 +112,7 @@ html_theme = 'sphinx_rtd_theme'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = []  # '_static']
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.

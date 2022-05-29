@@ -1,10 +1,10 @@
-numpy
-scipy
 matplotlib
+ipympl
 git+https://github.com/QENSlibrary/QENSmodels.git
 h5py
 nbsphinx
-jupyter
-bumps
+sphinx-rtd-theme
+jupyterlab
+bumps >= 0.7.6
 lmfit
 ipywidgets

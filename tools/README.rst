@@ -1,11 +1,10 @@
 This folder contains tools to extract information from the QENS models or to
-help users converting units
+help users converting units.
 
 * ``Convert_units.ipynb``
 
   This notebook gives a few references and tips to convert physical units
-  in order to be able to use the QENS models if the experimental data are expressed in
-  different units.
+  of parameters used in the QENS models.
 
 * ``Explore_model.ipynb``
 
@@ -27,31 +26,21 @@ help users converting units
 Note that in order to open the Jupyter notebooks, you'll need `jupyter`, `numpy`,
 `matplotlib`, and `ipywidgets` (for interactive plots).
 
-To run the Jupyter notebooks, you can, for example, create an anaconda
-environment:
+To run the Jupyter notebooks, you can, for example, in the folder where these notebooks are located
 
-
-* download and install Anaconda / Miniconda (a mini version of Anaconda
-  that saves you disk space) on Windows, OSX and Linux.
-
-* after installing, to ensure that your packages are up to date,
-  run the following command in a terminal:
+* create a virtual environment
 
   .. code-block:: console
 
-     conda update conda
+     python -m venv .venv
+     source .venv/bin/activate
+     python -m pip install ipywidgets jupyterlab matplotlib git+https://github.com/QENSlibrary/QENSmodels.git
 
-* create a new environment (called ``mynewenv`` in the following example),
-  which will contain the required packages
-
-  .. code-block:: console
-
-     conda create --name mynewenv  -c conda-forge ipywidgets python numpy matplotlib jupyter
-     conda activate mynewenv
+ The above command assumes that the QENSmodels library is not installed in this virtual environment.
+ If you had already installed the library, replace the above by
+ ``python -m pip install ipywidgets jupyterlab matplotlib``.
 
 * to access the notebooks,
-  - activate your conda environment. For example, if the environment was created using the above
-    commands, simply type `conda activate mynewenv` in a terminal.
-  - move to the folder where the notebook you want to open is located,
-  - type ``jupyter notebook``
+
+  - type ``jupyter lab``
   - click on the notebook you want to open.

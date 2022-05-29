@@ -76,7 +76,8 @@ def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
 
 def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
                                   resTime=1.25):
-    r""" Lorentzian model with half width half maximum equal to
+    r"""
+    Lorentzian model with half width half maximum equal to
     :math:`\frac{Dq^2}{1+ \text{resTime}Dq^2}`
 
     It models a particle which performs jumps, randomly, between sites
@@ -113,6 +114,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
 
     Examples
     --------
+
     >>> sqw = sqwJumpTranslationalDiffusion([1, 2, 3], 1, 1, 0, 1, 1)
     >>> round(sqw[0], 3)
     0.127
@@ -133,19 +135,21 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
 
       .. math::
 
-          S(q, \omega) = \text{Lorentzian}(\omega, \text{scale}, \text{center},
-          \frac{D q^2}{ 1 + \text{resTime}\ D q^2})
+         S(q, \omega) = \text{Lorentzian}(\omega, \text{scale}, \text{center},
+         \frac{D q^2}{ 1 + \text{resTime}\ D q^2})
 
-    * The default values for the fitting parameters come from the values
-      for water at 298K and 1 atm, water has `D`=0.23 Angstrom^2/ps and
-      `resTime`=1.25 ps.
 
-    * If `resTime` is equal to 0, this model reduces to
-      `sqwBrownianTranslationalDiffusion`.
+    * The default values for the fitting parameters come from the values for
+      water at 298K and 1 atm, water has `D` = 0.23 Angstrom^2/ps and
+      `resTime` = 1.25 ps.
+
+
+    * If `resTime` is equal to 0, this model reduces to `sqwBrownianTranslationalDiffusion`.
+
 
     * At small `q`, `hwhm` is similar to the
-    `hwhmBrownianTranslationalDiffusion`, *i.e.* equivalent to
-    :math:Dq^2. And at large `q`, `hwhm` :math:`\propto` 1/`resTime`.
+      `hwhmBrownianTranslationalDiffusion`, *i.e.* equivalent to
+      :math:`Dq^2`. And at large `q`, `hwhm` :math:`\propto` 1/`resTime`.
 
 
     References
@@ -153,7 +157,7 @@ def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
 
     J. Teixeira, M.-C. Bellissent-Funel, S.H. Chen, and A.J, Dianoux,
     *Phys. Rev. A* **31**, 1913-1917 (1985)
-    `link <https://journals.aps.org/pra/abstract/10.1103/PhysRevA.31.1913>`_
+    `link <https://journals.aps.org/pra/abstract/10.1103/PhysRevA.31.1913>`__
 
     """
     # Input validation

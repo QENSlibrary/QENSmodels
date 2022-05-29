@@ -21,7 +21,7 @@ QENSmodels.brownian\_translational\_diffusion module
     :show-inheritance:
 
 QENSmodels.chudley\_elliott\_diffusion module
---------------------------------------------
+---------------------------------------------
 
 .. automodule:: QENSmodels.chudley_elliott_diffusion
     :members:

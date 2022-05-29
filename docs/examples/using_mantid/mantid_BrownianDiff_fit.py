@@ -100,7 +100,7 @@ global_model = "composite=MultiDomainFunction,NumDeriv=true;"
 for wi in range(selected_wi):
     # insert Q-value
     single_model = single_model_template.replace("_Q_", str(Q[wi]))
-    global_model += f'{single_model};'
+    global_model += single_model + ';'
 
 # Add ties
 global_model += 'ties=(f0.D=f1.D=f2.D=f3.D);constraints=(f0.D>0)'
@@ -135,10 +135,10 @@ paramTable = mapi.mtd['fit_Parameters']
 
 # print results
 for i in range(4):
-    print(f'Workspace {i}:')
-    print(f'scale: {paramTable.column(1)[3 * i]:.2f}')
-    print(f'center: {paramTable.column(1)[3 * i + 1]:.2f}')
-    print(f'D: {paramTable.column(1)[3 * i + 2]:.2f}')
+    print('Workspace {i}:'.format(i=i))
+    print('scale: {scale_val:.2f}'.format(scale_val=paramTable.column(1)[3 * i]))
+    print('center: {center_val:.2f}'.format(center_val=paramTable.column(1)[3 * i + 1]))
+    print('D: {D_val:.2f}'.format(D_val=paramTable.column(1)[3 * i + 2]))
 
 # plot results
 fig, ax = plt.subplots(2, 2)

@@ -1,29 +1,25 @@
 Introduction
-^^^^^^^^^^^^
+============
 
 This section contains different Jupyter notebooks showing how to use models of
-the QENS library. The sub-folder `using_mantid` details how to proceed if you want to use Mantid
-(`link <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/using_mantid/README.rst>`_ ).
+the QENS library. The sub-folder ``using_mantid`` details how to proceed if you want to use Mantid
+(`link <https://github.com/QENSlibrary/QENSmodels/blob/master/docs/examples/using_mantid/README.rst>`__).
 
 Note that in order to open and run these examples, you need
 `jupyter <http://jupyter.org/>`_\ ,
-`scipy <https://www.scipy.org/>`_\ ,
 `matplotlib <https://matplotlib.org/>`_\ ,
 `ipywidgets <https://ipywidgets.readthedocs.io/en/latest/>`_ (for interactive
 plots),
-`lmfit <https://lmfit.github.io/lmfit-py/>`_ (optional),
-`bumps <https://github.com/bumps/bumps>`_ (optional),
-`h5py <https://www.h5py.org/>`_ (for some of the examples).
-
-To access the notebooks, type ``jupyter notebook`` in a terminal and click on the notebook you want
-to open.
+`lmfit <https://lmfit.github.io/lmfit-py/>`_ (fitting for some of the examples),
+`bumps <https://github.com/bumps/bumps>`_ (fitting for some of the examples),
+`h5py <https://www.h5py.org/>`_ (loading reference data for some of the examples).
 
 
 The data required to run some of the notebooks and scripts are located in the
 ``data`` subfolder.
 
 Summary of the Jupyter notebooks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+================================
 
 The following table summarizes some of the main features of the Jupyter notebooks in the
 ``examples`` folder.
@@ -33,7 +29,7 @@ The following table summarizes some of the main features of the Jupyter notebook
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
 | bumps_BrownianDiff                        | X                       |                    |                 |            |  X         |
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| bumps_ChudleyElliottDiff                   |                         |                    |                 |            |            |
+| bumps_ChudleyElliottDiff                  |                         |                    |                 |            |            |
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
 | bumps_DeltaLorentz                        | X                       |                    |                 |            | X          |
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
@@ -64,53 +60,46 @@ The following table summarizes some of the main features of the Jupyter notebook
 | scipy_lorentzian                          |                         | X                  |                 |            |            |
 +-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
 
-Using the jupyter notebooks
----------------------------
 
-Using via Anaconda
-^^^^^^^^^^^^^^^^^^
+Using the jupyter notebooks in a virtual environment
+====================================================
 
-You can download and install Anaconda / Miniconda (a mini version of
-Anaconda that saves you disk space) on Windows, OSX and Linux.
+- If not already installed on your computer, download and install Python (version>=3.8), for example,
+  from https://www.python.org/downloads/. In the following instructions, replace ``python`` by the path to
+  the version of python you want to use.
 
-After installing, to ensure that your packages are up to date,
-run the following command in a terminal:
+- Download or clone the QENSmodels repository at https://github.com/QENSlibrary/QENSmodels
 
-.. code-block:: console
+- Create virtual environment and activate it (optional)
 
-   conda update conda
+  .. code-block:: console
 
-You can create a new environment (called ``mynewenv`` in the following example),
-which will contain the required packages
+      cd QENSmodels/docs
+      python -m venv .venv
+      source .venv/bin/activate
 
-.. code-block:: console
+- Upgrade pip (optional)
 
-   conda create --name mynewenv python ipywidgets h5py numpy scipy matplotlib jupyter
+  .. code-block:: console
 
-Then activate the environment and install the remaining packages
+     python -m pip install --upgrade pip
 
-.. code-block:: console
+- Install the library and the additional required packages. In a terminal run
 
-   conda activate mynewenv
+  .. code-block:: console
 
-Finally, install the library
+     python -m pip install -r requirements.txt
 
-.. code-block:: console
+  The command above assumes that you are in the `docs` folder. If it is not the case, replace
+  ``requirements.txt`` by the correct path.
 
-    python -m pip install path_to_QENSmodels_folder
+- In order to use the examples, simply type ``jupyter lab`` in a terminal.
 
-
-where `path_to_QENSmodels_folder` is the location of the QENSmodels' folder on your computer (for
-example `/Users/my_username/Desktop/QENSmodels`).
-
-The packages for fitting, *i.e.* ``lmfit``\ , ``bumps``\ , will be installed when
-running the jupyter notebooks, where they are required.
 
 Short tutorials on Jupyter notebooks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+====================================
 
-
-* `https://www.tutorialspoint.com/jupyter/jupyter_project_overview.htm <https://www.tutorialspoint.com/jupyter/jupyter_project_overview.htm>`_
+* `Jupyter Lab documentation <https://jupyterlab.readthedocs.io/en/stable/>`_
 
 * `tutorials from DataCamp <https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook?utm_source=adwords_ppc&utm_campaignid=898687156&utm_adgroupid=48947256715&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=1t1&utm_creative=229765585183&utm_targetid=dsa-473406581035&utm_loc_interest_ms=&utm_loc_physical_ms=1005010&gclid=EAIaIQobChMIpZn9hPqc4QIVzh0YCh2c1ARQEAAYASAAEgK81fD_BwE>`_
 
