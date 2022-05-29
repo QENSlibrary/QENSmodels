@@ -33,7 +33,7 @@ To get a glimpse of what can be done with the library, click on `launch binder` 
 Please note that the notebooks can be slow to load.
 
 .. image:: https://mybinder.org/badge_logo.svg
-   :target: https://mybinder.org/v2/gh/QENSlibrary/QENSmodels/master?filepath=examples-binder%2Fscipy_lorentzian_fit_binder_ipywidgets.ipynb
+   :target: https://mybinder.org/v2/gh/QENSlibrary/QENSmodels/master?labpath=%2Fdocs%2Fexamples
 
 
 Install the QENS models
