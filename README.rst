@@ -43,9 +43,9 @@ Currently the QENS models library has not been released on pypi. Please use the 
 method described below to install it.
 
 - If not already installed on your computer, download and install Python (version>=3.8),
-for example, from https://www.python.org/downloads/.
+  for example, from https://www.python.org/downloads/.
   In the following instructions, replace `python` by the path to the version of python
-you want to use.
+  you want to use.
 
 - Create and go to, e.g., QENSmodels directory (optional)
 
@@ -99,7 +99,7 @@ you want to use.
 
 
 
-To **test the installation**\ , type the following command in a terminal
+To **test the installation**, type the following command in a terminal
 
 .. code-block:: console
 

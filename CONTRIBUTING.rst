@@ -81,7 +81,7 @@ Python script
 * It should be placed in the ``QENS models`` folder. The associated ``Python`` 
   script for the tests should be placed in the ``tests`` folder and added to
   the list in ``run_tests.sh``.
-* The `doctest <https://docs.python.org/3/library/doctest.html>_` module has
+* The `doctest <https://docs.python.org/3/library/doctest.html>`_ module has
   to be imported (\ *i.e.* paste ``import doctest`` in your 
   ``Python`` script. Please refer to the existing models 
   for help).
