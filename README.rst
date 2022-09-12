@@ -56,11 +56,19 @@ method described below to install it.
 
 - Create a virtual environment and activate it (optional)
 
-  .. code-block:: console
+  - on Unix or MacOS 
 
-      python -m venv .venv
-      source .venv/bin/activate
+    .. code-block:: console
 
+        python -m venv .venv
+        source .venv/bin/activate
+  
+  - on Windows
+  
+    .. code-block:: console
+    
+        python -m venv .venv
+        .\.venv\Scripts\activate
 
   Note that the prompt of the terminal will change and contain ``(.venv)``.
   You can choose the folder name that contains your virtual environment when you create it by
@@ -84,7 +92,7 @@ method described below to install it.
 
         .. code-block:: console
 
-           python -m pip install -e full_path_to_QENSmodels_folder --use-feature=in-tree-build
+           python -m pip install -e full_path_to_QENSmodels_folder
 
 
    - *method 2*: if you only want to use the version of the models available in the repository
