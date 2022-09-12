@@ -1,6 +1,6 @@
 pytest
 flake8
-git+https://github.com/QENSlibrary/QENSmodels.git@master
+git+https://github.com/QENSlibrary/QENSmodels.git@main
 matplotlib
 ipympl
 h5py
