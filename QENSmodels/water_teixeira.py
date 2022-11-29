@@ -1,4 +1,5 @@
 import numpy as np
+from typing import Union
 
 try:
     import QENSmodels
@@ -6,8 +7,16 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def sqwWaterTeixeira(w, q, scale=1, center=0, D=0.23, resTime=1.25, radius=1,
-                     DR=1):
+def sqwWaterTeixeira(
+        w: Union[float, list, np.ndarray],
+        q: Union[float, list, np.ndarray],
+        scale: float = 1,
+        center: float = 0,
+        D: float = 0.23,
+        resTime: float = 1.25,
+        radius: float = 1,
+        DR: float = 1
+) -> Union[float, list, np.ndarray]:
     r"""
     Model corresponding to the convolution of `Jump Translational
     diffusion` (model T) and `Isotropic rotational diffusion` (model R)

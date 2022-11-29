@@ -1,5 +1,5 @@
-from __future__ import print_function
 import numpy as np
+from typing import Union, Tuple
 
 try:
     import QENSmodels
@@ -7,7 +7,13 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def hwhmJumpSitesLogNormDist(q, Nsites=3, radius=1.0, resTime=1.0, sigma=1.0):
+def hwhmJumpSitesLogNormDist(
+        q: Union[float, list, np.ndarray],
+        Nsites: float = 3,
+        radius: float = 1.0,
+        resTime: float = 1.0,
+        sigma: float = 1.0
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """ Returns some characteristics of `JumpSitesLogNormDist` as functions
     of the momentum transfer `q`:
     the half-width half-maximum (`hwhm`), the elastic incoherent structure
@@ -117,8 +123,16 @@ def hwhmJumpSitesLogNormDist(q, Nsites=3, radius=1.0, resTime=1.0, sigma=1.0):
     return hwhm, eisf, qisf
 
 
-def sqwJumpSitesLogNormDist(w, q, scale=1.0, center=0.0, Nsites=3,
-                            radius=1.0, resTime=1.0, sigma=1.):
+def sqwJumpSitesLogNormDist(
+        w: Union[float, list, np.ndarray],
+        q: Union[float, list, np.ndarray],
+        scale: float = 1.,
+        center: float = 0.,
+        Nsites: int = 3,
+        radius: float = 1.,
+        resTime: float = 1.,
+        sigma: float = 1.
+) -> Union[float, list, np.ndarray]:
     r""" Model of jumps between Nsites equivalent sites in a circle with
     a log-norm distribution of relaxation times
 

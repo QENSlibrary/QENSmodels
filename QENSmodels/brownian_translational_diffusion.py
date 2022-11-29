@@ -1,5 +1,5 @@
-from __future__ import print_function
 import numpy as np
+from typing import Union, Tuple
 
 
 try:
@@ -8,7 +8,10 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def hwhmBrownianTranslationalDiffusion(q, D=1.):
+def hwhmBrownianTranslationalDiffusion(
+    q: Union[float, list, np.ndarray],
+    D: float = 1.
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """ Lorentzian model with half width half maximum equal to :math:`Dq^2`
 
     Returns some characteristics of `BrownianTranslationalDiffusion` as
@@ -81,7 +84,13 @@ def hwhmBrownianTranslationalDiffusion(q, D=1.):
     return hwhm, eisf, qisf
 
 
-def sqwBrownianTranslationalDiffusion(w, q, scale=1., center=0., D=1.):
+def sqwBrownianTranslationalDiffusion(
+        w: Union[float, list, np.ndarray],
+        q: Union[float, list, np.ndarray],
+        scale: float = 1.,
+        center: float = 0.,
+        D: float = 1.
+) -> Union[float, list, np.ndarray]:
     r""" Lorentzian model with half width half maximum  equal to :math:`Dq^2`
 
     It corresponds to a continuous long-range isotropic translational

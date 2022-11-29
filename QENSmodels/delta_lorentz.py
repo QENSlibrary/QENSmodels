@@ -1,5 +1,5 @@
-from __future__ import print_function
 import numpy as np
+from typing import Union
 
 try:
     import QENSmodels
@@ -7,7 +7,14 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def sqwDeltaLorentz(w, q, scale=1.0, center=0.0, A0=0.0, hwhm=1.0):
+def sqwDeltaLorentz(
+    w: Union[float, list, np.ndarray],
+    q: Union[float, list, np.ndarray],
+    scale: float = 1.0,
+    center: float = 0.0,
+    A0: Union[float, list, np.ndarray] = 0.0,
+    hwhm: Union[float, list, np.ndarray] = 1.0
+) -> Union[float, list, np.ndarray]:
     r"""
     Model corresponding to a delta representing a fraction p of
     fixed atoms and a Lorentzian corresponding to a Brownian

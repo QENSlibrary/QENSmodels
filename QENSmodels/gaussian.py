@@ -1,5 +1,5 @@
-from __future__ import print_function
 import numpy as np
+from typing import Union
 
 try:
     import QENSmodels
@@ -7,7 +7,12 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def gaussian(x, scale=1., center=0., sigma=1.):
+def gaussian(
+        x: Union[float, list, np.ndarray],
+        scale: Union[float, list, np.ndarray] = 1.,
+        center: Union[float, list, np.ndarray] = 0.,
+        sigma: Union[float, list, np.ndarray] = 1.
+) -> Union[float, list, np.ndarray]:
     r""" Gaussian model
 
     Parameters
