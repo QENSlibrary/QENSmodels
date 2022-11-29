@@ -8,3 +8,4 @@ jupyterlab
 bumps >= 0.7.6
 lmfit
 ipywidgets
+pandas
