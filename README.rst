@@ -73,7 +73,8 @@ method described below to install it.
   Note that the prompt of the terminal will change and contain ``(.venv)``.
   You can choose the folder name that contains your virtual environment when you create it by
   passing a name other than `.venv`. Once done working with this virtual environment, you can
-  deactivate it by typing ``deactivate``.
+  deactivate it by typing ``deactivate`` in the terminal. The prompt should go back to its initial
+  version.
 
 
 - Upgrade pip (optional)
