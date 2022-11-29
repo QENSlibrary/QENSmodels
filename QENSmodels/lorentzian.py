@@ -1,4 +1,5 @@
 import numpy as np
+from typing import Union
 
 try:
     import QENSmodels
@@ -6,7 +7,12 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def lorentzian(x, scale=1.0, center=0.0, hwhm=1.0):
+def lorentzian(
+        x: Union[float, list, np.ndarray],
+        scale: Union[float, list, np.ndarray] = 1.0,
+        center: Union[float, list, np.ndarray] = 0.0,
+        hwhm: Union[float, list, np.ndarray] = 1.0
+) -> Union[float, list, np.ndarray]:
     r""" Lorentzian model
 
     Parameters

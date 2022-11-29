@@ -1,5 +1,5 @@
-from __future__ import print_function
 import numpy as np
+from typing import Union, Tuple
 
 try:
     import QENSmodels
@@ -7,7 +7,11 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
+def hwhmJumpTranslationalDiffusion(
+        q: Union[float, list, np.ndarray],
+        D: float = 0.23,
+        resTime: float = 1.25
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """ Returns some characteristics of `JumpTranslationalDiffusion` as functions
     of the momentum transfer `q`:
     the half-width half-maximum (`hwhm`), the elastic incoherent structure
@@ -74,8 +78,14 @@ def hwhmJumpTranslationalDiffusion(q, D=0.23, resTime=1.25):
     return hwhm, eisf, qisf
 
 
-def sqwJumpTranslationalDiffusion(w, q, scale=1, center=0, D=0.23,
-                                  resTime=1.25):
+def sqwJumpTranslationalDiffusion(
+        w: Union[float, list, np.ndarray],
+        q: Union[float, list, np.ndarray],
+        scale: float = 1.,
+        center: float = 0.,
+        D: float = 0.23,
+        resTime: float = 1.25
+) -> Union[float, list, np.ndarray]:
     r"""
     Lorentzian model with half width half maximum equal to
     :math:`\frac{Dq^2}{1+ \text{resTime}Dq^2}`

@@ -1,9 +1,12 @@
-from __future__ import print_function
 import numpy as np
 from numpy.polynomial import Polynomial
+from typing import Union
 
 
-def background_polynomials(x, list_coefficients=0.0):
+def background_polynomials(
+        x: Union[float, list, np.ndarray],
+        list_coefficients: list = 0.0
+) -> Polynomial:
     r"""
     Polynomials of variable `w` and with coefficients contained in
     'list_coefficients'

@@ -1,5 +1,5 @@
-from __future__ import print_function
 import numpy as np
+from typing import Union, Tuple
 
 try:
     import QENSmodels
@@ -7,7 +7,11 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def hwhmChudleyElliottDiffusion(q, D=0.23, L=1.0):
+def hwhmChudleyElliottDiffusion(
+        q: Union[float, list, np.ndarray],
+        D: float = 0.23,
+        L: float = 1.0
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """ Returns some characteristics of `ChudleyElliottDiffusion` as functions
     of the momentum transfer `q`:
     the half-width half-maximum (`hwhm`), the elastic incoherent structure
@@ -69,7 +73,14 @@ def hwhmChudleyElliottDiffusion(q, D=0.23, L=1.0):
     return hwhm, eisf, qisf
 
 
-def sqwChudleyElliottDiffusion(w, q, scale=1, center=0, D=0.23, L=1.0):
+def sqwChudleyElliottDiffusion(
+    w: Union[float, list, np.ndarray],
+    q: Union[float, list, np.ndarray],
+    scale: float = 1,
+    center: float = 0,
+    D: float = 0.23,
+    L: float = 1.0,
+) -> Union[float, list, np.ndarray]:
     r""" Lorentzian model with half width half maximum equal to
     :math:`\frac{6D}{L^2}(1 - \frac{sin(QL/pi)}{QL/pi})`
 

@@ -1,6 +1,6 @@
-from __future__ import print_function
 import numpy as np
 from scipy.special import spherical_jn
+from typing import Union, Tuple
 
 try:
     import QENSmodels
@@ -8,7 +8,11 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
+def hwhmIsotropicRotationalDiffusion(
+        q: Union[float, list, np.ndarray],
+        radius: float = 1.0,
+        DR: float = 1.0
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """
     Returns some characteristics of `IsotropicRotationalDiffusion` as functions
     of the momentum transfer `q`:
@@ -104,8 +108,14 @@ def hwhmIsotropicRotationalDiffusion(q, radius=1.0, DR=1.0):
     return hwhm, eisf, qisf
 
 
-def sqwIsotropicRotationalDiffusion(w, q, scale=1.0, center=0.0, radius=1.0,
-                                    DR=1.0):
+def sqwIsotropicRotationalDiffusion(
+        w: Union[float, list, np.ndarray],
+        q: Union[float, list, np.ndarray],
+        scale: float = 1.0,
+        center: float = 0.0,
+        radius: float = 1.0,
+        DR: float = 1.0
+) -> Union[float, list, np.ndarray]:
     r"""
     Model `Isotropic rotational diffusion` = A_0 delta + Sum of Lorentzians ...
 

@@ -1,5 +1,5 @@
-from __future__ import print_function
 import numpy as np
+from typing import Union, Tuple
 
 try:
     import QENSmodels
@@ -7,7 +7,11 @@ except ImportError:
     print('Module QENSmodels not found')
 
 
-def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
+def hwhmGaussianModel3D(
+        q: Union[float, list, np.ndarray],
+        D: float = 1.,
+        variance_ux: float = 1.
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
     """
     Returns some characteristics of `GaussianModel3D` as functions
     of the momentum transfer `q`:
@@ -100,7 +104,14 @@ def hwhmGaussianModel3D(q, D=1., variance_ux=1.):
     return hwhm, eisf, qisf
 
 
-def sqwGaussianModel3D(w, q, scale=1, center=0, D=1., variance_ux=1.):
+def sqwGaussianModel3D(
+        w: Union[float, list, np.ndarray],
+        q: Union[float, list, np.ndarray],
+        scale: float = 1,
+        center: float = 0,
+        D: float = 1.,
+        variance_ux: float = 1.
+) -> Union[float, list, np.ndarray]:
     r"""
     Model based on Gaussian statistics
 
