@@ -187,8 +187,3 @@ def sqwChudleyElliottDiffusion(
         sqw = np.reshape(sqw, w.size)
 
     return sqw
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()

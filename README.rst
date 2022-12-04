@@ -32,9 +32,12 @@ Getting started
 To get a glimpse of what can be done with the library, click on `launch binder` below.
 Please note that the notebooks can be slow to load.
 
-.. image:: https://mybinder.org/badge_logo.svg
-   :target: https://mybinder.org/v2/gh/QENSlibrary/QENSmodels/master?labpath=%2Fdocs%2Fexamples
 
+.. image:: https://mybinder.org/badge_logo.svg
+ :target: https://mybinder.org/v2/gh/QENSlibrary/QENSmodels/main?labpath=.%2Fdocs%2Fexamples
+
+
+restructured text icon Copy rst link to clipboard
 
 Install the QENS models
 -----------------------
