@@ -1,10 +1,11 @@
 matplotlib
 ipympl
-git+https://github.com/QENSlibrary/QENSmodels.git
+git+https://github.com/QENSlibrary/QENSmodels.git@main
 h5py
 nbsphinx
 sphinx-rtd-theme
 jupyterlab
+jupyter-nbextensions-configurator
 bumps >= 0.7.6
 lmfit
 ipywidgets
