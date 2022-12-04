@@ -45,7 +45,7 @@ def background_polynomials(
 
     x = np.asarray(x)
 
-    # check that list_coeff is a list and all elements are numbers
+    # check that list_coefficients is a list and all elements are numbers
     if isinstance(list_coefficients, list) and \
             all(isinstance(w, (int, float)) for w in list_coefficients):
 
@@ -57,8 +57,3 @@ def background_polynomials(
 
     else:
         raise ValueError('problem with input')
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()

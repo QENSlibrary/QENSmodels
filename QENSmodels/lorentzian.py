@@ -113,8 +113,3 @@ def lorentzian(
     model *= scale
 
     return model
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()

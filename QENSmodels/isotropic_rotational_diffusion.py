@@ -219,8 +219,11 @@ def sqwIsotropicRotationalDiffusion(
     for i in range(q.size):
         sqw[i, :] = eisf[i] * QENSmodels.delta(w, scale, center)
         for j in range(1, numberLorentz):
-            sqw[i, :] += qisf[i, j] * QENSmodels.lorentzian(w, scale, center,
-                                                            hwhm[i, j])
+            sqw[i, :] += qisf[i, j] * QENSmodels.lorentzian(
+                w,
+                scale,
+                center,
+                hwhm[i, j])
 
     # For Bumps use (needed for final plotting)
     # Using a 'Curve' in bumps for each Q --> needs vector array
@@ -228,8 +231,3 @@ def sqwIsotropicRotationalDiffusion(
         sqw = np.reshape(sqw, w.size)
 
     return sqw
-
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
