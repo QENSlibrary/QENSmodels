@@ -103,7 +103,7 @@ method described below to install it.
 
      .. code-block:: console
 
-        python -m pip install git+https://github.com/QENSlibrary/QENSmodels.git@master
+        python -m pip install git+https://github.com/QENSlibrary/QENSmodels.git@main
 
 
     See `the documentation on pip install <https://pip.pypa.io/en/stable/cli/pip_install/>`_
