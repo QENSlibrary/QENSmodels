@@ -22,7 +22,9 @@ jobs:
       - name: lint with flake8
         run: |
             python -m pip install flake8
-            python -m flake8
+            python -m flake8 ./QENSmodels/*.py
+            python -m flake8 ./tests/*.py
+            python -m flake8 ./docs/examples/using_mantid/*.py
       - name: run unit tests
         run: |
           python -m pip install pytest

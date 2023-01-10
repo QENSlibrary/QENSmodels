@@ -153,20 +153,23 @@ for i in range(4):
 fig, ax = plt.subplots(2, 2)
 
 indx_plot = [(0, 0), (0, 1), (1, 0), (1, 1)]
-for indx, item in enumerate(mapi.mtd['fit_Workspaces']):
+for indx, ws in enumerate(mapi.mtd['fit_Workspaces']):
     ax[indx_plot[indx][0], indx_plot[indx][1]].grid()
-    ax[indx_plot[indx][0], indx_plot[indx][1]].plot(item.readX(0),
-                                                    item.readY(0),
+    ax[indx_plot[indx][0], indx_plot[indx][1]].plot(ws.readX(0),
+                                                    ws.readY(0),
                                                     label='exp')
-    ax[indx_plot[indx][0], indx_plot[indx][1]].plot(item.readX(1),
-                                                    item.readY(1),
+    ax[indx_plot[indx][0], indx_plot[indx][1]].plot(ws.readX(1),
+                                                    ws.readY(1),
                                                     label='calc')
-    ax[indx_plot[indx][0], indx_plot[indx][1]].plot(item.readX(2),
-                                                    item.readY(2),
+    ax[indx_plot[indx][0], indx_plot[indx][1]].plot(ws.readX(2),
+                                                    ws.readY(2),
                                                     label='diff')
-    ax[indx_plot[indx][0], indx_plot[indx][1]].set_xlabel('$\hbar \omega$')
-    ax[indx_plot[indx][0], indx_plot[indx][1]].set_ylabel('$S(Q, \hbar \omega)$')
-    ax[indx_plot[indx][0], indx_plot[indx][1]].set_title('Q={:.2}'.format(Q[indx]))
+    ax[indx_plot[indx][0],
+       indx_plot[indx][1]].set_xlabel(r'$\hbar \omega$')
+    ax[indx_plot[indx][0],
+       indx_plot[indx][1]].set_ylabel(r'$S(Q, \hbar \omega)$')
+    ax[indx_plot[indx][0],
+       indx_plot[indx][1]].set_title(r'Q={:.2}'.format(Q[indx]))
 
 ax[indx_plot[indx][0], indx_plot[indx][1]].legend()
 fig.tight_layout()
