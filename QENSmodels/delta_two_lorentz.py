@@ -102,6 +102,10 @@ def sqwDeltaTwoLorentz(
 
     # Input validation
     w = np.asarray(w)
+    A0 = np.asarray(A0)
+    A1 = np.asarray(A1)
+    hwhm1 = np.asarray(hwhm1)
+    hwhm2 = np.asarray(hwhm2)
 
     q = np.asarray(q, dtype=np.float32)
 
@@ -111,6 +115,38 @@ def sqwDeltaTwoLorentz(
     # Model
     if q.size > 1:
         try:
+            # if only a single float is given for A0, adapt to size of q
+            if A0.size == 1:
+                A0 = A0 * np.ones(q.size)
+            # else
+            # check that enough values of A0 are given to match the size of q
+            else:
+                assert A0.shape == q.shape, \
+                    "If A0.size>1, it should match the size of q"
+
+            # same procedure for A1
+            if A1.size == 1:
+                A1 = A1 * np.ones(q.size)
+            # else
+            # check that enough values of A1 are given to match the size of q
+            else:
+                assert A1.shape == q.shape, \
+                    "If A1.size>1, it should match the size of q"
+
+            # same procedure for hwhm1
+            if hwhm1.size == 1:
+                hwhm1 = hwhm1 * np.ones(q.size)
+            else:
+                assert hwhm1.shape == q.shape, \
+                    "If hwhm1.size>1, it should match the size of q"
+
+            # same procedure for hwhm2
+            if hwhm2.size == 1:
+                hwhm2 = hwhm2 * np.ones(q.size)
+            else:
+                assert hwhm2.shape == q.shape, \
+                    "If hwhm2.size>1, it should match the size of q"
+
             for i in range(q.size):
                 sqw[i, :] = A0[i] * QENSmodels.delta(w, scale, center)
                 sqw[i, :] += A1[i] * QENSmodels.lorentzian(

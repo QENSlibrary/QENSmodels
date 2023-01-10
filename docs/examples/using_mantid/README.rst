@@ -25,7 +25,7 @@ Then you can run the following lines in the scripting window of Mantid workbench
                       shell=True,
                       stdout=subprocess.PIPE,
                       stderr=subprocess.PIPE,
-                      stdin=subprocess.PIPE).communicate())
+                      stdin=subprocess.PIPE).communicate()
 
 where "path_to_QENSmodels" is the path where the library is located on your computer.
 
@@ -34,12 +34,14 @@ If you want to use the version available in the git repository instead, please u
 .. code-block:: python
 
     import subprocess
-    subprocess.Popen("python -m pip install -U --no-deps git+https://github.com/QENSlibrary/QENSmodels.git@master",
+    subprocess.Popen("python -m pip install -U --no-deps git+https://github.com/QENSlibrary/QENSmodels.git@main",
                       shell=True,
                       stdout=subprocess.PIPE,
                       stderr=subprocess.PIPE,
-                      stdin=subprocess.PIPE).communicate())
+                      stdin=subprocess.PIPE).communicate()
 
+After running one of these code snippets, you might have to close MantidWorkbench to be able to
+import the library.
 
 Test the installation
 ----------------------

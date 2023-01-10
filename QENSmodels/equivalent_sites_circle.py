@@ -210,7 +210,7 @@ def sqwEquivalentSitesCircle(
     * J. D. Barnes, *Journal of Chemical Physics* **58**, 5193-5201 (1973).
       `link <https://aip.scitation.org/doi/abs/10.1063/1.1679130?journalCode=jcp>`__
 
-    """
+    """ # noqa
     # Input validation
 
     w = np.asarray(w)

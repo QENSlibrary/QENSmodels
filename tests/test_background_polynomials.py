@@ -58,7 +58,10 @@ class TestBackgroundPolynomials(unittest.TestCase):
         ])
 
         # compare the 2 arrays
-        numpy.testing.assert_array_almost_equal(ref_data, actual_data, decimal=13)
+        numpy.testing.assert_array_almost_equal(
+            ref_data,
+            actual_data,
+            decimal=13)
 
 
 if __name__ == '__main__':

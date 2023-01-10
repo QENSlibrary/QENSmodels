@@ -128,4 +128,3 @@ def sqwWaterTeixeira(
         sqw = np.reshape(sqw, w.size)
 
     return sqw
-

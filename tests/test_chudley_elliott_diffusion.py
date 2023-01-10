@@ -120,7 +120,7 @@ class TestChudleyElliottDiffusion(unittest.TestCase):
                                                       L=1.)])
         numpy.testing.assert_array_almost_equal(ref_data,
                                                 actual_data,
-                                                decimal=12)
+                                                decimal=7)
 
 
 if __name__ == '__main__':

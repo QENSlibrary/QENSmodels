@@ -58,7 +58,6 @@ def sqwDeltaLorentz(
     >>> round(sqw[2], 3)
     0.032
 
-
     Notes
     -----
     The `sqwDeltaLorentz` is expressed as
@@ -74,16 +73,33 @@ def sqwDeltaLorentz(
 
     # Input validation
     q = np.asarray(q, dtype=np.float32)
+    A0 = np.asarray(A0)
+    hwhm = np.asarray(hwhm)
 
     # Create output array
     sqw = np.zeros((q.size, w.size))
 
     # Model
     if q.size > 1:
+        # if only a single float is given for A0, adapt to size of q
+        if A0.size == 1:
+            A0 = A0 * np.ones(q.size)
+        # else
+        # check that enough values of A0 are given to match the size of q
+        else:
+            assert A0.shape == q.shape, \
+                "If A0.size>1, it should match the size of q"
+
+        # same procedure for hwhm
+        if hwhm.size == 1:
+            hwhm = hwhm * np.ones(q.size)
+        else:
+            assert hwhm.shape == q.shape, \
+                "If hwhm.size>1, it should match the size of q"
 
         # Validator for A0. We must have 0<= A0 <= 1
         if any(item > 1 or item < 0 for item in A0):
-            raise ValueError('A0, the proportion of immobile atoms, '
+            raise ValueError('The proportion of immobile atoms, A0, '
                              'should be comprised between 0 and 1, included.')
 
         try:
@@ -103,7 +119,7 @@ def sqwDeltaLorentz(
             raise IndexError(detail.__str__() + "\n" + msg)
     else:
         if A0 > 1 or A0 < 0:
-            raise ValueError('A0, the proportion of immobile atoms, '
+            raise ValueError('The proportion of immobile atoms, A0, '
                              'should be comprised between 0 and 1, included.')
 
         sqw[0, :] = A0 * QENSmodels.delta(w, scale, center)

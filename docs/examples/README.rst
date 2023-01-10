@@ -24,41 +24,42 @@ Summary of the Jupyter notebooks
 The following table summarizes some of the main features of the Jupyter notebooks in the
 ``examples`` folder.
 
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| Name "_fit.ipynb"                         | External input datafile | "Interactive plot" | Composed models | Background | Resolution |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| bumps_BrownianDiff                        | X                       |                    |                 |            | X          |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| bumps_ChudleyElliottDiff                  |                         |                    |                 |            |            |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| bumps_DeltaLorentz                        | X                       |                    |                 |            | X          |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| bumps_IsoRot                              | X                       |                    |                 |            | X          |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| bumps_JumpDiffIsoRot                      | X                       |                    |                 |            | X          |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| bumps_JumpDiff                            | X                       |                    |                 |            | X          |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| bumps_waterIN5_delta_two_lorentz          | X                       |                    |                 |            | X          |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| bumps_waterIN5_lorentzian_plus_isorotdiff | X                       |                    | X               |            | X          |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| bumps_waterIN5_water_teixeira             | X                       |                    |                 |            | X          |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| lmfit_EquivalentSitesCircle               |                         | X                  |                 |            |            |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| lmfit_GaussianModel3D                     |                         | X                  |                 |            |            |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| lmfit_lorentzian_and_backgd               |                         | X                  |                 | X          |            |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| lmfit_two_lorentzian                      | X                       |                    | X               |            | X          |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| lmfit_waterIN5_teixeira                   | X                       |                    |                 |            | X          |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| scipy_JumpSitesLogNormDist                |                         | X                  |                 |            |            |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
-| scipy_lorentzian                          |                         | X                  |                 |            |            |
-+-------------------------------------------+-------------------------+--------------------+-----------------+------------+------------+
++-------------------------------------------+----------------+----------+------------+------------+
+| Name "_fit.ipynb"                         | External input | Composed | Background | Resolution |
+|                                           | datafile       | models   |            |            |
++-------------------------------------------+----------------+----------+------------+------------+
+| bumps_BrownianDiff                        | X              |          |            | X          |
++-------------------------------------------+----------------+----------+------------+------------+
+| bumps_ChudleyElliottDiff                  |                |          |            |            |
++-------------------------------------------+----------------+----------+------------+------------+
+| bumps_DeltaLorentz                        | X              |          |            | X          |
++-------------------------------------------+----------------+----------+------------+------------+
+| bumps_IsoRot                              | X              |          |            | X          |
++-------------------------------------------+----------------+----------+------------+------------+
+| bumps_JumpDiffIsoRot                      | X              |          |            | X          |
++-------------------------------------------+----------------+----------+------------+------------+
+| bumps_JumpDiff                            | X              |          |            | X          |
++-------------------------------------------+----------------+----------+------------+------------+
+| bumps_waterIN5_delta_two_lorentz          | X              |          |            | X          |
++-------------------------------------------+----------------+----------+------------+------------+
+| bumps_waterIN5_lorentzian_plus_isorotdiff | X              | X        |            | X          |
++-------------------------------------------+----------------+----------+------------+------------+
+| bumps_waterIN5_teixeira                   | X              |          |            | X          |
++-------------------------------------------+----------------+----------+------------+------------+
+| lmfit_EquivalentSitesCircle               |                |          |            |            |
++-------------------------------------------+----------------+----------+------------+------------+
+| lmfit_GaussianModel3D                     |                |          |            |            |
++-------------------------------------------+----------------+----------+------------+------------+
+| lmfit_lorentzian_and_backgd               |                |          | X          |            |
++-------------------------------------------+----------------+----------+------------+------------+
+| lmfit_two_lorentzian                      | X              | X        |            | X          |
++-------------------------------------------+----------------+----------+------------+------------+
+| lmfit_waterIN5_teixeira                   | X              |          |            | X          |
++-------------------------------------------+----------------+----------+------------+------------+
+| scipy_JumpSitesLogNormDist                |                |          |            |            |
++-------------------------------------------+----------------+----------+------------+------------+
+| scipy_lorentzian                          |                |          |            |            |
++-------------------------------------------+----------------+----------+------------+------------+
 
 
 Using the jupyter notebooks in a virtual environment
@@ -76,7 +77,21 @@ Using the jupyter notebooks in a virtual environment
 
       cd QENSmodels/docs
       python -m venv .venv
-      source .venv/bin/activate
+
+  To activate your virtual environment
+    - on Unix or MacOS
+
+      .. code-block:: console
+
+         python -m venv .venv
+         source .venv/bin/activate
+
+    - on Windows
+
+      .. code-block:: console
+
+          python -m venv .venv
+          .\.venv\Scripts\activate
 
 - Upgrade pip (optional)
 
@@ -88,10 +103,8 @@ Using the jupyter notebooks in a virtual environment
 
   .. code-block:: console
 
-     python -m pip install -r requirements.txt
+     python -m pip install -e  '\path_to_QENS_library/.[examples]'
 
-  The command above assumes that you are in the `docs` folder. If it is not the case, replace
-  ``requirements.txt`` by the correct path.
 
 - In order to use the examples, simply type ``jupyter lab`` in a terminal.
 
@@ -101,6 +114,4 @@ Short tutorials on Jupyter notebooks
 
 * `Jupyter Lab documentation <https://jupyterlab.readthedocs.io/en/stable/>`_
 
-* `tutorials from DataCamp <https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook?utm_source=adwords_ppc&utm_campaignid=898687156&utm_adgroupid=48947256715&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=1t1&utm_creative=229765585183&utm_targetid=dsa-473406581035&utm_loc_interest_ms=&utm_loc_physical_ms=1005010&gclid=EAIaIQobChMIpZn9hPqc4QIVzh0YCh2c1ARQEAAYASAAEgK81fD_BwE>`_
-
-* `Jupyter notebook documentation on ReadTheDocs (pdf file) <https://buildmedia.readthedocs.org/media/pdf/jupyter-notebook/latest/jupyter-notebook.pdf>`_
+* `Tutorials from DataCamp <https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook?utm_source=adwords_ppc&utm_campaignid=898687156&utm_adgroupid=48947256715&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=1t1&utm_creative=229765585183&utm_targetid=dsa-473406581035&utm_loc_interest_ms=&utm_loc_physical_ms=1005010&gclid=EAIaIQobChMIpZn9hPqc4QIVzh0YCh2c1ARQEAAYASAAEgK81fD_BwE>`_

@@ -37,8 +37,6 @@ Please note that the notebooks can be slow to load.
  :target: https://mybinder.org/v2/gh/QENSlibrary/QENSmodels/main?labpath=.%2Fdocs%2Fexamples
 
 
-restructured text icon Copy rst link to clipboard
-
 Install the QENS models
 -----------------------
 
@@ -73,7 +71,7 @@ method described below to install it.
         python -m venv .venv
         .\.venv\Scripts\activate
 
-  Note that the prompt of the terminal will change and contain ``(.venv)``.
+  Note that the prompt of the terminal will change and start with ``(.venv)``.
   You can choose the folder name that contains your virtual environment when you create it by
   passing a name other than `.venv`. Once done working with this virtual environment, you can
   deactivate it by typing ``deactivate`` in the terminal. The prompt should go back to its initial
@@ -96,7 +94,15 @@ method described below to install it.
 
         .. code-block:: console
 
-           python -m pip install -e full_path_to_QENSmodels_folder
+           python -m pip install full_path_to_QENSmodels_folder
+
+        For example, if you are in the main directory of the library with the virtual
+        environment activated, simply type
+
+
+        .. code-block:: console
+
+           python -m pip install .
 
 
    - *method 2*: if you only want to use the version of the models available in the repository

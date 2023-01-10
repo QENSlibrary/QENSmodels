@@ -2,8 +2,8 @@
 mantid_BrownianDiff_fit
 ===========================
 
-This example shows how to use one of the models of the QENS library in
-MantidWorkbench.
+This example shows how to use one of the models of the QENS
+library in MantidWorkbench.
 To use, simply open this script in MantidWorkbench and run it.
 """
 
@@ -83,9 +83,9 @@ mapi.FunctionFactory.subscribe(my_sqwBrownian_Diffusion)
 """ Below is the template string to create individual model for each spectrum.
 
     A similar string can be obtained after defining the fitting model on Mantid
-    Workbench fit  wizard:
+    Workbench fit wizard:
 
-    "Setup" --> "Manage Settup" --> "Copy to Clipboard". This action will save
+    "Setup" --> "Manage Setup" --> "Copy to Clipboard". This action will save
     the model as a string which you can later paste onto this script.
 
     Our initial guesses are scale=7., center= 0. and D=2.
@@ -121,8 +121,11 @@ for wi in range(selected_wi):
              "EndX_" + str(wi): str(maxE)})
 
 # Perform fitting
-mapi.Fit(Function=global_model, **domain_model,
-         CreateOutput=True, MaxIteractions=500, Output='fit')
+mapi.Fit(Function=global_model,
+         **domain_model,
+         CreateOutput=True,
+         MaxIteractions=500,
+         Output='fit')
 
 """
  As a result of the fit, three workspaces are created:
@@ -136,9 +139,15 @@ paramTable = mapi.mtd['fit_Parameters']
 # print results
 for i in range(4):
     print('Workspace {i}:'.format(i=i))
-    print('scale: {scale_val:.2f}'.format(scale_val=paramTable.column(1)[3 * i]))
-    print('center: {center_val:.2f}'.format(center_val=paramTable.column(1)[3 * i + 1]))
-    print('D: {D_val:.2f}'.format(D_val=paramTable.column(1)[3 * i + 2]))
+    print('scale: {scale_val:.2f}'.format(
+        scale_val=paramTable.column(1)[3 * i]
+    ))
+    print('center: {center_val:.2f}'.format(
+        center_val=paramTable.column(1)[3 * i + 1]
+    ))
+    print('D: {D_val:.2f}'.format(
+        D_val=paramTable.column(1)[3 * i + 2]
+    ))
 
 # plot results
 fig, ax = plt.subplots(2, 2)
@@ -155,6 +164,10 @@ for indx, item in enumerate(mapi.mtd['fit_Workspaces']):
     ax[indx_plot[indx][0], indx_plot[indx][1]].plot(item.readX(2),
                                                     item.readY(2),
                                                     label='diff')
+    ax[indx_plot[indx][0], indx_plot[indx][1]].set_xlabel('$\hbar \omega$')
+    ax[indx_plot[indx][0], indx_plot[indx][1]].set_ylabel('$S(Q, \hbar \omega)$')
+    ax[indx_plot[indx][0], indx_plot[indx][1]].set_title('Q={:.2}'.format(Q[indx]))
 
 ax[indx_plot[indx][0], indx_plot[indx][1]].legend()
+fig.tight_layout()
 fig.show()
