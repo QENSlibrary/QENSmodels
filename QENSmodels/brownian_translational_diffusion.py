@@ -68,6 +68,7 @@ def hwhmBrownianTranslationalDiffusion(
 
     eisf = np.zeros(q.size)
     qisf = np.ones(q.size)
+
     if D > 0:
         hwhm = D * q ** 2
     else:

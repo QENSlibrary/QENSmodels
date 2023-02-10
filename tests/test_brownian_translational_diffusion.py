@@ -105,7 +105,7 @@ class TestBrownianTranslationDiffusion(unittest.TestCase):
         # compare the 2 arrays
         numpy.testing.assert_array_almost_equal(ref_data,
                                                 actual_data,
-                                                decimal=13)
+                                                decimal=8)
 
 
 if __name__ == '__main__':

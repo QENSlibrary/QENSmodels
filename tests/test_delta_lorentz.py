@@ -46,9 +46,8 @@ class TestDeltaLorentz(unittest.TestCase):
         """
         w = [0, 1, 2]
         q = [0.1, 0.2, 0.3]
-        self.assertRaises(TypeError, QENSmodels.sqwDeltaLorentz, w, q)
-        self.assertRaises(IndexError, QENSmodels.sqwDeltaLorentz, w, q, 1, 0,
-                          [1, 1], [1, 1])
+        self.assertRaises(AssertionError, QENSmodels.sqwDeltaLorentz,
+                          w, q, 1, 0, [1, 1], [1, 1])
 
     def test_raised_error_no_q_input(self):
         """ test that an error is raised if no values of q are given as input

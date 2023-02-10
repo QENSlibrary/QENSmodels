@@ -1,8 +1,0 @@
-git+https://github.com/QENSlibrary/QENSmodels.git@main
-matplotlib
-ipympl
-h5py
-jupyterlab
-bumps >= 0.7.6
-lmfit
-ipywidgets

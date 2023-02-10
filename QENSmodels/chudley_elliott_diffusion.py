@@ -56,9 +56,9 @@ def hwhmChudleyElliottDiffusion(
     """
     # input validation
     if D <= 0:
-        raise ValueError('The diffusion coefficient should be positive')
+        raise ValueError('The diffusion coefficient, D, should be positive')
     if L <= 0:
-        raise ValueError('L, the jump length, should be positive')
+        raise ValueError('The jump length, L, should be positive')
 
     q = np.asarray(q, dtype=np.float32)
 
@@ -165,7 +165,7 @@ def sqwChudleyElliottDiffusion(
     * C. T. Chudley and R. J. Elliott,  *Proc. Phys. Soc.* **77**, 353-361 (1961)
       `link <https://iopscience.iop.org/article/10.1088/0370-1328/77/2/319/meta>`__
 
-    """
+    """ # noqa
     # Input validation
     w = np.asarray(w)
 

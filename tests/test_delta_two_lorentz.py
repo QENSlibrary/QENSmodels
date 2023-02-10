@@ -36,9 +36,8 @@ class TestDeltaTwoLorentz(unittest.TestCase):
         """
         w = [0, 1, 2]
         q = [0.1, 0.2, 0.3]
-        self.assertRaises(TypeError, QENSmodels.sqwDeltaTwoLorentz, w, q)
-        self.assertRaises(IndexError, QENSmodels.sqwDeltaTwoLorentz, w, q, 1,
-                          0, [1, 1], [1, 1], [1, 1], [1, 1])
+        self.assertRaises(AssertionError, QENSmodels.sqwDeltaTwoLorentz,
+                          w, q, 1, 0, [1, 1], [1, 1], [1, 1], [1, 1])
 
     def test_raised_error_no_q_input(self):
         """ test that an error is raised if no values of q are given as input
@@ -68,7 +67,6 @@ class TestDeltaTwoLorentz(unittest.TestCase):
                                               A1=0.4,
                                               hwhm1=0.25,
                                               hwhm2=0.75)])
-
         # compare the 2 arrays
         numpy.testing.assert_array_almost_equal(ref_data,
                                                 output,

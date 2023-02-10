@@ -21,13 +21,14 @@ Installation
 
 In order to contribute to the development of the library, in a terminal
 
-- activate your virtual environment (see the `installation <https://github.com/QENSlibrary/QENSmodels/blob/master/README.rst>`_ )
+- activate your virtual environment (see the
+  `installation <https://github.com/QENSlibrary/QENSmodels/blob/main/README.rst>`_ )
 
 - run:
 
 .. code-block:: console
 
-   python -m pip install -r requirements-dev.txt
+   python -m pip install -e  '\path_to_QENS_library/.[dev]'
 
 This will install what is needed to
 
@@ -44,13 +45,14 @@ incorporation into the project you can fork this repository and submit a pull
 request for review.
 
 Contributors feeling unsure or inexperienced about contributing to an open-source 
-repository are referred to `this tutorial <https://github.com/firstcontributions/first-contributions>`_.
+repository are referred to
+`this tutorial <https://github.com/firstcontributions/first-contributions>`_.
 
 **Working on your first Pull Request?** You can learn how from this *free* 
 series 
 `How to Contribute to an Open Source Project on GitHub <https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github>`_
 
-People interested can contribute to the project in different ways:
+People interested can contribute to the project in different ways, for example, by:
 
 
 #. adding QENS models
@@ -81,14 +83,11 @@ Python script
 * It should be placed in the ``QENS models`` folder. The associated ``Python`` 
   script for the tests should be placed in the ``tests`` folder and added to
   the list in ``run_tests.sh``.
-* The `doctest <https://docs.python.org/3/library/doctest.html>`_ module has
-  to be imported (\ *i.e.* paste ``import doctest`` in your 
-  ``Python`` script. Please refer to the existing models 
-  for help).
 * Each function should have a docstring specifying its name, parameters, a 
   short description and some examples. These examples will be used when 
-  running ``doctest``. Please refer to the existing models 
-  for help. A more general template for docstring can be found 
+  running `doctest <https://docs.python.org/3/library/doctest.html>`_.
+  Please refer to the existing models for help. A more general template
+  for docstring can be found
   `here <https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html>`_. 
 * And before submitting your pull request, check that your script, tests and 
   built of the documentation run on your machine. Please also run ``flake8`` 
@@ -146,7 +145,7 @@ New examples
 * Please add a maximum of information about the case being described: 
 
   * physical model
-  * reference to publication (if any)
+  * reference to publications (if any)
   * steps leading to the final results 
     (reduction, convolution of different models, normalization...)
   * choice of minimizer and link to its documentation
@@ -156,7 +155,8 @@ New examples
   reference data on the fly in the notebook or script without creating any 
   permanent external file.
 * If additional ``Python`` modules are used in the new notebook or script, 
-  please add them to the list of requirements in `requirements` files and `setup.py`.
+  please add them to the list of requirements in `pyproject.toml` in the
+  appropriate sections (`dependencies` or `optional-dependencies`).
 
 Other issues
 ------------
@@ -184,11 +184,6 @@ Other issues
 
 * |GoodFirstIssueTag| *issues are particularly appropriate if it is your first 
   contribution.*
-  If you're not sure about how to go about contributing, these are good 
-  places to start. You'll be mentored through the process by the maintainers 
-  team. If you're a seasoned contributor, please select a different issue to 
-  work from and keep these available for the newer and potentially more 
-  anxious team members.
   
 .. |GoodFirstIssueTag| image:: https://img.shields.io/badge/-good%20first%20issue-%237057ff.svg
    :target: https://img.shields.io/badge/-good%20first%20issue-%237057ff.svg

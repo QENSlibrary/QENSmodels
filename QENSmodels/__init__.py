@@ -1,9 +1,14 @@
+"""
+QENS models library
+
+Python scripts to define fitting models ( *i.e.*, mathematical functions) that
+can be used to fit Quasi Elastic Neutron Scattering (QENS) data `S(Q, omega)`.
+"""
 # -*- coding: utf-8 -*-
 # flake8: noqa : F401
 
 # Version number
-
-from ._version import __version__
+__version__ = "0.1.5"
 
 from .lorentzian import lorentzian
 from .brownian_translational_diffusion import hwhmBrownianTranslationalDiffusion

@@ -32,7 +32,7 @@ Welcome to QENSmodels's documentation!
    examples/bumps_JumpDiff_fit
    examples/bumps_waterIN5_delta_two_lorentz_fit
    examples/bumps_waterIN5_lorentzian_plus_isorotdiff_fit
-   examples/bumps_waterIN5_water_teixeira_fit
+   examples/bumps_waterIN5_teixeira_fit
    examples/lmfit_EquivalentSitesCircle_fit
    examples/lmfit_GaussianModel3D_fit
    examples/lmfit_lorentzian_and_backgd_fit

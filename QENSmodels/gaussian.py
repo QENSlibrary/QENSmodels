@@ -9,9 +9,9 @@ except ImportError:
 
 def gaussian(
         x: Union[float, list, np.ndarray],
-        scale: Union[float, list, np.ndarray] = 1.,
-        center: Union[float, list, np.ndarray] = 0.,
-        sigma: Union[float, list, np.ndarray] = 1.
+        scale: float = 1.,
+        center: float = 0.,
+        sigma: float = 1.
 ) -> Union[float, list, np.ndarray]:
     r""" Gaussian model
 
@@ -110,6 +110,6 @@ def gaussian(
             model /= area
 
     # Scale by amplitude
-    model *= scale
+    model *= np.asarray(scale)
 
     return model

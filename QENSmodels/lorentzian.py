@@ -97,6 +97,7 @@ def lorentzian(
     """
     # Input validation
     x = np.asarray(x)
+    hwhm = np.asarray(hwhm)
 
     if hwhm == 0:
         model = QENSmodels.delta(x, 1.0, center)
@@ -110,6 +111,6 @@ def lorentzian(
             model /= area
 
     # Scale by amplitude
-    model *= scale
+    model *= np.asarray(scale)
 
     return model

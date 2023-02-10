@@ -5,11 +5,11 @@ from typing import Union
 
 def background_polynomials(
         x: Union[float, list, np.ndarray],
-        list_coefficients: Union[float, list, np.ndarray] = 0.0
+        list_coefficients: Union[float, list] = 0.0
 ) -> Polynomial:
     r"""
     Polynomials of variable `w` and with coefficients contained in
-    'list_coefficients'
+    `list_coefficients`
 
     Parameters
     ----------

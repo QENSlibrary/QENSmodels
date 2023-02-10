@@ -74,12 +74,13 @@ class TestJumpsSitesLogNorm(unittest.TestCase):
 
         numpy.testing.assert_array_equal(numpy.round(eisf1, 3), [0.713, 0.256])
         # eisf should be the same as in hwhmEquivalentSitesCircle
-        hwhm_equiv, eisf_equiv, qisf_equiv = QENSmodels.hwhmEquivalentSitesCircle(
-            q_input,
-            Nsites=6,
-            radius=1.0,
-            resTime=1.0
-        )
+        hwhm_equiv, eisf_equiv, qisf_equiv = \
+            QENSmodels.hwhmEquivalentSitesCircle(
+                q_input,
+                Nsites=6,
+                radius=1.0,
+                resTime=1.0
+            )
 
         self.assertSequenceEqual(eisf1.tolist(), eisf_equiv.tolist())
 
@@ -92,7 +93,8 @@ class TestJumpsSitesLogNorm(unittest.TestCase):
                                           0.001])
 
     def test_raised_error_negative_coeffs(self):
-        """ test that an error is raised if radius, resTime are negative or N <2
+        """
+        test that an error is raised if radius, resTime are negative or N <2
         """
         # N < 2
         self.assertRaises(ValueError,
