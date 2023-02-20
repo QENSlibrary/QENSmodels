@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to QENSmodels's documentation!
+Welcome to QENSmodels' documentation!
 ======================================
 
 .. toctree::
@@ -40,6 +40,7 @@ Welcome to QENSmodels's documentation!
    examples/lmfit_waterIN5_teixeira_fit
    examples/scipy_JumpSitesLogNormDist_fit
    examples/scipy_lorentzian_fit
+   examples/examples_from_experiments/lmfit_TOFTOF_delta_lorentz
    examples/using_mantid/README
 
 .. toctree::
