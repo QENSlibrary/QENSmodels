@@ -36,7 +36,7 @@ import QENSmodels
 # -- Project information -----------------------------------------------------
 
 project = u'QENSmodels'
-copyright = u'2022, -'
+copyright = u'2023, -'
 author = u'-'
 
 # The short X.Y version.
