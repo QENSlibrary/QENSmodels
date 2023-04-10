@@ -26,10 +26,10 @@ requires-python = ">=3.7"
 
 [project.optional-dependencies]
 dev = ["pytest", "flake8", "mypy", "matplotlib", "ipympl", "h5py", "nbsphinx", "sphinx-rtd-theme",
-       "jupyterlab", "bumps >= 0.7.6, <=0.8.1", "lmfit=0.1.0", "ipywidgets", "pandas",
+       "jupyterlab", "bumps >= 0.7.6, <=0.8.1", "lmfit==0.1.0", "ipywidgets", "pandas",
        "jupyter-nbextensions-configurator"]
 examples = ["matplotlib", "ipympl", "h5py", "nbsphinx", "sphinx-rtd-theme", "jupyterlab",
-    "jupyter-nbextensions-configurator", "bumps >= 0.7.6, <=0.8.1", "lmfit=0.1.0", "ipywidgets",
+    "jupyter-nbextensions-configurator", "bumps >= 0.7.6, <=0.8.1", "lmfit==0.1.0", "ipywidgets",
     "pandas"]
 
 [project.urls]
