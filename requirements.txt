@@ -1,0 +1,14 @@
+jupyterlab
+matplotlib
+ipympl
+h5py
+lmfit
+ipywidgets
+pandas
+nbsphinx
+sphinx-rtd-theme
+git+https://github.com/QENSlibrary/QENSmodels.git
+jupyter-nbextensions-configurator
+bumps >= 0.7.6, <=0.8.1
+numpy
+scipy
