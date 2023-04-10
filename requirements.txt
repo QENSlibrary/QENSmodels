@@ -2,7 +2,7 @@ jupyterlab
 matplotlib
 ipympl
 h5py
-lmfit
+lmfit=0.1.0
 ipywidgets
 pandas
 nbsphinx
