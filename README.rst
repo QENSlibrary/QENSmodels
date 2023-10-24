@@ -188,7 +188,12 @@ Referring to the library
 ------------------------
 
 If you found this package useful, please don't forget to acknowledge its use in your publications
-as suggested below and reference this website: https://github.com/QENSlibrary/QENSmodels.
+as suggested below and reference this publication 
+
+    Quasi Elastic Neutron Scattering model library
+    Céline  Durniak, Miguel Angel  González, Anders  Markvardsen, Sanghamitra  Mukhopadhyay, Franz  Lang, 
+    Thomas Holm  Rod, *EPJ Web Conf.* **286** 06001 (2023)
+    DOI: 10.1051/epjconf/202328606001
 
 Please also consider letting us know by sending us the reference to your work.
 This will help us to ensure the long term support and development of the software.
